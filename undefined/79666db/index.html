@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"jiucheng120.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="数据结构的详细笔记，对应课本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构">
+<meta property="og:url" content="http://jiucheng120.github.io/undefined/79666db/index.html">
+<meta property="og:site_name" content="馨er的个人博客">
+<meta property="og:description" content="数据结构的详细笔记，对应课本">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="e:/i/博客/markdown/数据结构/img/capture_20210227030759605.bmp">
+<meta property="article:published_time" content="2021-04-19T02:38:25.251Z">
+<meta property="article:modified_time" content="2021-05-05T08:06:51.736Z">
+<meta property="article:author" content="Jiu Cheng">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="e:/i/博客/markdown/数据结构/img/capture_20210227030759605.bmp">
+
+<link rel="canonical" href="http://jiucheng120.github.io/undefined/79666db/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>数据结构 | 馨er的个人博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">馨er的个人博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">世间所有的相遇，都是久别重逢</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://jiucheng120.github.io/undefined/79666db/">
+
+    
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jiu Cheng">
+      <meta itemprop="description" content="hello, here is jiucheng' s blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="馨er的个人博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据结构
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-04-19 10:38:25" itemprop="dateCreated datePublished" datetime="2021-04-19T10:38:25+08:00">2021-04-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" itemprop="url" rel="index"><span itemprop="name">数据结构与算法</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>13k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>12 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>数据结构的详细笔记，对应课本</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a><u>引言</u></h2><h3 id="基本概念和术语"><a href="#基本概念和术语" class="headerlink" title="基本概念和术语"></a>基本概念和术语</h3><p><strong>数据：是描述客观事物的符号，是计算机中操作的对象，是能被计算机识别，并输入给计算机处理的符号集合。</strong> 数据不仅仅包括整型、实型等数值类型，还包括字符及声音、图像、视频等非数值类型</p>
+<p><strong>数据元素：是组成数据的、有一定意义的基本单位，在计算机中通常作为整体处理。也被称为记录。</strong> 例如，人。</p>
+<p><strong>数据项：一个数据元素可以由若干个数据项组成。</strong> 例如人有眼、耳、鼻、嘴、手、脚这些数据项，也可以有姓名、年龄、性别等数据项，要视所做的系统来决定。 <strong>数据项是数据不可分割的最小单位</strong></p>
+<p><strong>数据对象：是性质相同的数据元素的集合，是数据的子集</strong></p>
+<p><strong>数据结构：是相互之间存在一种或多种特定关系的数据元素的集合。</strong> 在现实世界中，不同的数据元素之间不是独立的，而是存在特定的关系，我们将这些关系称为结构。</p>
+<h3 id="逻辑结构与物理结构"><a href="#逻辑结构与物理结构" class="headerlink" title="逻辑结构与物理结构"></a>逻辑结构与物理结构</h3><h4 id="逻辑结构"><a href="#逻辑结构" class="headerlink" title="逻辑结构"></a>逻辑结构</h4><p>逻辑结构是指数据对象中数据元素之间的相互关系。具体分为以下四种</p>
+<p><strong>集合结构：</strong> 集合结构中的数据元素除了同属于一个集合外，它们之间没有其他关系</p>
+<p><strong>线性结构：</strong> 线性结构中的数据元素之间是一对一的关系</p>
+<p><strong>树形结构：</strong> 树形结构中的数据元素之间存在一种一对多的层次关系</p>
+<p><strong>图形结构：</strong> 图形结构的数据元素是多对多的关系</p>
+<p>用示意图表示逻辑结构时应注意：</p>
+<ul>
+<li>将每一个数据元素看做一个结点，用圆圈表示</li>
+<li>元素之间的逻辑关系用结点之间的连线表示，如果这个关系是有方向的，那么用带箭头的连线表示</li>
+</ul>
+<h4 id="物理结构"><a href="#物理结构" class="headerlink" title="物理结构"></a>物理结构</h4><p>物理结构是指数据的逻辑结构在计算机中的存储形式，有时也称存储结构</p>
+<p><strong>顺序存储结构：</strong> 是指把数据元素存放在地址连续的存储单元里，其数据间的逻辑关系和物理关系是一致的</p>
+<p><strong>链式存储结构：</strong> 是把数据元素存放在任意的存储单元里，这组存储单元可以是连续的，也可以是不连续的</p>
+<h3 id="抽象数据类型"><a href="#抽象数据类型" class="headerlink" title="抽象数据类型"></a>抽象数据类型</h3><h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><p><strong>数据类型：</strong> 是指性质相同的值的集合及定义在此集合上的一些操作的总称。它是按照值 的不同进行划分的</p>
+<ul>
+<li>原子类型：是不可以再分解的基本类型，包括整型、实型、字符型等</li>
+<li>结构类型：由若干个类型组合而成，是可以再分解的。例如，整型数组是由若干整型数据构成的</li>
+</ul>
+<h4 id="抽象数据类型-1"><a href="#抽象数据类型-1" class="headerlink" title="抽象数据类型"></a>抽象数据类型</h4><p><strong>抽象数据类型：</strong> 是指一个数学模型及定义在该模型上的一组操作。抽象数据类型的定义仅取决于它的一组逻辑特性，而与其在计算机内部表示和实现无关，而链式存储关系并不能反映其逻辑关系，因此需要一个指针存放数据元素的地址，通过地址找到相关联数据元素的位置</p>
+<p>抽象是指抽取出事物具有的普遍性的本质，其意义在于数据类型的数学抽象特性。抽象数据类型体现了程序设计中问题分解、抽象和信息隐藏的特性。抽象数据类型把实际生活中的问题分解为多个规模小且容易处理的问题，然后建立一个计算机能处理的数据模型，并把每个功能模块的实现细节作为一个独立的单元，从而使具体实现过程隐藏起来</p>
+<h3 id="算法定义"><a href="#算法定义" class="headerlink" title="算法定义"></a>算法定义</h3><p>算法是解决特定问题求解步骤的描述，在计算机中表现为指令的有限序列，并且每条指令表示一个或多个操作</p>
+<h3 id="算法的特性"><a href="#算法的特性" class="headerlink" title="算法的特性"></a>算法的特性</h3><ul>
+<li>算法具有零个或多个输入，至少一个或多个输出</li>
+<li>有穷性：指算法在执行有限的步骤之后，自动结束而不会出现无限循环，并且每一个步骤在可接受的时间内完成</li>
+<li>确定性：算法的每一步骤都具有确定的含义，不会出现二义性</li>
+<li>可行性：算法的每一步都必须是可行的，也就是说，每一步都能够通过执行有限次数完成</li>
+</ul>
+<h3 id="算法设计的要求"><a href="#算法设计的要求" class="headerlink" title="算法设计的要求"></a>算法设计的要求</h3><ul>
+<li>正确性：算法的正确性是指算法至少应该具有输入、输出和加工处理无歧义性、能正确反映问题的需求、能够得到问题的正确答案</li>
+<li>可读性：算法设计的另一目的是为了便于阅读、理解和交流</li>
+<li>健壮性：当输入数据不合法时，算法也能做出相关处理，而不是产生异常或莫名奇妙的结果</li>
+<li>时间效率高，存储量低</li>
+</ul>
+<h3 id="算法效率的度量方法"><a href="#算法效率的度量方法" class="headerlink" title="算法效率的度量方法"></a>算法效率的度量方法</h3><h4 id="事后统计法"><a href="#事后统计法" class="headerlink" title="事后统计法"></a>事后统计法</h4><p>事后统计法：这种方法主要是通过设计好的测试程序和数据，利用计算机计时器不同算法编制的程序的运行时间进行比较，从而确定算法效率的高低。缺陷多，一般不使用</p>
+<h4 id="事前分析估算方法"><a href="#事前分析估算方法" class="headerlink" title="事前分析估算方法"></a>事前分析估算方法</h4><p>事前分析估算方法：在计算机程序编制前，依据统计方法对算法进行估算。一个程序的运行时间，依赖于算法的好坏和问题的输入规模</p>
+<h3 id="函数的渐近增长"><a href="#函数的渐近增长" class="headerlink" title="函数的渐近增长"></a>函数的渐近增长</h3><p>关注主项的阶数</p>
+<h3 id="算法时间复杂度"><a href="#算法时间复杂度" class="headerlink" title="算法时间复杂度"></a>算法时间复杂度</h3><h4 id="算法时间复杂度定义"><a href="#算法时间复杂度定义" class="headerlink" title="算法时间复杂度定义"></a>算法时间复杂度定义</h4><p><strong>算法时间复杂度：</strong> 在进行算法分析时，语句总的执行次数T(n)是关于问题规模n的函数，进而分析T(n)随n的变化情况并确定T(n)的数量级。算法的时间复杂度，也就是算法的时间量度，记作：T(n)=O(f(n))。它表示随问题规模n的增大，算法执行时间的增长率和f(n)的增长率相同，称作算法的渐近时间复杂度，简称为时间复杂度。其中f(n)是问题规模n的某个函数</p>
+<h4 id="推导大O阶步骤"><a href="#推导大O阶步骤" class="headerlink" title="推导大O阶步骤"></a>推导大O阶步骤</h4><ol>
+<li>用常数1取代运行时间中的所有加法常数</li>
+<li>在修改后的运行次数函数中，只保留最高阶项</li>
+<li>如果最高阶项存在且不是1，则去除这个项相乘的常数，结果就是大O阶</li>
+</ol>
+<h4 id="常数阶"><a href="#常数阶" class="headerlink" title="常数阶"></a>常数阶</h4><p>顺序结构，分支结构</p>
+<h4 id="线性阶"><a href="#线性阶" class="headerlink" title="线性阶"></a>线性阶</h4><p>循环结构</p>
+<h4 id="对数阶"><a href="#对数阶" class="headerlink" title="对数阶"></a>对数阶</h4><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> <span class="keyword">count</span> = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (<span class="keyword">count</span> &lt; n)&#123;</span><br><span class="line">    <span class="keyword">count</span> = <span class="keyword">count</span> * <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>时间复杂度为O($logn$))</p>
+<h4 id="平方阶"><a href="#平方阶" class="headerlink" title="平方阶"></a>平方阶</h4><p>时间复杂度为O($n^2$)</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">        a++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    b++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span>(n) &#123;</span><br><span class="line">    n = n / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="nlogn阶"><a href="#nlogn阶" class="headerlink" title="nlogn阶"></a>nlogn阶</h4><p>2n+3nlog2(n)+19对应O(nlogn)</p>
+<h4 id="立方阶"><a href="#立方阶" class="headerlink" title="立方阶"></a>立方阶</h4><h4 id="指数阶"><a href="#指数阶" class="headerlink" title="指数阶"></a>指数阶</h4><p>$2^n$对应O($2^n$)</p>
+<p>常用的时间复杂度所耗费的时间从小到大依次是：O(1) &lt; O(logn) &lt; O(n) &lt; O(nlogn) &lt; O($n^2$) &lt; O($n^3$) &lt; O($2^n$) &lt; O(n!) &lt; O($n^n$)</p>
+<p>最坏情况运行时间是一种保证，那就是运行时间将不会再坏了。除非特别指定，我们提到的运行时间都是最坏时间复杂度</p>
+<p>平均运行时间是所有情况中最有意义的，因为它是期望的运行时间</p>
+<h3 id="算法空间复杂度"><a href="#算法空间复杂度" class="headerlink" title="算法空间复杂度"></a>算法空间复杂度</h3><p>算法的空间复杂度通过计算算法所需的存储空间实现，包括指令空间、数据空间、动态申请的内存空间等，算法空间复杂度的计算公式记作：S(n)=O(f(n))，其中，n为问题的规模，f(n)为语句关于n所占存储空间的函数</p>
+<p>计算出S(n) = n + $n^2$ ，则空间复杂度为O($n^2$)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *a = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line"><span class="keyword">int</span> **b = <span class="keyword">new</span> <span class="keyword">int</span>*[n];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    b[i] = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a><u>线性表</u></h2><h3 id="线性表的定义"><a href="#线性表的定义" class="headerlink" title="线性表的定义"></a>线性表的定义</h3><p>线性表：零个或多个元素的有限序列</p>
+<h3 id="线性表的抽象数据类型"><a href="#线性表的抽象数据类型" class="headerlink" title="线性表的抽象数据类型"></a>线性表的抽象数据类型</h3><p>线性表的数据对象集合为{a1,a2,……,an}，每个元素的类型均为DataType。其中，除第一个元素a1外，每一个元素有且只有一个直接钱去元素，除了最后一个元素an外，每一个元素有且只有一个直接后继元素。数据元素之间的关系是一对一的关系</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">InitList(*L);   <span class="comment">//初始化操作，建立一个空的线性表L</span></span><br><span class="line">ListEmpty(L);   <span class="comment">//若线性表为空，返回true，否则返回false</span></span><br><span class="line">ClearList(*L);   <span class="comment">//将线性表清空</span></span><br><span class="line">GetElem(L,i,*e);  <span class="comment">//将线性表L中的第i个位置元素值返回给e</span></span><br><span class="line">LocateElem(L,e);  <span class="comment">//若线性表L中查找与给定值e相等的元素，如果查找成功，返回该元素在表中的序号表示成功；否则，返回0表示失败</span></span><br><span class="line">ListInsert(*L,i,e);  <span class="comment">//在线性表L中的第i个位置插入新元素e</span></span><br><span class="line">ListDelete(*L,i,*e);  <span class="comment">//删除线性表L中第i个位置元素，并用e返回其值</span></span><br><span class="line">ListLength(L);    <span class="comment">//返回线性表L的元素个数</span></span><br></pre></td></tr></table></figure>
+<p>求A = A并B，假设La表示集合A，Lb表示集合B，则实现代码如下：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">union</span><span class="params">(List* La,List Lb)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> La_len,Lb_len,i;</span><br><span class="line">    ElemType e;<span class="comment">//声明与La和Lb相同的数据元素e</span></span><br><span class="line">    La_len = ListLength(La);<span class="comment">//求线性表的长度</span></span><br><span class="line">    Lb_len = ListLength(Lb);</span><br><span class="line">    <span class="keyword">for</span>(i = <span class="number">1</span>; i &lt;= Lb_len; i++ )&#123;</span><br><span class="line">        GetElem(Lb, i, e);<span class="comment">//取Lb中第i个数据元素赋给e</span></span><br><span class="line">        <span class="keyword">if</span>(!LocateElem(La, e, equal))<span class="comment">//La中不存在和e相同数据元素</span></span><br><span class="line">            ListInsert(La, ++La_len, e);<span class="comment">//插入</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>对于复杂的个性化操作，就是把基本操作组合起来实现</p>
+<h3 id="线性表的顺序存储结构"><a href="#线性表的顺序存储结构" class="headerlink" title="线性表的顺序存储结构"></a>线性表的顺序存储结构</h3><p>线性表的顺序存储结构，指的是用一段地址连续的存储单元依次存储线性表的数据元素。可以用一维数组来实现，一维数组可以是静态分配的，也可以是动态分配的。在静态分配时，由于数组的大小和空间是固定的，一旦空间占满，就无法再新增数据，否则会导致数据溢出；而在动态分配时，存储数组的空间在程序执行过程中会动态调整大小，当空间占满时，可以另行开辟更大的存储空间来储存数据</p>
+<p>顺序表最主要的特点是可以进行<strong>随机访问</strong>，即可以通过表头元素的地址和元素的编号（下标），在O(1)的时间复杂度内找到指定的元素。顺序表的不足之处是插入和删除操作需要移动大量的元素，从而保持逻辑上和物理上的连续性</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">insert(loc, value)</td>
+<td align="center">将value插入到顺序表中下标为loc的位置</td>
+</tr>
+<tr>
+<td align="center">expand()</td>
+<td align="center">扩大顺序表的容量</td>
+</tr>
+<tr>
+<td align="center">search(value)</td>
+<td align="center">寻找顺序表中值为value的元素</td>
+</tr>
+<tr>
+<td align="center">remove(index)</td>
+<td align="center">将顺序表下标为index的元素</td>
+</tr>
+<tr>
+<td align="center">print()</td>
+<td align="center">输出顺序表中所有元素</td>
+</tr>
+</tbody></table>
+<ol>
+<li><p>插入操作实现方法：</p>
+<ul>
+<li>判断插入位置是否合法</li>
+<li>判断顺序表是否已满</li>
+<li>将目标位置及以后的元素后移一位</li>
+<li>将待插入的元素后移一位</li>
+</ul>
+</li>
+<li><p>扩容操作实现方法：</p>
+<p>我们需要把原数组空间里的元素一一复制到新的空间内，因此扩容的时间复杂度为O(n)</p>
+<ul>
+<li>将原来的元素存储到临时存储空间</li>
+<li>扩大原来的存储空间</li>
+<li>将临时存储空间里的数据元素复制到新的存储空间里</li>
+<li>释放临时的存储空间</li>
+</ul>
+</li>
+<li><p>查找操作实现方法：</p>
+<ul>
+<li>从下标为0的元素开始依次枚举顺序表中的所有元素</li>
+<li>发现和目标值相等的元素则返回它的下标</li>
+<li>枚举结束没有找到目标元素则返回 -1</li>
+</ul>
+</li>
+<li><p>删除操作实现方法：</p>
+<ul>
+<li>判断传入参数是否合法，即下标是否在顺序表的范围内</li>
+<li>将目标下标之后所有的元素前移一位</li>
+<li>更新顺序表的长度</li>
+</ul>
+</li>
+<li><p>遍历操作实现方法：</p>
+<ul>
+<li>从下标为0的元素开始遍历顺序表</li>
+<li>输出所有元素的值</li>
+</ul>
+</li>
+</ol>
+<p>顺序存储结构的三个属性：</p>
+<ul>
+<li>存储空间的起始位置</li>
+<li>线性表的最大存储容量：MAXSIZE</li>
+<li>线性表的当前长度：length</li>
+<li>$logn$</li>
+</ul>
+<p>注意区分数组长度和线性表长度，线性表长度应该小于等于数组的长度</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ERROR 0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OK 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Vector</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> size, length;</span><br><span class="line">    <span class="keyword">int</span> *data;</span><br><span class="line">&#125; Vector;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(Vector *<span class="built_in">vector</span>, <span class="keyword">int</span> size)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>-&gt;size = size;</span><br><span class="line">    <span class="built_in">vector</span>-&gt;length = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">vector</span>-&gt;data = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * size);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">expand</span><span class="params">(Vector *<span class="built_in">vector</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *old_data = <span class="built_in">vector</span>-&gt;data;</span><br><span class="line">    <span class="built_in">vector</span>-&gt;size = <span class="built_in">vector</span>-&gt;size * <span class="number">2</span>;</span><br><span class="line">    <span class="built_in">vector</span>-&gt;data = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * <span class="built_in">vector</span>-&gt;size);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">vector</span>-&gt;length; ++i) &#123;</span><br><span class="line">        <span class="built_in">vector</span>-&gt;data[i] = old_data[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">free</span>(old_data);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">insert</span><span class="params">(Vector *<span class="built_in">vector</span>, <span class="keyword">int</span> loc, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (loc &lt; <span class="number">0</span> || loc &gt; <span class="built_in">vector</span>-&gt;length) &#123;</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">vector</span>-&gt;length &gt;= <span class="built_in">vector</span>-&gt;size) &#123;</span><br><span class="line">        <span class="comment">//return ERROR;</span></span><br><span class="line">        expand(<span class="built_in">vector</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="built_in">vector</span>-&gt;length; i &gt; loc; --i) &#123;</span><br><span class="line">        <span class="built_in">vector</span>-&gt;data[i] = <span class="built_in">vector</span>-&gt;data[i - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">vector</span>-&gt;data[loc] = value;</span><br><span class="line">    <span class="built_in">vector</span>-&gt;length++;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">search</span><span class="params">(Vector *<span class="built_in">vector</span>, <span class="keyword">int</span> value)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">vector</span>-&gt;length; ++i) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">vector</span>-&gt;data[i] == value) &#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">delete_node</span><span class="params">(Vector *<span class="built_in">vector</span>, <span class="keyword">int</span> index)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (index &lt; <span class="number">0</span> || index &gt;= <span class="built_in">vector</span>-&gt;length) &#123;</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = index + <span class="number">1</span>; i &lt; <span class="built_in">vector</span>-&gt;length; ++i) &#123;</span><br><span class="line">        <span class="built_in">vector</span>-&gt;data[i - <span class="number">1</span>] = <span class="built_in">vector</span>-&gt;data[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">vector</span>-&gt;length = <span class="built_in">vector</span>-&gt;length - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">(Vector *<span class="built_in">vector</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="built_in">vector</span>-&gt;length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(i &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot; &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, <span class="built_in">vector</span>-&gt;data[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">(Vector *<span class="built_in">vector</span>)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">free</span>(<span class="built_in">vector</span>-&gt;data);</span><br><span class="line">    <span class="built_in">free</span>(<span class="built_in">vector</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Vector *a = (Vector*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Vector));</span><br><span class="line">    init(a, <span class="number">100</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, insert(a, <span class="number">0</span>, <span class="number">1</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, insert(a, <span class="number">0</span>, <span class="number">2</span>));</span><br><span class="line">    print(a);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, delete_node(a, <span class="number">1</span>));</span><br><span class="line">    print(a);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, search(a, <span class="number">0</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, search(a, <span class="number">1</span>));</span><br><span class="line">    clear(a);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="线性表的链式存储结构"><a href="#线性表的链式存储结构" class="headerlink" title="线性表的链式存储结构"></a>线性表的链式存储结构</h3><p>为了表示每个数据元素a1与其直接后继数据元素a(i+1)之间的逻辑关系，对数据元素a1来说，除了存储其本身的信息以外，还需存储一个指示其直接后继的 信息（即直接后继的存储位置）。我们把存储数据元素信息的域称为数据域，把存储直接后继位置的域称为指针域。指针域中存储的信息称做指针或链。这两部分信息组成数据元素ai的存储映像，称为结点。</p>
+<p>n个结点（ai的存储映像）链结成一个链表，即为线性表（a1,a2,…,an）的链式存储结构，因此此链表的每个结点只包含一个指针域，所以叫做单链表。链表第一个结点的存储位置叫做头指针。有时，为了方便操作，会在单链表的第一个结点前附设一个结点，称为头结点</p>
+<table>
+<thead>
+<tr>
+<th>头指针</th>
+<th>头结点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>头指针是指链表指向第一个结点的指针，若链表有头结点，则是指向头结点的指针</td>
+<td>头结点是为了操作的统一和方便而设立的，放在第一元素的结点之前，其数据域一般无意义（也可存放链表的长度）</td>
+</tr>
+<tr>
+<td>头指针具有标识的作用，所以常用头指针冠以链表的名字</td>
+<td>有了头结点，对在第一元素结点前插入结点和删除第一结点，其操作与其它结点的操作就统一了</td>
+</tr>
+<tr>
+<td>无论链表是否为空，头指针均不为空。头指针是链表的必要元素</td>
+<td>头结点不一定是链表必须要素</td>
+</tr>
+</tbody></table>
+<p>重复利用指针建立链表</p>
+<ol>
+<li>如果链表为空链表，那么就可以直接将head指针赋给NILL，而无须进行其他操作；</li>
+<li>如果链表不为空，那么首先使用一个malloc函数新建一个结点，使head、p1和p2都指向它。它就是这个链表的头结点；</li>
+<li>对结点内的数据进行赋值，从而完成该结点的初始化工作；</li>
+<li>开辟另外一个结点，并使p1指向这个新开辟的结点；</li>
+<li>如果链表还未满足结束条件，那么继续将这个新的结点链入链表，也就是将p1的值赋给p2-&gt;next（注意这个时候p2仍指向第一个结点），所以在执行了语句p2-&gt;next=p1之后，新结点就被成功链入链表了；</li>
+<li>让指针p2向后移动一个位置，即执行语句p2=p1，也就是使p2指向最新建立的结点；</li>
+<li>再次开辟一个新结点并初始化它；</li>
+<li>再次将指针p1指向这个新结点。如果链表仍然未满足结束条件，那么继续将这个新的结点链入链表，也就是将p1的值赋给p2-&gt;next=p1之后，新结点同样被成功链入链表；</li>
+<li>再像前面一样将指针p2向后移动一个位置，即执行语句p2=p1，也就是使p2再次指向最新建立的结点</li>
+<li>如果仍有新的数据被接收，那么就再次为该数据开辟一个结点，并让指针p1指向这个新结点，并按照前面的操作方式继续为链表添加新数据；</li>
+<li>如果链表满足结束条件或者达到事前预定的长度，那么循环操作就将被中止。新的结点也不再被链入链表中。这个时候即将NULL赋给p2-&gt;next，表示该结点为整个链表的尾结点。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">insert(node, index)</td>
+<td align="center">将node插入到链表中下标为index的位置</td>
+</tr>
+<tr>
+<td align="center">output()</td>
+<td align="center">输出整个链表</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>链表的遍历</p>
+<ol>
+<li>以链表的表头结点作为输入；</li>
+<li>设一个指针变量p，先指向第一个结点，并输出该结点中的数据；</li>
+<li>将指针p向后移动一个结点，再输出结点数据；</li>
+<li>如此继续下去直到链表的尾结点。</li>
+</ol>
+<p>结点由存放数据元素的数据域和存放后继结点地址的指针域组成</p>
+<ol>
+<li><p>链表插入操作的实现方法：</p>
+<ul>
+<li>找到链表中要插入的位置</li>
+<li>令待插入结点的next指针指向插入位置的当前结点</li>
+<li>令插入位置之前的当前结点的next指针指向待插入结点</li>
+</ul>
+</li>
+<li><p>链表遍历操作的实现方法：</p>
+<ul>
+<li>定义一个用于遍历的变量，初始指向头结点</li>
+<li>输出遍历变量所在结点的值，并更新遍历变量为当前结点的下一个结点</li>
+<li>重复操作2，直到遍历完所有结点</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li></li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;Node;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>* <span class="title">LinkList</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//初始条件：顺序线性表已存在</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a><u>栈</u></h2><h3 id="栈的定义"><a href="#栈的定义" class="headerlink" title="栈的定义"></a>栈的定义</h3><p>栈是限定仅在表位进行插入和删除操作的线性表</p>
+<p>我们把允许插入和删除的一端称为栈顶，另一端称为栈底，不含任何数据元素的栈称为空栈。栈又称为后进先出的线性表，简称LFO结构。只能对栈顶元素进行操作，我们把栈的插入，删除操作改名为push，pop</p>
+<p><strong>栈的插入操作，</strong> 叫做进栈，也称压栈，入栈</p>
+<p><strong>栈的删除操作，</strong> 叫做出栈，也有的叫做弹栈</p>
+<h3 id="栈的顺序存储结构"><a href="#栈的顺序存储结构" class="headerlink" title="栈的顺序存储结构"></a>栈的顺序存储结构</h3><p>我们定义一个top变量来指示栈顶元素在数组中的位置，且其小于栈的长度StackSize，一般采用下标为0的一端作为栈底，当栈存在一个元素时，top等于0。因此空栈的判断条件为top = -1</p>
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a><u>队列</u></h2><h3 id="基本知识"><a href="#基本知识" class="headerlink" title="基本知识"></a>基本知识</h3><p>先进先出</p>
+<ol>
+<li><p>队列的插入操作实现方法：</p>
+<ul>
+<li>判断队列是否已满，实际上是由于队尾标记不断增加，需要判断队尾标记是否大于数组长度</li>
+<li>更新队尾标记，将新插入元素存入队尾</li>
+</ul>
+</li>
+<li><p>队列的遍历操作实现方法：</p>
+<ul>
+<li>输出队首标记所在的元素</li>
+<li>队首标记后移一位</li>
+<li>若队尾标记和队首标记相等，输出最后一个元素，否则返回步骤1</li>
+</ul>
+</li>
+<li><p>队列出队操作的实现方法：</p>
+<ul>
+<li>比较队尾标记和队首标记的大小，当队首标记大于队尾标记则说明队列为空了，此时出队操作是非法的</li>
+<li>令队首标记后移一位，队首标记后移即视作原队首出队了*</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ERROR 0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OK 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Queue</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> *data;</span><br><span class="line">    <span class="keyword">int</span> head, tail, length;</span><br><span class="line">&#125;Queue;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(Queue *q, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">    q-&gt;data = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * length);</span><br><span class="line">    q-&gt;length = length;</span><br><span class="line">    q-&gt;head = <span class="number">0</span>;</span><br><span class="line">    q-&gt;tail = <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">push</span><span class="params">(Queue *q, <span class="keyword">int</span> element)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(q-&gt;tail + <span class="number">1</span> &gt;= q-&gt;length) &#123;</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;</span><br><span class="line">    q-&gt;tail++;</span><br><span class="line">    q-&gt;data[q-&gt;tail] = element;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">(Queue *q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = q-&gt;head; i &lt;= q-&gt;tail; i++) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, q-&gt;data[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 队首元素输出函数 front</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">front</span><span class="params">(Queue *q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> q-&gt;data[q-&gt;head];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除队首元素函数 pop</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pop</span><span class="params">(Queue *q)</span> </span>&#123;</span><br><span class="line">    q-&gt;head++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断队列是否为空的函数 empty</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">empty</span><span class="params">(Queue *q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> q-&gt;head &gt; q-&gt;tail;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">(Queue *q)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">free</span>(q-&gt;data);</span><br><span class="line">    <span class="built_in">free</span>(q);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Queue *<span class="built_in">queue</span> = (Queue *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Queue));</span><br><span class="line">    init(<span class="built_in">queue</span>, <span class="number">100</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++) &#123;</span><br><span class="line">        push(<span class="built_in">queue</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    output(<span class="built_in">queue</span>);</span><br><span class="line">    <span class="keyword">if</span>(!empty(<span class="built_in">queue</span>)) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, front(<span class="built_in">queue</span>));</span><br><span class="line">        pop(<span class="built_in">queue</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    output(<span class="built_in">queue</span>);</span><br><span class="line">    clear(<span class="built_in">queue</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="循环队列"><a href="#循环队列" class="headerlink" title="循环队列"></a>循环队列</h3><p>上面的队列实现方式有一个问题：假上溢</p>
+<p>循环队列，当队尾标记<code>tail</code>到达队列上限后，如果队列内的元素没有达到上限，就跳转到数组的开始位置，也就是0的位置，也就是0的位置，队首标记到达队列上限也采取同样的处理。通过这样的方法，我们就能够最大化利用内存空间，避免“假上溢”的情况出现</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ERROR 0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OK 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Queue</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> *data;</span><br><span class="line">    <span class="keyword">int</span> head, tail, length, count;</span><br><span class="line">&#125;Queue;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(Queue *q, <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">    q-&gt;data = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * length);</span><br><span class="line">    q-&gt;length = length;</span><br><span class="line">    q-&gt;head = <span class="number">0</span>;</span><br><span class="line">    q-&gt;tail = <span class="number">-1</span>;</span><br><span class="line">    q-&gt;count = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">push</span><span class="params">(Queue *q, <span class="keyword">int</span> element)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (q-&gt;count &gt;= q-&gt;length) &#123;</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;</span><br><span class="line">    q-&gt;tail = (q-&gt;tail + <span class="number">1</span>) % q-&gt;length;</span><br><span class="line">    q-&gt;data[q-&gt;tail] = element;</span><br><span class="line">    q-&gt;count++;</span><br><span class="line">    <span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">(Queue *q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = q-&gt;head;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, q-&gt;data[i]);</span><br><span class="line">        i = (i + <span class="number">1</span>) % q-&gt;length;</span><br><span class="line">    &#125; <span class="keyword">while</span>(i != (q-&gt;tail + <span class="number">1</span>) % q-&gt;length);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">front</span><span class="params">(Queue *q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> q-&gt;data[q-&gt;head];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pop</span><span class="params">(Queue *q)</span> </span>&#123;</span><br><span class="line">    q-&gt;head = (q-&gt;head + <span class="number">1</span>) % q-&gt;length;</span><br><span class="line">    q-&gt;count--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">empty</span><span class="params">(Queue *q)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> q-&gt;count == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">clear</span><span class="params">(Queue *q)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">free</span>(q-&gt;data);</span><br><span class="line">    <span class="built_in">free</span>(q);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Queue *q = (Queue *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(Queue));</span><br><span class="line">    init(q, <span class="number">100</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++) &#123;</span><br><span class="line">        push(q, i);</span><br><span class="line">    &#125;</span><br><span class="line">    output(q);</span><br><span class="line">    <span class="keyword">if</span> (!empty(q)) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, front(q));</span><br><span class="line">        pop(q);        </span><br><span class="line">    &#125;</span><br><span class="line">    output(q);</span><br><span class="line">    clear(q);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="栈-1"><a href="#栈-1" class="headerlink" title="栈"></a><u>栈</u></h2><p>例子：浏览器</p>
+<p>先进后出</p>
+<h2 id="树和二叉树"><a href="#树和二叉树" class="headerlink" title="树和二叉树"></a><u>树和二叉树</u></h2><h3 id="树"><a href="#树" class="headerlink" title="树"></a>树</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>树有且仅有一个上面的树根。树是由若干个有限结点组成的一个具有层次关系的集合，最上面的结点为树的根结点</p>
+<p>结点拥有的子树个数我们称为结点的度</p>
+<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><p>每棵非空树有且仅有一个根结点</p>
+<p>在树上，从一个结点出发可以访问到其余的结点，并且一个结点到另一个结点的路径有且仅有一条</p>
+<p>父亲结点可以有多个孩子结点，除根结点外，其余的结点有且仅有一个父亲结点。</p>
+<p>根结点没有父亲结点，叶结点没有孩子结点</p>
+<h3 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h3><h4 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h4><p>二叉树的每个结点最多只有两个孩子结点。二叉树有5种基本形态：空二叉树（树为空没有结点）、只有根结点的二叉树、只有左子树的二叉树、只有右子树的二叉树、左右子树都有的二叉树</p>
+<h4 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h4><p>二叉树的第 i 层最多有 $2^{i-1}$ 个结点。由定义可知，二叉树的每个结点最多有两个孩子结点，那么第 i 层最多的结点数等于第 i - 1 层最多结点数的2倍。而第 1 层最多只有1个结点，所以我们可以知道第 i 层最多有 $2^{i-1}$ 个结点</p>
+<p>深度为 k 的二叉树最多有 $2^k$ - 1 个结点。由上一个性质，我们可以知道二叉树每层最多的结点个数，从第 1 层到第 k 层把最多结点数累加起来，我们就可以得到深度为 k 的二叉树最多有 $2^k$ - 1个结点</p>
+<p>任意一棵二叉树上，其叶子结点个数 $n_0$ 比度为2的结点数 $n_2$ 多1。我们记树上结点总个数为n，度为1的结点个数为 $n_1$ ，则有 n = $n_0$ + $n_1$ + $n_2$。另外我们可以发现一棵二叉树一共有 n - 1条边，度为2的结点可以延伸出两条边，度为1的结点可以延伸出一条边，叶子结点没有边延伸出来，所以又有 n - 1 = $n_1$ + 2 $\times$ $n_2$。结合以上两个式子，我们可以得到 $n_0$ = $n_2$ + 1</p>
+<h4 id="两个特殊的二叉树"><a href="#两个特殊的二叉树" class="headerlink" title="两个特殊的二叉树"></a>两个特殊的二叉树</h4><p><strong>满二叉树：</strong>如果一棵树深度为 k 而且有 $2^k$ - 1个结点，那么我们称该二叉树为满二叉树，也就是说在此深度上，不能再添加结点了</p>
+<p><strong>完全二叉树：</strong>如果一棵树深度为k，从第 1 层到第 k - 1层该树是满二叉树，第 k 层的结点都集中在左边，那么我们称该二叉树为完全二叉树。完全二叉树因其结构的特殊性具有很高的效率，经常被用在算法的优化里</p>
+<h4 id="二叉树的广义表表达形式"><a href="#二叉树的广义表表达形式" class="headerlink" title="二叉树的广义表表达形式"></a>二叉树的广义表表达形式</h4><p>我们可以用广义表来表示二叉树，形式为 a(b, c)，表示根结点a的左孩子结点为b，右孩子结点为c。中间用一个逗号隔开。如果左右孩子结点不为空，则用以上形式来替换；如果结点为空，则不填任何字符。以下是几种常见的格式：</p>
+<ul>
+<li>a：表示根结点为a，左右孩子结点均为空</li>
+<li>a(b)：表示根结点为a，左孩子结点为b，右孩子结点为空</li>
+<li>a(, c)：表示根结点为a，左孩子结点为空，右孩子结点为c</li>
+<li>a(b, c)：表示根结点为a，左孩子结点为b，右孩子结点为c</li>
+</ul>
+<p>如 7(4(3, 6), 15(, 55)) 可以表示以下这棵二叉树：</p>
+<p><img src="E:\i\博客\markdown\数据结构\img\capture_20210227030759605.bmp" alt="capture_20210227030759605"></p>
+<p>如何将广义表创建成二叉树：</p>
+<p>将广义表创建成二叉树，可以借助栈来实现，利用栈先进后出的特点，先将根结点压入栈中，如果左孩子结点不为空，则将其作为栈顶结点（即其父亲结点）的左孩子结点，并压入栈中，递归左子树，处理完之后左孩子节点出战；如果右孩子不为空，则将其作为栈顶结点（即其父亲结点）的右孩子结点，并压入栈中，递归右子树，处理完之后右孩子结点出栈</p>
+<h2 id="图"><a href="#图" class="headerlink" title="图"></a><u>图</u></h2><h3 id="什么是图"><a href="#什么是图" class="headerlink" title="什么是图"></a>什么是图</h3><p>图是由一系列顶点和若干连结顶点集合内两个顶点的边组成的数据结构。通常我们用G = (V, E) 表示一个图结构，其中V表示点集，E表示边集</p>
+<p>在顶点集合所包含的若干个顶点之间，可能存在这某种两两对应关系——如果某两个点之间的确存在这样的关系的话，我们就在这两个点之间连边，这样就得到了边集的一个成员，也就是一条边。对应到社交网络上，顶点就是网络中的用户，边就是用户之间的好友关系</p>
+<h3 id="图的常用概念"><a href="#图的常用概念" class="headerlink" title="图的常用概念"></a>图的常用概念</h3><p>如果图中所有边都是无向边，则称为无向图，反之称为有向图</p>
+<p>有很少边或弧（如 e &lt; nlogn，e指边数，n指点数）的图称为稀疏图，反之称为稠密图。顶点的<strong>度</strong>是指依附于某个顶点的边数。在有向图中，顶点的<strong>入度</strong>是指以顶点为弧头的弧的数目，也就是以该顶点为终点的弧的数目；顶点的<strong>出度</strong>是指以顶点为弧尾的弧的数目，也就是以该顶点为起点的弧的数目，在有向图里，顶点的度为入度和出度之和。在无向图里，图中的边数等于所有顶点度数和的一半</p>
+<h3 id="图的存储方式"><a href="#图的存储方式" class="headerlink" title="图的存储方式"></a>图的存储方式</h3><p>两个常见的图的存储结构——<strong>邻接矩阵</strong>和<strong>邻接表</strong>。邻接矩阵就是用一维数组存储图中顶点的信息，用矩阵表示图中各顶点之间的邻接关系</p>
+<p>对于有n个顶点的图 G = (V, E) 来说，我们可以用一个 n $\times$ n 的矩阵A来表示G中各顶点的相邻关系，如果$v_i$和$v_j$之间存在边（或弧），则A[$i$] [$j$] = 1，否则A[$i$] [$j$] = 0。下图为有向图$G_1$和无向图$G_2$对应的邻接矩阵：</p>
+<p>![2 邻接矩阵](E:\i\博客\markdown\数据结构\img\2 邻接矩阵.bmp)</p>
+<p>图的邻接矩阵是唯一的，矩阵的大小只与顶点个数N有关，是一个N $\times$ N 的矩阵。在无向图里，如果顶点 $v_i$ 和 $v_j$ 之间有边，则可认为顶点 $v_i$ 到 $v_j$ 有边，顶点 $v_j$ 到 $v_i$ 也有边。对应到邻接矩阵里，则有A[$i$] [$j$] = A[$j$] [$i$] = 1。无向图的邻接矩阵是一个对称矩阵</p>
+
+    </div>
+
+    
+    
+    
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color:#bfbfbf;font-size:16px;">
+            <span>--------♥ 文章结束了呢 ♥--------</span>
+        </div>
+    
+</div>
+      
+    </div>
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="Jiu Cheng 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Jiu Cheng 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/undefined/9d2ca33f/" rel="prev" title="复合选择器">
+      <i class="fa fa-chevron-left"></i> 复合选择器
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/undefined/748ff171/" rel="next" title="PAT乙级-1001 害死人不偿命">
+      PAT乙级-1001 害死人不偿命 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E8%A8%80"><span class="nav-text">引言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E5%92%8C%E6%9C%AF%E8%AF%AD"><span class="nav-text">基本概念和术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84%E4%B8%8E%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="nav-text">逻辑结构与物理结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E7%BB%93%E6%9E%84"><span class="nav-text">逻辑结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84"><span class="nav-text">物理结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">抽象数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B-1"><span class="nav-text">抽象数据类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E5%AE%9A%E4%B9%89"><span class="nav-text">算法定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E7%89%B9%E6%80%A7"><span class="nav-text">算法的特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%A6%81%E6%B1%82"><span class="nav-text">算法设计的要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87%E7%9A%84%E5%BA%A6%E9%87%8F%E6%96%B9%E6%B3%95"><span class="nav-text">算法效率的度量方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E5%90%8E%E7%BB%9F%E8%AE%A1%E6%B3%95"><span class="nav-text">事后统计法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8B%E5%89%8D%E5%88%86%E6%9E%90%E4%BC%B0%E7%AE%97%E6%96%B9%E6%B3%95"><span class="nav-text">事前分析估算方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E7%9A%84%E6%B8%90%E8%BF%91%E5%A2%9E%E9%95%BF"><span class="nav-text">函数的渐近增长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-text">算法时间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%AE%9A%E4%B9%89"><span class="nav-text">算法时间复杂度定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A8%E5%AF%BC%E5%A4%A7O%E9%98%B6%E6%AD%A5%E9%AA%A4"><span class="nav-text">推导大O阶步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E6%95%B0%E9%98%B6"><span class="nav-text">常数阶</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E9%98%B6"><span class="nav-text">线性阶</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%B9%E6%95%B0%E9%98%B6"><span class="nav-text">对数阶</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B9%B3%E6%96%B9%E9%98%B6"><span class="nav-text">平方阶</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#nlogn%E9%98%B6"><span class="nav-text">nlogn阶</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AB%8B%E6%96%B9%E9%98%B6"><span class="nav-text">立方阶</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E6%95%B0%E9%98%B6"><span class="nav-text">指数阶</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-text">算法空间复杂度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="nav-text">线性表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-text">线性表的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E6%8A%BD%E8%B1%A1%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">线性表的抽象数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-text">线性表的顺序存储结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E9%93%BE%E5%BC%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-text">线性表的链式存储结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%88"><span class="nav-text">栈</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="nav-text">栈的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-text">栈的顺序存储结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%98%9F%E5%88%97"><span class="nav-text">队列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E7%9F%A5%E8%AF%86"><span class="nav-text">基本知识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97"><span class="nav-text">循环队列</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%88-1"><span class="nav-text">栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%91%E5%92%8C%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-text">树和二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%91"><span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5"><span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8"><span class="nav-text">性质</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-text">二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="nav-text">概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%B4%A8-1"><span class="nav-text">性质</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E4%B8%AA%E7%89%B9%E6%AE%8A%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="nav-text">两个特殊的二叉树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%B9%BF%E4%B9%89%E8%A1%A8%E8%A1%A8%E8%BE%BE%E5%BD%A2%E5%BC%8F"><span class="nav-text">二叉树的广义表表达形式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE"><span class="nav-text">图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%9B%BE"><span class="nav-text">什么是图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E7%9A%84%E5%B8%B8%E7%94%A8%E6%A6%82%E5%BF%B5"><span class="nav-text">图的常用概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F"><span class="nav-text">图的存储方式</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jiu Cheng</p>
+  <div class="site-description" itemprop="description">hello, here is jiucheng' s blog</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/jiucheng120" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jiucheng120" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">sjx</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">125k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">1:53</span>
+</div>
+
+<!-- 网站运行时间的设置 -->
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+  var now = new Date();
+  function createtime() {
+   var grt= new Date("02/01/2021 00:00:00");//此处修改你的建站时间或者网站上线时间
+    now.setTime(now.getTime()+250);
+   days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+    hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+    if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+    mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+    seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+    snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+    document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+    document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+  }
+  setInterval("createtime()",250);
+</script>
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
+  
+  
+    <script src="/js/cursor/fireworks.js"></script>
+  
+
+</body>
+</html>
