@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>PAT乙级-1023 组个最小数</title>
+    <url>/undefined/985885a1/</url>
+    <content><![CDATA[<blockquote>
+<p>贪心</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定数字 0-9 各若干个。你可以以任意顺序排列这些数字，但必须全部使用。目标是使得最后得到的数尽可能小（注意 0 不能做首位）。例如：给定两个 0，两个 1，三个 5，一个 8，我们得到的最小的数就是 10015558。</p>
+<p>现给定数字，请编写程序输出能够组成的最小的数。</p>
+<p>输入格式：</p>
+<p>输入在一行中给出 10 个非负整数，顺序表示我们拥有数字 0、数字 1、……数字 9 的个数。整数间用一个空格分隔。10 个数字的总个数不超过 50，且至少拥有 1 个非 0 的数字。</p>
+<p>输出格式：</p>
+<p>在一行中输出能够组成的最小的数。</p>
+<p>输入样例：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">2 2 0 0 0 3 0 0 1 0</span><br></pre></td></tr></table></figure>
+<p>输出样例：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">10015558</span><br></pre></td></tr></table></figure>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>水题</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)</span><br><span class="line">        cin &gt;&gt; a[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] != <span class="number">0</span>) &#123;</span><br><span class="line">            a[i]--;</span><br><span class="line">            cout &lt;&lt; i;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; a[i]; j++)</span><br><span class="line">            cout &lt;&lt; i;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805298269634560">题目链接</a></p>
+]]></content>
+      <categories>
+        <category>算法题</category>
+      </categories>
+      <tags>
+        <tag>PAT乙级</tag>
+        <tag>贪心</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PAT乙级-1022 D进制的A+B</title>
+    <url>/undefined/899cf095/</url>
+    <content><![CDATA[<blockquote>
+<p>进制转换</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>输入两个非负 10 进制整数 $A$ 和 $B$ (≤ $2^30$ − 1)，输出 $A$ + $B$ 的 $D$ (1 &lt; $D$ ≤ 10)进制数。</p>
+<p>输入格式：</p>
+<p>输入在一行中依次给出 3 个整数 $A$、$B$ 和 $D$。</p>
+<p>输出格式：<br>输出 $A$ + $B$ 的 $D$ 进制数。</p>
+<p>输入样例：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">123 456 8</span><br></pre></td></tr></table></figure>
+<p>输出样例：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">1103</span><br></pre></td></tr></table></figure>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">int</span> s[<span class="number">100</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b, c;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line">    <span class="keyword">int</span> t = a + b;</span><br><span class="line">    <span class="keyword">if</span> (t == <span class="number">0</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;0\n&quot;</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (t != <span class="number">0</span>) &#123;</span><br><span class="line">        s[i++] = t % c;</span><br><span class="line">        t /= c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">        cout &lt;&lt; s[j];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805299301433344">题目链接</a></p>
+]]></content>
+      <categories>
+        <category>算法题</category>
+      </categories>
+      <tags>
+        <tag>PAT乙级</tag>
+        <tag>进制转换</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PAT乙级-1021 个位数统计</title>
     <url>/undefined/35873256/</url>
     <content><![CDATA[<blockquote>
@@ -14,7 +69,8 @@
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">100311</span><br></pre></td></tr></table></figure>
 <p>输出样例：</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">0:2</span><br><span class="line">1:3</span><br><span class="line">3:1</span><br></pre></td></tr></table></figure>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>注意n为不超过1000位的整数</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">10</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string n;</span><br><span class="line">    <span class="keyword">int</span> m;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n.<span class="built_in">length</span>(); i++) &#123;</span><br><span class="line">        a[n[i] - <span class="string">&#x27;0&#x27;</span>]++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">9</span>; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] != <span class="number">0</span>) &#123;</span><br><span class="line">            cout &lt;&lt; i &lt;&lt; <span class="string">&quot;:&quot;</span> &lt;&lt; a[i] &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><a href="https://pintia.cn/problem-sets/994805260223102976/problems/994805300404535296">题目链接</a></p>
 ]]></content>
       <categories>
