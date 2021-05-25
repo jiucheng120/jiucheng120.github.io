@@ -262,47 +262,49 @@
 <p>介绍css的三大特性</p>
 </blockquote>
 <span id="more"></span>
-
 <h2 id="层叠性"><a href="#层叠性" class="headerlink" title="层叠性"></a>层叠性</h2><ul>
 <li>样式冲突，遵循的原则是就近原则，哪个样式离结构近，就执行哪个样式</li>
 <li>样式不冲突，不会层叠</li>
 </ul>
 <h2 id="继承性"><a href="#继承性" class="headerlink" title="继承性"></a>继承性</h2><p>子元素可以继承父元素的样式（text-, font-, line-这些元素的开头可以继承，以及color属性）</p>
 <h3 id="行高的继承性"><a href="#行高的继承性" class="headerlink" title="行高的继承性"></a>行高的继承性</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">font</span>: <span class="number">12px</span>/<span class="number">1.5</span> Microsoft YaHei;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>行高可以跟单位也可以不跟单位，如果子元素没有设置行高，则会继承父元素的行高为1.5，此时子元素的行高是：当前子元素的文字大小*1.5</p>
-<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><table>
+<h2 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h2><div class="table-container">
+<table>
 <thead>
 <tr>
-<th align="center">选择器</th>
-<th align="center">选择器权重</th>
+<th style="text-align:center">选择器</th>
+<th style="text-align:center">选择器权重</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">继承或者 *</td>
-<td align="center">0, 0, 0, 0</td>
+<tbody>
+<tr>
+<td style="text-align:center">继承或者 *</td>
+<td style="text-align:center">0, 0, 0, 0</td>
 </tr>
 <tr>
-<td align="center">标签选择器</td>
-<td align="center">0, 0, 0, 1</td>
+<td style="text-align:center">标签选择器</td>
+<td style="text-align:center">0, 0, 0, 1</td>
 </tr>
 <tr>
-<td align="center">类选择器 伪类选择器</td>
-<td align="center">0, 0, 1, 0</td>
+<td style="text-align:center">类选择器 伪类选择器</td>
+<td style="text-align:center">0, 0, 1, 0</td>
 </tr>
 <tr>
-<td align="center">ID选择器</td>
-<td align="center">0, 1, 0, 0</td>
+<td style="text-align:center">ID选择器</td>
+<td style="text-align:center">0, 1, 0, 0</td>
 </tr>
 <tr>
-<td align="center">行内样式style = “ “</td>
-<td align="center">1, 0, 0, 0</td>
+<td style="text-align:center">行内样式style = “ “</td>
+<td style="text-align:center">1, 0, 0, 0</td>
 </tr>
 <tr>
-<td align="center">!important</td>
-<td align="center">无穷大</td>
+<td style="text-align:center">!important</td>
+<td style="text-align:center">无穷大</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <ul>
 <li>权重由四位数字组成，但是不会有进位</li>
 </ul>
@@ -436,7 +438,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -449,7 +451,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -490,13 +492,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">132k</span>
+    <span title="站点总字数">139k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:01</span>
+    <span title="站点阅读时长">2:06</span>
 </div>
 
 <!-- 网站运行时间的设置 -->

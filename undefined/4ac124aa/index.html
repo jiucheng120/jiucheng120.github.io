@@ -260,10 +260,9 @@
 
       
         <blockquote>
-<p>介绍vector容器</p>
-</blockquote>
-<span id="more"></span>
-<h3 id="vector基本概念"><a href="#vector基本概念" class="headerlink" title="vector基本概念"></a>vector基本概念</h3><p>功能：vector数据结构和数组非常相似，也称为单端数组</p>
+<p>介绍vector容器<br><span id="more"></span></p>
+<h3 id="vector基本概念"><a href="#vector基本概念" class="headerlink" title="vector基本概念"></a>vector基本概念</h3></blockquote>
+<p>功能：vector数据结构和数组非常相似，也称为单端数组</p>
 <p>区别：数组是静态空间，而vector可以动态扩展</p>
 <p>动态扩展：并不是在原空间之后续接新空间，而是找更大的内存空间，然后将原数据拷贝新空间，释放原空间。vector迭代器是支持随机访问的迭代器</p>
 <h3 id="vector构造函数"><a href="#vector构造函数" class="headerlink" title="vector构造函数"></a>vector构造函数</h3><p>功能：创建vector容器</p>
@@ -275,7 +274,6 @@
 <li><code>vector(const vector &amp;vec);</code>  //拷贝构造函数</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printVector</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp;v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (vector&lt;<span class="keyword">int</span>&gt;::iterator it = v.<span class="built_in">begin</span>(); it != v.<span class="built_in">end</span>(); it++) &#123;</span><br><span class="line">        cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//vector容器的构造</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;v1;<span class="comment">//默认构造 无参构造</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        v1.<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printVector</span>(v1);</span><br><span class="line">    <span class="comment">//通过区间方式进行构造</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;<span class="built_in">v2</span>(v1.<span class="built_in">begin</span>(), v1.<span class="built_in">end</span>());</span><br><span class="line">    <span class="built_in">printVector</span>(v2);<span class="comment">//均输出0到9</span></span><br><span class="line">    <span class="comment">//n个elem方式构造</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;<span class="built_in">v3</span>(<span class="number">10</span>, <span class="number">100</span>);</span><br><span class="line">    <span class="built_in">printVector</span>(v3);<span class="comment">//输出10个100</span></span><br><span class="line">    <span class="comment">//拷贝构造</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;<span class="built_in">v4</span>(v3);</span><br><span class="line">    <span class="built_in">printVector</span>(v4);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">test1</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="vector赋值操作"><a href="#vector赋值操作" class="headerlink" title="vector赋值操作"></a>vector赋值操作</h3><p>函数原型：</p>
 <ul>
 <li><code>vector&amp; operator=(const vector &amp;vec);</code>  //重载等号操作符</li>
@@ -283,7 +281,6 @@
 <li><code>assign(n,elem);</code>  //将n个elem拷贝赋值给本身</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printVector</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (vector&lt;<span class="keyword">int</span>&gt;::iterator it = v.<span class="built_in">begin</span>(); it != v.<span class="built_in">end</span>(); it++) &#123;</span><br><span class="line">        cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//vector赋值</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;v1;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        v1.<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printVector</span>(v1);</span><br><span class="line">    <span class="comment">//赋值 operator=</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;v2;</span><br><span class="line">    v2 = v1;</span><br><span class="line">    <span class="built_in">printVector</span>(v2);</span><br><span class="line">    <span class="comment">//assign</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;v3;</span><br><span class="line">    v3.<span class="built_in">assign</span>(v1.<span class="built_in">begin</span>(), v1.<span class="built_in">end</span>());</span><br><span class="line">    <span class="built_in">printVector</span>(v3);</span><br><span class="line">    <span class="comment">//n个elem方式赋值</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;v4;</span><br><span class="line">    v4.<span class="built_in">assign</span>(<span class="number">10</span>, <span class="number">100</span>);</span><br><span class="line">    <span class="built_in">printVector</span>(v4);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">test1</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="vector容量和大小"><a href="#vector容量和大小" class="headerlink" title="vector容量和大小"></a>vector容量和大小</h3><p>函数原型：</p>
 <p><code>empty();</code>//判断容器是否为空</p>
 <p><code>capacity();</code>  //容器的容量</p>
@@ -420,7 +417,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">46</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -433,7 +430,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -474,13 +471,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">132k</span>
+    <span title="站点总字数">139k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:01</span>
+    <span title="站点阅读时长">2:06</span>
 </div>
 
 <!-- 网站运行时间的设置 -->
