@@ -7,8 +7,7 @@
 <p>学习笔记</p>
 </blockquote>
 <span id="more"></span>
-
-<h2 id="集合的初见"><a href="#集合的初见" class="headerlink" title="集合的初见"></a>集合的初见</h2><h3 id="集合的定义"><a href="#集合的定义" class="headerlink" title="集合的定义"></a>集合的定义</h3><h4 id="什么是集合"><a href="#什么是集合" class="headerlink" title="什么是集合"></a>什么是集合</h4><blockquote>
+<h2 id="集合论基础"><a href="#集合论基础" class="headerlink" title="集合论基础"></a>集合论基础</h2><h3 id="集合的初见"><a href="#集合的初见" class="headerlink" title="集合的初见"></a>集合的初见</h3><h4 id="集合的定义"><a href="#集合的定义" class="headerlink" title="集合的定义"></a>集合的定义</h4><blockquote>
 <p>集合论是现代数学的基础，现代数学是物理，化学，生物，计算机，经济学等等的基础，可见集合论的重要性</p>
 </blockquote>
 <p>集合是由指定范围内的满足给定条件的所有对象聚集在一起构成，每一个对象称为这个集合的元素</p>
@@ -19,21 +18,21 @@
 <p>ZF公理化集合论：ZFC公理化集合论的前八个公理</p>
 <h4 id="集合的符号表示"><a href="#集合的符号表示" class="headerlink" title="集合的符号表示"></a>集合的符号表示</h4><p>用带或不带下标的大写英文字母表示集合</p>
 <p>用带或不带下标的小写英文字母表示元素</p>
-<h3 id="集合的基数"><a href="#集合的基数" class="headerlink" title="集合的基数"></a>集合的基数</h3><p>集合$A$中的元素个数称为集合的基数，记为$|A|$</p>
-<h2 id="特殊集合和集合间的关系"><a href="#特殊集合和集合间的关系" class="headerlink" title="特殊集合和集合间的关系"></a>特殊集合和集合间的关系</h2><h3 id="空集"><a href="#空集" class="headerlink" title="空集"></a>空集</h3><p>$|\emptyset|$=0，$|{\emptyset}|$=1</p>
+<h4 id="集合的基数"><a href="#集合的基数" class="headerlink" title="集合的基数"></a>集合的基数</h4><p>集合$A$中的元素个数称为集合的基数，记为$|A|$</p>
+<h3 id="特殊集合和集合间的关系"><a href="#特殊集合和集合间的关系" class="headerlink" title="特殊集合和集合间的关系"></a>特殊集合和集合间的关系</h3><h4 id="空集"><a href="#空集" class="headerlink" title="空集"></a>空集</h4><p>$|\emptyset|$=0，$|{\emptyset}|$=1</p>
 <p>空集是绝对唯一的，全集是相对唯一的</p>
-<h3 id="相等关系"><a href="#相等关系" class="headerlink" title="相等关系"></a>相等关系</h3><p>外延性原理：即外延公理。两个集合$A$和$B$相等，当且仅当它们的元素完全相同，记为$A=B$，否则$A$和$B$不相等，记为$A≠B$</p>
-<h3 id="包含关系"><a href="#包含关系" class="headerlink" title="包含关系"></a>包含关系</h3><p>子集：$\subseteq$  $\subsetneq$</p>
+<h4 id="相等关系"><a href="#相等关系" class="headerlink" title="相等关系"></a>相等关系</h4><p>外延性原理：即外延公理。两个集合$A$和$B$相等，当且仅当它们的元素完全相同，记为$A=B$，否则$A$和$B$不相等，记为$A≠B$</p>
+<h4 id="包含关系"><a href="#包含关系" class="headerlink" title="包含关系"></a>包含关系</h4><p>子集：$\subseteq$  $\subsetneq$</p>
 <p>真子集：$\subset$  $\not\subset$</p>
 <p>证明两个集合相等：A$\subseteq$B，B$\subseteq$A</p>
 <p>子集个数：$2^n$</p>
 <p>对于任意n元集合A，它的m元（0$\leq$m$\leq$n）子集个数为$C_n^{m}$</p>
-<h3 id="幂集"><a href="#幂集" class="headerlink" title="幂集"></a>幂集</h3><p>设$A$为任意集合，把$A$的所有不同子集构成的集合叫做$A$的幂集，记作$P(A)$，即$P(A)={x|x\subseteq A}$</p>
+<h4 id="幂集"><a href="#幂集" class="headerlink" title="幂集"></a>幂集</h4><p>设$A$为任意集合，把$A$的所有不同子集构成的集合叫做$A$的幂集，记作$P(A)$，即$P(A)={x|x\subseteq A}$</p>
 <p>$x\in P(A)↔x\subseteq A$</p>
-<h2 id="集合的运算"><a href="#集合的运算" class="headerlink" title="集合的运算"></a>集合的运算</h2><p>交、并、补、差</p>
-<h3 id="对称差集"><a href="#对称差集" class="headerlink" title="对称差集"></a>对称差集</h3><p>设$A，B$是两个集合，则集合$A$与$B$的对称差集定义为：$A△B={(x\in A并且x\notin B)或者(x\notin A并且x\in B)}$</p>
-<h2 id="集合的运算定律"><a href="#集合的运算定律" class="headerlink" title="集合的运算定律"></a>集合的运算定律</h2><h3 id="集合运算的基本等式"><a href="#集合运算的基本等式" class="headerlink" title="集合运算的基本等式"></a>集合运算的基本等式</h3><p>幂等律，交换律，结合律，结合律，同一律，零律，分配律，吸收律，矛盾律和排中律，双重否定律，德摩根律</p>
-<h2 id="可数集合与不可数集合"><a href="#可数集合与不可数集合" class="headerlink" title="可数集合与不可数集合"></a>可数集合与不可数集合</h2><p>$N$=$d_{k−1}$$10^{k-1}$ + ⋯ + $d_{1}$$10^1$ + $d_0$ (0 ≤ $d_i$ ≤ 9, $i$ = 0, ⋯ , $k$ − 1, $d_{k−1}$ $&gt;0$)</p>
+<h3 id="集合的运算"><a href="#集合的运算" class="headerlink" title="集合的运算"></a>集合的运算</h3><p>交、并、补、差</p>
+<h4 id="对称差集"><a href="#对称差集" class="headerlink" title="对称差集"></a>对称差集</h4><p>设$A，B$是两个集合，则集合$A$与$B$的对称差集定义为：$A△B={(x\in A并且x\notin B)或者(x\notin A并且x\in B)}$</p>
+<h3 id="集合的运算定律"><a href="#集合的运算定律" class="headerlink" title="集合的运算定律"></a>集合的运算定律</h3><h4 id="集合运算的基本等式"><a href="#集合运算的基本等式" class="headerlink" title="集合运算的基本等式"></a>集合运算的基本等式</h4><p>幂等律，交换律，结合律，结合律，同一律，零律，分配律，吸收律，矛盾律和排中律，双重否定律，德摩根律</p>
+<h3 id="可数集合与不可数集合"><a href="#可数集合与不可数集合" class="headerlink" title="可数集合与不可数集合"></a>可数集合与不可数集合</h3><p>$N$=$d_{k−1}$$10^{k-1}$ + ⋯ + $d_{1}$$10^1$ + $d_0$ (0 ≤ $d_i$ ≤ 9, $i$ = 0, ⋯ , $k$ − 1, $d_{k−1}$ $&gt;0$)</p>
 ]]></content>
       <categories>
         <category>计算机基础</category>
