@@ -322,10 +322,10 @@
 <p>学习笔记</p>
 </blockquote>
 <span id="more"></span>
-<h2 id="集合论基础"><a href="#集合论基础" class="headerlink" title="集合论基础"></a>集合论基础</h2><h3 id="集合的初见"><a href="#集合的初见" class="headerlink" title="集合的初见"></a>集合的初见</h3><h4 id="集合的定义"><a href="#集合的定义" class="headerlink" title="集合的定义"></a>集合的定义</h4><blockquote>
+<h2 id="集合论基础"><a href="#集合论基础" class="headerlink" title="集合论基础"></a>集合论基础</h2><blockquote>
 <p>集合论是现代数学的基础，现代数学是物理，化学，生物，计算机，经济学等等的基础，可见集合论的重要性</p>
 </blockquote>
-<p>集合是由指定范围内的满足给定条件的所有对象聚集在一起构成，每一个对象称为这个集合的元素</p>
+<h3 id="集合的初见"><a href="#集合的初见" class="headerlink" title="集合的初见"></a>集合的初见</h3><h4 id="集合的定义"><a href="#集合的定义" class="headerlink" title="集合的定义"></a>集合的定义</h4><p>集合是由指定范围内的满足给定条件的所有对象聚集在一起构成，每一个对象称为这个集合的元素</p>
 <blockquote>
 <p>朴素集合论（康托尔）$\rightarrow$ 公理化集合论</p>
 </blockquote>
