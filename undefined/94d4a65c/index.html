@@ -20,7 +20,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"jiucheng120.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":true,"show_result":true},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"jiucheng120.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="css的小总结">
@@ -282,90 +282,86 @@
 <p>对应改变样式的文字或图片应在其标签属性添加class=”类名”</p>
 <p>长名称和词组可以使用中横线来为选择器命名；不要使用纯数字、中文命名，尽量使用英文字母来表示</p>
 <p>可在class中写多个类名，用空格隔开</p>
-<h5 id="常见的类命名规则如下："><a href="#常见的类命名规则如下：" class="headerlink" title="常见的类命名规则如下："></a>常见的类命名规则如下：</h5><div class="table-container">
-<table>
+<h5 id="常见的类命名规则如下："><a href="#常见的类命名规则如下：" class="headerlink" title="常见的类命名规则如下："></a>常见的类命名规则如下：</h5><table>
 <thead>
 <tr>
-<th style="text-align:center">内容</th>
-<th style="text-align:center">类名</th>
+<th align="center">内容</th>
+<th align="center">类名</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">头</td>
-<td style="text-align:center">header</td>
+<tbody><tr>
+<td align="center">头</td>
+<td align="center">header</td>
 </tr>
 <tr>
-<td style="text-align:center">内容</td>
-<td style="text-align:center">content/container</td>
+<td align="center">内容</td>
+<td align="center">content/container</td>
 </tr>
 <tr>
-<td style="text-align:center">尾</td>
-<td style="text-align:center">footer</td>
+<td align="center">尾</td>
+<td align="center">footer</td>
 </tr>
 <tr>
-<td style="text-align:center">导航</td>
-<td style="text-align:center">nav</td>
+<td align="center">导航</td>
+<td align="center">nav</td>
 </tr>
 <tr>
-<td style="text-align:center">侧栏</td>
-<td style="text-align:center">sidebar</td>
+<td align="center">侧栏</td>
+<td align="center">sidebar</td>
 </tr>
 <tr>
-<td style="text-align:center">栏目</td>
-<td style="text-align:center">column</td>
+<td align="center">栏目</td>
+<td align="center">column</td>
 </tr>
 <tr>
-<td style="text-align:center">页面外围控制整体布局宽度</td>
-<td style="text-align:center">wrapper</td>
+<td align="center">页面外围控制整体布局宽度</td>
+<td align="center">wrapper</td>
 </tr>
 <tr>
-<td style="text-align:center">左右中</td>
-<td style="text-align:center">left right center</td>
+<td align="center">左右中</td>
+<td align="center">left right center</td>
 </tr>
 <tr>
-<td style="text-align:center">登录条</td>
-<td style="text-align:center">loginbar</td>
+<td align="center">登录条</td>
+<td align="center">loginbar</td>
 </tr>
 <tr>
-<td style="text-align:center">标志</td>
-<td style="text-align:center">logo</td>
+<td align="center">标志</td>
+<td align="center">logo</td>
 </tr>
 <tr>
-<td style="text-align:center">广告</td>
-<td style="text-align:center">banner</td>
+<td align="center">广告</td>
+<td align="center">banner</td>
 </tr>
 <tr>
-<td style="text-align:center">页面主体</td>
-<td style="text-align:center">main</td>
+<td align="center">页面主体</td>
+<td align="center">main</td>
 </tr>
 <tr>
-<td style="text-align:center">热点</td>
-<td style="text-align:center">hot</td>
+<td align="center">热点</td>
+<td align="center">hot</td>
 </tr>
 <tr>
-<td style="text-align:center">新闻</td>
-<td style="text-align:center">news</td>
+<td align="center">新闻</td>
+<td align="center">news</td>
 </tr>
 <tr>
-<td style="text-align:center">下载</td>
-<td style="text-align:center">download</td>
+<td align="center">下载</td>
+<td align="center">download</td>
 </tr>
 <tr>
-<td style="text-align:center">子导航</td>
-<td style="text-align:center">subnav</td>
+<td align="center">子导航</td>
+<td align="center">subnav</td>
 </tr>
 <tr>
-<td style="text-align:center">菜单</td>
-<td style="text-align:center">menu</td>
+<td align="center">菜单</td>
+<td align="center">menu</td>
 </tr>
 <tr>
-<td style="text-align:center">子菜单</td>
-<td style="text-align:center">submenu</td>
+<td align="center">子菜单</td>
+<td align="center">submenu</td>
 </tr>
-</tbody>
-</table>
-</div>
+</tbody></table>
 <h4 id="id选择器"><a href="#id选择器" class="headerlink" title="id选择器"></a>id选择器</h4><p>用“#id名”作为选择器</p>
 <p>特点：只能调用一次，经常和js一起使用</p>
 <h4 id="通配符选择器"><a href="#通配符选择器" class="headerlink" title="通配符选择器"></a>通配符选择器</h4><p>用“*”作为选择器</p>
@@ -382,7 +378,7 @@
 <h4 id="字体粗细"><a href="#字体粗细" class="headerlink" title="字体粗细"></a>字体粗细</h4><blockquote>
 <p>font-weight: </p>
 </blockquote>
-<p>属性：<br>名称 | 含义<br>:—-:|:—-:<br>normal | 正常的字体<br>bold | 粗体<br>bolder | IES+特粗体<br>lighter | IES+细体<br>number | IES+100……<br>normal相当于number为400，声明此值将取消之前任何设置</p>
+<p>属性：<br>名称 | 含义<br>:—:|:—:<br>normal | 正常的字体<br>bold | 粗体<br>bolder | IES+特粗体<br>lighter | IES+细体<br>number | IES+100……<br>normal相当于number为400，声明此值将取消之前任何设置</p>
 <p>bold相当于number为700，也相当于b对象的作用</p>
 <p>number后面不需要加单位</p>
 <h4 id="文字样式"><a href="#文字样式" class="headerlink" title="文字样式"></a>文字样式</h4><blockquote>
@@ -602,13 +598,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">142k</span>
+    <span title="站点总字数">146k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">2:10</span>
+    <span title="站点阅读时长">2:12</span>
 </div>
 
 <!-- 网站运行时间的设置 -->
