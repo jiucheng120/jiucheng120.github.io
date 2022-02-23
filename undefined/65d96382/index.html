@@ -259,17 +259,23 @@
 
       
         <blockquote>
-<p>字符串处理<br><span id="more"></span></p>
+<p>字符串处理</p>
 </blockquote>
+<span id="more"></span>
+
 <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>大侦探福尔摩斯接到一张字条：<code>我们约会吧！ 3485djDkxh4hhGE 2984akDfkkkkggEdsb s&amp;hgsfdk d&amp;Hyscvnm</code>。大侦探很快就明白了，字条上奇怪的乱码实际上就是约会的时间 <code>星期四 14:04</code>，因为前面两字符串中第 1 对相同的大写英文字母（大小写有区分）是第 4 个字母 <code>D</code>，代表星期四；第 2 对相同的字符是 <code>E</code> ，那是第 5 个英文字母，代表一天里的第 14 个钟头（于是一天的 0 点到 23 点由数字 0 到 9、以及大写字母 <code>A</code> 到 <code>N</code> 表示）；后面两字符串第 1 对相同的英文字母 <code>s</code> 出现在第 4 个位置（从 0 开始计数）上，代表第 4 分钟。现给定两对字符串，请帮助福尔摩斯解码得到约会的时间。</p>
 <p>输入格式：</p>
 <p>输入在 4 行中分别给出 4 个非空、不包含空格、且长度不超过 60 的字符串。</p>
 <p>输出格式：</p>
 <p>在一行中输出约会的时间，格式为 <code>DAY HH:MM</code>，其中 <code>DAY</code> 是某星期的 3 字符缩写，即 <code>MON</code> 表示星期一，<code>TUE</code> 表示星期二，<code>WED</code> 表示星期三，<code>THU</code> 表示星期四，<code>FRI</code> 表示星期五，<code>SAT</code> 表示星期六，<code>SUN</code> 表示星期日。题目输入保证每个测试存在唯一解。</p>
-<p>输入样例：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3485djDkxh4hhGE </span><br><span class="line">2984akDfkkkkggEdsb </span><br><span class="line">s&amp;hgsfdk </span><br><span class="line">d&amp;Hyscvnm</span><br></pre></td></tr></table></figure></p>
+<p>输入样例：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3485djDkxh4hhGE </span><br><span class="line">2984akDfkkkkggEdsb </span><br><span class="line">s&amp;hgsfdk </span><br><span class="line">d&amp;Hyscvnm</span><br></pre></td></tr></table></figure>
+
 <p>输出样例：</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">THU 14:04</span><br></pre></td></tr></table></figure>
+
 <h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string a, b, c, d;</span><br><span class="line">    cin &gt;&gt; a &gt;&gt; b &gt;&gt; c &gt;&gt; d;</span><br><span class="line">    <span class="keyword">char</span> t[<span class="number">2</span>];</span><br><span class="line">    <span class="keyword">int</span> pos, i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; a.<span class="built_in">length</span>() &amp;&amp; i &lt; b.<span class="built_in">length</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] == b[i] &amp;&amp; (a[i] &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; a[i] &lt;= <span class="string">&#x27;G&#x27;</span>))</span><br><span class="line">        &#123;</span><br><span class="line">            t[<span class="number">0</span>] = a[i];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    i = i + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (i &lt; a.<span class="built_in">length</span>() &amp;&amp; i &lt; b.<span class="built_in">length</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (a[i] == b[i] &amp;&amp; ((a[i] &gt;= <span class="string">&#x27;A&#x27;</span> &amp;&amp; a[i] &lt;= <span class="string">&#x27;N&#x27;</span>) || <span class="built_in">isdigit</span>(a[i])))</span><br><span class="line">        &#123;</span><br><span class="line">            t[<span class="number">1</span>] = a[i];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (j &lt; c.<span class="built_in">length</span>() &amp;&amp; j &lt; d.<span class="built_in">length</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (c[j] == d[j] &amp;&amp; <span class="built_in">isalpha</span>(c[j]))</span><br><span class="line">        &#123;</span><br><span class="line">            pos = j;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        j++;</span><br><span class="line">    &#125;</span><br><span class="line">    string week[<span class="number">7</span>] = &#123;<span class="string">&quot;MON &quot;</span>, <span class="string">&quot;TUE &quot;</span>, <span class="string">&quot;WED &quot;</span>, <span class="string">&quot;THU &quot;</span>, <span class="string">&quot;FRI &quot;</span>, <span class="string">&quot;SAT &quot;</span>, <span class="string">&quot;SUN &quot;</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> m = <span class="built_in">isdigit</span>(t[<span class="number">1</span>]) ? t[<span class="number">1</span>] - <span class="string">&#x27;0&#x27;</span> : t[<span class="number">1</span>] - <span class="string">&#x27;A&#x27;</span> + <span class="number">10</span>;</span><br><span class="line">    cout &lt;&lt; week[t[<span class="number">0</span>] - <span class="string">&#x27;A&#x27;</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%02d:%02d&quot;</span>, m, pos);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://pintia.cn/problem-sets/994805260223102976/problems/994805308755394560">题目链接</a></p>
 
     </div>
@@ -401,7 +407,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">41</span>
+          <span class="site-state-item-count">42</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -455,13 +461,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">285k</span>
+    <span title="站点总字数">293k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:19</span>
+    <span title="站点阅读时长">4:27</span>
 </div>
 
 <!-- 网站运行时间的设置 -->
