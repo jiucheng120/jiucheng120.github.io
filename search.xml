@@ -1,6 +1,298 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>webpack详解</title>
+    <url>/undefined/73362992/</url>
+    <content><![CDATA[<blockquote>
+<p>webpack黑马程序员笔记</p>
+</blockquote>
+<span id="more"></span>
+
+
+
+<p>之前学vue的时候没有详细学webpack，现在详细记一下笔记</p>
+<h1 id="1-前端工程化"><a href="#1-前端工程化" class="headerlink" title="1 前端工程化"></a>1 前端工程化</h1><h2 id="1-1-小白眼中的前端开发-vs-实际的前端开发"><a href="#1-1-小白眼中的前端开发-vs-实际的前端开发" class="headerlink" title="1.1  小白眼中的前端开发 vs 实际的前端开发"></a>1.1  小白眼中的前端开发 vs 实际的前端开发</h2><p>小白眼中的前端开发：</p>
+<ul>
+<li><p> 会写 HTML + CSS + JavaScript 就会前端开发</p>
+</li>
+<li><p>需要美化页面样式，就拽一个 bootstrap 过来</p>
+</li>
+<li><p>需要操作 DOM 或发起 Ajax 请求，再拽一个 jQuery 过来</p>
+</li>
+<li><p>需要快速实现网页布局效果，就拽一个 Layui 过来</p>
+</li>
+</ul>
+<p>实际的前端开发：</p>
+<ul>
+<li><p>模块化（js 的模块化、css 的模块化、资源的模块化）</p>
+</li>
+<li><p>组件化（复用现有的 UI 结构、样式、行为）</p>
+</li>
+<li><p>规范化（目录结构的划分、编码规范化、接口规范化、文档规范化、 Git 分支管理）</p>
+</li>
+<li><p>自动化（自动化构建、自动部署、自动化测试）</p>
+</li>
+</ul>
+<h2 id="1-2-什么是前端工程化"><a href="#1-2-什么是前端工程化" class="headerlink" title="1.2 什么是前端工程化"></a>1.2 什么是前端工程化</h2><p>前端工程化指的是：在企业级的前端项目开发中，把前端开发所需的工具、技术、流程、经验等进行规范化、标准化。</p>
+<p>企业中的 Vue 项目和 React 项目，都是基于工程化的方式进行开发的。</p>
+<p>好处：前端开发自成体系，有一套标准的开发方案和流程。</p>
+<h2 id="1-3-前端工程化的解决方案"><a href="#1-3-前端工程化的解决方案" class="headerlink" title="1.3 前端工程化的解决方案"></a>1.3 前端工程化的解决方案</h2><p>早期的前端工程化解决方案：</p>
+<ul>
+<li><p>grunt（ <a href="https://www.gruntjs.net/">https://www.gruntjs.net/</a> ） </p>
+</li>
+<li><p>gulp（ <a href="https://www.gulpjs.com.cn/">https://www.gulpjs.com.cn/</a> ）</p>
+</li>
+</ul>
+<p>目前主流的前端工程化解决方案：</p>
+<ul>
+<li><p>webpack（ <a href="https://www.webpackjs.com/">https://www.webpackjs.com/</a> ） </p>
+</li>
+<li><p>parcel（ <a href="https://zh.parceljs.org/">https://zh.parceljs.org/</a> ）</p>
+</li>
+</ul>
+<h1 id="2-webpack的基本使用"><a href="#2-webpack的基本使用" class="headerlink" title="2 webpack的基本使用"></a>2 webpack的基本使用</h1><h2 id="2-1-什么是-webpack"><a href="#2-1-什么是-webpack" class="headerlink" title="2.1 什么是 webpack"></a>2.1 什么是 webpack</h2><p>概念：webpack 是前端项目工程化的具体解决方案。</p>
+<p>主要功能：它提供了友好的前端模块化开发支持，以及代码压缩混淆、处理浏览器端 JavaScript 的兼容性（运行时webpack会把高级的js代码转换为低级的js代码运行）、性能优化等强大的功能。</p>
+<p>好处：让程序员把工作的重心放到具体功能的实现上，提高了前端开发效率和项目的可维护性。</p>
+<p>注意：目前 Vue，React 等前端项目，基本上都是基于 webpack 进行工程化开发的。</p>
+<h2 id="2-2-创建列表隔行变色项目"><a href="#2-2-创建列表隔行变色项目" class="headerlink" title="2.2  创建列表隔行变色项目"></a>2.2  创建列表隔行变色项目</h2><p>① 新建项目空白目录，并运行 npm init –y 命令，初始化包管理配置文件 package.json</p>
+<p>② 新建 src 源代码目录</p>
+<p>③ 新建 src -&gt; index.html 首页和 src -&gt; index.js 脚本文件</p>
+<p>④ 初始化首页基本的结构</p>
+<p>⑤ 运行 npm install jquery –S 命令，安装 jQuery</p>
+<p>⑥ 通过 ES6 模块化的方式导入 jQuery，实现列表隔行变色效果</p>
+<h2 id="2-3-在项目中安装-webpack"><a href="#2-3-在项目中安装-webpack" class="headerlink" title="2.3 在项目中安装 webpack"></a>2.3 在项目中安装 webpack</h2><p>在终端运行如下的命令，安装 webpack 相关的两个包：</p>
+<p>npm install <a href="mailto:&#119;&#x65;&#98;&#112;&#x61;&#x63;&#x6b;&#x40;&#53;&#46;&#52;&#50;&#46;&#49;">&#119;&#x65;&#98;&#112;&#x61;&#x63;&#x6b;&#x40;&#53;&#46;&#52;&#50;&#46;&#49;</a> webpack-cli@4.7.2 -D </p>
+<h2 id="2-4-在项目中配置-webpack"><a href="#2-4-在项目中配置-webpack" class="headerlink" title="2.4 在项目中配置 webpack"></a>2.4 在项目中配置 webpack</h2><p>① 在项目根目录中，创建名为 webpack.config.js 的 webpack 配置文件，并初始化如下的基本配置：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">&#x27;development&#x27;</span>  <span class="comment">// mode用来指定构建模式，可选值有development和production</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>② 在 package.json 的 scripts 节点下，新增 dev 脚本如下：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;dev&quot;: &quot;webpack&quot;  // script 节点下的脚本，可以通过npm run执行，例如npm run dev</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>③ 在终端中运行 npm run dev 命令，启动 webpack 进行项目的打包构建</p>
+<h3 id="2-4-1-mode-的可选值"><a href="#2-4-1-mode-的可选值" class="headerlink" title="2.4.1 mode 的可选值"></a>2.4.1 mode 的可选值</h3><p>mode 节点的可选值有两个，分别是：</p>
+<p>① development</p>
+<ul>
+<li><p>开发环境</p>
+</li>
+<li><p> 不会对打包生成的文件进行代码压缩和性能优化</p>
+</li>
+<li><p>打包速度快，适合在开发阶段使用</p>
+</li>
+</ul>
+<p>② production</p>
+<ul>
+<li><p>生产环境</p>
+</li>
+<li><p>会对打包生成的文件进行代码压缩和性能优化</p>
+</li>
+<li><p>打包速度很慢，仅适合在项目发布阶段使用</p>
+</li>
+</ul>
+<h3 id="2-4-2-webpack-config-js-文件的作用"><a href="#2-4-2-webpack-config-js-文件的作用" class="headerlink" title="2.4.2 webpack.config.js 文件的作用"></a>2.4.2 webpack.config.js 文件的作用</h3><p>webpack.config.js 是 webpack 的配置文件。webpack 在真正开始打包构建之前，会先读取这个配置文件，从而基于给定的配置，对项目进行打包。</p>
+<p>注意：由于 webpack 是基于 node.js 开发出来的打包工具，因此在它的配置文件中，支持使用 node.js 相关的语法和模块进行 webpack 的个性化配置。</p>
+<h3 id="2-4-3-webpack-中的默认约定"><a href="#2-4-3-webpack-中的默认约定" class="headerlink" title="2.4.3 webpack 中的默认约定"></a>2.4.3 webpack 中的默认约定</h3><p>在 webpack 4.x 和 5.x 的版本中，有如下的默认约定：</p>
+<p>① 默认的打包入口文件为 src -&gt; index.js</p>
+<p>② 默认的输出文件路径为 dist -&gt; main.js</p>
+<p>注意：可以在 webpack.config.js 中修改打包的默认约定</p>
+<h3 id="2-4-4-自定义打包的入口与出口"><a href="#2-4-4-自定义打包的入口与出口" class="headerlink" title="2.4.4 自定义打包的入口与出口"></a>2.4.4 自定义打包的入口与出口</h3><p>在 webpack.config.js 配置文件中，通过 entry 节点指定打包的入口。通过 output 节点指定打包的出口。</p>
+<p>示例代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>)  <span class="comment">// 导入node.js中专门操作路径的模块</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: path.join(_dirname, <span class="string">&#x27;./src/index.js&#x27;</span>), <span class="comment">//打包入口文件的路径</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.join(_dirname, <span class="string">&#x27;./dist&#x27;</span>), <span class="comment">// 输出文件的存放路径</span></span><br><span class="line">        filename: <span class="string">&#x27;bundle.js&#x27;</span>  <span class="comment">// 输出文件的名称</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-webpack-中的插件"><a href="#3-webpack-中的插件" class="headerlink" title="3 webpack 中的插件"></a>3 webpack 中的插件</h1><h2 id="3-1-webpack-插件的作用"><a href="#3-1-webpack-插件的作用" class="headerlink" title="3.1 webpack 插件的作用"></a>3.1 webpack 插件的作用</h2><p>通过安装和配置第三方的插件，可以拓展 webpack 的能力，从而让 webpack 用起来更方便。最常用的</p>
+<p>webpack 插件有如下两个：</p>
+<p>① webpack-dev-server</p>
+<ul>
+<li><p>类似于 node.js 阶段用到的 nodemon 工具</p>
+</li>
+<li><p>每当修改了源代码，webpack 会自动进行项目的打包和构建</p>
+</li>
+</ul>
+<p>② html-webpack-plugin</p>
+<ul>
+<li><p>webpack 中的 HTML 插件（类似于一个模板引擎插件）</p>
+</li>
+<li><p>可以通过此插件自定制 index.html 页面的内容</p>
+</li>
+</ul>
+<h2 id="3-2-webpack-dev-server"><a href="#3-2-webpack-dev-server" class="headerlink" title="3.2 webpack-dev-server"></a>3.2 webpack-dev-server</h2><p>webpack-dev-server 可以让 webpack 监听项目源代码的变化，从而进行自动打包构建。</p>
+<h3 id="3-2-1-安装-webpack-dev-server"><a href="#3-2-1-安装-webpack-dev-server" class="headerlink" title="3.2.1 安装 webpack-dev-server"></a>3.2.1 安装 webpack-dev-server</h3><p>运行如下的命令，即可在项目中安装此插件：</p>
+<p>npm install <a href="mailto:&#x77;&#x65;&#98;&#x70;&#x61;&#99;&#x6b;&#45;&#100;&#x65;&#x76;&#45;&#115;&#101;&#114;&#118;&#101;&#x72;&#x40;&#51;&#46;&#49;&#49;&#x2e;&#x32;">&#x77;&#x65;&#98;&#x70;&#x61;&#99;&#x6b;&#45;&#100;&#x65;&#x76;&#45;&#115;&#101;&#114;&#118;&#101;&#x72;&#x40;&#51;&#46;&#49;&#49;&#x2e;&#x32;</a> -D</p>
+<h3 id="3-2-2-配置-webpack-dev-server"><a href="#3-2-2-配置-webpack-dev-server" class="headerlink" title="3.2.2 配置 webpack-dev-server"></a>3.2.2 配置 webpack-dev-server</h3><p>① 修改 package.json -&gt; scripts 中的 dev 命令如下：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;dev&quot;: &quot;webpack serve&quot;, // script节点下的脚本，可以通过npm run执行</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>② 再次运行 npm run dev 命令，重新进行项目的打包</p>
+<p>③ 在浏览器中访问 <a href="http://localhost:8080/">http://localhost:8080</a> 地址，查看自动打包效果</p>
+<p>注意：webpack-dev-server 会启动一个实时打包的 http 服务器</p>
+<h3 id="3-2-3-打包生成的文件哪儿去了？"><a href="#3-2-3-打包生成的文件哪儿去了？" class="headerlink" title="3.2.3 打包生成的文件哪儿去了？"></a>3.2.3 打包生成的文件哪儿去了？</h3><p>① 不配置 webpack-dev-server 的情况下，webpack 打包生成的文件，会存放到实际的物理磁盘上</p>
+<ul>
+<li><p>严格遵守开发者在 webpack.config.js 中指定配置</p>
+</li>
+<li><p>根据 output 节点指定路径进行存放</p>
+</li>
+</ul>
+<p>② 配置了 webpack-dev-server 之后，打包生成的文件存放到了内存中</p>
+<ul>
+<li><p>不再根据 output 节点指定的路径，存放到实际的物理磁盘上</p>
+</li>
+<li><p>提高了实时打包输出的性能，因为内存比物理磁盘速度快很多</p>
+</li>
+</ul>
+<h3 id="3-2-4-生成到内存中的文件该如何访问？"><a href="#3-2-4-生成到内存中的文件该如何访问？" class="headerlink" title="3.2.4 生成到内存中的文件该如何访问？"></a>3.2.4 生成到内存中的文件该如何访问？</h3><p>webpack-dev-server 生成到内存中的文件，默认放到了项目的根目录中，而且是虚拟的、不可见的。 </p>
+<ul>
+<li><p>可以直接用 / 表示项目根目录，后面跟上要访问的文件名称，即可访问内存中的文件</p>
+</li>
+<li><p>例如 /bundle.js 就表示要访问 webpack-dev-server 生成到内存中的 bundle.js 文件</p>
+</li>
+</ul>
+<h2 id="3-3-html-webpack-plugin"><a href="#3-3-html-webpack-plugin" class="headerlink" title="3.3 html-webpack-plugin"></a>3.3 html-webpack-plugin</h2><p>html-webpack-plugin 是 webpack 中的 HTML 插件，可以通过此插件自定制 index.html 页面的内容。</p>
+<p>需求：通过 html-webpack-plugin 插件，将 src 目录下的 index.html 首页，复制到项目根目录中一份！</p>
+<h3 id="3-3-1-安装-html-webpack-plugin"><a href="#3-3-1-安装-html-webpack-plugin" class="headerlink" title="3.3.1 安装 html-webpack-plugin"></a>3.3.1 安装 html-webpack-plugin</h3><p>运行如下的命令，即可在项目中安装此插件：</p>
+<p>npm install <a href="mailto:&#104;&#116;&#x6d;&#x6c;&#x2d;&#x77;&#101;&#x62;&#112;&#97;&#99;&#107;&#x2d;&#x70;&#x6c;&#117;&#x67;&#x69;&#110;&#x40;&#x35;&#46;&#x33;&#x2e;&#x32;">&#104;&#116;&#x6d;&#x6c;&#x2d;&#x77;&#101;&#x62;&#112;&#97;&#99;&#107;&#x2d;&#x70;&#x6c;&#117;&#x67;&#x69;&#110;&#x40;&#x35;&#46;&#x33;&#x2e;&#x32;</a> -D</p>
+<h3 id="3-3-2-配置-html-webpack-plugin"><a href="#3-3-2-配置-html-webpack-plugin" class="headerlink" title="3.3.2 配置 html-webpack-plugin"></a>3.3.2 配置 html-webpack-plugin</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 导入HTML插件，得到一个构造函数</span></span><br><span class="line"><span class="keyword">const</span> HtmlPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 创建HTML插件的实例对象</span></span><br><span class="line"><span class="keyword">const</span> htmlPlugin = <span class="keyword">new</span> HtmlPlugin(&#123;</span><br><span class="line">    template: <span class="string">&#x27;./src/index.html&#x27;</span>, <span class="comment">// 指定原文件的存放路径</span></span><br><span class="line">    filename: <span class="string">&#x27;./index.html&#x27;</span> <span class="comment">// 指定生成的文件的存放路径</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">    plugins: [htmlPlugin], <span class="comment">// 3. 通过plugins节点，使htmlPlugin插件生效</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-3-解惑-html-webpack-plugin"><a href="#3-3-3-解惑-html-webpack-plugin" class="headerlink" title="3.3.3 解惑 html-webpack-plugin"></a>3.3.3 解惑 html-webpack-plugin</h3><p>① 通过 HTML 插件复制到项目根目录中的 index.html 页面，也被放到了内存中</p>
+<p>② HTML 插件在生成的 index.html 页面，自动注入了打包的 bundle.js 文件</p>
+<h2 id="3-4-devServer-节点"><a href="#3-4-devServer-节点" class="headerlink" title="3.4 devServer 节点"></a>3.4 devServer 节点</h2><p>在 webpack.config.js 配置文件中，可以通过 devServer 节点对 webpack-dev-server 插件进行更多的配置，</p>
+<p>示例代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">devServer: &#123;</span><br><span class="line">    open: <span class="literal">true</span>, <span class="comment">// 初次打包完成后，自动打开浏览器</span></span><br><span class="line">    host: <span class="string">&#x27;127.0.0.1&#x27;</span>, <span class="comment">// 实时打包所使用的主机地址</span></span><br><span class="line">    port: <span class="number">80</span>, <span class="comment">// 实时打包所使用的端口号</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：凡是修改了 webpack.config.js 配置文件，或修改了 package.json 配置文件，必须重启实时打包的服务器，否则最新的配置文件无法生效！</p>
+<h1 id="4-webpack-中的-loader"><a href="#4-webpack-中的-loader" class="headerlink" title="4 webpack 中的 loader"></a>4 webpack 中的 loader</h1><h2 id="4-1-loader-概述"><a href="#4-1-loader-概述" class="headerlink" title="4.1 loader 概述"></a>4.1 loader 概述</h2><p>在实际开发过程中，webpack 默认只能打包处理以 .js 后缀名结尾的模块。其他非 .js 后缀名结尾的模块，webpack 默认处理不了，需要调用 loader 加载器才可以正常打包，否则会报错！</p>
+<p>loader 加载器的作用：协助 webpack 打包处理特定的文件模块。比如：</p>
+<ul>
+<li><p>css-loader 可以打包处理 .css 相关的文件</p>
+</li>
+<li><p>less-loader 可以打包处理 .less 相关的文件</p>
+</li>
+<li><p>babel-loader 可以打包处理 webpack 无法处理的高级 JS 语法</p>
+</li>
+</ul>
+<h2 id="4-2-loader的调用过程"><a href="#4-2-loader的调用过程" class="headerlink" title="4.2 loader的调用过程"></a>4.2 loader的调用过程</h2><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/image-20220403200855794.png" alt="image-20220403200855794"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/01.loader%E8%B0%83%E7%94%A8%E7%9A%84%E8%BF%87%E7%A8%8B.png" alt="01.loader调用的过程"></p>
+<h2 id="4-3-打包处理-css-文件"><a href="#4-3-打包处理-css-文件" class="headerlink" title="4.3 打包处理 css 文件"></a>4.3 打包处理 css 文件</h2><p>① 运行 npm i <a href="mailto:&#115;&#x74;&#121;&#x6c;&#101;&#45;&#108;&#111;&#x61;&#x64;&#101;&#x72;&#x40;&#51;&#46;&#x30;&#46;&#48;">&#115;&#x74;&#121;&#x6c;&#101;&#45;&#108;&#111;&#x61;&#x64;&#101;&#x72;&#x40;&#51;&#46;&#x30;&#46;&#48;</a> css-loader@5.2.6 -D 命令，安装处理 css 文件的 loader</p>
+<p>② 在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123; <span class="comment">// 所有第三方文件模块的匹配规则</span></span><br><span class="line">    rules: [ <span class="comment">// 文件后缀名的匹配规则</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>] &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中，test 表示匹配的文件类型， use 表示对应要调用的 loader</p>
+<p>注意：</p>
+<ul>
+<li><p>use 数组中指定的 loader 顺序是固定的</p>
+</li>
+<li><p>多个 loader 的调用顺序是：从后往前调用</p>
+</li>
+</ul>
+<h2 id="4-4-打包处理-less-文件"><a href="#4-4-打包处理-less-文件" class="headerlink" title="4.4 打包处理 less 文件"></a>4.4 打包处理 less 文件</h2><p>① 运行 npm i <a href="mailto:&#x6c;&#x65;&#x73;&#115;&#45;&#x6c;&#x6f;&#x61;&#x64;&#101;&#x72;&#x40;&#x31;&#48;&#46;&#x30;&#x2e;&#49;">&#x6c;&#x65;&#x73;&#115;&#45;&#x6c;&#x6f;&#x61;&#x64;&#101;&#x72;&#x40;&#x31;&#48;&#46;&#x30;&#x2e;&#49;</a> less@4.1.1 -D 命令</p>
+<p>② 在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123; <span class="comment">// 所有第三方文件模块的匹配规则</span></span><br><span class="line">    rules: [ <span class="comment">// 文件后缀名的匹配规则</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.less$/</span>, use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>, <span class="string">&#x27;less-loader&#x27;</span>] &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-5-打包处理样式表中与-url-路径相关的文件"><a href="#4-5-打包处理样式表中与-url-路径相关的文件" class="headerlink" title="4.5 打包处理样式表中与 url 路径相关的文件"></a>4.5 打包处理样式表中与 url 路径相关的文件</h2><p>① 运行 npm i <a href="mailto:&#117;&#x72;&#x6c;&#45;&#x6c;&#111;&#97;&#x64;&#x65;&#114;&#64;&#52;&#x2e;&#x31;&#x2e;&#49;">&#117;&#x72;&#x6c;&#45;&#x6c;&#111;&#97;&#x64;&#x65;&#114;&#64;&#52;&#x2e;&#x31;&#x2e;&#49;</a> file-loader@6.2.0 -D 命令</p>
+<p>② 在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123; <span class="comment">// 所有第三方文件模块的匹配规则</span></span><br><span class="line">    rules: [ <span class="comment">// 文件后缀名的匹配规则</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.jpg|png|gif$/</span>, use: [<span class="string">&#x27;url-loader?limit=22229&#x27;</span>] &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中 ? 之后的是 loader 的参数项： </p>
+<ul>
+<li><p>limit 用来指定图片的大小，单位是字节（byte） </p>
+</li>
+<li><p>只有 ≤ limit 大小的图片，才会被转为 base64 格式的图片</p>
+</li>
+</ul>
+<h2 id="4-6-打包处理js文件中的高级语法"><a href="#4-6-打包处理js文件中的高级语法" class="headerlink" title="4.6 打包处理js文件中的高级语法"></a>4.6 打包处理js文件中的高级语法</h2><p>webpack 只能打包处理一部分高级的 JavaScript 语法。对于那些 webpack 无法处理的高级 js 语法，需要借助于 babel-loader 进行打包处理。例如 webpack 无法处理下面的 JavaScript 代码：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 定义了名为info的装饰器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">info</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 2. 为目标添加静态属性info</span></span><br><span class="line">    target.info = <span class="string">&#x27;Person info&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 为Person类应用info装饰器</span></span><br><span class="line">@info</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//4. 打印 Person 的静态属性 info</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.info)</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-6-1-安装-babel-loader-相关的包"><a href="#4-6-1-安装-babel-loader-相关的包" class="headerlink" title="4.6.1 安装 babel-loader 相关的包"></a>4.6.1 安装 babel-loader 相关的包</h3><p>运行如下的命令安装对应的依赖包：</p>
+<p>npm i <a href="mailto:&#98;&#x61;&#x62;&#101;&#108;&#45;&#x6c;&#x6f;&#97;&#100;&#x65;&#114;&#64;&#x38;&#x2e;&#x32;&#46;&#50;">&#98;&#x61;&#x62;&#101;&#108;&#45;&#x6c;&#x6f;&#97;&#100;&#x65;&#114;&#64;&#x38;&#x2e;&#x32;&#46;&#50;</a> @babel/core@7.14.6 @babel/plugin-proposal-decorators@7.14.5 -D </p>
+<p>在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注意：必须使用exclude指定排除项；因为node_modules目录下的第三方包不需要被打包</span></span><br><span class="line">&#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, use: <span class="string">&#x27;babel-loader&#x27;</span>, <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span> &#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.6.2 配置 babel-loader</p>
+<p>在项目根目录下，创建名为 babel.config.js 的配置文件，定义 Babel 的配置项如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123; <span class="comment">// 声明babel可用的插件</span></span><br><span class="line">    plugins:[[<span class="string">&#x27;@babel/plugin-proposal-decorators&#x27;</span>, &#123;<span class="attr">legacy</span>: <span class="literal">true</span>&#125;]]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-打包发布"><a href="#5-打包发布" class="headerlink" title="5 打包发布"></a>5 打包发布</h1><h2 id="5-1-为什么要打包发布"><a href="#5-1-为什么要打包发布" class="headerlink" title="5.1 为什么要打包发布"></a>5.1 为什么要打包发布</h2><p>项目开发完成之后，需要使用 webpack 对项目进行打包发布，主要原因有以下两点：</p>
+<p>① 开发环境下，打包生成的文件存放于内存中，无法获取到最终打包生成的文件</p>
+<p>② 开发环境下，打包生成的文件不会进行代码压缩和性能优化</p>
+<p>为了让项目能够在生产环境中高性能的运行，因此需要对项目进行打包发布。</p>
+<h2 id="5-2-配置-webpack-的打包发布"><a href="#5-2-配置-webpack-的打包发布" class="headerlink" title="5.2 配置 webpack 的打包发布"></a>5.2 配置 webpack 的打包发布</h2><p>在 package.json 文件的 scripts 节点下，新增 build 命令如下：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;dev&quot;: &quot;webpack serve&quot;, // 开发环境中，运行dev命令</span><br><span class="line">    &quot;build&quot;: &quot;webpack --mode production&quot;  // 项目发布时，运行build命令</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>–model 是一个参数项，用来指定 webpack 的运行模式。production 代表生产环境，会对打包生成的文件进行代码压缩和性能优化。</p>
+<p>注意：通过 –model 指定的参数项，会覆盖 webpack.config.js 中的 model 选项。</p>
+<h2 id="5-3-把-JavaScript-文件统一生成到-js-目录中"><a href="#5-3-把-JavaScript-文件统一生成到-js-目录中" class="headerlink" title="5.3 把 JavaScript 文件统一生成到 js 目录中"></a>5.3 把 JavaScript 文件统一生成到 js 目录中</h2><p>在 webpack.config.js 配置文件的 output 节点中，进行如下的配置：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">output: &#123;</span><br><span class="line">    path: path.join(_dirname, <span class="string">&#x27;dist&#x27;</span>),</span><br><span class="line">    <span class="comment">// 明确告诉webpack把生成的bundle.js文件存放到dist目录下的js子目录中</span></span><br><span class="line">    filename: <span class="string">&#x27;js/bundle.js&#x27;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-4-把图片文件统一生成到-image-目录中"><a href="#5-4-把图片文件统一生成到-image-目录中" class="headerlink" title="5.4 把图片文件统一生成到 image 目录中"></a>5.4 把图片文件统一生成到 image 目录中</h2><p>修改 webpack.config.js 中的 url-loader 配置项，新增 outputPath 选项即可指定图片文件的输出路径：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    test: <span class="regexp">/\.jpg|png|gif$/</span>,</span><br><span class="line">    use: &#123;</span><br><span class="line">        loader: <span class="string">&#x27;url-loader&#x27;</span>,</span><br><span class="line">        options: &#123;</span><br><span class="line">            limit: <span class="number">22228</span>,</span><br><span class="line">            <span class="comment">// 明确指定把打包生成的图片文件，存放到dist目录下的image文件夹中</span></span><br><span class="line">            outputPath: <span class="string">&#x27;image&#x27;</span>,</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-5-自动清理-dist-目录下的旧文件"><a href="#5-5-自动清理-dist-目录下的旧文件" class="headerlink" title="5.5 自动清理 dist 目录下的旧文件"></a>5.5 自动清理 dist 目录下的旧文件</h2><p>为了在每次打包发布时自动清理掉 dist 目录中的旧文件，可以安装并配置 clean-webpack-plugin 插件：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 安装清理dist目录的webpack插件</span></span><br><span class="line">npm install clean-webpack-plugin@<span class="number">3.0</span><span class="number">.0</span> -D</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 按需导入插件，得到插件的构造函数之后，创建插件的实例对象</span></span><br><span class="line"><span class="keyword">const</span> &#123;CleanWebpackPlugin&#125; = <span class="built_in">require</span>(<span class="string">&#x27;clean-webpack-plugin&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> cleanPlugin = <span class="keyword">new</span> CleanWebpackPlugin()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 把创建的cleanPlugin插件实例对象，挂载到plugins节点中</span></span><br><span class="line">plugins: [htmlPlugin, cleanPlugin], <span class="comment">// 挂载插件</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="6-Source-Map"><a href="#6-Source-Map" class="headerlink" title="6 Source Map"></a>6 Source Map</h1><h2 id="6-1-生产环境遇到的问题"><a href="#6-1-生产环境遇到的问题" class="headerlink" title="6.1 生产环境遇到的问题"></a>6.1 生产环境遇到的问题</h2><p>前端项目在投入生产环境之前，都需要对 JavaScript 源代码进行压缩混淆，从而减小文件的体积，提高文件的加载效率。此时就不可避免的产生了另一个问题：</p>
+<p>对压缩混淆之后的代码除错（debug）是一件极其困难的事情</p>
+<ul>
+<li><p>变量被替换成没有任何语义的名称</p>
+</li>
+<li><p>空行和注释被剔除</p>
+</li>
+</ul>
+<h2 id="6-2-什么是-Source-Map"><a href="#6-2-什么是-Source-Map" class="headerlink" title="6.2 什么是 Source Map"></a>6.2 什么是 Source Map</h2><p>Source Map 就是一个信息文件，里面储存着位置信息。也就是说，Source Map 文件中存储着压缩混淆后的代码，所对应的转换前的位置。</p>
+<p>有了它，出错的时候，除错工具将直接显示原始代码，而不是转换后的代码，能够极大的方便后期的调试。</p>
+<h2 id="6-3-webpack-开发环境下的-Source-Map"><a href="#6-3-webpack-开发环境下的-Source-Map" class="headerlink" title="6.3 webpack 开发环境下的 Source Map"></a>6.3 webpack 开发环境下的 Source Map</h2><p>在开发环境下，webpack 默认启用了 Source Map 功能。当程序运行出错时，可以直接在控制台提示错误行的位置，并定位到具体的源代码：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/image-20220403204241772.png" alt="image-20220403204241772"></p>
+<h3 id="6-3-1-默认-Source-Map-的问题"><a href="#6-3-1-默认-Source-Map-的问题" class="headerlink" title="6.3.1 默认 Source Map 的问题"></a>6.3.1 默认 Source Map 的问题</h3><p>开发环境下默认生成的 Source Map，记录的是生成后的代码的位置。会导致运行时报错的行数与源代码的行数不一致的问题。示意图如下：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/image-20220403204343823.png" alt="image-20220403204343823"></p>
+<h3 id="6-3-2-解决默认-Source-Map-的问题"><a href="#6-3-2-解决默认-Source-Map-的问题" class="headerlink" title="6.3.2 解决默认 Source Map 的问题"></a>6.3.2 解决默认 Source Map 的问题</h3><p>开发环境下，推荐在 webpack.config.js 中添加如下的配置，即可保证运行时报错的行数与源代码的行数保持一致：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">    <span class="comment">// eval-source-map仅限在“开发模式”下使用，不建议在“生产模式”下使用</span></span><br><span class="line">    <span class="comment">// 此选项生成的Source Map能够保证“运行时报错的行数”与“源代码的行数”保持一致</span></span><br><span class="line">    devtool: <span class="string">&#x27;eval-source-map&#x27;</span>,</span><br><span class="line">    <span class="comment">// 省略其他配置项...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-4-webpack-生产环境下的-Source-Map"><a href="#6-4-webpack-生产环境下的-Source-Map" class="headerlink" title="6.4 webpack 生产环境下的 Source Map"></a>6.4 webpack 生产环境下的 Source Map</h2><p>在生产环境下，如果省略了 devtool 选项，则最终生成的文件中不包含 Source Map。这能够防止原始代码通过 Source Map 的形式暴露给别有所图之人。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/image-20220403204819803.png" alt="image-20220403204819803"></p>
+<h3 id="6-4-1-只定位行数不暴露源码"><a href="#6-4-1-只定位行数不暴露源码" class="headerlink" title="6.4.1 只定位行数不暴露源码"></a>6.4.1 只定位行数不暴露源码</h3><p>在生产环境下，如果只想定位报错的具体行数，且不想暴露源码。此时可以将 devtool 的值设置为nosources-source-map。实际效果如图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/image-20220403204925752.png" alt="image-20220403204925752"></p>
+<h3 id="6-4-2-定位行数且暴露源码"><a href="#6-4-2-定位行数且暴露源码" class="headerlink" title="6.4.2 定位行数且暴露源码"></a>6.4.2 定位行数且暴露源码</h3><p>在生产环境下，如果想在定位报错行数的同时，展示具体报错的源码。此时可以将 devtool 的值设置为source-map。实际效果如图所示：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/image-20220403205008039.png" alt="image-20220403205008039"></p>
+<p>采用此选项后：你应该将你的服务器配置为，不允许普通用户访问 source map 文件！</p>
+<p>6.5  Source Map 的最佳实践</p>
+<p>① 开发环境下：</p>
+<ul>
+<li><p>建议把 devtool 的值设置为 eval-source-map</p>
+</li>
+<li><p>好处：可以精准定位到具体的错误行</p>
+</li>
+</ul>
+<p>② 生产环境下：</p>
+<ul>
+<li><p>建议关闭 Source Map 或将 devtool 的值设置为 nosources-source-map</p>
+</li>
+<li><p>好处：防止源码泄露，提高网站的安全性</p>
+</li>
+</ul>
+<h1 id="7-总结"><a href="#7-总结" class="headerlink" title="7 总结"></a>7 总结</h1><p>① 能够掌握 webpack 的基本使用</p>
+<ul>
+<li>安装、webpack.config.js、修改打包入口</li>
+</ul>
+<p>② 了解常用的 plugin 的基本使用</p>
+<ul>
+<li>webpack-dev-server、html-webpack-plugin</li>
+</ul>
+<p>③ 了解常用的 loader 的基本使用</p>
+<ul>
+<li>loader 的作用、loader 的调用过程</li>
+</ul>
+<p>④ 能够说出 Source Map 的作用</p>
+<ul>
+<li><p>精准定位到错误行并显示对应的源码</p>
+</li>
+<li><p>方便开发者调试源码中的错误</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>webpack</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL笔记</title>
     <url>/undefined/fd5f561d/</url>
     <content><![CDATA[<blockquote>
@@ -7331,9 +7623,9 @@
 <li>调用Vue.component()方法 - 注册组件</li>
 <li>在Vue实例的作用范围内 - 使用组件</li>
 </ol>
- <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    //使用组件</span><br><span class="line">    <span class="tag">&lt;<span class="name">my-cpm</span>&gt;</span><span class="tag">&lt;/<span class="name">my-cpm</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="comment">//创建组件构造器</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> cpnC = Vue.extend(&#123;</span></span><br><span class="line">    template: &#x27;</span><br><span class="line"><span class="handlebars"><span class="xml">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>模板<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>&#x27;</span></span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="comment">//注册组件</span></span></span><br><span class="line"><span class="javascript">Vue.component(<span class="string">&#x27;my-cpn&#x27;</span>, cpmC)</span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">    el: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line">    data:&#123;</span><br><span class="line"><span class="javascript">        message: <span class="string">&#x27;&#x27;</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    //使用组件</span><br><span class="line">    <span class="tag">&lt;<span class="name">my-cpn</span>&gt;</span><span class="tag">&lt;/<span class="name">my-cpn</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="comment">//创建组件构造器</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> cpnC = Vue.extend(&#123;</span></span><br><span class="line">    template: &#x27;</span><br><span class="line"><span class="handlebars"><span class="xml">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;<span class="name">h2</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>模板<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span>&#x27;</span></span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="comment">//注册组件</span></span></span><br><span class="line"><span class="javascript">Vue.component(<span class="string">&#x27;my-cpn&#x27;</span>, cpnC)</span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">    el: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line">    data:&#123;</span><br><span class="line"><span class="javascript">        message: <span class="string">&#x27;&#x27;</span></span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="5-2-局部组件"><a href="#5-2-局部组件" class="headerlink" title="5.2 局部组件"></a>5.2 局部组件</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">my-cpm</span>&gt;</span><span class="tag">&lt;/<span class="name">my-cpm</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> cpnC = Vue.extend(&#123;</span></span><br><span class="line">    template: &#x27;</span><br><span class="line"><span class="handlebars"><span class="xml">    	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        	<span class="tag">&lt;<span class="name">p</span>&gt;</span>模板<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">    	<span class="tag">&lt;/<span class="name">div</span>&gt;</span>&#x27;</span></span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">    el: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line">    data:&#123;</span><br><span class="line"><span class="javascript">        message: <span class="string">&#x27;&#x27;</span></span></span><br><span class="line">    &#125;,</span><br><span class="line">    components: &#123;</span><br><span class="line">        cpn: cpnC</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-2-局部组件"><a href="#5-2-局部组件" class="headerlink" title="5.2 局部组件"></a>5.2 局部组件</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;app&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">my-cpn</span>&gt;</span><span class="tag">&lt;/<span class="name">my-cpn</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> cpnC = Vue.extend(&#123;</span></span><br><span class="line">    template: &#x27;</span><br><span class="line"><span class="handlebars"><span class="xml">    	<span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        	<span class="tag">&lt;<span class="name">h2</span>&gt;</span>标题<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">        	<span class="tag">&lt;<span class="name">p</span>&gt;</span>模板<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span></span><br><span class="line"><span class="handlebars"><span class="xml">    	<span class="tag">&lt;/<span class="name">div</span>&gt;</span>&#x27;</span></span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> app = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="javascript">    el: <span class="string">&#x27;#app&#x27;</span>,</span></span><br><span class="line">    data:&#123;</span><br><span class="line"><span class="javascript">        message: <span class="string">&#x27;&#x27;</span></span></span><br><span class="line">    &#125;,</span><br><span class="line">    components: &#123;</span><br><span class="line">        my-cpn: cpnC</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 
 
