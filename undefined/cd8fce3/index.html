@@ -264,8 +264,8 @@
 <span id="more"></span>
 <p>今天发现了一个好玩的东东，记录到博客上</p>
 <p>注意更改一下消息间隔时间，提前复制好要发送的内容，打开要轰炸对象的聊天窗口，然后运行该代码</p>
-<p>（该代码在vs2019下会报错，我使用的是dev）</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;Windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> time ?<span class="comment">//更改发送消息间隔时间 </span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">100</span>];<span class="comment">//使用前先复制要轰炸的内容 </span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;输入你要轰炸的对象的名称：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,&amp;name,<span class="number">40</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;输入你要轰炸的次数：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;i);</span><br><span class="line">    HWND H =FindWindow(<span class="number">0</span>,name);<span class="comment">//找到对话窗口 </span></span><br><span class="line">    <span class="keyword">while</span>(i--&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        SendMessage(H,WM_PASTE,<span class="number">0</span>,<span class="number">0</span>);<span class="comment">//粘贴内容 </span></span><br><span class="line">        SendMessage(H,WM_KEYDOWN,VK_RETURN,<span class="number">0</span>);<span class="comment">//回车发送</span></span><br><span class="line">        Sleep(time);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<p>（该代码在vs2019下会报错，我使用的是dev）<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;Windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> time ?<span class="comment">//更改发送消息间隔时间 </span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">100</span>];<span class="comment">//使用前先复制要轰炸的内容 </span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;输入你要轰炸的对象的名称：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,&amp;name,<span class="number">40</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;输入你要轰炸的次数：&quot;</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;i);</span><br><span class="line">    HWND H =FindWindow(<span class="number">0</span>,name);<span class="comment">//找到对话窗口 </span></span><br><span class="line">    <span class="keyword">while</span>(i--&gt;<span class="number">0</span>)&#123;</span><br><span class="line">        SendMessage(H,WM_PASTE,<span class="number">0</span>,<span class="number">0</span>);<span class="comment">//粘贴内容 </span></span><br><span class="line">        SendMessage(H,WM_KEYDOWN,VK_RETURN,<span class="number">0</span>);<span class="comment">//回车发送</span></span><br><span class="line">        Sleep(time);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></p>
+
     </div>
 
     
@@ -394,20 +394,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">45</span>
+          <span class="site-state-item-count">50</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -448,13 +448,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">428k</span>
+    <span title="站点总字数">475k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">6:29</span>
+    <span title="站点阅读时长">7:12</span>
 </div>
 
 <!-- 网站运行时间的设置 -->
