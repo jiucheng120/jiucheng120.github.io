@@ -264,7 +264,10 @@
 <span id="more"></span>
 <h2 id="auto声明"><a href="#auto声明" class="headerlink" title="auto声明"></a>auto声明</h2><p>让编译器根据初始值类型直接推断出变量的类型</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// set的迭代器原始写法：</span></span><br><span class="line"><span class="keyword">for</span>(set&lt;<span class="keyword">int</span>&gt;::iterator it = s.<span class="built_in">begin</span>(); it != s.<span class="built_in">end</span>(); it++) &#123;</span><br><span class="line">    cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// auto写法：</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> it = s.<span class="built_in">begin</span>(); it != s.<span class="built_in">end</span>(); it++) &#123;</span><br><span class="line">    cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="基于范围的for循环"><a href="#基于范围的for循环" class="headerlink" title="基于范围的for循环"></a>基于范围的for循环</h2><p>遍历数组中的每一个元素时使用时比较方便<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i : arr)</span><br><span class="line">    cout &lt;&lt; i &lt;&lt; endl; <span class="comment">// 输出数组中的每一个元素的值，每个元素占据一行</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> &amp;i : arr) <span class="comment">// i为引用变量</span></span><br><span class="line">    i = i * <span class="number">2</span>; <span class="comment">// 将数组中的每一个元素都乘以2，arr[4]的内容变为了&#123;0, 2, 4, 6&#125;</span></span><br></pre></td></tr></table></figure></p>
+
+<h2 id="基于范围的for循环"><a href="#基于范围的for循环" class="headerlink" title="基于范围的for循环"></a>基于范围的for循环</h2><p>遍历数组中的每一个元素时使用时比较方便</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> arr[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i : arr)</span><br><span class="line">    cout &lt;&lt; i &lt;&lt; endl; <span class="comment">// 输出数组中的每一个元素的值，每个元素占据一行</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> &amp;i : arr) <span class="comment">// i为引用变量</span></span><br><span class="line">    i = i * <span class="number">2</span>; <span class="comment">// 将数组中的每一个元素都乘以2，arr[4]的内容变为了&#123;0, 2, 4, 6&#125;</span></span><br></pre></td></tr></table></figure>
+
 <p>当然上面的也可以替换为auto</p>
 <h2 id="转换类型"><a href="#转换类型" class="headerlink" title="转换类型"></a>转换类型</h2><p><code>stoi</code> 转换为int</p>
 <p><code>stod</code> 转换为double</p>
@@ -404,7 +407,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">49</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -458,13 +461,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">475k</span>
+    <span title="站点总字数">492k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:12</span>
+    <span title="站点阅读时长">7:27</span>
 </div>
 
 <!-- 网站运行时间的设置 -->
