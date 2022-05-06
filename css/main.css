@@ -1242,7 +1242,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffc674;
+  background: #36db1a;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2654,6 +2654,11 @@ body {
 }
 .header-inner {
   top: 8px;
+}
+@media (max-width: 991px) {
+  .header-inner {
+    top: 0px;
+  }
 }
 /* webkit, opera, IE9 */
 ::selection {
