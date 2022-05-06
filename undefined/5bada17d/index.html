@@ -302,7 +302,7 @@
 <h2 id="4-7-盒子标签"><a href="#4-7-盒子标签" class="headerlink" title="4.7 盒子标签"></a>4.7 盒子标签</h2><p>无语义的盒子</p>
 <ul>
 <li><code>&lt;div&gt; &lt;/div&gt;</code>表示分割，分区，用于布局，单独占一行。大盒子</li>
-<li> <code>&lt;span&gt; &lt;/span&gt;</code>表示跨度跨距，一行可以放多个。小盒子</li>
+<li><code>&lt;span&gt; &lt;/span&gt;</code>表示跨度跨距，一行可以放多个。小盒子</li>
 </ul>
 <h2 id="4-8-图像标签"><a href="#4-8-图像标签" class="headerlink" title="4.8 图像标签"></a>4.8 图像标签</h2><p><code>&lt;img src=&quot;&quot; /&gt;</code> 单标签，必须将被插入的文件和html文件放到一个目录下</p>
 <p>属性：</p>
@@ -321,7 +321,7 @@
 <li>相对路径</li>
 </ul>
 <p>（图片相对于html页面的位置）</p>
-<p>同一级路径  <code>&lt;img src=&quot;./baidu.gif&quot; &gt;</code> </p>
+<p>同一级路径  <code>&lt;img src=&quot;./baidu.gif&quot; &gt;</code> </p>
 <p>下一级路径  <code>&lt;img src=&quot;images/baidu.gif&quot; /&gt;</code></p>
 <p>上一级路径  <code>&lt;img src=&quot;../baidu.gif&quot; /&gt;</code></p>
 <ul>
@@ -330,7 +330,7 @@
 <p>（E:\或者网址）</p>
 </blockquote>
 <h2 id="4-9-超链接标签"><a href="#4-9-超链接标签" class="headerlink" title="4.9 超链接标签"></a>4.9 超链接标签</h2><p><code>&lt;a href=&quot;跳转目标&quot; target=&quot;目标窗口的弹出方式&quot;&gt;文本或图像&lt;/a&gt;;</code></p>
-<p>target（_ self为默认值（当前窗口），_ blank为在新窗口中打开方式，_ parent为当前窗口的父窗口，_ top为当前窗口的顶级窗口，内部窗口：<code>&lt;iframe&gt; &lt;/iframe&gt;</code>）</p>
+<p>target（<em> self为默认值（当前窗口），</em> blank为在新窗口中打开方式，<em> parent为当前窗口的父窗口，</em> top为当前窗口的顶级窗口，内部窗口：<code>&lt;iframe&gt; &lt;/iframe&gt;</code>）</p>
 <blockquote>
 <p> iframe元素</p>
 <p> 利用iframe元素可以实现：在一个HTML文档中嵌入其他HTML文档</p>
@@ -353,25 +353,24 @@
 <p>对于网页来说，不管什么操作系统（Windows、Mac、Linux），路径分隔符都是 <code>/</code>，而不是 <code>\</code></p>
 <p>a元素的一些其他用途：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--下载文件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://github.com/coderwhy/HYMiniMall/archive/master.zip&quot;</span>&gt;</span>HYMiniMall<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--发邮件--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;mailto:12345@qq.com&quot;</span>&gt;</span>发邮件到12345qq邮箱<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="4-10-注释标签"><a href="#4-10-注释标签" class="headerlink" title="4.10 注释标签"></a>4.10 注释标签</h2><p><code>&lt;!-- --&gt;</code>   “ctrl+/“</p>
 <h2 id="4-11-特殊字符"><a href="#4-11-特殊字符" class="headerlink" title="4.11 特殊字符"></a>4.11 特殊字符</h2><p>空格符 <code>&amp;nbsp;</code></p>
 <p>&lt;  <code>&amp;lt;</code></p>
-<p>&gt;  <code>&amp;gt;</code></p>
+<p>&gt;  <code>&amp;gt;</code></p>
 <p>&amp;  <code>&amp;amp;</code></p>
-<p>&yen;  <code>&amp;yen;</code></p>
-<p>&copy;  <code>&amp;copy;</code> （版权）</p>
-<p>&reg;  <code>&amp;reg;</code>  （注册商标）</p>
-<p>&deg;   <code>&amp;deg;</code> （摄氏度）</p>
-<p>&plusmn;  <code>&amp;plusmn;</code>  （正负号）</p>
-<p>&times;  <code>&amp;times;  </code>  </p>
-<p>&divide;  <code>&amp;divide;</code></p>
-<p>&sup2;   <code>&amp;sup2;</code></p>
-<p>&sup3;   <code>&amp;sup3;</code></p>
+<p>&yen;  <code>&amp;yen;</code></p>
+<p>&copy;  <code>&amp;copy;</code> （版权）</p>
+<p>&reg;  <code>&amp;reg;</code>  （注册商标）</p>
+<p>&deg;   <code>&amp;deg;</code> （摄氏度）</p>
+<p>&plusmn;  <code>&amp;plusmn;</code>  （正负号）</p>
+<p>&times;  <code>&amp;times;</code>  </p>
+<p>&divide;  <code>&amp;divide;</code></p>
+<p>&sup2;   <code>&amp;sup2;</code></p>
+<p>&sup3;   <code>&amp;sup3;</code></p>
 <h2 id="4-12-表格标签"><a href="#4-12-表格标签" class="headerlink" title="4.12 表格标签"></a>4.12 表格标签</h2><h3 id="表格结构"><a href="#表格结构" class="headerlink" title="表格结构"></a>表格结构</h3><p><code>&lt;table&gt; &lt;/table&gt;</code> 定义表格的标签</p>
 <p><code>&lt;tr&gt; &lt;/tr&gt;</code> 定义表格中的行</p>
 <p><code>&lt;th&gt; &lt;/th&gt;</code> 表头单元格，加粗居中</p>
-<p><code>&lt;td&gt; &lt;/td&gt;</code> 表格中的单元格</p>
+<p><code>&lt;td&gt; &lt;/td&gt;</code> 表格中的单元格</p>
 <h3 id="表格属性"><a href="#表格属性" class="headerlink" title="表格属性"></a>表格属性</h3><p>align：left,center,right 对齐方式</p>
 <p>width（height）: “50%”或”300px” （像素值或百分比）</p>
 <p>border：1或”1px” 规定是否拥有边框和线的宽度</p>
@@ -382,16 +381,12 @@
 <p><code>&lt;tbody&gt; &lt;/tbody&gt;</code>：用于定义表格的主体</p>
 <p><code>&lt;hfoot&gt; &lt;/tfoot&gt;</code>：形式和<code>&lt;tbody&gt;</code>一样</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 居中显示 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">caption</span>&gt;</span>股票排行<span class="tag">&lt;/<span class="name">caption</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">thead</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">&quot;head&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>排名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>股票名称<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>股票代码<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span>股票价格<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">thead</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tbody</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>123<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>123<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>123<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">td</span>&gt;</span>123<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tbody</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tfoot</span>&gt;</span><span class="tag">&lt;/<span class="name">tfoot</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">table</span> &#123;</span><br><span class="line">    // 设置表格的边框是合并的</span><br><span class="line">    <span class="attribute">border-collapse</span>: collapse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="合并单元格"><a href="#合并单元格" class="headerlink" title="合并单元格"></a>合并单元格</h3><p>跨行合并：<code>rowspan</code>=”合并单元格的个数”，最上侧单元格为目标单元格，写合并代码</p>
 <p>跨列合并：<code>colspan</code>=”合并单元格的个数”，最左侧单元格为目标单元格，写合并代码</p>
 <p>注意合并单元格之后删除多余的单元格</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 列合并 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span> <span class="attr">colspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span>1-1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>2-1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>2-2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 行合并 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span> <span class="attr">rowspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span>1-1<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>1-2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>2-2<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="4-13-列表标签"><a href="#4-13-列表标签" class="headerlink" title="4.13 列表标签"></a>4.13 列表标签</h2><h3 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h3><p><code>&lt;ul&gt;</code> 表示html页面中项目的无序列表，其中只能嵌套<code>&lt;li&gt; &lt;/li&gt;</code></p>
 <p><code>&lt;li&gt;</code>表示列表项，<code>&lt;li&gt; &lt;/li&gt;</code>之间相当于容器，可以容纳所有元素</p>
 <p>属性：<code>type</code>：circle，square，disc</p>
@@ -414,7 +409,6 @@
 <h3 id="表单控件（表单元素）"><a href="#表单控件（表单元素）" class="headerlink" title="表单控件（表单元素）"></a>表单控件（表单元素）</h3><p>readonly和disabled都是只读的，readonly修饰的表单项可以提交给服务器，disabled不会提交<br><strong>1、<code>&lt;input/&gt;</code>输入表单元素</strong></p>
 <p><code>type</code>=”属性值”</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">button 定义可点击按钮（多数情况用于通过js启动脚本)，使用value属性设置按钮文字</span><br><span class="line">checkbox 定义复选框</span><br><span class="line">file 定义输入字段和浏览按钮，供文件上传</span><br><span class="line">hidden 定义隐藏的输入字段（不希望用户在浏览器说看到，但是要提交）</span><br><span class="line">image 定义图像形式的提交按钮</span><br><span class="line">password 定义密码字段。该字段的字符被掩码</span><br><span class="line">radio 定义单选按钮</span><br><span class="line">reset 定义重置按钮。清除表单中的所有数据</span><br><span class="line">submit 定义提交按钮。提交按钮会把表单数据发送到服务器</span><br><span class="line">text 定义单行的输入字段，用户可在其中输入文本，默认宽度为20个字符</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>radio和checkbox使用时，同类型name要保持一致</p>
 </blockquote>
@@ -456,7 +450,6 @@
 <p>label元素一般跟input配合使用，用来表示input的标题</p>
 <p>label可以跟某个input绑定，点击label就可以激活对应的input变成选中</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;username&quot;</span>&gt;</span>用户：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">id</span>=<span class="string">&quot;username&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <h1 id="5-全局属性"><a href="#5-全局属性" class="headerlink" title="5 全局属性"></a>5 全局属性</h1><p>id：定义唯一标识符（ID），该标识符在整个文档中必须是唯一的。其目的是在链接（使用片段标识符），脚本或样式（使用 CSS）时标识元素。</p>
 <p>class：一个以空格分隔的元素的类名（classes ）列表，它允许 CSS 和 Javascript 通过类选择器或者DOM方法来选择和访问特定的元素；</p>
 <p>style：给元素添加内联样式；</p>
@@ -667,7 +660,7 @@
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:33</span>
+    <span title="站点阅读时长">7:32</span>
 </div>
 
 <!-- 网站运行时间的设置 -->
