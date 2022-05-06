@@ -1242,7 +1242,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #94dfff;
+  background: #59e2cd;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2636,7 +2636,7 @@ mjx-container + br {
 }
 body {
   background-size: 100% 100%;
-  background-color: #beddd6;
+  background-color: #ebe5ec;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50% 50%;
@@ -2646,6 +2646,15 @@ body {
     background-image: url("");
     background-size: cover;
   }
+}
+.content-wrap {
+  position: relative;
+  top: 8px;
+  background: #fff;
+  width: calc(100% - 252px);
+}
+.header-inner {
+  top: 8px;
 }
 /* webkit, opera, IE9 */
 ::selection {
@@ -2658,10 +2667,10 @@ body {
   color: #f7f7f7;
 }
 .brand {
-  color: #5959ab;
+  color: #f8ecf5;
 }
 .site-subtitle {
-  color: #5959ab;
+  color: #f8ecf5;
 }
 .post-block.page {
   margin-top: 40px;
@@ -2673,6 +2682,7 @@ body {
   border-radius: 25px 25px 25px 25px;
 }
 .category-all-title {
+/* 分类页面“目前总共*个分类样式” */
   font-family: Impact;
   font-size: 24px;
   color: #0ff;
@@ -2711,9 +2721,9 @@ body {
   color: #000;
 }
 .site-brand-container {
-  background: #bc8f8f;
+  background: #8064a9;
   background-size: 100% 100%;
-  opacity: 0.9;
+  opacity: 1;
 }
 .headband {
   display: none;
@@ -2804,7 +2814,7 @@ body > *:last-child {
 }
 
 a {
-    color: #42b983;
+    color: #b942b1;
     font-weight: 600;
     padding: 0 2px;
     text-decoration: none;
@@ -2987,10 +2997,13 @@ ol:last-child {
 }
 
 blockquote {
-    border-left: 4px solid #42b983;
-    padding: 10px 15px;
+    border-left: 4px solid #b942b1;
+    /*#42b983*/
+    /*padding: 10px 15px;*/
+    padding: 1px 10px;
     color: #777;
-    background-color: rgba(66, 185, 131, .1);
+    /*background-color: rgba(66, 185, 131, .1);*/
+    background-color: rgba(185, 66, 153, .1);
 }
 
 table {
@@ -3236,5 +3249,9 @@ footer {
 
 .html-for-mac .context-menu {
     --item-hover-bg-color: #E6F0FE;
+}
+
+.post-title {
+    border-bottom: none;
 }
 
