@@ -23,18 +23,20 @@
     var CONFIG = {"hostname":"jiucheng120.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="hello, here is JiuCheng&#39; s blog">
+  <meta name="description" content="移动端适配笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="移动端">
 <meta property="og:url" content="http://jiucheng120.github.io/undefined/a89303d5/index.html">
 <meta property="og:site_name" content="馨er的学习之路">
-<meta property="og:description" content="hello, here is JiuCheng&#39; s blog">
+<meta property="og:description" content="移动端适配笔记">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220518135908207.png">
 <meta property="article:published_time" content="2022-05-05T01:30:12.000Z">
-<meta property="article:modified_time" content="2022-05-06T09:16:53.765Z">
+<meta property="article:modified_time" content="2022-05-18T08:21:30.831Z">
 <meta property="article:author" content="JiuCheng">
-<meta property="article:tag" content="jiuchengBlog 博客">
+<meta property="article:tag" content="移动端适配">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220518135908207.png">
 
 <link rel="canonical" href="http://jiucheng120.github.io/undefined/a89303d5/">
 
@@ -223,6 +225,15 @@
 
               <time title="创建时间：2022-05-05 09:30:12" itemprop="dateCreated datePublished" datetime="2022-05-05T09:30:12+08:00">2022-05-05</time>
             </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
 
           
   
@@ -244,7 +255,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -263,7 +274,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <blockquote>
+<p>移动端适配笔记</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="1-什么是移动端适配"><a href="#1-什么是移动端适配" class="headerlink" title="1 什么是移动端适配"></a>1 什么是移动端适配</h1><p><strong>移动端开发目前主要包括三类：</strong></p>
+<p>1、原生App开发（iOS、Android、RN、uniapp、Flutter等）</p>
+<p>2、小程序开发（原生小程序、uniapp、Taro等）</p>
+<p>3、Web页面（移动端的Web页面，可以使用浏览器或者webview浏览</p>
+<blockquote>
+<p><strong>自适应</strong>：根据不同的设备屏幕大小来自动调整尺寸、大小；</p>
+<p><strong>响应式</strong>：会随着屏幕的实时变动而自动调整，是一种自适应</p>
+</blockquote>
+<h1 id="2-视口"><a href="#2-视口" class="headerlink" title="2 视口"></a>2 视口</h1><p>在一个浏览器中，我们可以看到的区域就是视口（viewport），fixed就是相对于视口来进行定位的</p>
+<p>在PC端的页面中，我们是不需要对视口进行区分，因为我们的布局视口和视觉视口是同一个</p>
+<p><strong>在移动端，不太一样，你布局的视口和你可见的视口是不太一样的。</strong>这是因为移动端的网页窗口往往比较小，我们可能会希望一个大的网页在移动端可以完整的显示。所以在默认情况下，移动端的布局视口是大于视觉视口的。在移动端，我们可以将视口划分为三种情况：布局视口、视觉视口、理想视口</p>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.quirksmode.org/mobile/viewports2.html">https://www.quirksmode.org/mobile/viewports2.html</a></p>
+<h2 id="2-1-布局视口"><a href="#2-1-布局视口" class="headerlink" title="2.1 布局视口"></a>2.1 布局视口</h2><p><strong>默认情况下，一个在PC端的网页在移动端会如何显示呢？</strong></p>
+<p>第一，它会按照宽度为980px来布局一个页面的盒子和内容； </p>
+<p>第二，为了显示可以完整的显示在页面中，对整个页面进行缩小； </p>
+<p>我们相对于980px布局的这个视口，称之为<strong>布局视口（layout viewport）</strong>。布局视口的默认宽度是980px；</p>
+<h2 id="2-2-视觉视口"><a href="#2-2-视觉视口" class="headerlink" title="2.2 视觉视口"></a>2.2 视觉视口</h2><p>如果默认情况下，我们<strong>按照980px显示内容</strong>，那么右侧有一部分区域就会无法显示，所以手机端浏览器会<strong>默认对页面进行缩放</strong>以显示到用户的可见区域中，那么显示在可见区域的这个视口，就是<strong>视觉视口（visual viewport）</strong></p>
+<h2 id="2-3-理想视口"><a href="#2-3-理想视口" class="headerlink" title="2.3 理想视口"></a>2.3 理想视口</h2><p><strong>理想视口（ideal viewport）：</strong>默认情况下的layout viewport并不适合我们进行布局，我们可以对layout viewport进行宽度和缩放的设置，以满足正常在一个移动端窗口的布局，这个时候可以设置meta中的viewport</p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220518135908207.png" alt="image-20220518135908207"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--设置布局视口的宽度--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--不允许缩放--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="3-移动端适配方案"><a href="#3-移动端适配方案" class="headerlink" title="3 移动端适配方案"></a>3 移动端适配方案</h1><p>我们希望在不同的屏幕尺寸上显示不同的大小，所以我们需要处理尺寸，不能再用px这种绝对单位</p>
+<h2 id="3-1-百分比设置"><a href="#3-1-百分比设置" class="headerlink" title="3.1 百分比设置"></a>3.1 百分比设置</h2><p>因为不同属性的百分比值，相对的可能是不同参照物，所以百分比往往很难统一，所以百分比在移动端适配中使用是非常少的；</p>
+<h2 id="3-2-rem单位-动态html的font-size"><a href="#3-2-rem单位-动态html的font-size" class="headerlink" title="3.2 rem单位+动态html的font-size"></a>3.2 rem单位+动态html的font-size</h2><h2 id="3-3-vw单位"><a href="#3-3-vw单位" class="headerlink" title="3.3 vw单位"></a>3.3 vw单位</h2><h2 id="3-4-flex弹性布局"><a href="#3-4-flex弹性布局" class="headerlink" title="3.4 flex弹性布局"></a>3.4 flex弹性布局</h2><h1 id="4-宏源海购移动端项目"><a href="#4-宏源海购移动端项目" class="headerlink" title="4 宏源海购移动端项目"></a>4 宏源海购移动端项目</h1>
     </div>
 
     
@@ -303,6 +342,9 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D/" rel="tag"><i class="fa fa-tag"></i> 移动端适配</a>
+          </div>
 
         
 
@@ -373,6 +415,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D"><span class="nav-text">1 什么是移动端适配</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E8%A7%86%E5%8F%A3"><span class="nav-text">2 视口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%B8%83%E5%B1%80%E8%A7%86%E5%8F%A3"><span class="nav-text">2.1 布局视口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E8%A7%86%E8%A7%89%E8%A7%86%E5%8F%A3"><span class="nav-text">2.2 视觉视口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E7%90%86%E6%83%B3%E8%A7%86%E5%8F%A3"><span class="nav-text">2.3 理想视口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88"><span class="nav-text">3 移动端适配方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E7%99%BE%E5%88%86%E6%AF%94%E8%AE%BE%E7%BD%AE"><span class="nav-text">3.1 百分比设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-rem%E5%8D%95%E4%BD%8D-%E5%8A%A8%E6%80%81html%E7%9A%84font-size"><span class="nav-text">3.2 rem单位+动态html的font-size</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-vw%E5%8D%95%E4%BD%8D"><span class="nav-text">3.3 vw单位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-flex%E5%BC%B9%E6%80%A7%E5%B8%83%E5%B1%80"><span class="nav-text">3.4 flex弹性布局</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%AE%8F%E6%BA%90%E6%B5%B7%E8%B4%AD%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B9%E7%9B%AE"><span class="nav-text">4 宏源海购移动端项目</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -400,7 +443,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -441,13 +484,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">511k</span>
+    <span title="站点总字数">525k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:45</span>
+    <span title="站点阅读时长">7:57</span>
 </div>
 
 <!-- 网站运行时间的设置 -->

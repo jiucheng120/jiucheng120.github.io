@@ -3,12 +3,122 @@
   <entry>
     <title>移动端</title>
     <url>/undefined/a89303d5/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<blockquote>
+<p>移动端适配笔记</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="1-什么是移动端适配"><a href="#1-什么是移动端适配" class="headerlink" title="1 什么是移动端适配"></a>1 什么是移动端适配</h1><p><strong>移动端开发目前主要包括三类：</strong></p>
+<p>1、原生App开发（iOS、Android、RN、uniapp、Flutter等）</p>
+<p>2、小程序开发（原生小程序、uniapp、Taro等）</p>
+<p>3、Web页面（移动端的Web页面，可以使用浏览器或者webview浏览</p>
+<blockquote>
+<p><strong>自适应</strong>：根据不同的设备屏幕大小来自动调整尺寸、大小；</p>
+<p><strong>响应式</strong>：会随着屏幕的实时变动而自动调整，是一种自适应</p>
+</blockquote>
+<h1 id="2-视口"><a href="#2-视口" class="headerlink" title="2 视口"></a>2 视口</h1><p>在一个浏览器中，我们可以看到的区域就是视口（viewport），fixed就是相对于视口来进行定位的</p>
+<p>在PC端的页面中，我们是不需要对视口进行区分，因为我们的布局视口和视觉视口是同一个</p>
+<p><strong>在移动端，不太一样，你布局的视口和你可见的视口是不太一样的。</strong>这是因为移动端的网页窗口往往比较小，我们可能会希望一个大的网页在移动端可以完整的显示。所以在默认情况下，移动端的布局视口是大于视觉视口的。在移动端，我们可以将视口划分为三种情况：布局视口、视觉视口、理想视口</p>
+<p><a href="https://www.quirksmode.org/mobile/viewports2.html">https://www.quirksmode.org/mobile/viewports2.html</a></p>
+<h2 id="2-1-布局视口"><a href="#2-1-布局视口" class="headerlink" title="2.1 布局视口"></a>2.1 布局视口</h2><p><strong>默认情况下，一个在PC端的网页在移动端会如何显示呢？</strong></p>
+<p>第一，它会按照宽度为980px来布局一个页面的盒子和内容； </p>
+<p>第二，为了显示可以完整的显示在页面中，对整个页面进行缩小； </p>
+<p>我们相对于980px布局的这个视口，称之为<strong>布局视口（layout viewport）</strong>。布局视口的默认宽度是980px；</p>
+<h2 id="2-2-视觉视口"><a href="#2-2-视觉视口" class="headerlink" title="2.2 视觉视口"></a>2.2 视觉视口</h2><p>如果默认情况下，我们<strong>按照980px显示内容</strong>，那么右侧有一部分区域就会无法显示，所以手机端浏览器会<strong>默认对页面进行缩放</strong>以显示到用户的可见区域中，那么显示在可见区域的这个视口，就是<strong>视觉视口（visual viewport）</strong></p>
+<h2 id="2-3-理想视口"><a href="#2-3-理想视口" class="headerlink" title="2.3 理想视口"></a>2.3 理想视口</h2><p><strong>理想视口（ideal viewport）：</strong>默认情况下的layout viewport并不适合我们进行布局，我们可以对layout viewport进行宽度和缩放的设置，以满足正常在一个移动端窗口的布局，这个时候可以设置meta中的viewport</p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220518135908207.png" alt="image-20220518135908207"></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--设置布局视口的宽度--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--不允许缩放--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="3-移动端适配方案"><a href="#3-移动端适配方案" class="headerlink" title="3 移动端适配方案"></a>3 移动端适配方案</h1><p>我们希望在不同的屏幕尺寸上显示不同的大小，所以我们需要处理尺寸，不能再用px这种绝对单位</p>
+<h2 id="3-1-百分比设置"><a href="#3-1-百分比设置" class="headerlink" title="3.1 百分比设置"></a>3.1 百分比设置</h2><p>因为不同属性的百分比值，相对的可能是不同参照物，所以百分比往往很难统一，所以百分比在移动端适配中使用是非常少的；</p>
+<h2 id="3-2-rem单位-动态html的font-size"><a href="#3-2-rem单位-动态html的font-size" class="headerlink" title="3.2 rem单位+动态html的font-size"></a>3.2 rem单位+动态html的font-size</h2><h2 id="3-3-vw单位"><a href="#3-3-vw单位" class="headerlink" title="3.3 vw单位"></a>3.3 vw单位</h2><h2 id="3-4-flex弹性布局"><a href="#3-4-flex弹性布局" class="headerlink" title="3.4 flex弹性布局"></a>3.4 flex弹性布局</h2><h1 id="4-宏源海购移动端项目"><a href="#4-宏源海购移动端项目" class="headerlink" title="4 宏源海购移动端项目"></a>4 宏源海购移动端项目</h1>]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>移动端适配</tag>
+      </tags>
   </entry>
   <entry>
     <title>CSS预处理器</title>
     <url>/undefined/97913aad/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<blockquote>
+<p>CSS预处理器笔记</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="1-什么是CSS预处理器"><a href="#1-什么是CSS预处理器" class="headerlink" title="1 什么是CSS预处理器"></a>1 什么是CSS预处理器</h1><p>CSS 预处理器是一个能让你通过预处理器自己独有的语法来生成CSS的程序。市面上有很多CSS预处理器可供选择，且绝大多数CSS预处理器会增加一些原生CSS不具备的特性，<strong>代码最终会转化为CSS来运行</strong>, 因为对于浏览器来说只识别CSS</p>
+<h1 id="2-常见的CSS预处理器"><a href="#2-常见的CSS预处理器" class="headerlink" title="2 常见的CSS预处理器"></a>2 常见的CSS预处理器</h1><h2 id="2-1-Sass-Scss"><a href="#2-1-Sass-Scss" class="headerlink" title="2.1 Sass/Scss"></a>2.1 Sass/Scss</h2><p>2007年诞生，最早也是最成熟的CSS预处理器，拥有ruby社区的支持，是属于Haml（一种模板系统）的一部分，目前受Less影响，已经进化到了全面兼容CSS的Scss</p>
+<h2 id="2-2-Less"><a href="#2-2-Less" class="headerlink" title="2.2 Less"></a>2.2 Less</h2><p>2009年出现，受Sass的影响较大，但又使用CSS的语法，让大部分开发者更容易上手</p>
+<p>比起Sass来，可编程功能不够，不过优点是使用方式简单、便捷，兼容CSS，并且已经足够使用；另外反过来也影响了Sass演变到了Scss的时代；著名的Twitter Bootstrap就是采用Less做底层语言的，也包括React的UI框架AntDesign。 </p>
+<h2 id="2-3-Stylus"><a href="#2-3-Stylus" class="headerlink" title="2.3 Stylus"></a>2.3 Stylus</h2><p>2010年产生，来自Node.js社区，主要用来给Node项目进行CSS预处理支持，语法偏向于Python, 使用率相对于Sass/Less少很多</p>
+<h1 id="3-认识Less"><a href="#3-认识Less" class="headerlink" title="3 认识Less"></a>3 认识Less</h1><p>Less是一门CSS扩展语言，并且兼容CSS</p>
+<p>Less增加了很多相比于CSS更好用的特性：比如定义变量、混入、嵌套、计算等等。Less最终需要被编译成CSS运行于浏览器中（包括部署到服务器中）</p>
+<h2 id="3-1-兼容CSS"><a href="#3-1-兼容CSS" class="headerlink" title="3.1 兼容CSS"></a>3.1 兼容CSS</h2><p>可以在Less文件中编写所有的CSS代码，只是将css的扩展名改成了.less结尾而已</p>
+<h2 id="3-2-变量"><a href="#3-2-变量" class="headerlink" title="3.2 变量"></a>3.2 变量</h2><p>将常见的颜色或者字体定义为变量使用</p>
+<p>定义变量：<code>@变量名: 值;</code></p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="variable">@themeColor:</span> <span class="number">#f3c258</span>;</span><br><span class="line"><span class="variable">@mainFontSize:</span> <span class="number">12px</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">p</span> <span class="selector-class">.link</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">@themeColor</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="variable">@mainFontSize</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-3-嵌套"><a href="#3-3-嵌套" class="headerlink" title="3.3 嵌套"></a>3.3 嵌套</h2><figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="selector-class">.title</span> &#123;</span><br><span class="line">        <span class="attribute">color</span>: red;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.content</span>: &#123;</span><br><span class="line">        <span class="selector-class">.link</span> &#123;</span><br><span class="line">            <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">            <span class="attribute">color</span>: orange;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="selector-class">.keyword</span> &#123;</span><br><span class="line">            <span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">            <span class="attribute">color</span>: purple;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>&amp;:</code> 代表当前选择器的父级</p>
+<h2 id="3-4-运算"><a href="#3-4-运算" class="headerlink" title="3.4 运算"></a>3.4 运算</h2><p><strong>在Less中，算术运算符 +、-、*、/ 可以对任何数字、颜色或变量进行运算。</strong></p>
+<p>算术运算符在加、减或比较之前会进行单位换算，计算的结果以最左侧操作数的单位类型为准。如果单位换算无效或失去意义，则忽略单位；</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span> + <span class="number">10%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ff0000</span> + <span class="number">#00ff00</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-5-混合"><a href="#3-5-混合" class="headerlink" title="3.5 混合"></a>3.5 混合</h2><p>多个选择器中可能会有大量相同的代码，我们可以将这些代码进行抽取到一个独立的地方，任何选择器都可以进行复用，在less中提供了混入来帮助我们完成这样的操作。可以新建<code>mixins.less</code>文件，书写常用混入代码，方便调用</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bordered</span> &#123;</span><br><span class="line">    <span class="attribute">border-top</span>: <span class="number">2px</span> soild <span class="number">#f00</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">2px</span> dotted <span class="number">#0f0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: orange;</span><br><span class="line">    <span class="comment">/* 可以理解为无参函数调用 */</span></span><br><span class="line">    <span class="selector-class">.bordered</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>混入在没有参数的情况下，小括号可以省略，但是不建议这样使用</p>
+</blockquote>
+<p>也可以传入变量，变量可以有默认参数</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bordered</span>(<span class="variable">@borderWidth</span>: <span class="number">2px</span>) &#123;</span><br><span class="line">    <span class="attribute">border-top</span>: <span class="variable">@borderWidth</span> soild <span class="number">#f00</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="variable">@borderWidth</span> dotted <span class="number">#0f0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-6-映射"><a href="#3-6-映射" class="headerlink" title="3.6 映射"></a>3.6 映射</h2><figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.color</span>() &#123;</span><br><span class="line">    primaryColor: #f00;</span><br><span class="line">    secondColor: #0f0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">color</span>: .colors[primaryColor];</span><br><span class="line">    <span class="attribute">background-color</span>: .colors()[secondColor];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>混入和映射结合：混入也可也当作一个自定义函数来使用（暂时了解）</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.pxToRem</span>(<span class="variable">@px</span>) &#123;</span><br><span class="line">    result: (@px / @htmlFontSize) * 1rem</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: .pxToRem(<span class="number">100</span>)[result];</span><br><span class="line">    <span class="attribute">font-size</span>: .pxToRem(<span class="number">18</span>)[result];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="3-7-extend继承"><a href="#3-7-extend继承" class="headerlink" title="3.7 extend继承"></a>3.7 extend继承</h2><p>和mixins作用类似，用于复用代码；和mixins相比，继承代码最终会转化成并集选择器</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bordered</span> &#123;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">10px</span> soild <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="selector-tag">&amp;</span>:<span class="selector-tag">extend</span>(.bordered);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>相当于</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.bordered</span>,</span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">10px</span> soild <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-8-Less内置函数"><a href="#3-8-Less内置函数" class="headerlink" title="3.8 Less内置函数"></a>3.8 Less内置函数</h2><p>Less内置多种函数用于转换颜色、处理字符串、算术运算等</p>
+<p>内置函数手册：<a href="https://less.bootcss.com/functions/">https://less.bootcss.com/functions/</a></p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: color(red); <span class="comment">// 将red转成RGB的值</span></span><br><span class="line">    <span class="attribute">width</span>: convert(<span class="number">100px</span>, <span class="string">&quot;in&quot;</span>); <span class="comment">// 单位的转换，转换为in</span></span><br><span class="line">    <span class="attribute">font-size</span>: ceil(<span class="number">18.5px</span>); <span class="comment">// 数学函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-9-作用域"><a href="#3-9-作用域" class="headerlink" title="3.9 作用域"></a>3.9 作用域</h2><p>在查找一个变量时，首先在本地查找变量和混合，如果找不到，则从“父”级作用域继承</p>
+<figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="selector-class">.inner</span> &#123;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="variable">@fontSize</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable">@fontSize:</span> <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-10-注释"><a href="#3-10-注释" class="headerlink" title="3.10 注释"></a>3.10 注释</h2><p>在Less中，块注释和行注释都可以使用；</p>
+<h2 id="3-11-导入"><a href="#3-11-导入" class="headerlink" title="3.11 导入"></a>3.11 导入</h2><p>导入的方式和CSS的用法是一致的；</p>
+<ul>
+<li>导入一个 .less 文件，此文件中的所有变量就可以全部使用了；</li>
+<li>如果导入的文件是 .less 扩展名，则可以将扩展名省略掉；</li>
+</ul>
+<h2 id="3-12-编译"><a href="#3-12-编译" class="headerlink" title="3.12 编译"></a>3.12 编译</h2><p><a href="https://lesscss.org/less-preview/">https://lesscss.org/less-preview/</a>在线看less转换为什么样的css代码</p>
+<h3 id="3-12-1-node包"><a href="#3-12-1-node包" class="headerlink" title="3.12.1 node包"></a>3.12.1 node包</h3><p>下载Node环境，通过npm包管理下载less工具，使用less工具对代码进行编译</p>
+<p>不推荐大家使用less本地工具来管理，后续我们学习了webpack可以自动完成这些操作的</p>
+<h3 id="3-12-2-VScode插件"><a href="#3-12-2-VScode插件" class="headerlink" title="3.12.2 VScode插件"></a>3.12.2 VScode插件</h3><p>通过VSCode插件<code>easy less</code>来编译成CSS或者在线编译，保存后自动生成对应的css文件</p>
+<h3 id="3-12-3-JavaScript代码编译"><a href="#3-12-3-JavaScript代码编译" class="headerlink" title="3.12.3 JavaScript代码编译"></a>3.12.3 JavaScript代码编译</h3><p>引入CDN的less编译代码，对less进行实时的处理</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet/less&quot;</span> <span class="attr">href</span>=<span class="string">&quot;./less/01_less的基本使用.less&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/less@4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>必须写上<code>rel=&quot;stylesheet/less&quot;</code></p>
+<h3 id="3-12-4-本地js代码编译"><a href="#3-12-4-本地js代码编译" class="headerlink" title="3.12.4 本地js代码编译"></a>3.12.4 本地js代码编译</h3><p>将上述less编译的js代码下载到本地，执行js代码对less进行编译</p>
+<h1 id="4-认识Sass和Scss"><a href="#4-认识Sass和Scss" class="headerlink" title="4 认识Sass和Scss"></a>4 认识Sass和Scss</h1><p>事实上，最初Sass 是Haml的一部分，Haml 是一种模板系统，由 Ruby 开发者设计和开发。所以，Sass的语法使用的是类似于Ruby的语法，没有花括号，没有分号，具有严格的缩进。 我们会发现它的语法和CSS区别很大，后来官方推出了全新的语法SCSS，意思是Sassy CSS，他是完全兼容CSS的。</p>
+<p>目前在前端学习SCSS直接学习SCSS即可：SCSS的语法也包括变量、嵌套、混入、函数、操作符、作用域等；通常也包括更为强大的控制语句、更灵活的函数、插值语法等；</p>
+<p>可以根据之前学习的less语法来学习一些SCSS语法；<a href="https://sass-lang.com/guide">https://sass-lang.com/guide</a></p>
+]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>CSS预处理器</tag>
+      </tags>
   </entry>
   <entry>
     <title>HTML5</title>
@@ -39,17 +149,197 @@
 <li><code>width</code></li>
 <li><code>height</code></li>
 <li><code>controls</code>：是否显示控制栏，包括音量，跨帧，暂停/恢复播放</li>
-<li><code>autoplay</code>：是否视频自动播放（某些浏览器需要添加muted，比如Chrome）</li>
+<li><code>autoplay</code>：是否视频自动播放（某些浏览器需要添加muted，比如Chrome）（<strong>浏览器为了用户有更好的体验，设置自动播放需要设置静音</strong>）</li>
 <li><code>muted</code>：是否静音播放</li>
 <li><code>preload: none/metadata/auto</code>：是否需要预加载视频，metadata表示预加载元数据（比如视频时长等）</li>
-<li><code>poster: URL地址</code>：海报帧的URL</li>
+<li><code>poster: URL地址</code>：海报帧的URL，可以设置暂停时显示哪一帧画面</li>
 </ul>
 <blockquote>
-<p>微信浏览器视频加载问题解决方法</p>
+<p><strong>微信浏览器视频加载问题解决方法</strong></p>
+<p>在<code>&lt;video&gt;</code>元素中间的内容，是针对浏览器不支持此元素时候的降级处理</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">preload</span>=<span class="string">&quot;auto&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </blockquote>
+<h3 id="支持的视频格式"><a href="#支持的视频格式" class="headerlink" title="支持的视频格式"></a>支持的视频格式</h3><p>常见的格式<code>mp4</code>，兼容性最好</p>
+<h3 id="video的兼容性写法"><a href="#video的兼容性写法" class="headerlink" title="video的兼容性写法"></a>video的兼容性写法</h3><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">&quot;./assets/fcrs.mp4&quot;</span> <span class="attr">width</span>=<span class="string">&quot;600&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;./assets/fcrs.ogg&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;./assets/fcrs.webn&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>当前您的浏览器不支持视频的播放，请更换更好用的浏览器<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="2-2-音频"><a href="#2-2-音频" class="headerlink" title="2.2 音频"></a>2.2 音频</h2><p><code>&lt;audio&gt;</code></p>
-<h1 id="css"><a href="#css" class="headerlink" title="css"></a>css</h1><p>media</p>
+<h3 id="常见属性-1"><a href="#常见属性-1" class="headerlink" title="常见属性"></a>常见属性</h3><ul>
+<li><code>src</code>：音频播放的URL地址</li>
+<li><code>controls</code>：是否显示控制栏，包括音量，进度，暂停/恢复播放</li>
+<li><code>autoplay</code>：是否音频自动播放（某些浏览器需要添加muted，比如Chrome）</li>
+<li><code>muted</code>：是否静音播放</li>
+<li><code>preload: none/metadata/auto</code>：是否需要预加载音频，metadata表示预加载元数据（比如音频时长等）</li>
+<li><code>poster: URL地址</code>：海报帧的URL</li>
+</ul>
+<h3 id="支持的音频格式"><a href="#支持的音频格式" class="headerlink" title="支持的音频格式"></a>支持的音频格式</h3><p>一般都使用<code>mp3</code>格式</p>
+<h2 id="2-3-input元素的扩展内容"><a href="#2-3-input元素的扩展内容" class="headerlink" title="2.3 input元素的扩展内容"></a>2.3 input元素的扩展内容</h2><h3 id="属性的扩展"><a href="#属性的扩展" class="headerlink" title="属性的扩展"></a>属性的扩展</h3><p><code>placeholder</code>：输入框的占位文字</p>
+<p><code>multiple</code>：多个值</p>
+<p><code>autofocus</code>：最多输入的内容</p>
+<h3 id="type值的扩展"><a href="#type值的扩展" class="headerlink" title="type值的扩展"></a>type值的扩展</h3><p><code>date</code></p>
+<p><code>time</code></p>
+<p><code>number</code></p>
+<p><code>tel</code></p>
+<p><code>color</code></p>
+<p><code>email</code></p>
+<h2 id="2-4-全局属性data"><a href="#2-4-全局属性data" class="headerlink" title="2.4 全局属性data-*"></a>2.4 全局属性data-*</h2><p>全局属性data-<em>，用于*<em>自定义数据属性</em></em></p>
+<p>data设置的属性可以在JavaScript的DOM操作中通过dataset轻松获取到，通常用于HTML和JavaScript数据之间的传递</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span> <span class="attr">title</span>=<span class="string">&quot;abc&quot;</span> <span class="attr">data-name</span>=<span class="string">&quot;why&quot;</span> <span class="attr">data-age</span>=<span class="string">&quot;18&quot;</span>&gt;</span></span><br><span class="line">    box</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> boxEl = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.box&quot;</span>)</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(boxEl.dataset)  <span class="comment">// 输出一个对象，包含name,age中的内容</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在小程序中，就是通过<code>data-</code>来传递数据的</p>
+<h1 id="3-CSS"><a href="#3-CSS" class="headerlink" title="3 CSS"></a>3 CSS</h1><h2 id="3-1-white-space"><a href="#3-1-white-space" class="headerlink" title="3.1 white-space"></a>3.1 white-space</h2><p>white-space用于设置<strong>空白处理</strong>和<strong>换行规则</strong></p>
+<p>空白符（空格，tab，换行符）</p>
+<p><code>normal</code>：合并所有连续的空白，允许单词超屏时自动换行（默认）</p>
+<p><code>nowrap</code>：合并所有连续的空白，不允许单词超屏时自动换行</p>
+<p><code>pre</code>：阻止合并所有连续的空白，不允许单词超屏时自动换行</p>
+<p><code>pre-wrap</code>：阻止合并所有连续的空白，允许单词超屏时自动换行</p>
+<p><code>pre-line</code>：合并所有连续的空白（但保留换行），允许单词超屏时自动换行</p>
+<h2 id="3-2-text-overflow"><a href="#3-2-text-overflow" class="headerlink" title="3.2 text-overflow"></a>3.2 text-overflow</h2><p>text-overflow通常用来设置文字溢出时的行为</p>
+<blockquote>
+<p>text-overflow生效的前提是overflow不为visible</p>
+</blockquote>
+<p><code>clip</code>：溢出的内容直接裁剪掉（字符可能会显示不完整）</p>
+<p><code>ellipsis</code>：溢出那行的结尾处用省略号表示</p>
+<p>一般书写方式</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/* 经常写的三行代码 */</span></span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">    <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-3-CSS中的函数"><a href="#3-3-CSS中的函数" class="headerlink" title="3.3 CSS中的函数"></a>3.3 CSS中的函数</h2><p>之前使用过的函数<code>rgb</code>、<code>rgba</code>、<code>translate</code>、<code>rotate</code>、<code>scale</code></p>
+<h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>使用CSS定义的变量</p>
+<p>CSS中可以自定义属性：属性名需要以两个减号–开始，属性值则可以是任何的CSS值；使用时通过var函数使用</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">    --<span class="selector-tag">main</span>-<span class="attribute">color</span>: <span class="number">#f3c358</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--main-color);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.title</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--main-color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>推荐将自定义属性定义在html中，因为只有后代元素可以使用该属性</p>
+</blockquote>
+<h3 id="calc"><a href="#calc" class="headerlink" title="calc"></a>calc</h3><p>计算CSS值，通常用于计算元素的大小或位置，culculate的缩写</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: orange;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item1</span> &#123;</span><br><span class="line">    <span class="comment">/* width的百分比相对于包含块（父元素） */</span></span><br><span class="line">    <span class="comment">/* 减号两边必须有空格，否则不生效 */</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">calc</span>(<span class="number">100%</span> - <span class="number">100px</span>);</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item2</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="blur"><a href="#blur" class="headerlink" title="blur"></a>blur</h3><p>将高斯模糊应用于输出图片或者元素</p>
+<p><code>blur(radius)</code>，radius为模糊的半径，用于定义高斯函数的偏差值，偏差值越大，图片越模糊</p>
+<p><strong>通常会和两个属性一起使用：</strong></p>
+<ul>
+<li><p>filter: 将模糊或颜色偏移等图形效果应用于元素; </p>
+</li>
+<li><p>backdrop-filter: 为元素后面的区域添加模糊或者其他效果;</p>
+</li>
+</ul>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">blur</span>(<span class="number">5px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.cover</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: black;</span><br><span class="line">    backdrop-<span class="attribute">filter</span>: <span class="built_in">filter</span>(<span class="number">5px</span>);</span><br><span class="line">    <span class="comment">/* 需有颜色遮盖层 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="gradient"><a href="#gradient" class="headerlink" title="gradient"></a>gradient</h3><p>颜色渐变函数</p>
+<p><code>&lt;gradient&gt;</code> 是一种<code>&lt;image&gt;</code>CSS数据类型的子类型，用于表现两种或多种颜色的过渡转变。 </p>
+<p>CSS的<code>&lt;image&gt;</code>数据类型描述的是2D图形，比如background-image、list-style-image、border-image、content等。<code>&lt;image&gt;</code>常见的方式是通过url来引入一个图片资源，它也可以通过CSS的<code>&lt;gradient&gt;</code> 函数来设置颜色的渐变</p>
+<p><code>&lt;gradient&gt;</code>常见的函数实现有下面几种：</p>
+<ul>
+<li><p><code>linear-gradient()</code>：创建一个表示两种或多种颜色线性渐变的图片；</p>
+</li>
+<li><p><code>radial-gradient()</code>：创建了一个图像，该图像是由从原点发出的两种或者多种颜色之间的逐步过渡组成；</p>
+</li>
+<li><p><code>repeating-linear-gradient()</code>：创建一个由重复线性渐变组成的<code>&lt;image&gt;</code>； </p>
+</li>
+<li><p><code>repeating-radial-gradient()</code>：创建一个重复的原点触发渐变组成的<code>&lt;image&gt;</code>； </p>
+</li>
+</ul>
+<p><strong>1、<code>linear-gradient()</code>的使用</strong></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="comment">/* 从上到下 */</span></span><br><span class="line">    <span class="comment">/* background-image: linear-gradient(red, blue); */</span></span><br><span class="line">    <span class="comment">/* 从左到右 */</span></span><br><span class="line">    <span class="comment">/* background-image: linear-gradient(to right, red, blue); */</span></span><br><span class="line">    <span class="comment">/* 从左上角到右下角 */</span></span><br><span class="line">    <span class="comment">/* background-image: linear-gradient(to right top, red, blue); */</span></span><br><span class="line">    <span class="comment">/* 设置角度 */</span></span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(-<span class="number">45deg</span>, red, blue);</span><br><span class="line">    <span class="comment">/* 其他写法 */</span></span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(to right, blue, red <span class="number">10%</span>, purple <span class="number">40px</span>, orange);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>2、<code>radial-gradient()</code>的使用</strong></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">radial-gradient</span>(red, blue);</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">radial-gradient</span>(at -% <span class="number">50%</span>, red, blue);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-浏览器前缀"><a href="#4-浏览器前缀" class="headerlink" title="4 浏览器前缀"></a>4 浏览器前缀</h1><p>属性名或者属性值之前加<code>-o-</code>、<code>-xv-</code>、<code>-ms-</code>、<code>mso-</code>、<code>-moz-</code>、<code>-webkit-</code></p>
+<p>官方文档专业术语叫做：vendor-specific extensions（供应商特定拓展）</p>
+<p>CSS属性刚开始并没有成为标准，浏览器为了防止后续会修改名字给新的属性添加了浏览器前缀</p>
+<p><a href="caniuse.com">caniuse.com</a>查询元素的兼容性情况</p>
+<p>上述前缀为私有浏览器前缀：</p>
+<p><code>-o-</code>、<code>-xv-</code>：Opera等</p>
+<p><code>-ms-</code>、<code>mso-</code>：IE等</p>
+<p><code>-moz-</code>：Firefox等</p>
+<p><code>-webkit-</code>：Safari、Chrome等</p>
+<p><strong>不需要手动添加，模块化打包工具会自动添加浏览器前缀</strong></p>
+<h1 id="5-BFC"><a href="#5-BFC" class="headerlink" title="5 BFC"></a>5 BFC</h1><p>FC（Formatting Context 格式化上下文）</p>
+<p>BFC（Block Formatting Context 块级格式化上下文）</p>
+<blockquote>
+<p>MDN整理出会创建BFC的情况：</p>
+<ul>
+<li><p>根元素<code>&lt;html&gt;</code></p>
+</li>
+<li><p>浮动元素（元素的float不是none）</p>
+</li>
+<li><p>绝对定位元素（元素的position为absolute或fixed）</p>
+</li>
+<li><p>行内块元素（元素的display为inline-block）</p>
+</li>
+<li><p>表格单元格（元素的display为table-cell，HTML表格单元格默认为该值）、表格标题（元素的display为table-caption，HTML表格标题默认为该值）</p>
+</li>
+<li><p>匿名表格单元格元素（元素的display为table、table-row、table-row-group、table-header-group、table-footer-group（分别是HTML table、row、tbody、thead、tfoot的默认属性）或inline-table）</p>
+</li>
+<li><p>overflow计算值（Computed）不为visible的元素</p>
+</li>
+<li><p>弹性元素（display为flex或inline-flex元素的直接子元素）</p>
+</li>
+<li><p>网格元素（display为grid或inline-grid元素的直接子元素）</p>
+</li>
+<li><p>display值为flow-root的元素</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="5-1-解决折叠问题"><a href="#5-1-解决折叠问题" class="headerlink" title="5.1 解决折叠问题"></a>5.1 解决折叠问题</h2><p>1、在BFC中，box会在垂直方向上一个挨着一个排布；</p>
+<p>2、垂直方向上的间距由margin属性决定；</p>
+<p>3、在同一个BFC中，相邻两个box之间的margin会折叠（collapse）；</p>
+<p>4、在BFC中，每个元素的左边缘是紧挨着包含块的左边缘的</p>
+<h2 id="5-2-解决浮动高度塌陷"><a href="#5-2-解决浮动高度塌陷" class="headerlink" title="5.2 解决浮动高度塌陷"></a>5.2 解决浮动高度塌陷</h2><p>需要满足两个条件：①浮动元素的父元素触发BFC，形成独立的块级格式化上下文（在父元素设置<code>overflow: auto;</code>）；②浮动元素的父元素高度是auto的</p>
+<blockquote>
+<p><strong>BFC的高度是auto的情况下，是如下方法计算高度的</strong></p>
+<p>1、如果只有inline元素，是行高的顶部和底部的距离；</p>
+<p>2、如果有block元素，是由最底层的块上边缘和最底层块盒子的下边缘之间的距离；</p>
+<p>3、如果有绝对定位元素，将被忽略（不在标准流）；</p>
+<p>4、如果有浮动元素，那么会增加高度以包括这些浮动元素的下边缘</p>
+</blockquote>
+<h1 id="6-媒体查询"><a href="#6-媒体查询" class="headerlink" title="6 媒体查询"></a>6 媒体查询</h1><p>媒体查询是一种提供给开发者针对<strong>不同设备</strong>需求进行<strong>定制化开发</strong>的一个接口。可以根据设备的类型（比如屏幕设备、打印机设备）或者特定的特性（比如屏幕的宽度）来修改你的页面。</p>
+<h2 id="6-1-使用方式"><a href="#6-1-使用方式" class="headerlink" title="6.1 使用方式"></a>6.1 使用方式</h2><p>方式一：通过@media和@import使用不同的CSS规则</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="keyword">@import</span> url(./css/miniScreen.css) (<span class="attribute">max-width</span>: <span class="number">600px</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    <span class="keyword">@media</span> (<span class="attribute">max-width</span>: <span class="number">600px</span>) &#123;</span><br><span class="line">        <span class="selector-tag">body</span> &#123;</span><br><span class="line">            <span class="attribute">background-color</span>: orange;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<p>方式二：使用media属性为<code>&lt;style</code>、<code>&lt;link&gt;</code>、<code>&lt;source&gt;</code>和其他HTML元素指定特定的媒体类型</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">media</span>=<span class="string">&quot;(max-width: 600px)&quot;</span> <span class="attr">href</span>=<span class="string">&quot;./css/miniScreen.css&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>方式三：使用Window.matchMedia()和MediaQueryList.addListener()方法来测试和监控媒体状态（比较常用的是通过@media来使用不同的CSS规则）</p>
+<h2 id="6-2-媒体类型"><a href="#6-2-媒体类型" class="headerlink" title="6.2 媒体类型"></a>6.2 媒体类型</h2><p>在使用媒体查询时，必须指定要使用的媒体类型，会<strong>隐式应用all类型</strong></p>
+<h3 id="常见的媒体类型值"><a href="#常见的媒体类型值" class="headerlink" title="常见的媒体类型值"></a>常见的媒体类型值</h3><p><code>all</code>用于所有设备类型</p>
+<p><code>print</code>用于在打印预览模式下在屏幕上查看的分页材料和文档</p>
+<p><strong><code>screen</code>用于屏幕</strong></p>
+<p><code>speech</code>用于语音合成器</p>
+<h2 id="6-3-媒体特性"><a href="#6-3-媒体特性" class="headerlink" title="6.3 媒体特性"></a>6.3 媒体特性</h2><p>媒体特性描述了浏览器、输出设备，或是预览环境的具体特征，通常会将媒体特性描述为一个表达式，每条媒体特性表达式都必须用括号括起来</p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220517180318920.png" alt="image-20220517180318920"></p>
+<h2 id="6-4-逻辑操作符"><a href="#6-4-逻辑操作符" class="headerlink" title="6.4 逻辑操作符"></a>6.4 逻辑操作符</h2><p>媒体查询的表达式最终会获得一个Boolean值。如果结果为真（true），那么就会生效；如果结果为假（false），那么就不会生效；</p>
+<p><strong>如果有多个条件，我们可以通过逻辑操作符联合复杂的媒体查询：</strong></p>
+<p><code>and</code>：and 操作符用于将多个媒体查询规则组合成单条媒体查询</p>
+<p><code>not</code>：not运算符用于否定媒体查询，如果不满足这个条件则返回true，否则返回false。 </p>
+<p><code>only</code>：only运算符仅在整个查询匹配时才用于应用样式。</p>
+<p><code>,</code>：逗号用于将多个媒体查询合并为一个规则。</p>
+<h2 id="6-5-练习（屏幕尺寸适配）"><a href="#6-5-练习（屏幕尺寸适配）" class="headerlink" title="6.5 练习（屏幕尺寸适配）"></a>6.5 练习（屏幕尺寸适配）</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">320px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">375px</span>) &#123;</span><br><span class="line">    <span class="selector-class">.box</span> &#123; <span class="attribute">font-size</span>: <span class="number">15px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">375px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">414px</span>) &#123;</span><br><span class="line">    <span class="selector-class">.box</span> &#123; <span class="attribute">font-size</span>: <span class="number">18px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">414px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">480px</span>) &#123;</span><br><span class="line">    <span class="selector-class">.box</span> &#123; <span class="attribute">font-size</span>: <span class="number">21px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">480px</span>) &#123;</span><br><span class="line">    <span class="selector-class">.box</span> &#123; <span class="attribute">font-size</span>: <span class="number">24px</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>等同于</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 原理：CSS的层叠性 */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">320px</span>) &#123;</span><br><span class="line">    <span class="selector-class">.box</span> &#123; <span class="attribute">font-size</span>: <span class="number">15px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">375px</span>) &#123;</span><br><span class="line">    <span class="selector-class">.box</span> &#123; <span class="attribute">font-size</span>: <span class="number">18px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">414px</span>) &#123;</span><br><span class="line">    <span class="selector-class">.box</span> &#123; <span class="attribute">font-size</span>: <span class="number">21px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">480px</span>) &#123;</span><br><span class="line">    <span class="selector-class">.box</span> &#123; <span class="attribute">font-size</span>: <span class="number">24px</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="7-CSS单位"><a href="#7-CSS单位" class="headerlink" title="7 CSS单位"></a>7 CSS单位</h1><h2 id="7-1-绝对单位"><a href="#7-1-绝对单位" class="headerlink" title="7.1 绝对单位"></a>7.1 绝对单位</h2><p>它们与其他任何东西都没有关系，通常被认为总是相同的大小 </p>
+<p>这些值中的大多数在用于打印时比用于屏幕输出时更有用，例如，我们通常不会在屏幕上使用cm。 <strong>惟一一个您经常使用的值，就是px(像素)</strong></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220517225529221.png" alt="image-20220517225529221"></p>
+<h2 id="7-2-相对单位"><a href="#7-2-相对单位" class="headerlink" title="7.2 相对单位"></a>7.2 相对单位</h2><p>相对于一些单位（父元素的字体大小、或者视图端口的大小）</p>
+<p>使用相对单位的好处是，经过一些仔细的规划，可以使文本或其他元素的大小与页面上的其他内容相对应。<strong>常用vw</strong></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220517231558911.png" alt="image-20220517231558911"></p>
+<h1 id="8-像素"><a href="#8-像素" class="headerlink" title="8 像素"></a>8 像素</h1><p>px是pixel的缩写，翻译为像素</p>
+<h2 id="8-1-物理像素"><a href="#8-1-物理像素" class="headerlink" title="8.1 物理像素"></a>8.1 物理像素</h2><p>也叫设备像素，官网上所说的分辨率</p>
+<h2 id="8-2-逻辑像素"><a href="#8-2-逻辑像素" class="headerlink" title="8.2 逻辑像素"></a>8.2 逻辑像素</h2><p>设备独立像素，面向开发者对屏幕适配（操作系统设置）</p>
+<h2 id="8-3-CSS像素"><a href="#8-3-CSS像素" class="headerlink" title="8.3 CSS像素"></a>8.3 CSS像素</h2><p>在默认情况下相当于设备独立像素</p>
+<h2 id="8-4-DPR"><a href="#8-4-DPR" class="headerlink" title="8.4 DPR"></a>8.4 DPR</h2><p>DPR：device pixel ratio（设备像素比）</p>
+<p>一个逻辑像素在长度上对应两个物理像素，这个比例称之为设备像素比（物理像素/逻辑像素）</p>
+<p>可以通过<code>window.devicePixelRatio</code>获取到当前屏幕上的DPR值</p>
+<h2 id="8-5-PPI"><a href="#8-5-PPI" class="headerlink" title="8.5 PPI"></a>8.5 PPI</h2><p>PPI：Pixels Per Inch（每英寸像素）</p>
+<p>通常用来表示一个打印图像或者显示器上像素的密度，通俗来讲为屏幕的细腻程度。前面我们提过1英寸=2.54厘米，在工业领域被广泛应用</p>
 ]]></content>
       <categories>
         <category>前端</category>
@@ -69,7 +359,18 @@
 <h1 id="1-认识TypeScript"><a href="#1-认识TypeScript" class="headerlink" title="1 认识TypeScript"></a>1 认识TypeScript</h1><p>TypeScript的出现是为了解决JavaScript不进行类型检测的问题</p>
 <p>TypeScript是拥有类型的JavaScript超集，它可以编译成普通、干净、完整的JavaScript代码。</p>
 <p>TypeScript是JavaScript的一个超集</p>
-<h1 id="2-数据类型"><a href="#2-数据类型" class="headerlink" title="2 数据类型"></a>2 数据类型</h1><h2 id="2-1-number"><a href="#2-1-number" class="headerlink" title="2.1 number"></a>2.1 number</h2><p>不区分整型和浮点型，支持二进制，八进制，十进制，十六进制</p>
+<blockquote>
+<p><strong>TypeScript编译环境</strong></p>
+<p><code>npm install typescript -g</code></p>
+<p><code>tsc --version</code></p>
+<p><code>tsc ××.ts</code> 将.ts文件编译为.js文件</p>
+<p><strong>TypeScript运行环境</strong></p>
+<p><code>npm install ts-node -g</code></p>
+<p><code>npm install tslib @types/node -g</code></p>
+<p><code>ts-node ××.ts</code> 直接通过ts-node运行.ts文件</p>
+</blockquote>
+<h1 id="2-数据类型"><a href="#2-数据类型" class="headerlink" title="2 数据类型"></a>2 数据类型</h1><p>13种类型</p>
+<h2 id="2-1-number"><a href="#2-1-number" class="headerlink" title="2.1 number"></a>2.1 number</h2><p>不区分整型和浮点型，支持二进制，八进制，十进制，十六进制</p>
 <figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">num = <span class="number">100</span>;  <span class="comment">// 十进制</span></span><br><span class="line">num = <span class="number">0b110</span>;  <span class="comment">// 二进制</span></span><br><span class="line">num = <span class="number">0o555</span>;  <span class="comment">// 八进制</span></span><br><span class="line">num = <span class="number">0xf23</span>;  <span class="comment">// 十六进制</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="2-2-boolean"><a href="#2-2-boolean" class="headerlink" title="2.2 boolean"></a>2.2 boolean</h2><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> flag: <span class="built_in">boolean</span> = <span class="literal">true</span>;</span><br><span class="line">flag = <span class="literal">false</span>;</span><br><span class="line">flag = <span class="number">20</span> &gt; <span class="number">30</span>;</span><br></pre></td></tr></table></figure>
@@ -148,6 +449,32 @@
 <li><p>这个过程称之为上下文类型（contextual typing），因为函数执行的上下文可以帮助确定参数和返回值的类型；</p>
 </li>
 </ul>
+<h2 id="3-4-对象类型"><a href="#3-4-对象类型" class="headerlink" title="3.4 对象类型"></a>3.4 对象类型</h2><h3 id="对象类型做函数参数"><a href="#对象类型做函数参数" class="headerlink" title="对象类型做函数参数"></a>对象类型做函数参数</h3><p>函数接受的参数是一个对象，属性之间可以使用<code>，</code>和<code>;</code>来分割；每个属性的类型部分也是可选的，如果不指定，那么就是any类型</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printCoordinate</span>(<span class="params">point: &#123;x: <span class="built_in">number</span>, y: <span class="built_in">number</span>&#125;</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;x坐标：&quot;</span>, point.x)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;y坐标：&quot;</span>, point.y)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printCoordinate(&#123;<span class="attr">x</span>: <span class="number">10</span>, <span class="attr">y</span>: <span class="number">30</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="可选类型"><a href="#可选类型" class="headerlink" title="可选类型"></a>可选类型</h3><p>对象类型也可以指定哪些属性是可选的，可以在属性的后面添加一个<code>?：</code></p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printCoordinate</span>(<span class="params">point: &#123;x: <span class="built_in">number</span>, y: <span class="built_in">number</span>, z?: <span class="built_in">number</span>&#125;</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;x坐标：&quot;</span>, point.x)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;y坐标：&quot;</span>, point.y)</span><br><span class="line">    <span class="keyword">if</span> (point.z) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;z坐标：&quot;</span>, point.z)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printCoordinate(&#123;<span class="attr">x</span>: <span class="number">10</span>, <span class="attr">y</span>: <span class="number">30</span>&#125;)</span><br><span class="line">printCoordinate(&#123;<span class="attr">x</span>: <span class="number">10</span>, <span class="attr">y</span>: <span class="number">30</span>, <span class="attr">z</span>: <span class="number">40</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>可选类型可以看作是类型和undefined的联合类型</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">print</span>(<span class="params">message?: <span class="built_in">string</span></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(message)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">print()</span><br><span class="line">print(<span class="string">&quot;coderwhy&quot;</span>)</span><br><span class="line">print(<span class="literal">undefined</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// error</span></span><br><span class="line">print(<span class="literal">null</span>)</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="3-5-联合类型"><a href="#3-5-联合类型" class="headerlink" title="3.5 联合类型"></a>3.5 联合类型</h2><p>TypeScript的类型系统允许我们使用多种运算符，从现有类型中构建新类型</p>
+<p>第一种组合类型的方法——联合类型</p>
+<ul>
+<li>联合类型是由两个或者多个其他类型组成的类型</li>
+<li>表示可以是这些类型中的任何一个值</li>
+<li>联合类型中的每一个类型被称之为联合成员</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printId</span>(<span class="params">id: <span class="built_in">number</span>|<span class="built_in">string</span></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;你的id是：&quot;</span>, id)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printId(<span class="number">10</span>)</span><br><span class="line">printId(<span class="string">&quot;abc&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>一般情况下需要缩小联合</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printId</span>(<span class="params">id: number|string</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> id === <span class="string">&#x27;string&#x27;</span>) &#123;</span><br><span class="line">        <span class="comment">// 确定id是string类型</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;你的id是：&quot;</span>, id.toUpperCase())</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 确定id是number类型</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&quot;你的id是&quot;</span>, id)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printId(<span class="number">10</span>)</span><br><span class="line">printId(<span class="string">&quot;abc&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-6-类型别名"><a href="#3-6-类型别名" class="headerlink" title="3.6 类型别名"></a>3.6 类型别名</h2><figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> Point = &#123;</span><br><span class="line">    x: <span class="built_in">number</span></span><br><span class="line">    y: <span class="built_in">number</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printPoint</span>(<span class="params">point: Point</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(point.x, point.y)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sumPoint</span>(<span class="params">point: Point</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(point.x + point.y)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">printPoint(&#123;<span class="attr">x</span>: <span class="number">20</span>, <span class="attr">y</span>: <span class="number">30</span>&#125;)</span><br><span class="line">sumPoint(&#123;<span class="attr">x</span>: <span class="number">20</span>, <span class="attr">y</span>: <span class="number">30</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">type</span> ID = <span class="built_in">number</span>|<span class="built_in">string</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printId</span>(<span class="params">od: ID</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;您的id：&quot;</span>, id)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>前端</category>
@@ -918,7 +1245,7 @@
 <p>⑤ 运行 npm install jquery –S 命令，安装 jQuery</p>
 <p>⑥ 通过 ES6 模块化的方式导入 jQuery，实现列表隔行变色效果</p>
 <h2 id="2-3-在项目中安装-webpack"><a href="#2-3-在项目中安装-webpack" class="headerlink" title="2.3 在项目中安装 webpack"></a>2.3 在项目中安装 webpack</h2><p>在终端运行如下的命令，安装 webpack 相关的两个包：</p>
-<p>npm install <a href="mailto:&#x77;&#x65;&#98;&#112;&#x61;&#x63;&#107;&#64;&#x35;&#x2e;&#x34;&#x32;&#x2e;&#49;">&#x77;&#x65;&#98;&#112;&#x61;&#x63;&#107;&#64;&#x35;&#x2e;&#x34;&#x32;&#x2e;&#49;</a> webpack-cli@4.7.2 -D </p>
+<p>npm install <a href="mailto:&#x77;&#x65;&#x62;&#x70;&#97;&#99;&#107;&#64;&#x35;&#x2e;&#52;&#x32;&#46;&#49;">&#x77;&#x65;&#x62;&#x70;&#97;&#99;&#107;&#64;&#x35;&#x2e;&#52;&#x32;&#46;&#49;</a> webpack-cli@4.7.2 -D </p>
 <h2 id="2-4-在项目中配置-webpack"><a href="#2-4-在项目中配置-webpack" class="headerlink" title="2.4 在项目中配置 webpack"></a>2.4 在项目中配置 webpack</h2><p>① 在项目根目录中，创建名为 webpack.config.js 的 webpack 配置文件，并初始化如下的基本配置：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">&#x27;development&#x27;</span>  <span class="comment">// mode用来指定构建模式，可选值有development和production</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -973,7 +1300,7 @@
 </ul>
 <h2 id="3-2-webpack-dev-server"><a href="#3-2-webpack-dev-server" class="headerlink" title="3.2 webpack-dev-server"></a>3.2 webpack-dev-server</h2><p>webpack-dev-server 可以让 webpack 监听项目源代码的变化，从而进行自动打包构建。</p>
 <h3 id="3-2-1-安装-webpack-dev-server"><a href="#3-2-1-安装-webpack-dev-server" class="headerlink" title="3.2.1 安装 webpack-dev-server"></a>3.2.1 安装 webpack-dev-server</h3><p>运行如下的命令，即可在项目中安装此插件：</p>
-<p>npm install <a href="mailto:&#x77;&#x65;&#x62;&#112;&#97;&#x63;&#x6b;&#45;&#x64;&#x65;&#x76;&#x2d;&#115;&#101;&#114;&#118;&#x65;&#x72;&#64;&#51;&#x2e;&#x31;&#x31;&#46;&#50;">&#x77;&#x65;&#x62;&#112;&#97;&#x63;&#x6b;&#45;&#x64;&#x65;&#x76;&#x2d;&#115;&#101;&#114;&#118;&#x65;&#x72;&#64;&#51;&#x2e;&#x31;&#x31;&#46;&#50;</a> -D</p>
+<p>npm install <a href="mailto:&#119;&#101;&#98;&#x70;&#x61;&#x63;&#x6b;&#x2d;&#100;&#x65;&#x76;&#x2d;&#115;&#101;&#114;&#x76;&#x65;&#x72;&#x40;&#x33;&#x2e;&#49;&#49;&#x2e;&#x32;">&#119;&#101;&#98;&#x70;&#x61;&#x63;&#x6b;&#x2d;&#100;&#x65;&#x76;&#x2d;&#115;&#101;&#114;&#x76;&#x65;&#x72;&#x40;&#x33;&#x2e;&#49;&#49;&#x2e;&#x32;</a> -D</p>
 <h3 id="3-2-2-配置-webpack-dev-server"><a href="#3-2-2-配置-webpack-dev-server" class="headerlink" title="3.2.2 配置 webpack-dev-server"></a>3.2.2 配置 webpack-dev-server</h3><p>① 修改 package.json -&gt; scripts 中的 dev 命令如下：</p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;dev&quot;: &quot;webpack serve&quot;, // script节点下的脚本，可以通过npm run执行</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1004,7 +1331,7 @@
 <h2 id="3-3-html-webpack-plugin"><a href="#3-3-html-webpack-plugin" class="headerlink" title="3.3 html-webpack-plugin"></a>3.3 html-webpack-plugin</h2><p>html-webpack-plugin 是 webpack 中的 HTML 插件，可以通过此插件自定制 index.html 页面的内容。</p>
 <p>需求：通过 html-webpack-plugin 插件，将 src 目录下的 index.html 首页，复制到项目根目录中一份！</p>
 <h3 id="3-3-1-安装-html-webpack-plugin"><a href="#3-3-1-安装-html-webpack-plugin" class="headerlink" title="3.3.1 安装 html-webpack-plugin"></a>3.3.1 安装 html-webpack-plugin</h3><p>运行如下的命令，即可在项目中安装此插件：</p>
-<p>npm install <a href="mailto:&#104;&#116;&#x6d;&#108;&#45;&#119;&#101;&#x62;&#x70;&#97;&#99;&#107;&#45;&#112;&#x6c;&#117;&#103;&#105;&#x6e;&#x40;&#x35;&#x2e;&#x33;&#x2e;&#50;">&#104;&#116;&#x6d;&#108;&#45;&#119;&#101;&#x62;&#x70;&#97;&#99;&#107;&#45;&#112;&#x6c;&#117;&#103;&#105;&#x6e;&#x40;&#x35;&#x2e;&#x33;&#x2e;&#50;</a> -D</p>
+<p>npm install <a href="mailto:&#104;&#116;&#x6d;&#108;&#x2d;&#x77;&#x65;&#98;&#x70;&#97;&#x63;&#107;&#x2d;&#112;&#x6c;&#x75;&#x67;&#105;&#110;&#64;&#53;&#x2e;&#x33;&#x2e;&#x32;">&#104;&#116;&#x6d;&#108;&#x2d;&#x77;&#x65;&#98;&#x70;&#97;&#x63;&#107;&#x2d;&#112;&#x6c;&#x75;&#x67;&#105;&#110;&#64;&#53;&#x2e;&#x33;&#x2e;&#x32;</a> -D</p>
 <h3 id="3-3-2-配置-html-webpack-plugin"><a href="#3-3-2-配置-html-webpack-plugin" class="headerlink" title="3.3.2 配置 html-webpack-plugin"></a>3.3.2 配置 html-webpack-plugin</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 导入HTML插件，得到一个构造函数</span></span><br><span class="line"><span class="keyword">const</span> HtmlPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 创建HTML插件的实例对象</span></span><br><span class="line"><span class="keyword">const</span> htmlPlugin = <span class="keyword">new</span> HtmlPlugin(&#123;</span><br><span class="line">    template: <span class="string">&#x27;./src/index.html&#x27;</span>, <span class="comment">// 指定原文件的存放路径</span></span><br><span class="line">    filename: <span class="string">&#x27;./index.html&#x27;</span> <span class="comment">// 指定生成的文件的存放路径</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">    plugins: [htmlPlugin], <span class="comment">// 3. 通过plugins节点，使htmlPlugin插件生效</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="3-3-3-解惑-html-webpack-plugin"><a href="#3-3-3-解惑-html-webpack-plugin" class="headerlink" title="3.3.3 解惑 html-webpack-plugin"></a>3.3.3 解惑 html-webpack-plugin</h3><p>① 通过 HTML 插件复制到项目根目录中的 index.html 页面，也被放到了内存中</p>
@@ -1026,7 +1353,7 @@
 </ul>
 <h2 id="4-2-loader的调用过程"><a href="#4-2-loader的调用过程" class="headerlink" title="4.2 loader的调用过程"></a>4.2 loader的调用过程</h2><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/image-20220403200855794.png" alt="image-20220403200855794"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/01.loader%E8%B0%83%E7%94%A8%E7%9A%84%E8%BF%87%E7%A8%8B.png" alt="01.loader调用的过程"></p>
-<h2 id="4-3-打包处理-css-文件"><a href="#4-3-打包处理-css-文件" class="headerlink" title="4.3 打包处理 css 文件"></a>4.3 打包处理 css 文件</h2><p>① 运行 npm i <a href="mailto:&#115;&#116;&#x79;&#108;&#x65;&#45;&#108;&#111;&#97;&#x64;&#x65;&#114;&#64;&#51;&#46;&#48;&#46;&#x30;">&#115;&#116;&#x79;&#108;&#x65;&#45;&#108;&#111;&#97;&#x64;&#x65;&#114;&#64;&#51;&#46;&#48;&#46;&#x30;</a> css-loader@5.2.6 -D 命令，安装处理 css 文件的 loader</p>
+<h2 id="4-3-打包处理-css-文件"><a href="#4-3-打包处理-css-文件" class="headerlink" title="4.3 打包处理 css 文件"></a>4.3 打包处理 css 文件</h2><p>① 运行 npm i <a href="mailto:&#x73;&#x74;&#121;&#108;&#101;&#x2d;&#x6c;&#x6f;&#x61;&#x64;&#101;&#114;&#x40;&#51;&#x2e;&#x30;&#x2e;&#48;">&#x73;&#x74;&#121;&#108;&#101;&#x2d;&#x6c;&#x6f;&#x61;&#x64;&#101;&#114;&#x40;&#51;&#x2e;&#x30;&#x2e;&#48;</a> css-loader@5.2.6 -D 命令，安装处理 css 文件的 loader</p>
 <p>② 在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123; <span class="comment">// 所有第三方文件模块的匹配规则</span></span><br><span class="line">    rules: [ <span class="comment">// 文件后缀名的匹配规则</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>] &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1038,11 +1365,11 @@
 <li><p>多个 loader 的调用顺序是：从后往前调用</p>
 </li>
 </ul>
-<h2 id="4-4-打包处理-less-文件"><a href="#4-4-打包处理-less-文件" class="headerlink" title="4.4 打包处理 less 文件"></a>4.4 打包处理 less 文件</h2><p>① 运行 npm i <a href="mailto:&#108;&#x65;&#x73;&#x73;&#x2d;&#108;&#x6f;&#97;&#x64;&#x65;&#114;&#64;&#49;&#48;&#x2e;&#48;&#46;&#49;">&#108;&#x65;&#x73;&#x73;&#x2d;&#108;&#x6f;&#97;&#x64;&#x65;&#114;&#64;&#49;&#48;&#x2e;&#48;&#46;&#49;</a> less@4.1.1 -D 命令</p>
+<h2 id="4-4-打包处理-less-文件"><a href="#4-4-打包处理-less-文件" class="headerlink" title="4.4 打包处理 less 文件"></a>4.4 打包处理 less 文件</h2><p>① 运行 npm i <a href="mailto:&#108;&#x65;&#115;&#115;&#x2d;&#108;&#111;&#x61;&#100;&#x65;&#x72;&#64;&#x31;&#x30;&#46;&#x30;&#x2e;&#x31;">&#108;&#x65;&#115;&#115;&#x2d;&#108;&#111;&#x61;&#100;&#x65;&#x72;&#64;&#x31;&#x30;&#46;&#x30;&#x2e;&#x31;</a> less@4.1.1 -D 命令</p>
 <p>② 在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123; <span class="comment">// 所有第三方文件模块的匹配规则</span></span><br><span class="line">    rules: [ <span class="comment">// 文件后缀名的匹配规则</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.less$/</span>, use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>, <span class="string">&#x27;less-loader&#x27;</span>] &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="4-5-打包处理样式表中与-url-路径相关的文件"><a href="#4-5-打包处理样式表中与-url-路径相关的文件" class="headerlink" title="4.5 打包处理样式表中与 url 路径相关的文件"></a>4.5 打包处理样式表中与 url 路径相关的文件</h2><p>① 运行 npm i <a href="mailto:&#117;&#114;&#108;&#45;&#x6c;&#x6f;&#97;&#100;&#x65;&#x72;&#64;&#x34;&#x2e;&#x31;&#x2e;&#49;">&#117;&#114;&#108;&#45;&#x6c;&#x6f;&#97;&#100;&#x65;&#x72;&#64;&#x34;&#x2e;&#x31;&#x2e;&#49;</a> file-loader@6.2.0 -D 命令</p>
+<h2 id="4-5-打包处理样式表中与-url-路径相关的文件"><a href="#4-5-打包处理样式表中与-url-路径相关的文件" class="headerlink" title="4.5 打包处理样式表中与 url 路径相关的文件"></a>4.5 打包处理样式表中与 url 路径相关的文件</h2><p>① 运行 npm i <a href="mailto:&#117;&#114;&#x6c;&#x2d;&#108;&#111;&#x61;&#100;&#x65;&#114;&#x40;&#x34;&#46;&#x31;&#46;&#x31;">&#117;&#114;&#x6c;&#x2d;&#108;&#111;&#x61;&#100;&#x65;&#114;&#x40;&#x34;&#46;&#x31;&#46;&#x31;</a> file-loader@6.2.0 -D 命令</p>
 <p>② 在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123; <span class="comment">// 所有第三方文件模块的匹配规则</span></span><br><span class="line">    rules: [ <span class="comment">// 文件后缀名的匹配规则</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.jpg|png|gif$/</span>, use: [<span class="string">&#x27;url-loader?limit=22229&#x27;</span>] &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1057,7 +1384,7 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 定义了名为info的装饰器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">info</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 2. 为目标添加静态属性info</span></span><br><span class="line">    target.info = <span class="string">&#x27;Person info&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 为Person类应用info装饰器</span></span><br><span class="line">@info</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//4. 打印 Person 的静态属性 info</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.info)</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-6-1-安装-babel-loader-相关的包"><a href="#4-6-1-安装-babel-loader-相关的包" class="headerlink" title="4.6.1 安装 babel-loader 相关的包"></a>4.6.1 安装 babel-loader 相关的包</h3><p>运行如下的命令安装对应的依赖包：</p>
-<p>npm i <a href="mailto:&#98;&#97;&#98;&#x65;&#108;&#x2d;&#x6c;&#111;&#x61;&#100;&#101;&#114;&#x40;&#56;&#x2e;&#50;&#x2e;&#x32;">&#98;&#97;&#98;&#x65;&#108;&#x2d;&#x6c;&#111;&#x61;&#100;&#101;&#114;&#x40;&#56;&#x2e;&#50;&#x2e;&#x32;</a> @babel/core@7.14.6 @babel/plugin-proposal-decorators@7.14.5 -D </p>
+<p>npm i <a href="mailto:&#98;&#x61;&#x62;&#x65;&#x6c;&#45;&#108;&#x6f;&#x61;&#x64;&#101;&#114;&#x40;&#56;&#x2e;&#x32;&#x2e;&#x32;">&#98;&#x61;&#x62;&#x65;&#x6c;&#45;&#108;&#x6f;&#x61;&#x64;&#101;&#114;&#x40;&#56;&#x2e;&#x32;&#x2e;&#x32;</a> @babel/core@7.14.6 @babel/plugin-proposal-decorators@7.14.5 -D </p>
 <p>在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注意：必须使用exclude指定排除项；因为node_modules目录下的第三方包不需要被打包</span></span><br><span class="line">&#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, use: <span class="string">&#x27;babel-loader&#x27;</span>, <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span> &#125;</span><br></pre></td></tr></table></figure>
 
@@ -9465,31 +9792,68 @@
 <p><a href="https://www.w3school.com.cn/js/index.asp">JavaScript 教程 (w3school.com.cn)</a></p>
 <p><a href="https://www.liaoxuefeng.com/wiki/1022910821149312">JavaScript教程 - 廖雪峰的官方网站 (liaoxuefeng.com)</a></p>
 <h1 id="1-ECMAScript"><a href="#1-ECMAScript" class="headerlink" title="1 ECMAScript"></a>1 ECMAScript</h1><p>ECMA（European Computer Manufacturers Association）中文名称为欧洲计算机制造商协会，这个组织的目标是评估、开发和认可电信和计算机标准。1994 年后该组织改名为 Ecma 国际。ECMAScript 是由 Ecma 国际通过 ECMA-262 标准化的脚本程序设计语言</p>
-<h2 id="1-1-输出方式"><a href="#1-1-输出方式" class="headerlink" title="1.1 输出方式"></a>1.1 输出方式</h2><figure class="highlight less"><table><tr><td class="code"><pre><span class="line">输出方式</span><br><span class="line">   <span class="selector-tag">1</span>. 弹窗</span><br><span class="line">   <span class="selector-tag">alert</span>(需要输出的内容)</span><br><span class="line">   <span class="selector-tag">confirm</span>(需要输出的内容)</span><br><span class="line">   <span class="selector-tag">prompt</span>(需要输出的内容)</span><br><span class="line">   注意点：如果需要输出的内容不是数字，那么就必须通过单引号或者双引号括起来</span><br><span class="line"></span><br><span class="line">   <span class="selector-tag">2</span>. 网页内容区域来输出</span><br><span class="line">   <span class="selector-tag">document</span><span class="selector-class">.write</span>(需要输出的内容)</span><br><span class="line"></span><br><span class="line">   <span class="selector-tag">3</span>. 通过开发者工具控制台的形式来输出</span><br><span class="line">   <span class="selector-tag">console</span><span class="selector-class">.log</span>(需要输出的内容)</span><br><span class="line">   <span class="selector-tag">console</span><span class="selector-class">.warn</span>(需要输出的内容)</span><br><span class="line">   <span class="selector-tag">console</span><span class="selector-class">.error</span>(需要输出的内容)</span><br></pre></td></tr></table></figure>
-
-<h2 id="1-2-HTML中嵌入JS代码的方式"><a href="#1-2-HTML中嵌入JS代码的方式" class="headerlink" title="1.2 HTML中嵌入JS代码的方式"></a>1.2 HTML中嵌入JS代码的方式</h2><p>行间事件；</p>
-<p>脚本块；</p>
-<p>引入外部独立的JS文件</p>
+<h2 id="1-1-交互方式"><a href="#1-1-交互方式" class="headerlink" title="1.1 交互方式"></a>1.1 交互方式</h2><p>1、弹窗</p>
+<p><code>alert(需要输出的内容)</code></p>
+<p><code>confirm(需要输出的内容)</code></p>
+<p><code>prompt(需要输出的内容)</code> 获取用户输入的内容</p>
+<p><strong>如果需要输出的内容不是数字，那么就必须通过单引号或者双引号括起来</strong></p>
+<p>2、网页内容区域来输出</p>
+<p><code>document.write(需要输出的内容)</code></p>
+<p>3、通过开发者工具控制台的形式来输出</p>
+<p><code>console.log(需要输出的内容)</code></p>
+<p><code>console.warn(需要输出的内容)</code></p>
+<p><code>console.error(需要输出的内容)</code></p>
 <blockquote>
-<p>引入外部独立的CSS文件，这个标签link中属性是href，JS则为src</p>
+<p>JavaScript将换行符理解为分号，故可不加分号</p>
+</blockquote>
+<h2 id="1-2-HTML中嵌入JS代码的方式"><a href="#1-2-HTML中嵌入JS代码的方式" class="headerlink" title="1.2 HTML中嵌入JS代码的方式"></a>1.2 HTML中嵌入JS代码的方式</h2><p>1、行间事件；</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;alert(&#x27;百度一下&#x27;)&quot;</span>&gt;</span>百度一下<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript: alert(&#x27;百度一下&#x27;)&quot;</span>&gt;</span>百度一下<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2、脚本块：写在<code>&lt;script&gt;</code>中；</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">&quot;baidu&quot;</span> <span class="attr">href</span>=<span class="string">&quot;javascript:&quot;</span>&gt;</span>百度一下<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> baiduAEL = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.baidu&#x27;</span>)</span></span><br><span class="line"><span class="javascript">    baiduAEL.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        alert(<span class="string">&#x27;百度一下&#x27;</span>)</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>3、引入外部独立的JS文件</p>
+<blockquote>
+<p>① 引入外部独立的CSS文件，这个标签link中属性是href，JS则为src</p>
+<p>② script元素不能写成单标签</p>
+<p>③ 省略type属性</p>
+<p>④ 加载顺序：自上而下</p>
+<p>⑤ 区分大小写：HTML，CSS不区分大小写</p>
 </blockquote>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;js/1.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span> <span class="attr">href</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="1-3-标识符"><a href="#1-3-标识符" class="headerlink" title="1.3 标识符"></a>1.3 标识符</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">标识符命名规则：</span><br><span class="line">   标识符只能由数字、字母、下划线、美元符号组成，不能含有其它特殊符号</span><br><span class="line">   标识符不能以数字开始</span><br><span class="line">   标识符严格区分大小写</span><br><span class="line">   关键字不能做标识符</span><br><span class="line">   标识符理论上没有长度限制</span><br></pre></td></tr></table></figure>
+<h2 id="1-3-标识符"><a href="#1-3-标识符" class="headerlink" title="1.3 标识符"></a>1.3 标识符</h2><p><strong>标识符命名规则</strong></p>
+<p>1、标识符只能由数字、字母、下划线、美元符号组成，不能含有其它特殊符号</p>
+<p>2、标识符不能以数字开始</p>
+<p>3、标识符严格区分大小写</p>
+<p>4、关键字不能做标识符</p>
+<p>标识符理论上没有长度限制</p>
+<h2 id="1-4-变量"><a href="#1-4-变量" class="headerlink" title="1.4 变量"></a>1.4 变量</h2><p>在JavaScript当中，如果一个变量声明的时候没有使用var关键字的话，这个变量不管是在哪里声明的，都是全局变量。这种全局变量在声明的时候必须手动赋值，不能采用系统默认值。</p>
+<p>交换两个变量的值</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>, b = <span class="number">20</span>;</span><br><span class="line"><span class="keyword">var</span> temp = a;</span><br><span class="line">a = b;</span><br><span class="line">b = temp;</span><br></pre></td></tr></table></figure>
 
-<h2 id="1-4-变量"><a href="#1-4-变量" class="headerlink" title="1.4 变量"></a>1.4 变量</h2><figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">在javascript当中，如果一个变量声明的时候没有使用<span class="keyword">var</span>关键字的话，这个变量不管是在哪里声明的，都是全局变量。这种全局变量在声明的时候必须手动赋值，不能采用系统默认值。</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>, b = <span class="number">20</span>;</span><br><span class="line">a = a + b;</span><br><span class="line">b = a - b;</span><br><span class="line">a = a - b;</span><br></pre></td></tr></table></figure>
 
-<h2 id="1-5-数据类型"><a href="#1-5-数据类型" class="headerlink" title="1.5 数据类型"></a>1.5 数据类型</h2><p>es6数据类型：记忆方法</p>
-<p>bouns</p>
-<p>boolean bigint</p>
-<p>object</p>
-<p>undefined</p>
-<p>null number</p>
-<p>string symbol</p>
-<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typeof</span>运算符的运算结果是以下<span class="number">6</span>个字符串之一：</span><br><span class="line">   <span class="string">&quot;undefined&quot;</span></span><br><span class="line">   <span class="string">&quot;number&quot;</span></span><br><span class="line">   <span class="string">&quot;string&quot;</span></span><br><span class="line">   <span class="string">&quot;boolean&quot;</span></span><br><span class="line">   <span class="string">&quot;object&quot;</span></span><br><span class="line">   <span class="string">&quot;function&quot;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line"><span class="literal">null</span>属于<span class="literal">Null</span>类型,但是typeof运算符的运算结果是<span class="string">&quot;object&quot;</span></span><br></pre></td></tr></table></figure>
-
+<h2 id="1-5-数据类型"><a href="#1-5-数据类型" class="headerlink" title="1.5 数据类型"></a>1.5 数据类型</h2><p>JavaScript有8种基本的数据类型（7种原始类型和1种复杂类型）</p>
+<p>记忆方法：<code>bouns</code></p>
+<p><code>boolean</code> <code>bigint</code></p>
+<p><code>object</code></p>
+<p><code>undefined</code></p>
+<p><code>null</code> <code>number</code></p>
+<p><code>string</code> <code>symbol</code></p>
+<p><code>typeof</code>操作符的运算结果是以下字符串之一：</p>
+<ul>
+<li>“undefined”表示值未定义</li>
+<li>“number”表示值为数值</li>
+<li>“string”表示值为字符串</li>
+<li>“boolean”表示值为布尔值</li>
+<li>“object”表示值为对象（而不是函数）或null</li>
+<li>“function”表示值为函数</li>
+<li>“Symbol”表示值为符号</li>
+</ul>
+<blockquote>
+<p>null属于Null类型,但是typeof运算符的运算结果是”object”，null是特殊的object类型</p>
+</blockquote>
 <h3 id="1-5-1-Undefined"><a href="#1-5-1-Undefined" class="headerlink" title="1.5.1 Undefined"></a>1.5.1 Undefined</h3><figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>、只有一个值，它的值就是：<span class="literal">undefined</span></span><br><span class="line"><span class="number">2</span>、当一个变量声明之后没有手动赋值，系统默认赋值<span class="literal">undefined</span></span><br><span class="line"><span class="number">3</span>、Undefined类型属于原始类型。</span><br></pre></td></tr></table></figure>
 
 <h3 id="1-5-2-Null"><a href="#1-5-2-Null" class="headerlink" title="1.5.2 Null"></a>1.5.2 Null</h3><figure class="highlight 1c"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>、<span class="literal">Null</span>类型也是属于原始类型。</span><br><span class="line"><span class="number">2</span>、<span class="literal">Null</span>类型只有<span class="number">1</span>个值：<span class="literal">null</span></span><br><span class="line"><span class="number">3</span>、注意: typeof <span class="literal">null</span> 运算结果是：<span class="string">&quot;object&quot;</span></span><br></pre></td></tr></table></figure>
@@ -9550,6 +9914,15 @@
 
 <h2 id="1-11-内置对象Date"><a href="#1-11-内置对象Date" class="headerlink" title="1.11 内置对象Date"></a>1.11 内置对象Date</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">// 获取系统当前时间的.</span></span><br><span class="line"><span class="comment">//console.log(time.getYear()) //121 (getYear()方法过时了，不建议用了，获取的年是两位的。1985最终获取之后是85)</span></span><br><span class="line">            </span><br><span class="line"><span class="built_in">console</span>.log(time) <span class="comment">//Date Thu Mar 26 2021 17:55:13 GMT+0800 (中国标准时间)</span></span><br><span class="line">            </span><br><span class="line"><span class="comment">// 进行格式转换</span></span><br><span class="line"><span class="comment">// 可以将年月日的信息都拿出来.然后自己拼接格式.</span></span><br><span class="line"><span class="keyword">var</span> year = time.getFullYear();</span><br><span class="line"><span class="keyword">var</span> month = time.getMonth(); <span class="comment">// 0-11 表示 1-12</span></span><br><span class="line"><span class="comment">//var day = time.getDay(); // 获取的是星期几</span></span><br><span class="line"><span class="keyword">var</span> day = time.getDate(); <span class="comment">// 获取一个月份中的第几天</span></span><br><span class="line"><span class="built_in">console</span>.log(year + <span class="string">&quot;年&quot;</span> + (month + <span class="number">1</span>) + <span class="string">&quot;月&quot;</span> + day + <span class="string">&quot;日&quot;</span>)</span><br><span class="line">            </span><br><span class="line"><span class="comment">// 获取时分秒毫秒</span></span><br><span class="line"><span class="comment">/* time.getHours()</span></span><br><span class="line"><span class="comment">time.getMinutes()</span></span><br><span class="line"><span class="comment">time.getSeconds()</span></span><br><span class="line"><span class="comment">time.getMilliseconds() */</span></span><br><span class="line">            </span><br><span class="line"><span class="comment">//在JS中提供了一个函数toLocaleString(),其实这个函数是Object中的.</span></span><br><span class="line"><span class="comment">// 转换成具有本地语言环境的日期格式</span></span><br><span class="line"><span class="keyword">var</span> strTime = time.toLocaleString();</span><br><span class="line"><span class="built_in">console</span>.log(strTime) <span class="comment">//2021/3/26 下午5:59:55</span></span><br><span class="line">            </span><br><span class="line"><span class="comment">// 怎么获取自&quot;1970年1月1日 00:00:00 000&quot;到系统当前时间的总毫秒数.</span></span><br><span class="line"><span class="keyword">var</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"><span class="keyword">var</span> timeMillis = now.getTime(); <span class="comment">//这个getTime()方法是一个重点方法.</span></span><br><span class="line"><span class="built_in">console</span>.log(timeMillis)</span><br></pre></td></tr></table></figure>
 
+<h2 id="1-12-noscript"><a href="#1-12-noscript" class="headerlink" title="1.12 noscript"></a>1.12 noscript</h2><p>浏览器不支持脚本或者浏览器对脚本的支持被关闭时显示<code>&lt;noscript&gt;</code>标签中的元素</p>
+<h2 id="1-13-注释"><a href="#1-13-注释" class="headerlink" title="1.13 注释"></a>1.13 注释</h2><p>单行注释</p>
+<p>多行注释</p>
+<p>文档注释</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 和某人打招呼的函数</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param <span class="type">&#123;string&#125;</span> </span>name 姓名</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>age 年龄</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params">name, age</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>CSS只有一种注释<code>/*  */</code></p>
+</blockquote>
 <h1 id="2-BOM"><a href="#2-BOM" class="headerlink" title="2 BOM"></a>2 BOM</h1><p>浏览器是JavaScript非常重要的运行环境，浏览器本身又作为一个应用程序需要对其本身进行操作，所以浏览器会有对应的对象模型，可以将BOM看成连接JavaScript脚本和浏览器窗口的桥梁</p>
 <p>window对象：①全局对象，Node中为global，浏览器为window对象；②浏览器窗口对象（提供了对浏览器操作的相关的API）</p>
 <p>BOM主要包括以下对象模型：</p>
@@ -9742,7 +10115,7 @@
 <p>CSS学习笔记</p>
 </blockquote>
 <span id="more"></span>
-<h1 id="1-css简介"><a href="#1-css简介" class="headerlink" title="1 css简介"></a>1 css简介</h1><p>css为层叠样式表语言，css规则由两个主要的部分构成：选择器以及一条或多条声明</p>
+<h1 id="1-CSS简介"><a href="#1-CSS简介" class="headerlink" title="1 CSS简介"></a>1 CSS简介</h1><p>css为层叠样式表语言，css规则由两个主要的部分构成：选择器以及一条或多条声明</p>
 <ul>
 <li>选择器是用于指定css样式的HTML标签，花括号内是对该对象设置的具体样式</li>
 <li>属性和属性值以“键值对”的形式出现</li>
@@ -9887,11 +10260,10 @@
 </blockquote>
 <p>谷歌浏览器默认的文字大小是17px，我们可以给body指定整个页面文字的大小</p>
 <ul>
-<li><p>推荐使用<code>px</code>，也可以使用<code>em</code>，<code>1em</code>代表<code>100%</code>，<code>2em</code>代表<code>200%</code>，<code>0.5em</code>代表<code>50%</code></p>
-</li>
-<li><p>百分比：基于父元素的font-size计算，比如50%表示等于父元素font-size的一半</p>
-</li>
+<li>推荐使用<code>px</code>，也可以使用<code>em</code>，<code>1em</code>代表<code>100%</code>，<code>2em</code>代表<code>200%</code>，<code>0.5em</code>代表<code>50%</code></li>
+<li>百分比：基于父元素的font-size计算，比如50%表示等于父元素font-size的一半</li>
 </ul>
+<p>浏览器默认最小字体大小为12px</p>
 <h2 id="4-3-字体粗细"><a href="#4-3-字体粗细" class="headerlink" title="4.3 字体粗细"></a>4.3 字体粗细</h2><blockquote>
 <p>font-weight: </p>
 </blockquote>
@@ -9959,7 +10331,7 @@
 <p>word-spacing: 设置单词之间的间距</p>
 </blockquote>
 <p>默认为0，可以设置为负数</p>
-<h1 id="6-css三大特性"><a href="#6-css三大特性" class="headerlink" title="6 css三大特性"></a>6 css三大特性</h1><h2 id="6-1-层叠性"><a href="#6-1-层叠性" class="headerlink" title="6.1 层叠性"></a>6.1 层叠性</h2><ul>
+<h1 id="6-CSS三大特性"><a href="#6-CSS三大特性" class="headerlink" title="6 CSS三大特性"></a>6 CSS三大特性</h1><h2 id="6-1-层叠性"><a href="#6-1-层叠性" class="headerlink" title="6.1 层叠性"></a>6.1 层叠性</h2><ul>
 <li>样式冲突，选择器权重大的生效；权重相同时，后面设置的生效</li>
 <li>样式不冲突，不会层叠</li>
 </ul>
@@ -10415,7 +10787,8 @@
 <p>所以建议的编写顺序是 <code>:link</code>、 <code>:visited</code>、 <code>:focus</code>、 <code>:hover</code>、 <code>:active</code></p>
 <p>直接给a元素设样式，相当于给a元素的所有动态伪类都设置了。<strong>除了a元素，:hover、:active也能用在其他元素上</strong></p>
 <h2 id="12-2-目标伪类"><a href="#12-2-目标伪类" class="headerlink" title="12.2 目标伪类"></a>12.2 目标伪类</h2><p><code>:target</code></p>
-<h2 id="12-3-语言伪类"><a href="#12-3-语言伪类" class="headerlink" title="12.3 语言伪类"></a>12.3 语言伪类</h2><p><code>:lang()</code></p>
+<p>URL 带有后面跟有锚名称 #，指向文档内某个具体的元素。这个被链接的元素就是目标元素(target element)。:target 选择器可用于选取当前活动的目标元素</p>
+<h2 id="12-3-语言伪类"><a href="#12-3-语言伪类" class="headerlink" title="12.3 语言伪类"></a>12.3 语言伪类</h2><p><code>:lang()</code> 根据元素的lang属性确定的元素</p>
 <h2 id="12-4-元素状态伪类"><a href="#12-4-元素状态伪类" class="headerlink" title="12.4 元素状态伪类"></a>12.4 元素状态伪类</h2><p><code>:enabled</code></p>
 <p><code>:disabled</code></p>
 <p><code>:checked</code></p>
@@ -10439,22 +10812,14 @@
 <h3 id="nth-last-of-type"><a href="#nth-last-of-type" class="headerlink" title=":nth-last-of-type"></a>:nth-last-of-type</h3><p><strong>:nth-last-of-type()用法跟:nth-of-type()类似</strong></p>
 <p>不同点是:nth-last-of-type()从最后一个这种类型的子元素开始往前计数</p>
 <h3 id="其他常见的伪类"><a href="#其他常见的伪类" class="headerlink" title="其他常见的伪类"></a>其他常见的伪类</h3><ul>
-<li><p>:first-child，等同于:nth-child(1)</p>
-</li>
-<li><p>:last-child，等同于:nth-last-child(1)</p>
-</li>
-<li><p>:first-of-type，等同于:nth-of-type(1)</p>
-</li>
-<li><p>:last-of-type，等同于:nth-last-of-type(1)</p>
-</li>
-<li><p>:only-child，是父元素中唯一的子元素</p>
-</li>
-<li><p>:only-of-type，是父元素中唯一的这种类型的子元素</p>
-</li>
-<li><p>:root，根元素。就是HTML元素</p>
-</li>
-<li><p>:empty，代表里面完全空白的元素</p>
-</li>
+<li>:first-child，等同于:nth-child(1)</li>
+<li>:last-child，等同于:nth-last-child(1)</li>
+<li>:first-of-type，等同于:nth-of-type(1)</li>
+<li>:last-of-type，等同于:nth-last-of-type(1)</li>
+<li>:only-child，是父元素中唯一的子元素</li>
+<li>:only-of-type，是父元素中唯一的这种类型的子元素</li>
+<li>:root，根元素。就是HTML元素</li>
+<li>:empty，代表里面完全空白的元素</li>
 </ul>
 <h2 id="13-6-否定伪类"><a href="#13-6-否定伪类" class="headerlink" title="13.6 否定伪类"></a>13.6 否定伪类</h2><p><strong>:not()的格式是:not(x)</strong></p>
 <ul>
@@ -10470,6 +10835,10 @@
 <p>常通过content属性来未一个元素添加修饰性的内容</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">::before</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&quot;123&quot;</span>;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span><span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&quot;321&quot;</span>;</span><br><span class="line">    <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>伪类和伪元素的区别</p>
+<p>影响文档的方式不同，伪类的表现像给文档添加类，伪元素的效果好像有元素插入在了文档中</p>
+</blockquote>
 <h1 id="14-滚动栏"><a href="#14-滚动栏" class="headerlink" title="14 滚动栏"></a>14 滚动栏</h1><p><code>overflow</code>用于控制内容溢出时的行为</p>
 <ul>
 <li><code>visible</code>溢出的内容照样可见</li>
@@ -12638,12 +13007,22 @@ insert()
 </ul>
 <h3 id="表单控件（表单元素）"><a href="#表单控件（表单元素）" class="headerlink" title="表单控件（表单元素）"></a>表单控件（表单元素）</h3><p>readonly和disabled都是只读的，readonly修饰的表单项可以提交给服务器，disabled不会提交<br><strong>1、<code>&lt;input/&gt;</code>输入表单元素</strong></p>
 <p><code>type</code>=”属性值”</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">button 定义可点击按钮（多数情况用于通过js启动脚本)，使用value属性设置按钮文字</span><br><span class="line">checkbox 定义复选框</span><br><span class="line">file 定义输入字段和浏览按钮，供文件上传</span><br><span class="line">hidden 定义隐藏的输入字段（不希望用户在浏览器说看到，但是要提交）</span><br><span class="line">image 定义图像形式的提交按钮</span><br><span class="line">password 定义密码字段。该字段的字符被掩码</span><br><span class="line">radio 定义单选按钮</span><br><span class="line">reset 定义重置按钮。清除表单中的所有数据</span><br><span class="line">submit 定义提交按钮。提交按钮会把表单数据发送到服务器</span><br><span class="line">text 定义单行的输入字段，用户可在其中输入文本，默认宽度为20个字符</span><br></pre></td></tr></table></figure>
-
+<ul>
+<li>button 定义可点击按钮（多数情况用于通过js启动脚本)，使用value属性设置按钮文字</li>
+<li>checkbox 定义复选框</li>
+<li>file 定义输入字段和浏览按钮，供文件上传</li>
+<li>hidden 定义隐藏的输入字段（不希望用户在浏览器说看到，但是要提交）</li>
+<li>image 定义图像形式的提交按钮</li>
+<li>password 定义密码字段。该字段的字符被掩码</li>
+<li>radio 定义单选按钮</li>
+<li>reset 定义重置按钮。清除表单中的所有数据</li>
+<li>submit 定义提交按钮。提交按钮会把表单数据发送到服务器</li>
+<li>text 定义单行的输入字段，用户可在其中输入文本，默认宽度为20个字符</li>
+</ul>
 <blockquote>
 <p>radio和checkbox使用时，同类型name要保持一致</p>
 </blockquote>
-<p><code>name</code>=”名称”（定义<code>input</code>元素的名称），有<code>name</code>才能提交成功，<code>submit</code>按钮不能有<code>name</code>属性（最终提交后的网址为name = value &amp; name = value &amp; name = value，即提交的数据格式）</p>
+<p><code>name</code>=”名称”（定义<code>input</code>元素的名称），有<code>name</code>才能提交成功，<code>submit</code>按钮不能有<code>name</code>属性（最终提交后的网址为<code>name=value&amp;name=value&amp;name=value</code>，即提交的数据格式）</p>
 <p><code>value</code>=”内容”（规定<code>input</code>元素的值——未输入元素时显示的字样，也可以由用户输入提交给服务器）</p>
 <p><code>maxlength</code>=”正整数”（规定输入字段中的字符的最大长度）</p>
 <p><code>readonly</code>：只读</p>

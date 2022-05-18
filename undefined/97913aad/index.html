@@ -23,17 +23,17 @@
     var CONFIG = {"hostname":"jiucheng120.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="hello, here is JiuCheng&#39; s blog">
+  <meta name="description" content="CSS预处理器笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS预处理器">
 <meta property="og:url" content="http://jiucheng120.github.io/undefined/97913aad/index.html">
 <meta property="og:site_name" content="馨er的学习之路">
-<meta property="og:description" content="hello, here is JiuCheng&#39; s blog">
+<meta property="og:description" content="CSS预处理器笔记">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-05T01:29:37.000Z">
-<meta property="article:modified_time" content="2022-05-06T09:16:53.768Z">
+<meta property="article:modified_time" content="2022-05-18T07:33:16.935Z">
 <meta property="article:author" content="JiuCheng">
-<meta property="article:tag" content="jiuchengBlog 博客">
+<meta property="article:tag" content="CSS预处理器">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://jiucheng120.github.io/undefined/97913aad/">
@@ -223,6 +223,15 @@
 
               <time title="创建时间：2022-05-05 09:29:37" itemprop="dateCreated datePublished" datetime="2022-05-05T09:29:37+08:00">2022-05-05</time>
             </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+            </span>
 
           
   
@@ -244,14 +253,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>0</span>
+              <span>3.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>3 分钟</span>
             </span>
 
         </div>
@@ -263,7 +272,77 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <blockquote>
+<p>CSS预处理器笔记</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="1-什么是CSS预处理器"><a href="#1-什么是CSS预处理器" class="headerlink" title="1 什么是CSS预处理器"></a>1 什么是CSS预处理器</h1><p>CSS 预处理器是一个能让你通过预处理器自己独有的语法来生成CSS的程序。市面上有很多CSS预处理器可供选择，且绝大多数CSS预处理器会增加一些原生CSS不具备的特性，<strong>代码最终会转化为CSS来运行</strong>, 因为对于浏览器来说只识别CSS</p>
+<h1 id="2-常见的CSS预处理器"><a href="#2-常见的CSS预处理器" class="headerlink" title="2 常见的CSS预处理器"></a>2 常见的CSS预处理器</h1><h2 id="2-1-Sass-Scss"><a href="#2-1-Sass-Scss" class="headerlink" title="2.1 Sass/Scss"></a>2.1 Sass/Scss</h2><p>2007年诞生，最早也是最成熟的CSS预处理器，拥有ruby社区的支持，是属于Haml（一种模板系统）的一部分，目前受Less影响，已经进化到了全面兼容CSS的Scss</p>
+<h2 id="2-2-Less"><a href="#2-2-Less" class="headerlink" title="2.2 Less"></a>2.2 Less</h2><p>2009年出现，受Sass的影响较大，但又使用CSS的语法，让大部分开发者更容易上手</p>
+<p>比起Sass来，可编程功能不够，不过优点是使用方式简单、便捷，兼容CSS，并且已经足够使用；另外反过来也影响了Sass演变到了Scss的时代；著名的Twitter Bootstrap就是采用Less做底层语言的，也包括React的UI框架AntDesign。 </p>
+<h2 id="2-3-Stylus"><a href="#2-3-Stylus" class="headerlink" title="2.3 Stylus"></a>2.3 Stylus</h2><p>2010年产生，来自Node.js社区，主要用来给Node项目进行CSS预处理支持，语法偏向于Python, 使用率相对于Sass/Less少很多</p>
+<h1 id="3-认识Less"><a href="#3-认识Less" class="headerlink" title="3 认识Less"></a>3 认识Less</h1><p>Less是一门CSS扩展语言，并且兼容CSS</p>
+<p>Less增加了很多相比于CSS更好用的特性：比如定义变量、混入、嵌套、计算等等。Less最终需要被编译成CSS运行于浏览器中（包括部署到服务器中）</p>
+<h2 id="3-1-兼容CSS"><a href="#3-1-兼容CSS" class="headerlink" title="3.1 兼容CSS"></a>3.1 兼容CSS</h2><p>可以在Less文件中编写所有的CSS代码，只是将css的扩展名改成了.less结尾而已</p>
+<h2 id="3-2-变量"><a href="#3-2-变量" class="headerlink" title="3.2 变量"></a>3.2 变量</h2><p>将常见的颜色或者字体定义为变量使用</p>
+<p>定义变量：<code>@变量名: 值;</code></p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@themeColor:</span> <span class="number">#f3c258</span>;</span><br><span class="line"><span class="variable">@mainFontSize:</span> <span class="number">12px</span>;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> <span class="selector-tag">p</span> <span class="selector-class">.link</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">@themeColor</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="variable">@mainFontSize</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-3-嵌套"><a href="#3-3-嵌套" class="headerlink" title="3.3 嵌套"></a>3.3 嵌套</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="selector-class">.title</span> &#123;</span><br><span class="line">        <span class="attribute">color</span>: red;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.content</span>: &#123;</span><br><span class="line">        <span class="selector-class">.link</span> &#123;</span><br><span class="line">            <span class="attribute">font-size</span>: <span class="number">20px</span>;</span><br><span class="line">            <span class="attribute">color</span>: orange;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="selector-class">.keyword</span> &#123;</span><br><span class="line">            <span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">            <span class="attribute">color</span>: purple;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>&amp;:</code> 代表当前选择器的父级</p>
+<h2 id="3-4-运算"><a href="#3-4-运算" class="headerlink" title="3.4 运算"></a>3.4 运算</h2><p><strong>在Less中，算术运算符 +、-、*、/ 可以对任何数字、颜色或变量进行运算。</strong></p>
+<p>算术运算符在加、减或比较之前会进行单位换算，计算的结果以最左侧操作数的单位类型为准。如果单位换算无效或失去意义，则忽略单位；</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span> + <span class="number">10%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ff0000</span> + <span class="number">#00ff00</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-5-混合"><a href="#3-5-混合" class="headerlink" title="3.5 混合"></a>3.5 混合</h2><p>多个选择器中可能会有大量相同的代码，我们可以将这些代码进行抽取到一个独立的地方，任何选择器都可以进行复用，在less中提供了混入来帮助我们完成这样的操作。可以新建<code>mixins.less</code>文件，书写常用混入代码，方便调用</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bordered</span> &#123;</span><br><span class="line">    <span class="attribute">border-top</span>: <span class="number">2px</span> soild <span class="number">#f00</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">2px</span> dotted <span class="number">#0f0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: orange;</span><br><span class="line">    <span class="comment">/* 可以理解为无参函数调用 */</span></span><br><span class="line">    <span class="selector-class">.bordered</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>混入在没有参数的情况下，小括号可以省略，但是不建议这样使用</p>
+</blockquote>
+<p>也可以传入变量，变量可以有默认参数</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bordered</span>(<span class="variable">@borderWidth</span>: <span class="number">2px</span>) &#123;</span><br><span class="line">    <span class="attribute">border-top</span>: <span class="variable">@borderWidth</span> soild <span class="number">#f00</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="variable">@borderWidth</span> dotted <span class="number">#0f0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-6-映射"><a href="#3-6-映射" class="headerlink" title="3.6 映射"></a>3.6 映射</h2><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.color</span>() &#123;</span><br><span class="line">    primaryColor: #f00;</span><br><span class="line">    secondColor: #0f0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">color</span>: .colors[primaryColor];</span><br><span class="line">    <span class="attribute">background-color</span>: .colors()[secondColor];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>混入和映射结合：混入也可也当作一个自定义函数来使用（暂时了解）</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.pxToRem</span>(<span class="variable">@px</span>) &#123;</span><br><span class="line">    result: (@px / @htmlFontSize) * 1rem</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: .pxToRem(<span class="number">100</span>)[result];</span><br><span class="line">    <span class="attribute">font-size</span>: .pxToRem(<span class="number">18</span>)[result];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h2 id="3-7-extend继承"><a href="#3-7-extend继承" class="headerlink" title="3.7 extend继承"></a>3.7 extend继承</h2><p>和mixins作用类似，用于复用代码；和mixins相比，继承代码最终会转化成并集选择器</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bordered</span> &#123;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">10px</span> soild <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="selector-tag">&amp;</span>:<span class="selector-tag">extend</span>(.bordered);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>相当于</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bordered</span>,</span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">10px</span> soild <span class="number">#000</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-8-Less内置函数"><a href="#3-8-Less内置函数" class="headerlink" title="3.8 Less内置函数"></a>3.8 Less内置函数</h2><p>Less内置多种函数用于转换颜色、处理字符串、算术运算等</p>
+<p>内置函数手册：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://less.bootcss.com/functions/">https://less.bootcss.com/functions/</a></p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: color(red); <span class="comment">// 将red转成RGB的值</span></span><br><span class="line">    <span class="attribute">width</span>: convert(<span class="number">100px</span>, <span class="string">&quot;in&quot;</span>); <span class="comment">// 单位的转换，转换为in</span></span><br><span class="line">    <span class="attribute">font-size</span>: ceil(<span class="number">18.5px</span>); <span class="comment">// 数学函数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-9-作用域"><a href="#3-9-作用域" class="headerlink" title="3.9 作用域"></a>3.9 作用域</h2><p>在查找一个变量时，首先在本地查找变量和混合，如果找不到，则从“父”级作用域继承</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="selector-class">.inner</span> &#123;</span><br><span class="line">        <span class="attribute">font-size</span>: <span class="variable">@fontSize</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="variable">@fontSize:</span> <span class="number">15px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-10-注释"><a href="#3-10-注释" class="headerlink" title="3.10 注释"></a>3.10 注释</h2><p>在Less中，块注释和行注释都可以使用；</p>
+<h2 id="3-11-导入"><a href="#3-11-导入" class="headerlink" title="3.11 导入"></a>3.11 导入</h2><p>导入的方式和CSS的用法是一致的；</p>
+<ul>
+<li>导入一个 .less 文件，此文件中的所有变量就可以全部使用了；</li>
+<li>如果导入的文件是 .less 扩展名，则可以将扩展名省略掉；</li>
+</ul>
+<h2 id="3-12-编译"><a href="#3-12-编译" class="headerlink" title="3.12 编译"></a>3.12 编译</h2><p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://lesscss.org/less-preview/">https://lesscss.org/less-preview/</a>在线看less转换为什么样的css代码</p>
+<h3 id="3-12-1-node包"><a href="#3-12-1-node包" class="headerlink" title="3.12.1 node包"></a>3.12.1 node包</h3><p>下载Node环境，通过npm包管理下载less工具，使用less工具对代码进行编译</p>
+<p>不推荐大家使用less本地工具来管理，后续我们学习了webpack可以自动完成这些操作的</p>
+<h3 id="3-12-2-VScode插件"><a href="#3-12-2-VScode插件" class="headerlink" title="3.12.2 VScode插件"></a>3.12.2 VScode插件</h3><p>通过VSCode插件<code>easy less</code>来编译成CSS或者在线编译，保存后自动生成对应的css文件</p>
+<h3 id="3-12-3-JavaScript代码编译"><a href="#3-12-3-JavaScript代码编译" class="headerlink" title="3.12.3 JavaScript代码编译"></a>3.12.3 JavaScript代码编译</h3><p>引入CDN的less编译代码，对less进行实时的处理</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet/less&quot;</span> <span class="attr">href</span>=<span class="string">&quot;./less/01_less的基本使用.less&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/less@4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>必须写上<code>rel=&quot;stylesheet/less&quot;</code></p>
+<h3 id="3-12-4-本地js代码编译"><a href="#3-12-4-本地js代码编译" class="headerlink" title="3.12.4 本地js代码编译"></a>3.12.4 本地js代码编译</h3><p>将上述less编译的js代码下载到本地，执行js代码对less进行编译</p>
+<h1 id="4-认识Sass和Scss"><a href="#4-认识Sass和Scss" class="headerlink" title="4 认识Sass和Scss"></a>4 认识Sass和Scss</h1><p>事实上，最初Sass 是Haml的一部分，Haml 是一种模板系统，由 Ruby 开发者设计和开发。所以，Sass的语法使用的是类似于Ruby的语法，没有花括号，没有分号，具有严格的缩进。 我们会发现它的语法和CSS区别很大，后来官方推出了全新的语法SCSS，意思是Sassy CSS，他是完全兼容CSS的。</p>
+<p>目前在前端学习SCSS直接学习SCSS即可：SCSS的语法也包括变量、嵌套、混入、函数、操作符、作用域等；通常也包括更为强大的控制语句、更灵活的函数、插值语法等；</p>
+<p>可以根据之前学习的less语法来学习一些SCSS语法；<a target="_blank" rel="external nofollow noopener noreferrer" href="https://sass-lang.com/guide">https://sass-lang.com/guide</a></p>
+
     </div>
 
     
@@ -303,6 +382,9 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CSS%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8/" rel="tag"><i class="fa fa-tag"></i> CSS预处理器</a>
+          </div>
 
         
 
@@ -376,6 +458,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AFCSS%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8"><span class="nav-text">1 什么是CSS预处理器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%B8%B8%E8%A7%81%E7%9A%84CSS%E9%A2%84%E5%A4%84%E7%90%86%E5%99%A8"><span class="nav-text">2 常见的CSS预处理器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-Sass-Scss"><span class="nav-text">2.1 Sass&#x2F;Scss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-Less"><span class="nav-text">2.2 Less</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-Stylus"><span class="nav-text">2.3 Stylus</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E8%AE%A4%E8%AF%86Less"><span class="nav-text">3 认识Less</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E5%85%BC%E5%AE%B9CSS"><span class="nav-text">3.1 兼容CSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-%E5%8F%98%E9%87%8F"><span class="nav-text">3.2 变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-%E5%B5%8C%E5%A5%97"><span class="nav-text">3.3 嵌套</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-%E8%BF%90%E7%AE%97"><span class="nav-text">3.4 运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-%E6%B7%B7%E5%90%88"><span class="nav-text">3.5 混合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-%E6%98%A0%E5%B0%84"><span class="nav-text">3.6 映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-7-extend%E7%BB%A7%E6%89%BF"><span class="nav-text">3.7 extend继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-8-Less%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0"><span class="nav-text">3.8 Less内置函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-9-%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-text">3.9 作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-10-%E6%B3%A8%E9%87%8A"><span class="nav-text">3.10 注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-11-%E5%AF%BC%E5%85%A5"><span class="nav-text">3.11 导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-12-%E7%BC%96%E8%AF%91"><span class="nav-text">3.12 编译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-12-1-node%E5%8C%85"><span class="nav-text">3.12.1 node包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-12-2-VScode%E6%8F%92%E4%BB%B6"><span class="nav-text">3.12.2 VScode插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-12-3-JavaScript%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91"><span class="nav-text">3.12.3 JavaScript代码编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-12-4-%E6%9C%AC%E5%9C%B0js%E4%BB%A3%E7%A0%81%E7%BC%96%E8%AF%91"><span class="nav-text">3.12.4 本地js代码编译</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E8%AE%A4%E8%AF%86Sass%E5%92%8CScss"><span class="nav-text">4 认识Sass和Scss</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -403,7 +486,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -444,13 +527,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">511k</span>
+    <span title="站点总字数">525k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:45</span>
+    <span title="站点阅读时长">7:57</span>
 </div>
 
 <!-- 网站运行时间的设置 -->
