@@ -31,8 +31,9 @@
 <meta property="og:description" content="移动端适配笔记">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220518135908207.png">
+<meta property="og:image" content="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220518202541512.png">
 <meta property="article:published_time" content="2022-05-05T01:30:12.000Z">
-<meta property="article:modified_time" content="2022-05-18T08:21:30.831Z">
+<meta property="article:modified_time" content="2022-05-20T18:11:33.383Z">
 <meta property="article:author" content="JiuCheng">
 <meta property="article:tag" content="移动端适配">
 <meta name="twitter:card" content="summary">
@@ -255,14 +256,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>4.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -302,7 +303,88 @@
 
 <h1 id="3-移动端适配方案"><a href="#3-移动端适配方案" class="headerlink" title="3 移动端适配方案"></a>3 移动端适配方案</h1><p>我们希望在不同的屏幕尺寸上显示不同的大小，所以我们需要处理尺寸，不能再用px这种绝对单位</p>
 <h2 id="3-1-百分比设置"><a href="#3-1-百分比设置" class="headerlink" title="3.1 百分比设置"></a>3.1 百分比设置</h2><p>因为不同属性的百分比值，相对的可能是不同参照物，所以百分比往往很难统一，所以百分比在移动端适配中使用是非常少的；</p>
-<h2 id="3-2-rem单位-动态html的font-size"><a href="#3-2-rem单位-动态html的font-size" class="headerlink" title="3.2 rem单位+动态html的font-size"></a>3.2 rem单位+动态html的font-size</h2><h2 id="3-3-vw单位"><a href="#3-3-vw单位" class="headerlink" title="3.3 vw单位"></a>3.3 vw单位</h2><h2 id="3-4-flex弹性布局"><a href="#3-4-flex弹性布局" class="headerlink" title="3.4 flex弹性布局"></a>3.4 flex弹性布局</h2><h1 id="4-宏源海购移动端项目"><a href="#4-宏源海购移动端项目" class="headerlink" title="4 宏源海购移动端项目"></a>4 宏源海购移动端项目</h1>
+<h2 id="3-2-rem单位-动态html的font-size"><a href="#3-2-rem单位-动态html的font-size" class="headerlink" title="3.2 rem单位+动态html的font-size"></a>3.2 rem单位+动态html的font-size</h2><p>rem单位是相对于html元素的font-size来设置的，那么如果我们需要在不同的屏幕下有不同的尺寸，可以动态的修改html的font-size尺寸。</p>
+<p><strong>比如如下案例：</strong></p>
+<p>1、设置一个盒子的宽度是2rem； </p>
+<p>2、设置不同的屏幕上html的font-size不同；</p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220518202541512.png" alt="image-20220518202541512"></p>
+<p>所以在开发中，我们只需要考虑两个问题：</p>
+<p>1、针对不同的屏幕，设置html不同的font-size</p>
+<p>2、将原来要设置的尺寸，转化成rem单位</p>
+<h3 id="3-2-1-改变rem的font-size尺寸的方法"><a href="#3-2-1-改变rem的font-size尺寸的方法" class="headerlink" title="3.2.1 改变rem的font-size尺寸的方法"></a>3.2.1 改变rem的font-size尺寸的方法</h3><h4 id="1、媒体查询"><a href="#1、媒体查询" class="headerlink" title="1、媒体查询"></a>1、媒体查询</h4><p>可以通过媒体查询来设置不同尺寸范围内的屏幕html的font-size尺寸</p>
+<p>缺点：</p>
+<p>1、我们需要针对不同的屏幕编写大量的媒体查询 </p>
+<p>2、如果动态改变尺寸，不会实时的进行更新</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">320px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">html</span> &#123; <span class="attribute">font-size</span>: <span class="number">32px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">375px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">html</span> &#123; <span class="attribute">font-size</span>: <span class="number">37.5px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">414px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">html</span> &#123; <span class="attribute">font-size</span>: <span class="number">41.1px</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、编写js代码"><a href="#2、编写js代码" class="headerlink" title="2、编写js代码"></a>2、编写js代码</h4><p>如果希望实时改变尺寸时，font-size也可以实时更改，可以通过js代码</p>
+<p>方法： </p>
+<p>1、根据html的宽度计算出font-size的大小，并且设置到html上</p>
+<p>2、监听页面的实时改变，并且重新设置font-size的大小到html上</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> htmlEl = <span class="built_in">document</span>.documentElement</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setRemUnit</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// htmlEl.clientWidth实时的视口宽度</span></span><br><span class="line">    <span class="keyword">const</span> unit = htmlEl.clientWidth / <span class="number">10</span></span><br><span class="line">    <span class="comment">// 实时改变html根元素的字体大小</span></span><br><span class="line">    htmlEl.style.fontSize = unit + <span class="string">&quot;px&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认先执行一次函数，保证第一次加载页面时，设置一次font-size</span></span><br><span class="line">setRemUnit()</span><br><span class="line"><span class="comment">// 增加监听，当屏幕尺寸发生变化时，实时来修改html的font-size</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&quot;resize&quot;</span>, setRemUnit)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 增加监听，用户访问页面时触发，设置一次font-size</span></span><br><span class="line"><span class="comment">// 防止代码前进后退时缓存造成的不适配问题</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&quot;pageshow&quot;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (e.persisted) &#123;</span><br><span class="line">        setRemUnit()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>可以重新在body中设置font-size的大小，防止页面字体显示不正常</p>
+<h4 id="3、lib-flexible库"><a href="#3、lib-flexible库" class="headerlink" title="3、lib-flexible库"></a>3、lib-flexible库</h4><p>事实上，lib-flexible库做的事情是相同的，你也可以直接引入它</p>
+<p>仓库地址<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/amfe/lib-flexible/blob/2.0/index.js">https://github.com/amfe/lib-flexible/blob/2.0/index.js</a></p>
+<h3 id="3-2-2-rem的单位换算"><a href="#3-2-2-rem的单位换算" class="headerlink" title="3.2.2 rem的单位换算"></a>3.2.2 rem的单位换算</h3><h4 id="1、手动换算"><a href="#1、手动换算" class="headerlink" title="1、手动换算"></a>1、手动换算</h4><p>比如有一个在375px屏幕上100px宽度和高度的盒子，我们需要将100px转成对应的rem值：100/37.5=2.6667，其他也是相同的方法计算即可</p>
+<h4 id="2、less-scss函数"><a href="#2、less-scss函数" class="headerlink" title="2、less/scss函数"></a>2、less/scss函数</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.pxToRem</span>(<span class="variable">@px</span>) &#123;</span><br><span class="line">    <span class="comment">// @htmlFontSize一般设置为视口宽度的0.1</span></span><br><span class="line">    <span class="comment">// 开发时@htmlFontSize可以直接写成设计稿视口宽度的0.1</span></span><br><span class="line">    result: (@px / @htmlFontSize) * 1rem</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: .pxToRem(<span class="number">100</span>)[result];</span><br><span class="line">    <span class="attribute">font-size</span>: .pxToRem(<span class="number">18</span>)[result];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、postcss-pxtorem"><a href="#3、postcss-pxtorem" class="headerlink" title="3、postcss-pxtorem"></a>3、postcss-pxtorem</h4><p>目前在前端的工程化开发中，我们可以借助于webpack的工具来完成自动的转化（需要配置@htmlFontSize的大小）</p>
+<h4 id="4、VSCode插件"><a href="#4、VSCode插件" class="headerlink" title="4、VSCode插件"></a>4、VSCode插件</h4><p>px to rem &amp; rpx &amp; vw 的插件，在编写时自动转化</p>
+<p>需要从扩展设置中配置自己所需要的root font-size</p>
+<h2 id="3-3-vw单位"><a href="#3-3-vw单位" class="headerlink" title="3.3 vw单位"></a>3.3 vw单位</h2><h3 id="3-3-1-vw相比于rem的优势"><a href="#3-3-1-vw相比于rem的优势" class="headerlink" title="3.3.1 vw相比于rem的优势"></a>3.3.1 vw相比于rem的优势</h3><p>优势一：不需要去计算html的font-size大小，也不需要给html设置这样一个font-size； </p>
+<p>优势二：不会因为设置html的font-size大小，而必须给body再设置一个font-size，防止继承；</p>
+<p>优势三：因为不依赖font-size的尺寸，所以不用担心某些原因html的font-size尺寸被篡改，页面尺寸混乱；</p>
+<p>优势四：vw相比于rem更加语义化，1vw刚才是1/100的viewport的大小; </p>
+<p>优势五：可以具备rem之前所有的优点；</p>
+<p>vw我们只面临一个问题，将尺寸换算成vw的单位即可。所以，目前相比于rem，更加推荐大家使用vw（但是理解rem依然很重要）</p>
+<p>vw不兼容旧的浏览器，不限制大的极限</p>
+<h3 id="3-3-2-vw的单位换算"><a href="#3-3-2-vw的单位换算" class="headerlink" title="3.3.2 vw的单位换算"></a>3.3.2 vw的单位换算</h3><h4 id="1、手动换算-1"><a href="#1、手动换算-1" class="headerlink" title="1、手动换算"></a>1、手动换算</h4><p>比如有一个在375px屏幕上，100px宽度和高度的盒子，我们需要将100px转成对应的vw值：100/3.75=26.667，其他也是相同的方法计算即可</p>
+<h4 id="2、less-scss函数-1"><a href="#2、less-scss函数-1" class="headerlink" title="2、less/scss函数"></a>2、less/scss函数</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@vwUnit: 3.75;</span><br><span class="line"><span class="selector-class">.pxToVw</span>(<span class="keyword">@px</span>) &#123;</span><br><span class="line">    result: (@px / @vwUnit) * <span class="number">1vw</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: .<span class="built_in">pxToVw</span>(<span class="number">100</span>)[result];</span><br><span class="line">    <span class="attribute">height</span>: .<span class="built_in">pxToVw</span>(<span class="number">100</span>)[result];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、postcss-px-to-viewport-8-plugin（后续学习）"><a href="#3、postcss-px-to-viewport-8-plugin（后续学习）" class="headerlink" title="3、postcss-px-to-viewport-8-plugin（后续学习）"></a>3、postcss-px-to-viewport-8-plugin（后续学习）</h4><p>和rem一样，在前端的工程化开发中，我们可以借助于webpack的工具来完成自动的转化；</p>
+<h4 id="4、VSCode插件-1"><a href="#4、VSCode插件-1" class="headerlink" title="4、VSCode插件"></a>4、VSCode插件</h4><p>px to rem &amp; rpx &amp; vw 的插件，在编写时自动转化</p>
+<p><code>rpx</code>为小程序中的单位</p>
+<h2 id="3-4-flex弹性布局"><a href="#3-4-flex弹性布局" class="headerlink" title="3.4 flex弹性布局"></a>3.4 flex弹性布局</h2><h1 id="4-grid布局"><a href="#4-grid布局" class="headerlink" title="4 grid布局"></a>4 grid布局</h1><p>推荐学习文档<a target="_blank" rel="external nofollow noopener noreferrer" href="https://css-tricks.com/snippets/css/complete-guide-grid/">https://css-tricks.com/snippets/css/complete-guide-grid/</a></p>
+<h2 id="4-1-认识grid布局"><a href="#4-1-认识grid布局" class="headerlink" title="4.1 认识grid布局"></a>4.1 认识grid布局</h2><p>flex布局相对于前面的布局来说更加强大，并且目前对于我们的需求都是可以很好的完成，但是flex是一个以为的布局方案，它主要的布局是在主轴上进行操作，当然也提供了一些交叉轴属性</p>
+<p>CSS为了进一步增强自己的布局能力，提供了grid布局：CSS Grid Layout（又名”Grid”或”CSS Grid”）是一种基于二维的布局系统，它更加强大，同时也更加复杂</p>
+<p>公司目前都使用flex布局，因为grid布局相对兼容性较差</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grid-template-<span class="attribute">columns</span>: <span class="number">100px</span> <span class="number">1</span>fr <span class="number">100px</span>;</span><br><span class="line">grid-template-rows: <span class="built_in">repeat</span>(<span class="number">2</span>, <span class="number">100px</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-2-grid布局重要概念"><a href="#4-2-grid布局重要概念" class="headerlink" title="4.2 grid布局重要概念"></a>4.2 grid布局重要概念</h2><p><code>Grid Container</code>： 元素设置display为grid的盒子</p>
+<p><code>Grid Item</code>：单元格称之为grid cell，Grid Container的直接子项（必须是直接子代）</p>
+<p><code>Grid Line</code>：构成网络结构的分割线。它们可以是垂直的（“列网格线”）或水平的（“行网格线”）</p>
+<p><code>Grid Track</code>：两条相邻网格线之间的空间，你可以看成网格的行或者列</p>
+<p><code>Grid Area</code>：由四条网格线包围的总空间，一个网格区域可以由任意数量的网格单元组成</p>
+<h2 id="4-3-grid布局常见属性"><a href="#4-3-grid布局常见属性" class="headerlink" title="4.3 grid布局常见属性"></a>4.3 grid布局常见属性</h2><h3 id="grid-item常见属性"><a href="#grid-item常见属性" class="headerlink" title="grid item常见属性"></a>grid item常见属性</h3><p><code>grid-column-start</code></p>
+<p><code>grid-column-end</code></p>
+<p><code>grid-row-start</code></p>
+<p><code>grid-row-end</code></p>
+<p><code>grid-column</code></p>
+<p><code>grid-row</code></p>
+<p><code>grid-area</code></p>
+<p><code>justify-self</code></p>
+<p><code>align-self</code></p>
+<p><code>place-self</code></p>
+<h3 id="grid-container常见属性"><a href="#grid-container常见属性" class="headerlink" title="grid container常见属性"></a>grid container常见属性</h3><p><code>display</code></p>
+<p><strong><code>grid-template</code></strong></p>
+<p><code>grid-template-columns</code></p>
+<p><code>grid-template-rows</code></p>
+<p><code>grid-template-areas</code></p>
+<p><strong><code>grid-gap</code></strong></p>
+<p><code>grid-column-gap</code></p>
+<p><code>grid-row-gap</code></p>
+<p><strong><code>place-items</code></strong></p>
+<p><code>justify-content</code></p>
+<p><code>align-items</code></p>
+<p><strong><code>place-content</code></strong></p>
+<p><code>justify-content</code></p>
+<p><code>align-content</code></p>
+<p><strong><code>grid-auto-flow</code></strong></p>
+<p><code>grid-auto-columns</code></p>
+<p><code>grid-auto-rows</code></p>
+<p><strong><code>grid</code></strong></p>
+<h1 id="5-宏源海购移动端项目"><a href="#5-宏源海购移动端项目" class="headerlink" title="5 宏源海购移动端项目"></a>5 宏源海购移动端项目</h1>
     </div>
 
     
@@ -415,7 +497,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D"><span class="nav-text">1 什么是移动端适配</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E8%A7%86%E5%8F%A3"><span class="nav-text">2 视口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%B8%83%E5%B1%80%E8%A7%86%E5%8F%A3"><span class="nav-text">2.1 布局视口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E8%A7%86%E8%A7%89%E8%A7%86%E5%8F%A3"><span class="nav-text">2.2 视觉视口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E7%90%86%E6%83%B3%E8%A7%86%E5%8F%A3"><span class="nav-text">2.3 理想视口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88"><span class="nav-text">3 移动端适配方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E7%99%BE%E5%88%86%E6%AF%94%E8%AE%BE%E7%BD%AE"><span class="nav-text">3.1 百分比设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-rem%E5%8D%95%E4%BD%8D-%E5%8A%A8%E6%80%81html%E7%9A%84font-size"><span class="nav-text">3.2 rem单位+动态html的font-size</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-vw%E5%8D%95%E4%BD%8D"><span class="nav-text">3.3 vw单位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-flex%E5%BC%B9%E6%80%A7%E5%B8%83%E5%B1%80"><span class="nav-text">3.4 flex弹性布局</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E5%AE%8F%E6%BA%90%E6%B5%B7%E8%B4%AD%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B9%E7%9B%AE"><span class="nav-text">4 宏源海购移动端项目</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D"><span class="nav-text">1 什么是移动端适配</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E8%A7%86%E5%8F%A3"><span class="nav-text">2 视口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%B8%83%E5%B1%80%E8%A7%86%E5%8F%A3"><span class="nav-text">2.1 布局视口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E8%A7%86%E8%A7%89%E8%A7%86%E5%8F%A3"><span class="nav-text">2.2 视觉视口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E7%90%86%E6%83%B3%E8%A7%86%E5%8F%A3"><span class="nav-text">2.3 理想视口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88"><span class="nav-text">3 移动端适配方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E7%99%BE%E5%88%86%E6%AF%94%E8%AE%BE%E7%BD%AE"><span class="nav-text">3.1 百分比设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-rem%E5%8D%95%E4%BD%8D-%E5%8A%A8%E6%80%81html%E7%9A%84font-size"><span class="nav-text">3.2 rem单位+动态html的font-size</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-1-%E6%94%B9%E5%8F%98rem%E7%9A%84font-size%E5%B0%BA%E5%AF%B8%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">3.2.1 改变rem的font-size尺寸的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E5%AA%92%E4%BD%93%E6%9F%A5%E8%AF%A2"><span class="nav-text">1、媒体查询</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81%E7%BC%96%E5%86%99js%E4%BB%A3%E7%A0%81"><span class="nav-text">2、编写js代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%81lib-flexible%E5%BA%93"><span class="nav-text">3、lib-flexible库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-2-rem%E7%9A%84%E5%8D%95%E4%BD%8D%E6%8D%A2%E7%AE%97"><span class="nav-text">3.2.2 rem的单位换算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E6%89%8B%E5%8A%A8%E6%8D%A2%E7%AE%97"><span class="nav-text">1、手动换算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81less-scss%E5%87%BD%E6%95%B0"><span class="nav-text">2、less&#x2F;scss函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%81postcss-pxtorem"><span class="nav-text">3、postcss-pxtorem</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%E3%80%81VSCode%E6%8F%92%E4%BB%B6"><span class="nav-text">4、VSCode插件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-vw%E5%8D%95%E4%BD%8D"><span class="nav-text">3.3 vw单位</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-1-vw%E7%9B%B8%E6%AF%94%E4%BA%8Erem%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="nav-text">3.3.1 vw相比于rem的优势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-2-vw%E7%9A%84%E5%8D%95%E4%BD%8D%E6%8D%A2%E7%AE%97"><span class="nav-text">3.3.2 vw的单位换算</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E6%89%8B%E5%8A%A8%E6%8D%A2%E7%AE%97-1"><span class="nav-text">1、手动换算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81less-scss%E5%87%BD%E6%95%B0-1"><span class="nav-text">2、less&#x2F;scss函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%81postcss-px-to-viewport-8-plugin%EF%BC%88%E5%90%8E%E7%BB%AD%E5%AD%A6%E4%B9%A0%EF%BC%89"><span class="nav-text">3、postcss-px-to-viewport-8-plugin（后续学习）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%E3%80%81VSCode%E6%8F%92%E4%BB%B6-1"><span class="nav-text">4、VSCode插件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-flex%E5%BC%B9%E6%80%A7%E5%B8%83%E5%B1%80"><span class="nav-text">3.4 flex弹性布局</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-grid%E5%B8%83%E5%B1%80"><span class="nav-text">4 grid布局</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-%E8%AE%A4%E8%AF%86grid%E5%B8%83%E5%B1%80"><span class="nav-text">4.1 认识grid布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-grid%E5%B8%83%E5%B1%80%E9%87%8D%E8%A6%81%E6%A6%82%E5%BF%B5"><span class="nav-text">4.2 grid布局重要概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-grid%E5%B8%83%E5%B1%80%E5%B8%B8%E8%A7%81%E5%B1%9E%E6%80%A7"><span class="nav-text">4.3 grid布局常见属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#grid-item%E5%B8%B8%E8%A7%81%E5%B1%9E%E6%80%A7"><span class="nav-text">grid item常见属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#grid-container%E5%B8%B8%E8%A7%81%E5%B1%9E%E6%80%A7"><span class="nav-text">grid container常见属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%AE%8F%E6%BA%90%E6%B5%B7%E8%B4%AD%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A1%B9%E7%9B%AE"><span class="nav-text">5 宏源海购移动端项目</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -484,13 +566,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">525k</span>
+    <span title="站点总字数">529k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">7:57</span>
+    <span title="站点阅读时长">8:01</span>
 </div>
 
 <!-- 网站运行时间的设置 -->

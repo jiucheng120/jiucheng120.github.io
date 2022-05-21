@@ -31,7 +31,88 @@
 
 <h1 id="3-移动端适配方案"><a href="#3-移动端适配方案" class="headerlink" title="3 移动端适配方案"></a>3 移动端适配方案</h1><p>我们希望在不同的屏幕尺寸上显示不同的大小，所以我们需要处理尺寸，不能再用px这种绝对单位</p>
 <h2 id="3-1-百分比设置"><a href="#3-1-百分比设置" class="headerlink" title="3.1 百分比设置"></a>3.1 百分比设置</h2><p>因为不同属性的百分比值，相对的可能是不同参照物，所以百分比往往很难统一，所以百分比在移动端适配中使用是非常少的；</p>
-<h2 id="3-2-rem单位-动态html的font-size"><a href="#3-2-rem单位-动态html的font-size" class="headerlink" title="3.2 rem单位+动态html的font-size"></a>3.2 rem单位+动态html的font-size</h2><h2 id="3-3-vw单位"><a href="#3-3-vw单位" class="headerlink" title="3.3 vw单位"></a>3.3 vw单位</h2><h2 id="3-4-flex弹性布局"><a href="#3-4-flex弹性布局" class="headerlink" title="3.4 flex弹性布局"></a>3.4 flex弹性布局</h2><h1 id="4-宏源海购移动端项目"><a href="#4-宏源海购移动端项目" class="headerlink" title="4 宏源海购移动端项目"></a>4 宏源海购移动端项目</h1>]]></content>
+<h2 id="3-2-rem单位-动态html的font-size"><a href="#3-2-rem单位-动态html的font-size" class="headerlink" title="3.2 rem单位+动态html的font-size"></a>3.2 rem单位+动态html的font-size</h2><p>rem单位是相对于html元素的font-size来设置的，那么如果我们需要在不同的屏幕下有不同的尺寸，可以动态的修改html的font-size尺寸。</p>
+<p><strong>比如如下案例：</strong></p>
+<p>1、设置一个盒子的宽度是2rem； </p>
+<p>2、设置不同的屏幕上html的font-size不同；</p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220518202541512.png" alt="image-20220518202541512"></p>
+<p>所以在开发中，我们只需要考虑两个问题：</p>
+<p>1、针对不同的屏幕，设置html不同的font-size</p>
+<p>2、将原来要设置的尺寸，转化成rem单位</p>
+<h3 id="3-2-1-改变rem的font-size尺寸的方法"><a href="#3-2-1-改变rem的font-size尺寸的方法" class="headerlink" title="3.2.1 改变rem的font-size尺寸的方法"></a>3.2.1 改变rem的font-size尺寸的方法</h3><h4 id="1、媒体查询"><a href="#1、媒体查询" class="headerlink" title="1、媒体查询"></a>1、媒体查询</h4><p>可以通过媒体查询来设置不同尺寸范围内的屏幕html的font-size尺寸</p>
+<p>缺点：</p>
+<p>1、我们需要针对不同的屏幕编写大量的媒体查询 </p>
+<p>2、如果动态改变尺寸，不会实时的进行更新</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">320px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">html</span> &#123; <span class="attribute">font-size</span>: <span class="number">32px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">375px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">html</span> &#123; <span class="attribute">font-size</span>: <span class="number">37.5px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">414px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">html</span> &#123; <span class="attribute">font-size</span>: <span class="number">41.1px</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、编写js代码"><a href="#2、编写js代码" class="headerlink" title="2、编写js代码"></a>2、编写js代码</h4><p>如果希望实时改变尺寸时，font-size也可以实时更改，可以通过js代码</p>
+<p>方法： </p>
+<p>1、根据html的宽度计算出font-size的大小，并且设置到html上</p>
+<p>2、监听页面的实时改变，并且重新设置font-size的大小到html上</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> htmlEl = <span class="built_in">document</span>.documentElement</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setRemUnit</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// htmlEl.clientWidth实时的视口宽度</span></span><br><span class="line">    <span class="keyword">const</span> unit = htmlEl.clientWidth / <span class="number">10</span></span><br><span class="line">    <span class="comment">// 实时改变html根元素的字体大小</span></span><br><span class="line">    htmlEl.style.fontSize = unit + <span class="string">&quot;px&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认先执行一次函数，保证第一次加载页面时，设置一次font-size</span></span><br><span class="line">setRemUnit()</span><br><span class="line"><span class="comment">// 增加监听，当屏幕尺寸发生变化时，实时来修改html的font-size</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&quot;resize&quot;</span>, setRemUnit)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 增加监听，用户访问页面时触发，设置一次font-size</span></span><br><span class="line"><span class="comment">// 防止代码前进后退时缓存造成的不适配问题</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&quot;pageshow&quot;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (e.persisted) &#123;</span><br><span class="line">        setRemUnit()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>可以重新在body中设置font-size的大小，防止页面字体显示不正常</p>
+<h4 id="3、lib-flexible库"><a href="#3、lib-flexible库" class="headerlink" title="3、lib-flexible库"></a>3、lib-flexible库</h4><p>事实上，lib-flexible库做的事情是相同的，你也可以直接引入它</p>
+<p>仓库地址<a href="https://github.com/amfe/lib-flexible/blob/2.0/index.js">https://github.com/amfe/lib-flexible/blob/2.0/index.js</a></p>
+<h3 id="3-2-2-rem的单位换算"><a href="#3-2-2-rem的单位换算" class="headerlink" title="3.2.2 rem的单位换算"></a>3.2.2 rem的单位换算</h3><h4 id="1、手动换算"><a href="#1、手动换算" class="headerlink" title="1、手动换算"></a>1、手动换算</h4><p>比如有一个在375px屏幕上100px宽度和高度的盒子，我们需要将100px转成对应的rem值：100/37.5=2.6667，其他也是相同的方法计算即可</p>
+<h4 id="2、less-scss函数"><a href="#2、less-scss函数" class="headerlink" title="2、less/scss函数"></a>2、less/scss函数</h4><figure class="highlight less"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.pxToRem</span>(<span class="variable">@px</span>) &#123;</span><br><span class="line">    <span class="comment">// @htmlFontSize一般设置为视口宽度的0.1</span></span><br><span class="line">    <span class="comment">// 开发时@htmlFontSize可以直接写成设计稿视口宽度的0.1</span></span><br><span class="line">    result: (@px / @htmlFontSize) * 1rem</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: .pxToRem(<span class="number">100</span>)[result];</span><br><span class="line">    <span class="attribute">font-size</span>: .pxToRem(<span class="number">18</span>)[result];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、postcss-pxtorem"><a href="#3、postcss-pxtorem" class="headerlink" title="3、postcss-pxtorem"></a>3、postcss-pxtorem</h4><p>目前在前端的工程化开发中，我们可以借助于webpack的工具来完成自动的转化（需要配置@htmlFontSize的大小）</p>
+<h4 id="4、VSCode插件"><a href="#4、VSCode插件" class="headerlink" title="4、VSCode插件"></a>4、VSCode插件</h4><p>px to rem &amp; rpx &amp; vw 的插件，在编写时自动转化</p>
+<p>需要从扩展设置中配置自己所需要的root font-size</p>
+<h2 id="3-3-vw单位"><a href="#3-3-vw单位" class="headerlink" title="3.3 vw单位"></a>3.3 vw单位</h2><h3 id="3-3-1-vw相比于rem的优势"><a href="#3-3-1-vw相比于rem的优势" class="headerlink" title="3.3.1 vw相比于rem的优势"></a>3.3.1 vw相比于rem的优势</h3><p>优势一：不需要去计算html的font-size大小，也不需要给html设置这样一个font-size； </p>
+<p>优势二：不会因为设置html的font-size大小，而必须给body再设置一个font-size，防止继承；</p>
+<p>优势三：因为不依赖font-size的尺寸，所以不用担心某些原因html的font-size尺寸被篡改，页面尺寸混乱；</p>
+<p>优势四：vw相比于rem更加语义化，1vw刚才是1/100的viewport的大小; </p>
+<p>优势五：可以具备rem之前所有的优点；</p>
+<p>vw我们只面临一个问题，将尺寸换算成vw的单位即可。所以，目前相比于rem，更加推荐大家使用vw（但是理解rem依然很重要）</p>
+<p>vw不兼容旧的浏览器，不限制大的极限</p>
+<h3 id="3-3-2-vw的单位换算"><a href="#3-3-2-vw的单位换算" class="headerlink" title="3.3.2 vw的单位换算"></a>3.3.2 vw的单位换算</h3><h4 id="1、手动换算-1"><a href="#1、手动换算-1" class="headerlink" title="1、手动换算"></a>1、手动换算</h4><p>比如有一个在375px屏幕上，100px宽度和高度的盒子，我们需要将100px转成对应的vw值：100/3.75=26.667，其他也是相同的方法计算即可</p>
+<h4 id="2、less-scss函数-1"><a href="#2、less-scss函数-1" class="headerlink" title="2、less/scss函数"></a>2、less/scss函数</h4><figure class="highlight css"><table><tr><td class="code"><pre><span class="line">@vwUnit: 3.75;</span><br><span class="line"><span class="selector-class">.pxToVw</span>(<span class="keyword">@px</span>) &#123;</span><br><span class="line">    result: (@px / @vwUnit) * <span class="number">1vw</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: .<span class="built_in">pxToVw</span>(<span class="number">100</span>)[result];</span><br><span class="line">    <span class="attribute">height</span>: .<span class="built_in">pxToVw</span>(<span class="number">100</span>)[result];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3、postcss-px-to-viewport-8-plugin（后续学习）"><a href="#3、postcss-px-to-viewport-8-plugin（后续学习）" class="headerlink" title="3、postcss-px-to-viewport-8-plugin（后续学习）"></a>3、postcss-px-to-viewport-8-plugin（后续学习）</h4><p>和rem一样，在前端的工程化开发中，我们可以借助于webpack的工具来完成自动的转化；</p>
+<h4 id="4、VSCode插件-1"><a href="#4、VSCode插件-1" class="headerlink" title="4、VSCode插件"></a>4、VSCode插件</h4><p>px to rem &amp; rpx &amp; vw 的插件，在编写时自动转化</p>
+<p><code>rpx</code>为小程序中的单位</p>
+<h2 id="3-4-flex弹性布局"><a href="#3-4-flex弹性布局" class="headerlink" title="3.4 flex弹性布局"></a>3.4 flex弹性布局</h2><h1 id="4-grid布局"><a href="#4-grid布局" class="headerlink" title="4 grid布局"></a>4 grid布局</h1><p>推荐学习文档<a href="https://css-tricks.com/snippets/css/complete-guide-grid/">https://css-tricks.com/snippets/css/complete-guide-grid/</a></p>
+<h2 id="4-1-认识grid布局"><a href="#4-1-认识grid布局" class="headerlink" title="4.1 认识grid布局"></a>4.1 认识grid布局</h2><p>flex布局相对于前面的布局来说更加强大，并且目前对于我们的需求都是可以很好的完成，但是flex是一个以为的布局方案，它主要的布局是在主轴上进行操作，当然也提供了一些交叉轴属性</p>
+<p>CSS为了进一步增强自己的布局能力，提供了grid布局：CSS Grid Layout（又名”Grid”或”CSS Grid”）是一种基于二维的布局系统，它更加强大，同时也更加复杂</p>
+<p>公司目前都使用flex布局，因为grid布局相对兼容性较差</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">grid-template-<span class="attribute">columns</span>: <span class="number">100px</span> <span class="number">1</span>fr <span class="number">100px</span>;</span><br><span class="line">grid-template-rows: <span class="built_in">repeat</span>(<span class="number">2</span>, <span class="number">100px</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-2-grid布局重要概念"><a href="#4-2-grid布局重要概念" class="headerlink" title="4.2 grid布局重要概念"></a>4.2 grid布局重要概念</h2><p><code>Grid Container</code>： 元素设置display为grid的盒子</p>
+<p><code>Grid Item</code>：单元格称之为grid cell，Grid Container的直接子项（必须是直接子代）</p>
+<p><code>Grid Line</code>：构成网络结构的分割线。它们可以是垂直的（“列网格线”）或水平的（“行网格线”）</p>
+<p><code>Grid Track</code>：两条相邻网格线之间的空间，你可以看成网格的行或者列</p>
+<p><code>Grid Area</code>：由四条网格线包围的总空间，一个网格区域可以由任意数量的网格单元组成</p>
+<h2 id="4-3-grid布局常见属性"><a href="#4-3-grid布局常见属性" class="headerlink" title="4.3 grid布局常见属性"></a>4.3 grid布局常见属性</h2><h3 id="grid-item常见属性"><a href="#grid-item常见属性" class="headerlink" title="grid item常见属性"></a>grid item常见属性</h3><p><code>grid-column-start</code></p>
+<p><code>grid-column-end</code></p>
+<p><code>grid-row-start</code></p>
+<p><code>grid-row-end</code></p>
+<p><code>grid-column</code></p>
+<p><code>grid-row</code></p>
+<p><code>grid-area</code></p>
+<p><code>justify-self</code></p>
+<p><code>align-self</code></p>
+<p><code>place-self</code></p>
+<h3 id="grid-container常见属性"><a href="#grid-container常见属性" class="headerlink" title="grid container常见属性"></a>grid container常见属性</h3><p><code>display</code></p>
+<p><strong><code>grid-template</code></strong></p>
+<p><code>grid-template-columns</code></p>
+<p><code>grid-template-rows</code></p>
+<p><code>grid-template-areas</code></p>
+<p><strong><code>grid-gap</code></strong></p>
+<p><code>grid-column-gap</code></p>
+<p><code>grid-row-gap</code></p>
+<p><strong><code>place-items</code></strong></p>
+<p><code>justify-content</code></p>
+<p><code>align-items</code></p>
+<p><strong><code>place-content</code></strong></p>
+<p><code>justify-content</code></p>
+<p><code>align-content</code></p>
+<p><strong><code>grid-auto-flow</code></strong></p>
+<p><code>grid-auto-columns</code></p>
+<p><code>grid-auto-rows</code></p>
+<p><strong><code>grid</code></strong></p>
+<h1 id="5-宏源海购移动端项目"><a href="#5-宏源海购移动端项目" class="headerlink" title="5 宏源海购移动端项目"></a>5 宏源海购移动端项目</h1>]]></content>
       <categories>
         <category>前端</category>
       </categories>
@@ -105,7 +186,7 @@
 <p>不推荐大家使用less本地工具来管理，后续我们学习了webpack可以自动完成这些操作的</p>
 <h3 id="3-12-2-VScode插件"><a href="#3-12-2-VScode插件" class="headerlink" title="3.12.2 VScode插件"></a>3.12.2 VScode插件</h3><p>通过VSCode插件<code>easy less</code>来编译成CSS或者在线编译，保存后自动生成对应的css文件</p>
 <h3 id="3-12-3-JavaScript代码编译"><a href="#3-12-3-JavaScript代码编译" class="headerlink" title="3.12.3 JavaScript代码编译"></a>3.12.3 JavaScript代码编译</h3><p>引入CDN的less编译代码，对less进行实时的处理</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet/less&quot;</span> <span class="attr">href</span>=<span class="string">&quot;./less/01_less的基本使用.less&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/less@4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet/less&quot;</span> <span class="attr">href</span>=<span class="string">&quot;./less/01_less的基本使用.less&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/less@4&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 新链接：https://cdnjs.cloudflare.com/ajax/libs/less.js/3.11.1/less.min.js --&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>必须写上<code>rel=&quot;stylesheet/less&quot;</code></p>
 <h3 id="3-12-4-本地js代码编译"><a href="#3-12-4-本地js代码编译" class="headerlink" title="3.12.4 本地js代码编译"></a>3.12.4 本地js代码编译</h3><p>将上述less编译的js代码下载到本地，执行js代码对less进行编译</p>
@@ -1245,7 +1326,7 @@
 <p>⑤ 运行 npm install jquery –S 命令，安装 jQuery</p>
 <p>⑥ 通过 ES6 模块化的方式导入 jQuery，实现列表隔行变色效果</p>
 <h2 id="2-3-在项目中安装-webpack"><a href="#2-3-在项目中安装-webpack" class="headerlink" title="2.3 在项目中安装 webpack"></a>2.3 在项目中安装 webpack</h2><p>在终端运行如下的命令，安装 webpack 相关的两个包：</p>
-<p>npm install <a href="mailto:&#x77;&#x65;&#x62;&#x70;&#97;&#99;&#107;&#64;&#x35;&#x2e;&#52;&#x32;&#46;&#49;">&#x77;&#x65;&#x62;&#x70;&#97;&#99;&#107;&#64;&#x35;&#x2e;&#52;&#x32;&#46;&#49;</a> webpack-cli@4.7.2 -D </p>
+<p>npm install <a href="mailto:&#119;&#101;&#x62;&#x70;&#97;&#x63;&#107;&#64;&#53;&#x2e;&#x34;&#50;&#x2e;&#x31;">&#119;&#101;&#x62;&#x70;&#97;&#x63;&#107;&#64;&#53;&#x2e;&#x34;&#50;&#x2e;&#x31;</a> webpack-cli@4.7.2 -D </p>
 <h2 id="2-4-在项目中配置-webpack"><a href="#2-4-在项目中配置-webpack" class="headerlink" title="2.4 在项目中配置 webpack"></a>2.4 在项目中配置 webpack</h2><p>① 在项目根目录中，创建名为 webpack.config.js 的 webpack 配置文件，并初始化如下的基本配置：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">&#x27;development&#x27;</span>  <span class="comment">// mode用来指定构建模式，可选值有development和production</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1300,7 +1381,7 @@
 </ul>
 <h2 id="3-2-webpack-dev-server"><a href="#3-2-webpack-dev-server" class="headerlink" title="3.2 webpack-dev-server"></a>3.2 webpack-dev-server</h2><p>webpack-dev-server 可以让 webpack 监听项目源代码的变化，从而进行自动打包构建。</p>
 <h3 id="3-2-1-安装-webpack-dev-server"><a href="#3-2-1-安装-webpack-dev-server" class="headerlink" title="3.2.1 安装 webpack-dev-server"></a>3.2.1 安装 webpack-dev-server</h3><p>运行如下的命令，即可在项目中安装此插件：</p>
-<p>npm install <a href="mailto:&#119;&#101;&#98;&#x70;&#x61;&#x63;&#x6b;&#x2d;&#100;&#x65;&#x76;&#x2d;&#115;&#101;&#114;&#x76;&#x65;&#x72;&#x40;&#x33;&#x2e;&#49;&#49;&#x2e;&#x32;">&#119;&#101;&#98;&#x70;&#x61;&#x63;&#x6b;&#x2d;&#100;&#x65;&#x76;&#x2d;&#115;&#101;&#114;&#x76;&#x65;&#x72;&#x40;&#x33;&#x2e;&#49;&#49;&#x2e;&#x32;</a> -D</p>
+<p>npm install <a href="mailto:&#119;&#x65;&#98;&#x70;&#x61;&#x63;&#107;&#45;&#x64;&#101;&#118;&#x2d;&#x73;&#x65;&#x72;&#118;&#x65;&#114;&#64;&#x33;&#x2e;&#x31;&#49;&#x2e;&#50;">&#119;&#x65;&#98;&#x70;&#x61;&#x63;&#107;&#45;&#x64;&#101;&#118;&#x2d;&#x73;&#x65;&#x72;&#118;&#x65;&#114;&#64;&#x33;&#x2e;&#x31;&#49;&#x2e;&#50;</a> -D</p>
 <h3 id="3-2-2-配置-webpack-dev-server"><a href="#3-2-2-配置-webpack-dev-server" class="headerlink" title="3.2.2 配置 webpack-dev-server"></a>3.2.2 配置 webpack-dev-server</h3><p>① 修改 package.json -&gt; scripts 中的 dev 命令如下：</p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;dev&quot;: &quot;webpack serve&quot;, // script节点下的脚本，可以通过npm run执行</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1331,7 +1412,7 @@
 <h2 id="3-3-html-webpack-plugin"><a href="#3-3-html-webpack-plugin" class="headerlink" title="3.3 html-webpack-plugin"></a>3.3 html-webpack-plugin</h2><p>html-webpack-plugin 是 webpack 中的 HTML 插件，可以通过此插件自定制 index.html 页面的内容。</p>
 <p>需求：通过 html-webpack-plugin 插件，将 src 目录下的 index.html 首页，复制到项目根目录中一份！</p>
 <h3 id="3-3-1-安装-html-webpack-plugin"><a href="#3-3-1-安装-html-webpack-plugin" class="headerlink" title="3.3.1 安装 html-webpack-plugin"></a>3.3.1 安装 html-webpack-plugin</h3><p>运行如下的命令，即可在项目中安装此插件：</p>
-<p>npm install <a href="mailto:&#104;&#116;&#x6d;&#108;&#x2d;&#x77;&#x65;&#98;&#x70;&#97;&#x63;&#107;&#x2d;&#112;&#x6c;&#x75;&#x67;&#105;&#110;&#64;&#53;&#x2e;&#x33;&#x2e;&#x32;">&#104;&#116;&#x6d;&#108;&#x2d;&#x77;&#x65;&#98;&#x70;&#97;&#x63;&#107;&#x2d;&#112;&#x6c;&#x75;&#x67;&#105;&#110;&#64;&#53;&#x2e;&#x33;&#x2e;&#x32;</a> -D</p>
+<p>npm install <a href="mailto:&#x68;&#116;&#x6d;&#108;&#x2d;&#119;&#x65;&#98;&#x70;&#97;&#x63;&#x6b;&#45;&#112;&#108;&#x75;&#103;&#x69;&#110;&#x40;&#53;&#46;&#51;&#x2e;&#50;">&#x68;&#116;&#x6d;&#108;&#x2d;&#119;&#x65;&#98;&#x70;&#97;&#x63;&#x6b;&#45;&#112;&#108;&#x75;&#103;&#x69;&#110;&#x40;&#53;&#46;&#51;&#x2e;&#50;</a> -D</p>
 <h3 id="3-3-2-配置-html-webpack-plugin"><a href="#3-3-2-配置-html-webpack-plugin" class="headerlink" title="3.3.2 配置 html-webpack-plugin"></a>3.3.2 配置 html-webpack-plugin</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 导入HTML插件，得到一个构造函数</span></span><br><span class="line"><span class="keyword">const</span> HtmlPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 创建HTML插件的实例对象</span></span><br><span class="line"><span class="keyword">const</span> htmlPlugin = <span class="keyword">new</span> HtmlPlugin(&#123;</span><br><span class="line">    template: <span class="string">&#x27;./src/index.html&#x27;</span>, <span class="comment">// 指定原文件的存放路径</span></span><br><span class="line">    filename: <span class="string">&#x27;./index.html&#x27;</span> <span class="comment">// 指定生成的文件的存放路径</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">    plugins: [htmlPlugin], <span class="comment">// 3. 通过plugins节点，使htmlPlugin插件生效</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="3-3-3-解惑-html-webpack-plugin"><a href="#3-3-3-解惑-html-webpack-plugin" class="headerlink" title="3.3.3 解惑 html-webpack-plugin"></a>3.3.3 解惑 html-webpack-plugin</h3><p>① 通过 HTML 插件复制到项目根目录中的 index.html 页面，也被放到了内存中</p>
@@ -1353,7 +1434,7 @@
 </ul>
 <h2 id="4-2-loader的调用过程"><a href="#4-2-loader的调用过程" class="headerlink" title="4.2 loader的调用过程"></a>4.2 loader的调用过程</h2><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/image-20220403200855794.png" alt="image-20220403200855794"></p>
 <p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/01.loader%E8%B0%83%E7%94%A8%E7%9A%84%E8%BF%87%E7%A8%8B.png" alt="01.loader调用的过程"></p>
-<h2 id="4-3-打包处理-css-文件"><a href="#4-3-打包处理-css-文件" class="headerlink" title="4.3 打包处理 css 文件"></a>4.3 打包处理 css 文件</h2><p>① 运行 npm i <a href="mailto:&#x73;&#x74;&#121;&#108;&#101;&#x2d;&#x6c;&#x6f;&#x61;&#x64;&#101;&#114;&#x40;&#51;&#x2e;&#x30;&#x2e;&#48;">&#x73;&#x74;&#121;&#108;&#101;&#x2d;&#x6c;&#x6f;&#x61;&#x64;&#101;&#114;&#x40;&#51;&#x2e;&#x30;&#x2e;&#48;</a> css-loader@5.2.6 -D 命令，安装处理 css 文件的 loader</p>
+<h2 id="4-3-打包处理-css-文件"><a href="#4-3-打包处理-css-文件" class="headerlink" title="4.3 打包处理 css 文件"></a>4.3 打包处理 css 文件</h2><p>① 运行 npm i <a href="mailto:&#x73;&#116;&#121;&#x6c;&#x65;&#45;&#108;&#x6f;&#97;&#100;&#x65;&#114;&#x40;&#x33;&#x2e;&#48;&#x2e;&#48;">&#x73;&#116;&#121;&#x6c;&#x65;&#45;&#108;&#x6f;&#97;&#100;&#x65;&#114;&#x40;&#x33;&#x2e;&#48;&#x2e;&#48;</a> css-loader@5.2.6 -D 命令，安装处理 css 文件的 loader</p>
 <p>② 在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123; <span class="comment">// 所有第三方文件模块的匹配规则</span></span><br><span class="line">    rules: [ <span class="comment">// 文件后缀名的匹配规则</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>] &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1365,11 +1446,11 @@
 <li><p>多个 loader 的调用顺序是：从后往前调用</p>
 </li>
 </ul>
-<h2 id="4-4-打包处理-less-文件"><a href="#4-4-打包处理-less-文件" class="headerlink" title="4.4 打包处理 less 文件"></a>4.4 打包处理 less 文件</h2><p>① 运行 npm i <a href="mailto:&#108;&#x65;&#115;&#115;&#x2d;&#108;&#111;&#x61;&#100;&#x65;&#x72;&#64;&#x31;&#x30;&#46;&#x30;&#x2e;&#x31;">&#108;&#x65;&#115;&#115;&#x2d;&#108;&#111;&#x61;&#100;&#x65;&#x72;&#64;&#x31;&#x30;&#46;&#x30;&#x2e;&#x31;</a> less@4.1.1 -D 命令</p>
+<h2 id="4-4-打包处理-less-文件"><a href="#4-4-打包处理-less-文件" class="headerlink" title="4.4 打包处理 less 文件"></a>4.4 打包处理 less 文件</h2><p>① 运行 npm i <a href="mailto:&#108;&#x65;&#x73;&#115;&#x2d;&#x6c;&#111;&#97;&#100;&#x65;&#114;&#64;&#49;&#x30;&#46;&#48;&#x2e;&#x31;">&#108;&#x65;&#x73;&#115;&#x2d;&#x6c;&#111;&#97;&#100;&#x65;&#114;&#64;&#49;&#x30;&#46;&#48;&#x2e;&#x31;</a> less@4.1.1 -D 命令</p>
 <p>② 在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123; <span class="comment">// 所有第三方文件模块的匹配规则</span></span><br><span class="line">    rules: [ <span class="comment">// 文件后缀名的匹配规则</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.less$/</span>, use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>, <span class="string">&#x27;less-loader&#x27;</span>] &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="4-5-打包处理样式表中与-url-路径相关的文件"><a href="#4-5-打包处理样式表中与-url-路径相关的文件" class="headerlink" title="4.5 打包处理样式表中与 url 路径相关的文件"></a>4.5 打包处理样式表中与 url 路径相关的文件</h2><p>① 运行 npm i <a href="mailto:&#117;&#114;&#x6c;&#x2d;&#108;&#111;&#x61;&#100;&#x65;&#114;&#x40;&#x34;&#46;&#x31;&#46;&#x31;">&#117;&#114;&#x6c;&#x2d;&#108;&#111;&#x61;&#100;&#x65;&#114;&#x40;&#x34;&#46;&#x31;&#46;&#x31;</a> file-loader@6.2.0 -D 命令</p>
+<h2 id="4-5-打包处理样式表中与-url-路径相关的文件"><a href="#4-5-打包处理样式表中与-url-路径相关的文件" class="headerlink" title="4.5 打包处理样式表中与 url 路径相关的文件"></a>4.5 打包处理样式表中与 url 路径相关的文件</h2><p>① 运行 npm i <a href="mailto:&#117;&#x72;&#x6c;&#45;&#108;&#111;&#97;&#100;&#101;&#114;&#64;&#x34;&#x2e;&#49;&#46;&#49;">&#117;&#x72;&#x6c;&#45;&#108;&#111;&#97;&#100;&#101;&#114;&#64;&#x34;&#x2e;&#49;&#46;&#49;</a> file-loader@6.2.0 -D 命令</p>
 <p>② 在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123; <span class="comment">// 所有第三方文件模块的匹配规则</span></span><br><span class="line">    rules: [ <span class="comment">// 文件后缀名的匹配规则</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.jpg|png|gif$/</span>, use: [<span class="string">&#x27;url-loader?limit=22229&#x27;</span>] &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1384,7 +1465,7 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 定义了名为info的装饰器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">info</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 2. 为目标添加静态属性info</span></span><br><span class="line">    target.info = <span class="string">&#x27;Person info&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 为Person类应用info装饰器</span></span><br><span class="line">@info</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//4. 打印 Person 的静态属性 info</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.info)</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-6-1-安装-babel-loader-相关的包"><a href="#4-6-1-安装-babel-loader-相关的包" class="headerlink" title="4.6.1 安装 babel-loader 相关的包"></a>4.6.1 安装 babel-loader 相关的包</h3><p>运行如下的命令安装对应的依赖包：</p>
-<p>npm i <a href="mailto:&#98;&#x61;&#x62;&#x65;&#x6c;&#45;&#108;&#x6f;&#x61;&#x64;&#101;&#114;&#x40;&#56;&#x2e;&#x32;&#x2e;&#x32;">&#98;&#x61;&#x62;&#x65;&#x6c;&#45;&#108;&#x6f;&#x61;&#x64;&#101;&#114;&#x40;&#56;&#x2e;&#x32;&#x2e;&#x32;</a> @babel/core@7.14.6 @babel/plugin-proposal-decorators@7.14.5 -D </p>
+<p>npm i <a href="mailto:&#x62;&#x61;&#98;&#x65;&#108;&#x2d;&#108;&#111;&#97;&#100;&#x65;&#114;&#64;&#x38;&#x2e;&#x32;&#46;&#x32;">&#x62;&#x61;&#98;&#x65;&#108;&#x2d;&#108;&#111;&#97;&#100;&#x65;&#114;&#64;&#x38;&#x2e;&#x32;&#46;&#x32;</a> @babel/core@7.14.6 @babel/plugin-proposal-decorators@7.14.5 -D </p>
 <p>在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注意：必须使用exclude指定排除项；因为node_modules目录下的第三方包不需要被打包</span></span><br><span class="line">&#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, use: <span class="string">&#x27;babel-loader&#x27;</span>, <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span> &#125;</span><br></pre></td></tr></table></figure>
 
@@ -10946,57 +11027,6 @@
 <ul>
 <li>各自从元素自己以及祖先元素中，找出最邻近的2个定位元素进行比较，而且这2个定位元素必须有设置z-index的具体数值</li>
 </ul>
-<h2 id="15-4-vertical-align"><a href="#15-4-vertical-align" class="headerlink" title="15.4 vertical-align"></a>15.4 vertical-align</h2><p>vertical-align会影响行内块级元素在一个行盒中垂直方向的位置</p>
-<blockquote>
-<p><strong>一个div没有设置高度的时候，会不会有高度？</strong></p>
-<ul>
-<li><p>没有内容，没有高度</p>
-</li>
-<li><p>有内容，内容撑起来高度</p>
-</li>
-</ul>
-<p><strong>内容撑起来高度的本质</strong>：内容有行高</p>
-<p><strong>行高为什么可以撑起div的高度</strong>：因为line boxes的存在，且它有一个特性，包裹每行的inline level；而其中的文字是有行高的，必须将整个行高包裹进去，才算包裹这个line-level</p>
-</blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504134605.png" alt="image-20220504134604823"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504134625.png" alt="image-20220504134625505"></p>
-<p><strong>结论：line-boxes一定会想办法包裹住当前行中所有的内容。</strong></p>
-<p><strong>但是，但是为什么对齐方式千奇百怪呢？</strong></p>
-<ul>
-<li><p>你认为的千奇百怪，其实有它的内在规律</p>
-</li>
-<li><p>答案就是baseline对齐</p>
-</li>
-</ul>
-<p><strong>我们来看官方vertical-align的默认值：没错，就是baseline</strong></p>
-<p><strong>但是baseline都是谁呢？</strong></p>
-<ul>
-<li><p>文本的baseline是字母x的下方</p>
-</li>
-<li><p>Inline-block默认的baseline是margin-bottom的底部（没有，就是盒子的底部）</p>
-</li>
-<li><p>Inline-block有文本时，baseline是最后一行文本的x的下方</p>
-</li>
-</ul>
-<p><strong>一切都解释通了</strong></p>
-<p><strong>现在，对于不同的取值就非常容易理解了</strong></p>
-<ul>
-<li><p>baseline(默认值)：基线对齐（你得先明白什么是基线）</p>
-</li>
-<li><p>top：把行内级盒子的顶部跟line boxes顶部对齐</p>
-</li>
-<li><p>middle：行内级盒子的中心点与父盒基线加上x-height一半的线对齐</p>
-</li>
-<li><p>bottom：把行内级盒子的底部跟line box底部对齐</p>
-</li>
-<li><p><code>&lt;percentage&gt;</code>：把行内级盒子提升或者下降一段距离（距离相对于line-height计算\元素高度）， 0%意味着同baseline一 样</p>
-</li>
-<li><p><code>&lt;length&gt;</code>：把行内级盒子提升或者下降一段距离，0cm意味着同baseline一样</p>
-</li>
-</ul>
-<p><strong>解决图片下边缘的间隙方法:</strong> </p>
-<p>方法一: 设置成top/middle/bottom</p>
-<p>方法二: 将图片设置为block元素</p>
 <h1 id="16-浮动"><a href="#16-浮动" class="headerlink" title="16 浮动"></a>16 浮动</h1><p>float 属性可以指定一个元素应沿其容器的左侧或右侧放置，允许文本和内联元素环绕它</p>
 <p><strong>绝对定位、浮动都会让元素脱离标准流，以达到灵活布局的效果</strong></p>
 <h2 id="16-1-浮动规则"><a href="#16-1-浮动规则" class="headerlink" title="16.1 浮动规则"></a>16.1 浮动规则</h2><p>1、元素一旦浮动后, 脱离标准流</p>
@@ -11219,7 +11249,58 @@
 </li>
 </ul>
 <p><code>animation-play-state</code>：指定动画运行或者暂停（在JavaScript中使用，用于暂停动画）</p>
-<h1 id="19-应用场景"><a href="#19-应用场景" class="headerlink" title="19 应用场景"></a>19 应用场景</h1><h2 id="19-1-元素的水平居中方案"><a href="#19-1-元素的水平居中方案" class="headerlink" title="19.1 元素的水平居中方案"></a>19.1 元素的水平居中方案</h2><p><strong>1、行内级元素(包括inline-block元素)</strong> </p>
+<h1 id="19-vertical-align"><a href="#19-vertical-align" class="headerlink" title="19 vertical-align"></a>19 vertical-align</h1><p>vertical-align会影响行内块级元素在一个行盒中垂直方向的位置</p>
+<blockquote>
+<p><strong>一个div没有设置高度的时候，会不会有高度？</strong></p>
+<ul>
+<li><p>没有内容，没有高度</p>
+</li>
+<li><p>有内容，内容撑起来高度</p>
+</li>
+</ul>
+<p><strong>内容撑起来高度的本质</strong>：内容有行高</p>
+<p><strong>行高为什么可以撑起div的高度</strong>：因为line boxes的存在，且它有一个特性，包裹每行的inline level；而其中的文字是有行高的，必须将整个行高包裹进去，才算包裹这个line-level</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504134605.png" alt="image-20220504134604823"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504134625.png" alt="image-20220504134625505"></p>
+<p><strong>结论：line-boxes一定会想办法包裹住当前行中所有的内容。</strong></p>
+<p><strong>但是，但是为什么对齐方式千奇百怪呢？</strong></p>
+<ul>
+<li><p>你认为的千奇百怪，其实有它的内在规律</p>
+</li>
+<li><p>答案就是baseline对齐</p>
+</li>
+</ul>
+<p><strong>我们来看官方vertical-align的默认值：没错，就是baseline</strong></p>
+<p><strong>但是baseline都是谁呢？</strong></p>
+<ul>
+<li><p>文本的baseline是字母x的下方</p>
+</li>
+<li><p>Inline-block默认的baseline是margin-bottom的底部（没有，就是盒子的底部）</p>
+</li>
+<li><p>Inline-block有文本时，baseline是最后一行文本的x的下方</p>
+</li>
+</ul>
+<p><strong>一切都解释通了</strong></p>
+<p><strong>现在，对于不同的取值就非常容易理解了</strong></p>
+<ul>
+<li><p>baseline(默认值)：基线对齐（你得先明白什么是基线）</p>
+</li>
+<li><p>top：把行内级盒子的顶部跟line boxes顶部对齐</p>
+</li>
+<li><p>middle：行内级盒子的中心点与父盒基线加上x-height一半的线对齐</p>
+</li>
+<li><p>bottom：把行内级盒子的底部跟line box底部对齐</p>
+</li>
+<li><p><code>&lt;percentage&gt;</code>：把行内级盒子提升或者下降一段距离（距离相对于line-height计算\元素高度）， 0%意味着同baseline一 样</p>
+</li>
+<li><p><code>&lt;length&gt;</code>：把行内级盒子提升或者下降一段距离，0cm意味着同baseline一样</p>
+</li>
+</ul>
+<p><strong>解决图片下边缘的间隙方法:</strong> </p>
+<p>方法一: 设置成top/middle/bottom</p>
+<p>方法二: 将图片设置为block元素</p>
+<h1 id="20-应用场景"><a href="#20-应用场景" class="headerlink" title="20 应用场景"></a>20 应用场景</h1><h2 id="20-1-元素的水平居中方案"><a href="#20-1-元素的水平居中方案" class="headerlink" title="20.1 元素的水平居中方案"></a>20.1 元素的水平居中方案</h2><p><strong>1、行内级元素(包括inline-block元素)</strong> </p>
 <p>水平居中：在父元素中设置text-align: center</p>
 <p><strong>2、块级元素</strong></p>
 <p>水平居中：margin: 0 auto</p>
@@ -11239,13 +11320,13 @@
 </li>
 </ul>
 </blockquote>
-<h2 id="19-2-鼠标的样式设置"><a href="#19-2-鼠标的样式设置" class="headerlink" title="19.2 鼠标的样式设置"></a>19.2 鼠标的样式设置</h2><p><strong>cursor常见的设值有</strong>：</p>
+<h2 id="20-2-鼠标的样式设置"><a href="#20-2-鼠标的样式设置" class="headerlink" title="20.2 鼠标的样式设置"></a>20.2 鼠标的样式设置</h2><p><strong>cursor常见的设值有</strong>：</p>
 <p>auto：浏览器根据上下文决定指针的显示样式，比如根据文本和非文本切换指针样式</p>
 <p>default：由操作系统决定，一般就是一个小箭头</p>
 <p>pointer：一只小手，鼠标指针挪动到链接上面默认就是这个样式</p>
 <p>text：一条竖线，鼠标指针挪动到文本输入框上面默认就是这个样式</p>
 <p>none：没有任何指针显示在元素上面</p>
-<h2 id="19-3-CSS精灵图（CSS-Sprite）"><a href="#19-3-CSS精灵图（CSS-Sprite）" class="headerlink" title="19.3 CSS精灵图（CSS Sprite）"></a>19.3 CSS精灵图（CSS Sprite）</h2><p>一种CSS图像合成技术，将各种小图片合并到一张图片上，然后利用CSS的背景定位来显示对应的图片部分</p>
+<h2 id="20-3-CSS精灵图（CSS-Sprite）"><a href="#20-3-CSS精灵图（CSS-Sprite）" class="headerlink" title="20.3 CSS精灵图（CSS Sprite）"></a>20.3 CSS精灵图（CSS Sprite）</h2><p>一种CSS图像合成技术，将各种小图片合并到一张图片上，然后利用CSS的背景定位来显示对应的图片部分</p>
 <p><strong>好处</strong></p>
 <ul>
 <li><p>减少网页的http请求数量，加快网页响应速度，减轻服务器压力</p>
