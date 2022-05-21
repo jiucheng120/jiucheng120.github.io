@@ -23,7 +23,7 @@
     <script id="hexo-configurations">
     let KEEP = window.KEEP || {};
     KEEP.hexo_config = {"hostname":"jiucheng120.github.io","root":"/","language":"zh-CN","path":"search.xml"};
-    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/logo.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.png","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":false},"style":{"primary_color":"#CC00FF","avatar":"/images/avatar.png","favicon":"/images/logo.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.png","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.5"};
     KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
   </script>
 <meta name="generator" content="Hexo 5.4.0"></head>
@@ -35,6 +35,11 @@
         <span class="scroll-progress-bar"></span>
     
 
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
     
 </div>
 
@@ -50,6 +55,10 @@
 
     <div class="header-content">
         <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/avatar.png">
+                </a>
             
             <a class="logo-title" href="/">
                 馨er的学习之路
@@ -87,6 +96,12 @@
                         <li class="menu-item">
                             <a class href="/about">
                                 关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jiucheng120">
+                                GITHUB
                             </a>
                         </li>
                     
@@ -131,6 +146,10 @@
                     <a class href="/about">关于</a>
                 </li>
             
+                <li class="drawer-menu-item flex-center">
+                    <a class target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jiucheng120">GITHUB</a>
+                </li>
+            
         </ul>
     </div>
 
@@ -162,7 +181,7 @@
                     <div class="author">
                         <span class="name">馨er</span>
                         
-                            <span class="author-label">Lv4</span>
+                            <span class="author-label">CTO</span>
                         
                     </div>
                     <div class="meta-info">
@@ -199,6 +218,14 @@
 
     
     
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>532 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
+        </span>
     
     
 </div>
@@ -214,30 +241,17 @@
 </blockquote>
 <span id="more"></span>
 <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>给定任一个各位数字不完全相同的 4 位正整数，如果我们先把 4 个数字按非递增排序，再按非递减排序，然后用第 1 个数字减第 2 个数字，将得到一个新的数字。一直重复这样做，我们很快会停在有“数字黑洞”之称的 6174，这个神奇的数字也叫 Kaprekar 常数。</p>
-<p>例如，我们从6767开始，将得到</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">7766 - 6677 = 1089</span><br><span class="line">9810 - 0189 = 9621</span><br><span class="line">9621 - 1269 = 8352</span><br><span class="line">8532 - 2358 = 6174</span><br><span class="line">7641 - 1467 = 6174</span><br><span class="line">... ...</span><br></pre></td></tr></table></figure>
-<p>现给定任意 4 位正整数，请编写程序演示到达黑洞的过程。</p>
+<p>例如，我们从6767开始，将得到<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">7766 - 6677 = 1089</span><br><span class="line">9810 - 0189 = 9621</span><br><span class="line">9621 - 1269 = 8352</span><br><span class="line">8532 - 2358 = 6174</span><br><span class="line">7641 - 1467 = 6174</span><br><span class="line">... ...</span><br></pre></td></tr></table></figure><br>现给定任意 4 位正整数，请编写程序演示到达黑洞的过程。</p>
 <p>输入格式：</p>
 <p>输入给出一个 (0,$10^4$) 区间内的正整数 $N$。</p>
 <p>输出格式：</p>
 <p>如果 $N$ 的 4 位数字全相等，则在一行内输出 <code>N - N = 0000</code>；否则将计算的每一步在一行内输出，直到 <code>6174</code> 作为差出现，输出格式见样例。注意每个数字按 <code>4</code> 位数格式输出。</p>
-<p>输入样例 1：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6767</span><br></pre></td></tr></table></figure>
-
-<p>输出样例 1：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">7766 - 6677 = 1089</span><br><span class="line">9810 - 0189 = 9621</span><br><span class="line">9621 - 1269 = 8352</span><br><span class="line">8532 - 2358 = 6174</span><br></pre></td></tr></table></figure>
-
-<p>输入样例 2：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2222</span><br></pre></td></tr></table></figure>
-
-<p>输出样例 2：</p>
-<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2222 - 2222 = 0000</span><br></pre></td></tr></table></figure>
-<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>我的代码</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, x, y;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">a</span><span class="params">(<span class="number">4</span>)</span></span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        a[<span class="number">0</span>] = n / <span class="number">1000</span>;</span><br><span class="line">        a[<span class="number">1</span>] = n / <span class="number">100</span> % <span class="number">10</span>;</span><br><span class="line">        a[<span class="number">2</span>] = n / <span class="number">10</span> % <span class="number">10</span>;</span><br><span class="line">        a[<span class="number">3</span>] = n % <span class="number">10</span>;</span><br><span class="line">        <span class="built_in">sort</span>(a.<span class="built_in">begin</span>(), a.<span class="built_in">end</span>());</span><br><span class="line">        x = a[<span class="number">0</span>] * <span class="number">1000</span> + a[<span class="number">1</span>] * <span class="number">100</span> + a[<span class="number">2</span>] * <span class="number">10</span> + a[<span class="number">3</span>];</span><br><span class="line">        y = a[<span class="number">3</span>] * <span class="number">1000</span> + a[<span class="number">2</span>] * <span class="number">100</span> + a[<span class="number">1</span>] * <span class="number">10</span> + a[<span class="number">0</span>];</span><br><span class="line">        n = y - x;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%04d&quot;</span>, y);</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot; - &quot;</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%04d&quot;</span>, x);</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot; = &quot;</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%04d&quot;</span>, n);</span><br><span class="line">        cout&lt;&lt; endl;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">6174</span> || n == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>柳神的代码，应用了c++11新特性</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">char</span> a, <span class="keyword">char</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a &gt; b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string s;</span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    s.<span class="built_in">insert</span>(<span class="number">0</span>, <span class="number">4</span> - s.<span class="built_in">length</span>(), <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        string a = s, b = s;</span><br><span class="line">        <span class="built_in">sort</span>(a.<span class="built_in">begin</span>(), a.<span class="built_in">end</span>(), cmp);</span><br><span class="line">        <span class="built_in">sort</span>(b.<span class="built_in">begin</span>(), b.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">int</span> result = <span class="built_in">stoi</span>(a) - <span class="built_in">stoi</span>(b);</span><br><span class="line">        s = <span class="built_in">to_string</span>(result);</span><br><span class="line">        s.<span class="built_in">insert</span>(<span class="number">0</span>, <span class="number">4</span> - s.<span class="built_in">length</span>(), <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">        cout &lt;&lt; a &lt;&lt; <span class="string">&quot; - &quot;</span> &lt;&lt; b &lt;&lt; <span class="string">&quot; = &quot;</span> &lt;&lt; s &lt;&lt; endl;</span><br><span class="line">    &#125; <span class="keyword">while</span> (s != <span class="string">&quot;6174&quot;</span> &amp;&amp; s != <span class="string">&quot;0000&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<p>输入样例 1：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6767</span><br></pre></td></tr></table></figure></p>
+<p>输出样例 1：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">7766 - 6677 = 1089</span><br><span class="line">9810 - 0189 = 9621</span><br><span class="line">9621 - 1269 = 8352</span><br><span class="line">8532 - 2358 = 6174</span><br></pre></td></tr></table></figure></p>
+<p>输入样例 2：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2222</span><br></pre></td></tr></table></figure></p>
+<p>输出样例 2：<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2222 - 2222 = 0000</span><br></pre></td></tr></table></figure></p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>我的代码<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, x, y;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">a</span><span class="params">(<span class="number">4</span>)</span></span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        a[<span class="number">0</span>] = n / <span class="number">1000</span>;</span><br><span class="line">        a[<span class="number">1</span>] = n / <span class="number">100</span> % <span class="number">10</span>;</span><br><span class="line">        a[<span class="number">2</span>] = n / <span class="number">10</span> % <span class="number">10</span>;</span><br><span class="line">        a[<span class="number">3</span>] = n % <span class="number">10</span>;</span><br><span class="line">        <span class="built_in">sort</span>(a.<span class="built_in">begin</span>(), a.<span class="built_in">end</span>());</span><br><span class="line">        x = a[<span class="number">0</span>] * <span class="number">1000</span> + a[<span class="number">1</span>] * <span class="number">100</span> + a[<span class="number">2</span>] * <span class="number">10</span> + a[<span class="number">3</span>];</span><br><span class="line">        y = a[<span class="number">3</span>] * <span class="number">1000</span> + a[<span class="number">2</span>] * <span class="number">100</span> + a[<span class="number">1</span>] * <span class="number">10</span> + a[<span class="number">0</span>];</span><br><span class="line">        n = y - x;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%04d&quot;</span>, y);</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot; - &quot;</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%04d&quot;</span>, x);</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot; = &quot;</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%04d&quot;</span>, n);</span><br><span class="line">        cout&lt;&lt; endl;</span><br><span class="line">        <span class="keyword">if</span> (n == <span class="number">6174</span> || n == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>柳神的代码，应用了c++11新特性<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(<span class="keyword">char</span> a, <span class="keyword">char</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a &gt; b;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string s;</span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    s.<span class="built_in">insert</span>(<span class="number">0</span>, <span class="number">4</span> - s.<span class="built_in">length</span>(), <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        string a = s, b = s;</span><br><span class="line">        <span class="built_in">sort</span>(a.<span class="built_in">begin</span>(), a.<span class="built_in">end</span>(), cmp);</span><br><span class="line">        <span class="built_in">sort</span>(b.<span class="built_in">begin</span>(), b.<span class="built_in">end</span>());</span><br><span class="line">        <span class="keyword">int</span> result = <span class="built_in">stoi</span>(a) - <span class="built_in">stoi</span>(b);</span><br><span class="line">        s = <span class="built_in">to_string</span>(result);</span><br><span class="line">        s.<span class="built_in">insert</span>(<span class="number">0</span>, <span class="number">4</span> - s.<span class="built_in">length</span>(), <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">        cout &lt;&lt; a &lt;&lt; <span class="string">&quot; - &quot;</span> &lt;&lt; b &lt;&lt; <span class="string">&quot; = &quot;</span> &lt;&lt; s &lt;&lt; endl;</span><br><span class="line">    &#125; <span class="keyword">while</span> (s != <span class="string">&quot;6174&quot;</span> &amp;&amp; s != <span class="string">&quot;0000&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://pintia.cn/problem-sets/994805260223102976/problems/994805302786899968">题目链接<i class="fas fa-external-link-alt"></i></a></p>
 
         </div>
@@ -467,7 +481,7 @@
 
 
 
-<div class="post-scripts">
+<div class="post-scripts pjax">
     
         
 <script src="/js/left-side-toggle.js"></script>
@@ -478,6 +492,40 @@
 
     
 </div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
 
 
 

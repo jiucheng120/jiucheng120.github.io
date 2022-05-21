@@ -1,0 +1,30 @@
+code {
+  color: #b942c2;
+}
+/* webkit, opera, IE9 */
+::selection {
+  background: #a78bfa;
+  color: #f7f7f7;
+}
+/* firefox */
+::-moz-selection {
+  background: #a78bfa;
+  color: #f7f7f7;
+}
+.tagcloud-content a {
+  box-shadow: 0 1px 3px #6f42c1, 0 1px 2px #d9534f;
+  padding: 2px 10px;
+  margin: 8px;
+  background: rgba(193,66,92,0);
+  border-bottom: none;
+  border-radius: 20px;
+}
+.tagcloud-content a {
+  font-family: Helvetica, Tahoma, Arial;
+  font-weight: 100;
+  text-align: center;
+  counter-reset: tags;
+}
+.tagcloud-content a:before {
+  content: "🔖";
+}
