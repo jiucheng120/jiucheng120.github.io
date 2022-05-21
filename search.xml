@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>移动端</title>
-    <url>/2022/05/05/hash/</url>
+    <url>/2022/05/05/619676cb7eab/</url>
     <content><![CDATA[<blockquote>
 <p>移动端适配笔记</p>
 </blockquote>
@@ -122,7 +122,7 @@
   </entry>
   <entry>
     <title>CSS预处理器</title>
-    <url>/2022/05/05/hash/</url>
+    <url>/2022/05/05/34c3de825d4b/</url>
     <content><![CDATA[<blockquote>
 <p>CSS预处理器笔记</p>
 </blockquote>
@@ -203,7 +203,7 @@
   </entry>
   <entry>
     <title>HTML5</title>
-    <url>/2022/05/05/hash/</url>
+    <url>/2022/05/05/fa3368ca6d8e/</url>
     <content><![CDATA[<blockquote>
 <p>HTML5新增</p>
 </blockquote>
@@ -431,7 +431,7 @@
   </entry>
   <entry>
     <title>Typescript笔记</title>
-    <url>/2022/05/01/hash/</url>
+    <url>/2022/05/01/25b99359dc7b/</url>
     <content><![CDATA[<blockquote>
 <p>TypeScript笔记</p>
 </blockquote>
@@ -566,7 +566,7 @@
   </entry>
   <entry>
     <title>dos操作指令</title>
-    <url>/2022/04/22/hash/</url>
+    <url>/2022/04/22/7643abe515de/</url>
     <content><![CDATA[<blockquote>
 <p>了解一些基本的dos操作指令</p>
 </blockquote>
@@ -608,7 +608,7 @@
   </entry>
   <entry>
     <title>Vue3.0笔记</title>
-    <url>/2022/04/14/hash/</url>
+    <url>/2022/04/14/2c35727a4f30/</url>
     <content><![CDATA[<blockquote>
 <p>Vue3.0笔记</p>
 </blockquote>
@@ -659,8 +659,8 @@
 <li>Vue2中的虚拟dom是进行全量比对</li>
 <li>Vue3新增了静态标记（PatchFlag）<br> 在与上次虚拟节点进行比对时候，只对比带有patch flag的节点<br> 并且可以通过flag的信息 得知当前节点要比对的具体内容</li>
 </ul>
-<h4 id="1、Vue2-diff算法"><a href="#1、Vue2-diff算法" class="headerlink" title="1、Vue2 diff算法"></a>1、Vue2 diff算法</h4><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220414192452.webp"></p>
-<h4 id="2、Vue3-diff算法"><a href="#2、Vue3-diff算法" class="headerlink" title="2、Vue3 diff算法"></a>2、Vue3 diff算法</h4><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220414192534.webp"></p>
+<h4 id="1、Vue2-diff算法"><a href="#1、Vue2-diff算法" class="headerlink" title="1、Vue2 diff算法"></a>1、Vue2 diff算法</h4><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220414192452.webp"></p>
+<h4 id="2、Vue3-diff算法"><a href="#2、Vue3-diff算法" class="headerlink" title="2、Vue3 diff算法"></a>2、Vue3 diff算法</h4><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220414192534.webp"></p>
 <h4 id="3、Vue编译demo"><a href="#3、Vue编译demo" class="headerlink" title="3、Vue编译demo"></a>3、Vue编译demo</h4><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>我是段落<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>&#123;&#123;msg&#125;&#125;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  createVNode <span class="keyword">as</span> _createVNode,</span><br><span class="line">  toDisplayString <span class="keyword">as</span> _toDisplayString,</span><br><span class="line">  openBlock <span class="keyword">as</span> _openBlock,</span><br><span class="line">  createBlock <span class="keyword">as</span> _createBlock</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">_ctx, _cache, $props, $setup, $data, $options</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (_openBlock(), _createBlock(<span class="string">&quot;div&quot;</span>, <span class="literal">null</span>, [</span><br><span class="line">    _createVNode(<span class="string">&quot;p&quot;</span>, <span class="literal">null</span>, <span class="string">&quot;我是段落&quot;</span>),</span><br><span class="line">    _createVNode(<span class="string">&quot;p&quot;</span>, <span class="literal">null</span>, _toDisplayString(_ctx.msg), <span class="number">1</span> <span class="comment">/* TEXT */</span>)</span><br><span class="line">  ]))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -712,8 +712,8 @@
 </ul>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;msg&#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">    &lt;button @click&#x3D;&quot;myFn&quot;&gt;按钮&lt;&#x2F;button&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#39;App&#39;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      msg: &#39;智播渔&#39;,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    myFn() &#123;</span><br><span class="line">      alert(&#39;www.it666.com&#39;)</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220414203750.webp"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220414203840.webp"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220414203750.webp"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220414203840.webp"></p>
 <h1 id="3-05Vue2-x存在的问题——理解"><a href="#3-05Vue2-x存在的问题——理解" class="headerlink" title="3 05Vue2.x存在的问题——理解"></a>3 05Vue2.x存在的问题——理解</h1><h2 id="3-1-todolist-demo"><a href="#3-1-todolist-demo" class="headerlink" title="3.1 todolist demo"></a>3.1 todolist demo</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;form&gt;</span><br><span class="line">      &lt;input</span><br><span class="line">        type&#x3D;&quot;text&quot;</span><br><span class="line">        v-model&#x3D;&quot;stu.id&quot;</span><br><span class="line">      &#x2F;&gt;</span><br><span class="line">      &lt;input</span><br><span class="line">        type&#x3D;&quot;text&quot;</span><br><span class="line">        v-model&#x3D;&quot;stu.name&quot;</span><br><span class="line">      &#x2F;&gt;</span><br><span class="line">      &lt;input</span><br><span class="line">        type&#x3D;&quot;text&quot;</span><br><span class="line">        v-model&#x3D;&quot;stu.age&quot;</span><br><span class="line">      &#x2F;&gt;</span><br><span class="line">      &lt;input</span><br><span class="line">        type&#x3D;&quot;submit&quot;</span><br><span class="line">        @click&#x3D;&quot;addStu&quot;</span><br><span class="line">      &#x2F;&gt;</span><br><span class="line">    &lt;&#x2F;form&gt;</span><br><span class="line">    &lt;ul&gt;</span><br><span class="line">      &lt;li</span><br><span class="line">        v-for&#x3D;&quot;(stu,index) in stus&quot;</span><br><span class="line">        :key&#x3D;&quot;stu.id&quot;</span><br><span class="line">        @click&#x3D;&quot;remStu(index)&quot;</span><br><span class="line">      &gt;</span><br><span class="line">        &#123;&#123;stu.name&#125;&#125; -- &#123;&#123;stu.age&#125;&#125;</span><br><span class="line">      &lt;&#x2F;li&gt;</span><br><span class="line">    &lt;&#x2F;ul&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#39;App&#39;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      stus: [</span><br><span class="line">        &#123; id: 1, name: &#39;zs&#39;, age: 10 &#125;,</span><br><span class="line">        &#123; id: 2, name: &#39;ls&#39;, age: 20 &#125;,</span><br><span class="line">        &#123; id: 3, name: &#39;ww&#39;, age: 30 &#125;,</span><br><span class="line">      ],</span><br><span class="line">      stu: &#123;</span><br><span class="line">        id: &#39;&#39;,</span><br><span class="line">        name: &#39;&#39;,</span><br><span class="line">        age: &#39;&#39;,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F; 新增功能1的数据</span><br><span class="line">    &#x2F;&#x2F; 新增功能2的数据</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    remStu(index) &#123;</span><br><span class="line">      this.stus &#x3D; this.stus.filter((stu, idx) &#x3D;&gt; idx !&#x3D; index)</span><br><span class="line">    &#125;,</span><br><span class="line">    addStu(e) &#123;</span><br><span class="line">      e.preventDefault()</span><br><span class="line">      const stu &#x3D; Object.assign(&#123;&#125;, this.stu)</span><br><span class="line">      this.stus.push(stu)</span><br><span class="line">      this.stu &#x3D; &#123;</span><br><span class="line">        id: &#39;&#39;,</span><br><span class="line">        name: &#39;&#39;,</span><br><span class="line">        age: &#39;&#39;,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    &#x2F;&#x2F; 新增功能1的业务逻辑</span><br><span class="line">    &#x2F;&#x2F; 新增功能2的业务逻辑</span><br><span class="line">  &#125;,</span><br><span class="line">  computed: &#123;</span><br><span class="line">    &#x2F;&#x2F; 新增功能1的业务逻辑</span><br><span class="line">    &#x2F;&#x2F; 新增功能2的业务逻辑</span><br><span class="line">  &#125;,</span><br><span class="line">  watch: &#123;</span><br><span class="line">    &#x2F;&#x2F; 新增功能1的业务逻辑</span><br><span class="line">    &#x2F;&#x2F; 新增功能2的业务逻辑</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
 
 <h2 id="3-2-问题"><a href="#3-2-问题" class="headerlink" title="3.2 问题"></a>3.2 问题</h2><p>数据和业务逻辑分散，不利于管理维护</p>
@@ -742,7 +742,7 @@
 
 <h2 id="6-2-理解"><a href="#6-2-理解" class="headerlink" title="6.2 理解"></a>6.2 理解</h2><p>所有的功能都可以放到独立的模块中去管理</p>
 <h1 id="7-09来点动力——理解"><a href="#7-09来点动力——理解" class="headerlink" title="7 09来点动力——理解"></a>7 09来点动力——理解</h1><p>Vue2.0 按照操作划分代码块，Vue3.0 按业务划分代码块</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220414210018.webp"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220414210018.webp"></p>
 <h1 id="8-10-Vue3-0-组合API本质-理解-amp-amp-11-Vue3-0-setup执行时机和注意点-理解"><a href="#8-10-Vue3-0-组合API本质-理解-amp-amp-11-Vue3-0-setup执行时机和注意点-理解" class="headerlink" title="8 10-Vue3.0-组合API本质-理解&amp;&amp;11-Vue3.0-setup执行时机和注意点-理解"></a>8 10-Vue3.0-组合API本质-理解&amp;&amp;11-Vue3.0-setup执行时机和注意点-理解</h1><h2 id="8-1-Composition-API-和-Option-API-混合使用"><a href="#8-1-Composition-API-和-Option-API-混合使用" class="headerlink" title="8.1 Composition API 和 Option API 混合使用"></a>8.1 Composition API 和 Option API 混合使用</h2><p>Composition API 和 Option API可以混合使用</p>
 <h3 id="8-1-1-混合使用demo"><a href="#8-1-1-混合使用demo" class="headerlink" title="8.1.1 混合使用demo"></a>8.1.1 混合使用demo</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;name&#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">    &lt;button @click&#x3D;&quot;myFn1&quot;&gt;按钮&lt;&#x2F;button&gt;</span><br><span class="line">    &lt;p&gt;&#123;&#123;age&#125;&#125;&lt;&#x2F;p&gt;</span><br><span class="line">    &lt;button @click&#x3D;&quot;myFn2&quot;&gt;按钮&lt;&#x2F;button&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import &#123; ref &#125; from &#39;vue&#39;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#39;App&#39;,</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      name: &#39;lnj&#39;,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    myFn1() &#123;</span><br><span class="line">      alert(&#39;abc&#39;)</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  setup() &#123;</span><br><span class="line">    let age &#x3D; ref(18)</span><br><span class="line">    function myFn2() &#123;</span><br><span class="line">      alert(&#39;sxx&#39;)</span><br><span class="line">    &#125;</span><br><span class="line">    return &#123;</span><br><span class="line">      age,</span><br><span class="line">      myFn2,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
 
@@ -924,7 +924,7 @@
   </entry>
   <entry>
     <title>nodejs笔记</title>
-    <url>/2022/04/11/hash/</url>
+    <url>/2022/04/11/5a7c9fba07b6/</url>
     <content><![CDATA[<blockquote>
 <p>nodejs笔记</p>
 </blockquote>
@@ -989,7 +989,7 @@
 </ul>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;sjx&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">global</span>.name)</span><br></pre></td></tr></table></figure>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220502155617.png" alt="image-20220502155309540"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220502155617.png" alt="image-20220502155309540"></p>
 <h2 id="1-5-特殊的全局对象"><a href="#1-5-特殊的全局对象" class="headerlink" title="1.5 特殊的全局对象"></a>1.5 特殊的全局对象</h2><p>可以在模块中任意使用，但是在命令行交互中是不可以使用的：包括：<code>__dirname</code>、<code>__filename</code>、<code>exports</code>、<code>module</code>、<code>require()</code></p>
 <p><code>__dirname</code>：获取当前文件所在的路径，不包括后面的文件名</p>
 <p><code>__filename</code>：获取当前文件所在的路径和文件名称，包括后面的文件名称</p>
@@ -1055,7 +1055,7 @@
 <li><p>Node采用的是深度优先算法：main -&gt; aaa -&gt; ccc -&gt; ddd -&gt; eee -&gt;bbb</p>
 </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220502165513.png" alt="image-20220502165513214"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220502165513.png" alt="image-20220502165513214"></p>
 <h2 id="2-4-CommonJS规范缺点"><a href="#2-4-CommonJS规范缺点" class="headerlink" title="2.4 CommonJS规范缺点"></a>2.4 CommonJS规范缺点</h2><p>CommonJS加载模块是同步的，应用于浏览器需要等js文件从服务器上下载下来才能运行，所以在浏览器中通常不使用CommonJS规范</p>
 <h2 id="2-5-AMD规范"><a href="#2-5-AMD规范" class="headerlink" title="2.5 AMD规范"></a>2.5 AMD规范</h2><p>AMD主要是应用于浏览器的一种模块化规范：</p>
 <ul>
@@ -1267,7 +1267,7 @@
   </entry>
   <entry>
     <title>webpack详解</title>
-    <url>/2022/04/02/hash/</url>
+    <url>/2022/04/02/7f7287731483/</url>
     <content><![CDATA[<blockquote>
 <p>webpack黑马程序员笔记</p>
 </blockquote>
@@ -1326,7 +1326,7 @@
 <p>⑤ 运行 npm install jquery –S 命令，安装 jQuery</p>
 <p>⑥ 通过 ES6 模块化的方式导入 jQuery，实现列表隔行变色效果</p>
 <h2 id="2-3-在项目中安装-webpack"><a href="#2-3-在项目中安装-webpack" class="headerlink" title="2.3 在项目中安装 webpack"></a>2.3 在项目中安装 webpack</h2><p>在终端运行如下的命令，安装 webpack 相关的两个包：</p>
-<p>npm install <a class="link"   href="mailto:&#x77;&#x65;&#x62;&#112;&#97;&#99;&#107;&#64;&#53;&#46;&#52;&#50;&#x2e;&#x31;" >&#x77;&#x65;&#x62;&#112;&#97;&#99;&#107;&#64;&#53;&#46;&#52;&#50;&#x2e;&#x31;<i class="fas fa-external-link-alt"></i></a> webpack-cli@4.7.2 -D </p>
+<p>npm install <a class="link"   href="mailto:&#119;&#x65;&#x62;&#112;&#x61;&#99;&#x6b;&#x40;&#53;&#x2e;&#52;&#x32;&#46;&#x31;" >&#119;&#x65;&#x62;&#112;&#x61;&#99;&#x6b;&#x40;&#53;&#x2e;&#52;&#x32;&#46;&#x31;<i class="fas fa-external-link-alt"></i></a> webpack-cli@4.7.2 -D </p>
 <h2 id="2-4-在项目中配置-webpack"><a href="#2-4-在项目中配置-webpack" class="headerlink" title="2.4 在项目中配置 webpack"></a>2.4 在项目中配置 webpack</h2><p>① 在项目根目录中，创建名为 webpack.config.js 的 webpack 配置文件，并初始化如下的基本配置：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">&#x27;development&#x27;</span>  <span class="comment">// mode用来指定构建模式，可选值有development和production</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1381,7 +1381,7 @@
 </ul>
 <h2 id="3-2-webpack-dev-server"><a href="#3-2-webpack-dev-server" class="headerlink" title="3.2 webpack-dev-server"></a>3.2 webpack-dev-server</h2><p>webpack-dev-server 可以让 webpack 监听项目源代码的变化，从而进行自动打包构建。</p>
 <h3 id="3-2-1-安装-webpack-dev-server"><a href="#3-2-1-安装-webpack-dev-server" class="headerlink" title="3.2.1 安装 webpack-dev-server"></a>3.2.1 安装 webpack-dev-server</h3><p>运行如下的命令，即可在项目中安装此插件：</p>
-<p>npm install <a class="link"   href="mailto:&#119;&#101;&#x62;&#112;&#97;&#99;&#x6b;&#x2d;&#100;&#x65;&#x76;&#45;&#115;&#101;&#114;&#x76;&#x65;&#114;&#64;&#51;&#46;&#49;&#x31;&#x2e;&#50;" >&#119;&#101;&#x62;&#112;&#97;&#99;&#x6b;&#x2d;&#100;&#x65;&#x76;&#45;&#115;&#101;&#114;&#x76;&#x65;&#114;&#64;&#51;&#46;&#49;&#x31;&#x2e;&#50;<i class="fas fa-external-link-alt"></i></a> -D</p>
+<p>npm install <a class="link"   href="mailto:&#x77;&#x65;&#x62;&#112;&#97;&#99;&#x6b;&#x2d;&#x64;&#101;&#x76;&#x2d;&#x73;&#x65;&#x72;&#x76;&#x65;&#x72;&#64;&#x33;&#46;&#49;&#x31;&#x2e;&#x32;" >&#x77;&#x65;&#x62;&#112;&#97;&#99;&#x6b;&#x2d;&#x64;&#101;&#x76;&#x2d;&#x73;&#x65;&#x72;&#x76;&#x65;&#x72;&#64;&#x33;&#46;&#49;&#x31;&#x2e;&#x32;<i class="fas fa-external-link-alt"></i></a> -D</p>
 <h3 id="3-2-2-配置-webpack-dev-server"><a href="#3-2-2-配置-webpack-dev-server" class="headerlink" title="3.2.2 配置 webpack-dev-server"></a>3.2.2 配置 webpack-dev-server</h3><p>① 修改 package.json -&gt; scripts 中的 dev 命令如下：</p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;dev&quot;: &quot;webpack serve&quot;, // script节点下的脚本，可以通过npm run执行</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1412,7 +1412,7 @@
 <h2 id="3-3-html-webpack-plugin"><a href="#3-3-html-webpack-plugin" class="headerlink" title="3.3 html-webpack-plugin"></a>3.3 html-webpack-plugin</h2><p>html-webpack-plugin 是 webpack 中的 HTML 插件，可以通过此插件自定制 index.html 页面的内容。</p>
 <p>需求：通过 html-webpack-plugin 插件，将 src 目录下的 index.html 首页，复制到项目根目录中一份！</p>
 <h3 id="3-3-1-安装-html-webpack-plugin"><a href="#3-3-1-安装-html-webpack-plugin" class="headerlink" title="3.3.1 安装 html-webpack-plugin"></a>3.3.1 安装 html-webpack-plugin</h3><p>运行如下的命令，即可在项目中安装此插件：</p>
-<p>npm install <a class="link"   href="mailto:&#104;&#116;&#109;&#108;&#x2d;&#x77;&#101;&#98;&#x70;&#x61;&#99;&#107;&#45;&#112;&#x6c;&#117;&#103;&#x69;&#110;&#x40;&#53;&#46;&#51;&#x2e;&#50;" >&#104;&#116;&#109;&#108;&#x2d;&#x77;&#101;&#98;&#x70;&#x61;&#99;&#107;&#45;&#112;&#x6c;&#117;&#103;&#x69;&#110;&#x40;&#53;&#46;&#51;&#x2e;&#50;<i class="fas fa-external-link-alt"></i></a> -D</p>
+<p>npm install <a class="link"   href="mailto:&#x68;&#x74;&#109;&#108;&#x2d;&#119;&#x65;&#x62;&#x70;&#x61;&#99;&#107;&#45;&#112;&#x6c;&#117;&#x67;&#105;&#x6e;&#64;&#53;&#46;&#51;&#x2e;&#x32;" >&#x68;&#x74;&#109;&#108;&#x2d;&#119;&#x65;&#x62;&#x70;&#x61;&#99;&#107;&#45;&#112;&#x6c;&#117;&#x67;&#105;&#x6e;&#64;&#53;&#46;&#51;&#x2e;&#x32;<i class="fas fa-external-link-alt"></i></a> -D</p>
 <h3 id="3-3-2-配置-html-webpack-plugin"><a href="#3-3-2-配置-html-webpack-plugin" class="headerlink" title="3.3.2 配置 html-webpack-plugin"></a>3.3.2 配置 html-webpack-plugin</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 导入HTML插件，得到一个构造函数</span></span><br><span class="line"><span class="keyword">const</span> HtmlPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 创建HTML插件的实例对象</span></span><br><span class="line"><span class="keyword">const</span> htmlPlugin = <span class="keyword">new</span> HtmlPlugin(&#123;</span><br><span class="line">    template: <span class="string">&#x27;./src/index.html&#x27;</span>, <span class="comment">// 指定原文件的存放路径</span></span><br><span class="line">    filename: <span class="string">&#x27;./index.html&#x27;</span> <span class="comment">// 指定生成的文件的存放路径</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">    plugins: [htmlPlugin], <span class="comment">// 3. 通过plugins节点，使htmlPlugin插件生效</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="3-3-3-解惑-html-webpack-plugin"><a href="#3-3-3-解惑-html-webpack-plugin" class="headerlink" title="3.3.3 解惑 html-webpack-plugin"></a>3.3.3 解惑 html-webpack-plugin</h3><p>① 通过 HTML 插件复制到项目根目录中的 index.html 页面，也被放到了内存中</p>
@@ -1432,9 +1432,9 @@
 <li><p>babel-loader 可以打包处理 webpack 无法处理的高级 JS 语法</p>
 </li>
 </ul>
-<h2 id="4-2-loader的调用过程"><a href="#4-2-loader的调用过程" class="headerlink" title="4.2 loader的调用过程"></a>4.2 loader的调用过程</h2><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/image-20220403200855794.png" alt="image-20220403200855794"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/01.loader%E8%B0%83%E7%94%A8%E7%9A%84%E8%BF%87%E7%A8%8B.png" alt="01.loader调用的过程"></p>
-<h2 id="4-3-打包处理-css-文件"><a href="#4-3-打包处理-css-文件" class="headerlink" title="4.3 打包处理 css 文件"></a>4.3 打包处理 css 文件</h2><p>① 运行 npm i <a class="link"   href="mailto:&#115;&#x74;&#x79;&#108;&#x65;&#45;&#x6c;&#x6f;&#97;&#x64;&#101;&#x72;&#64;&#x33;&#x2e;&#48;&#x2e;&#48;" >&#115;&#x74;&#x79;&#108;&#x65;&#45;&#x6c;&#x6f;&#97;&#x64;&#101;&#x72;&#64;&#x33;&#x2e;&#48;&#x2e;&#48;<i class="fas fa-external-link-alt"></i></a> css-loader@5.2.6 -D 命令，安装处理 css 文件的 loader</p>
+<h2 id="4-2-loader的调用过程"><a href="#4-2-loader的调用过程" class="headerlink" title="4.2 loader的调用过程"></a>4.2 loader的调用过程</h2><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220403200855794.png" alt="image-20220403200855794"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/01.loader%E8%B0%83%E7%94%A8%E7%9A%84%E8%BF%87%E7%A8%8B.png" alt="01.loader调用的过程"></p>
+<h2 id="4-3-打包处理-css-文件"><a href="#4-3-打包处理-css-文件" class="headerlink" title="4.3 打包处理 css 文件"></a>4.3 打包处理 css 文件</h2><p>① 运行 npm i <a class="link"   href="mailto:&#115;&#x74;&#x79;&#x6c;&#101;&#x2d;&#x6c;&#x6f;&#97;&#x64;&#x65;&#114;&#x40;&#x33;&#46;&#x30;&#46;&#48;" >&#115;&#x74;&#x79;&#x6c;&#101;&#x2d;&#x6c;&#x6f;&#97;&#x64;&#x65;&#114;&#x40;&#x33;&#46;&#x30;&#46;&#48;<i class="fas fa-external-link-alt"></i></a> css-loader@5.2.6 -D 命令，安装处理 css 文件的 loader</p>
 <p>② 在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123; <span class="comment">// 所有第三方文件模块的匹配规则</span></span><br><span class="line">    rules: [ <span class="comment">// 文件后缀名的匹配规则</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>] &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1446,11 +1446,11 @@
 <li><p>多个 loader 的调用顺序是：从后往前调用</p>
 </li>
 </ul>
-<h2 id="4-4-打包处理-less-文件"><a href="#4-4-打包处理-less-文件" class="headerlink" title="4.4 打包处理 less 文件"></a>4.4 打包处理 less 文件</h2><p>① 运行 npm i <a class="link"   href="mailto:&#108;&#x65;&#x73;&#x73;&#x2d;&#108;&#111;&#97;&#x64;&#x65;&#114;&#64;&#49;&#48;&#46;&#x30;&#46;&#x31;" >&#108;&#x65;&#x73;&#x73;&#x2d;&#108;&#111;&#97;&#x64;&#x65;&#114;&#64;&#49;&#48;&#46;&#x30;&#46;&#x31;<i class="fas fa-external-link-alt"></i></a> less@4.1.1 -D 命令</p>
+<h2 id="4-4-打包处理-less-文件"><a href="#4-4-打包处理-less-文件" class="headerlink" title="4.4 打包处理 less 文件"></a>4.4 打包处理 less 文件</h2><p>① 运行 npm i <a class="link"   href="mailto:&#108;&#x65;&#x73;&#115;&#45;&#108;&#x6f;&#97;&#100;&#101;&#x72;&#64;&#x31;&#x30;&#46;&#x30;&#46;&#x31;" >&#108;&#x65;&#x73;&#115;&#45;&#108;&#x6f;&#97;&#100;&#101;&#x72;&#64;&#x31;&#x30;&#46;&#x30;&#46;&#x31;<i class="fas fa-external-link-alt"></i></a> less@4.1.1 -D 命令</p>
 <p>② 在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123; <span class="comment">// 所有第三方文件模块的匹配规则</span></span><br><span class="line">    rules: [ <span class="comment">// 文件后缀名的匹配规则</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.less$/</span>, use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>, <span class="string">&#x27;less-loader&#x27;</span>] &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="4-5-打包处理样式表中与-url-路径相关的文件"><a href="#4-5-打包处理样式表中与-url-路径相关的文件" class="headerlink" title="4.5 打包处理样式表中与 url 路径相关的文件"></a>4.5 打包处理样式表中与 url 路径相关的文件</h2><p>① 运行 npm i <a class="link"   href="mailto:&#x75;&#114;&#108;&#45;&#x6c;&#x6f;&#97;&#x64;&#x65;&#x72;&#x40;&#52;&#46;&#x31;&#x2e;&#x31;" >&#x75;&#114;&#108;&#45;&#x6c;&#x6f;&#97;&#x64;&#x65;&#x72;&#x40;&#52;&#46;&#x31;&#x2e;&#x31;<i class="fas fa-external-link-alt"></i></a> file-loader@6.2.0 -D 命令</p>
+<h2 id="4-5-打包处理样式表中与-url-路径相关的文件"><a href="#4-5-打包处理样式表中与-url-路径相关的文件" class="headerlink" title="4.5 打包处理样式表中与 url 路径相关的文件"></a>4.5 打包处理样式表中与 url 路径相关的文件</h2><p>① 运行 npm i <a class="link"   href="mailto:&#x75;&#x72;&#108;&#45;&#x6c;&#x6f;&#97;&#x64;&#x65;&#x72;&#x40;&#x34;&#x2e;&#49;&#x2e;&#x31;" >&#x75;&#x72;&#108;&#45;&#x6c;&#x6f;&#97;&#x64;&#x65;&#x72;&#x40;&#x34;&#x2e;&#49;&#x2e;&#x31;<i class="fas fa-external-link-alt"></i></a> file-loader@6.2.0 -D 命令</p>
 <p>② 在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123; <span class="comment">// 所有第三方文件模块的匹配规则</span></span><br><span class="line">    rules: [ <span class="comment">// 文件后缀名的匹配规则</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.jpg|png|gif$/</span>, use: [<span class="string">&#x27;url-loader?limit=22229&#x27;</span>] &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1465,7 +1465,7 @@
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 定义了名为info的装饰器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">info</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 2. 为目标添加静态属性info</span></span><br><span class="line">    target.info = <span class="string">&#x27;Person info&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 为Person类应用info装饰器</span></span><br><span class="line">@info</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//4. 打印 Person 的静态属性 info</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.info)</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-6-1-安装-babel-loader-相关的包"><a href="#4-6-1-安装-babel-loader-相关的包" class="headerlink" title="4.6.1 安装 babel-loader 相关的包"></a>4.6.1 安装 babel-loader 相关的包</h3><p>运行如下的命令安装对应的依赖包：</p>
-<p>npm i <a class="link"   href="mailto:&#x62;&#97;&#x62;&#x65;&#108;&#45;&#108;&#x6f;&#x61;&#x64;&#x65;&#114;&#x40;&#x38;&#46;&#x32;&#x2e;&#x32;" >&#x62;&#97;&#x62;&#x65;&#108;&#45;&#108;&#x6f;&#x61;&#x64;&#x65;&#114;&#x40;&#x38;&#46;&#x32;&#x2e;&#x32;<i class="fas fa-external-link-alt"></i></a> @babel/core@7.14.6 @babel/plugin-proposal-decorators@7.14.5 -D </p>
+<p>npm i <a class="link"   href="mailto:&#98;&#x61;&#x62;&#101;&#108;&#45;&#x6c;&#111;&#97;&#100;&#x65;&#114;&#x40;&#56;&#x2e;&#50;&#x2e;&#50;" >&#98;&#x61;&#x62;&#101;&#108;&#45;&#x6c;&#111;&#97;&#100;&#x65;&#114;&#x40;&#56;&#x2e;&#50;&#x2e;&#50;<i class="fas fa-external-link-alt"></i></a> @babel/core@7.14.6 @babel/plugin-proposal-decorators@7.14.5 -D </p>
 <p>在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注意：必须使用exclude指定排除项；因为node_modules目录下的第三方包不需要被打包</span></span><br><span class="line">&#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, use: <span class="string">&#x27;babel-loader&#x27;</span>, <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span> &#125;</span><br></pre></td></tr></table></figure>
 
@@ -1501,18 +1501,18 @@
 <h2 id="6-2-什么是-Source-Map"><a href="#6-2-什么是-Source-Map" class="headerlink" title="6.2 什么是 Source Map"></a>6.2 什么是 Source Map</h2><p>Source Map 就是一个信息文件，里面储存着位置信息。也就是说，Source Map 文件中存储着压缩混淆后的代码，所对应的转换前的位置。</p>
 <p>有了它，出错的时候，除错工具将直接显示原始代码，而不是转换后的代码，能够极大的方便后期的调试。</p>
 <h2 id="6-3-webpack-开发环境下的-Source-Map"><a href="#6-3-webpack-开发环境下的-Source-Map" class="headerlink" title="6.3 webpack 开发环境下的 Source Map"></a>6.3 webpack 开发环境下的 Source Map</h2><p>在开发环境下，webpack 默认启用了 Source Map 功能。当程序运行出错时，可以直接在控制台提示错误行的位置，并定位到具体的源代码：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/image-20220403204241772.png" alt="image-20220403204241772"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220403204241772.png" alt="image-20220403204241772"></p>
 <h3 id="6-3-1-默认-Source-Map-的问题"><a href="#6-3-1-默认-Source-Map-的问题" class="headerlink" title="6.3.1 默认 Source Map 的问题"></a>6.3.1 默认 Source Map 的问题</h3><p>开发环境下默认生成的 Source Map，记录的是生成后的代码的位置。会导致运行时报错的行数与源代码的行数不一致的问题。示意图如下：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/image-20220403204343823.png" alt="image-20220403204343823"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220403204343823.png" alt="image-20220403204343823"></p>
 <h3 id="6-3-2-解决默认-Source-Map-的问题"><a href="#6-3-2-解决默认-Source-Map-的问题" class="headerlink" title="6.3.2 解决默认 Source Map 的问题"></a>6.3.2 解决默认 Source Map 的问题</h3><p>开发环境下，推荐在 webpack.config.js 中添加如下的配置，即可保证运行时报错的行数与源代码的行数保持一致：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">    <span class="comment">// eval-source-map仅限在“开发模式”下使用，不建议在“生产模式”下使用</span></span><br><span class="line">    <span class="comment">// 此选项生成的Source Map能够保证“运行时报错的行数”与“源代码的行数”保持一致</span></span><br><span class="line">    devtool: <span class="string">&#x27;eval-source-map&#x27;</span>,</span><br><span class="line">    <span class="comment">// 省略其他配置项...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="6-4-webpack-生产环境下的-Source-Map"><a href="#6-4-webpack-生产环境下的-Source-Map" class="headerlink" title="6.4 webpack 生产环境下的 Source Map"></a>6.4 webpack 生产环境下的 Source Map</h2><p>在生产环境下，如果省略了 devtool 选项，则最终生成的文件中不包含 Source Map。这能够防止原始代码通过 Source Map 的形式暴露给别有所图之人。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/image-20220403204819803.png" alt="image-20220403204819803"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220403204819803.png" alt="image-20220403204819803"></p>
 <h3 id="6-4-1-只定位行数不暴露源码"><a href="#6-4-1-只定位行数不暴露源码" class="headerlink" title="6.4.1 只定位行数不暴露源码"></a>6.4.1 只定位行数不暴露源码</h3><p>在生产环境下，如果只想定位报错的具体行数，且不想暴露源码。此时可以将 devtool 的值设置为nosources-source-map。实际效果如图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/image-20220403204925752.png" alt="image-20220403204925752"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220403204925752.png" alt="image-20220403204925752"></p>
 <h3 id="6-4-2-定位行数且暴露源码"><a href="#6-4-2-定位行数且暴露源码" class="headerlink" title="6.4.2 定位行数且暴露源码"></a>6.4.2 定位行数且暴露源码</h3><p>在生产环境下，如果想在定位报错行数的同时，展示具体报错的源码。此时可以将 devtool 的值设置为source-map。实际效果如图所示：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/image-20220403205008039.png" alt="image-20220403205008039"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220403205008039.png" alt="image-20220403205008039"></p>
 <p>采用此选项后：你应该将你的服务器配置为，不允许普通用户访问 source map 文件！</p>
 <p>6.5  Source Map 的最佳实践</p>
 <p>① 开发环境下：</p>
@@ -1558,7 +1558,7 @@
   </entry>
   <entry>
     <title>MySQL笔记</title>
-    <url>/2022/03/13/hash/</url>
+    <url>/2022/03/13/8fafb63c5fa3/</url>
     <content><![CDATA[<blockquote>
 <p>黑马程序员MySQL学习笔记</p>
 </blockquote>
@@ -8245,7 +8245,7 @@
   </entry>
   <entry>
     <title>斐波那契数列的若干解法</title>
-    <url>/2022/02/25/hash/</url>
+    <url>/2022/02/25/62acb4601ac6/</url>
     <content><![CDATA[<blockquote>
 <p>转载y总的分享</p>
 </blockquote>
@@ -8294,7 +8294,7 @@
   </entry>
   <entry>
     <title>蓝桥杯</title>
-    <url>/2022/02/24/hash/</url>
+    <url>/2022/02/24/f1b89dd2c45c/</url>
     <content><![CDATA[<blockquote>
 <p> acwing蓝桥杯班</p>
 </blockquote>
@@ -8326,7 +8326,7 @@
 <h2 id="1-4-递归"><a href="#1-4-递归" class="headerlink" title="1.4 递归"></a>1.4 递归</h2><ul>
 <li>递归即自己调用自己</li>
 </ul>
-<h3 id="所有递归-⇒-递归搜索树"><a href="#所有递归-⇒-递归搜索树" class="headerlink" title="所有递归 ⇒ 递归搜索树"></a>所有递归 ⇒ 递归搜索树</h3><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/2222743-20210315155158877-741947158.png" alt="img"></p>
+<h3 id="所有递归-⇒-递归搜索树"><a href="#所有递归-⇒-递归搜索树" class="headerlink" title="所有递归 ⇒ 递归搜索树"></a>所有递归 ⇒ 递归搜索树</h3><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/2222743-20210315155158877-741947158.png" alt="img"></p>
 <h3 id="例：斐波那契数列"><a href="#例：斐波那契数列" class="headerlink" title="例：斐波那契数列"></a>例：斐波那契数列</h3><p>设 f(n) = {1，2，3，5，8，……}</p>
 <p>n = 1，f(1) = 1；n = 2，f(2) = 1；n ⩾ 3，f(n) = f(n−1) + f(n−2)</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">2</span>) <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">f</span>(n - <span class="number">1</span>) + <span class="built_in">f</span>(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">f</span>(n) &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -8356,7 +8356,7 @@
 <blockquote>
 <p>例：n=3时的递归搜索树</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/2222743-20210315155145014-1971697820.png"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/2222743-20210315155145014-1971697820.png"></p>
 <ul>
 <li>状态（即每个数 选/不选）可以开一个长度为n的数组来记录；</li>
 </ul>
@@ -8398,7 +8398,7 @@
 </ul>
 <blockquote>
 <p>对**2.**的例：n=3时的递归搜索树</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/image-20220223023705361.png" alt="image-20220223023705361"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220223023705361.png" alt="image-20220223023705361"></p>
 <p>上图保证了（相对意义上的）左子树的方案 字典序一定小于 右子树的方案；</p>
 </blockquote>
 <ul>
@@ -8608,7 +8608,7 @@
   </entry>
   <entry>
     <title>语法基础</title>
-    <url>/2022/01/11/hash/</url>
+    <url>/2022/01/11/7dfca4941869/</url>
     <content><![CDATA[<blockquote>
 <p>acwing语法基础课笔记，结合柳婼的pdf</p>
 </blockquote>
@@ -8783,7 +8783,7 @@
   </entry>
   <entry>
     <title>Vue2.0笔记</title>
-    <url>/2021/11/27/hash/</url>
+    <url>/2021/11/27/2685b88ce2a1/</url>
     <content><![CDATA[<blockquote>
 <p>vue2.0学习笔记</p>
 </blockquote>
@@ -9228,7 +9228,7 @@
   </entry>
   <entry>
     <title>ES6新特性</title>
-    <url>/2021/11/27/hash/</url>
+    <url>/2021/11/27/f3d456410f00/</url>
     <content><![CDATA[<blockquote>
 <p>ES6新特性</p>
 </blockquote>
@@ -9625,7 +9625,7 @@
   </entry>
   <entry>
     <title>Ajax笔记</title>
-    <url>/2021/11/27/hash/</url>
+    <url>/2021/11/27/baf1584a4460/</url>
     <content><![CDATA[<blockquote>
 <p>AJAX学习笔记</p>
 </blockquote>
@@ -9774,7 +9774,7 @@
   </entry>
   <entry>
     <title>JSON笔记</title>
-    <url>/2021/11/27/hash/</url>
+    <url>/2021/11/27/c19a71762a50/</url>
     <content><![CDATA[<blockquote>
 <p>JSON学习笔记</p>
 </blockquote>
@@ -9861,7 +9861,7 @@
   </entry>
   <entry>
     <title>JavaScript笔记</title>
-    <url>/2021/11/26/hash/</url>
+    <url>/2021/11/26/c2d162c7514a/</url>
     <content><![CDATA[<blockquote>
 <p>JavaScript学习笔记</p>
 </blockquote>
@@ -10191,7 +10191,7 @@
   </entry>
   <entry>
     <title>CSS笔记</title>
-    <url>/2021/10/15/hash/</url>
+    <url>/2021/10/15/10aa6190e5ca/</url>
     <content><![CDATA[<blockquote>
 <p>CSS学习笔记</p>
 </blockquote>
@@ -10334,7 +10334,7 @@
 
 <p>兼容性写法</p>
 <p>format用于帮助浏览器快速识别字体的格式</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220503175437.png" alt="image-20220503175437352"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220503175437.png" alt="image-20220503175437352"></p>
 </blockquote>
 <h2 id="4-2-字体大小"><a href="#4-2-字体大小" class="headerlink" title="4.2 字体大小"></a>4.2 字体大小</h2><blockquote>
 <p>font-size: 数字px;</p>
@@ -10479,7 +10479,7 @@
 <p>e.g. div$*5     div{文字} *5</p>
 </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220503171627.png" alt="image-20220503171627579"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220503171627.png" alt="image-20220503171627579"></p>
 <h2 id="7-2-快速生成CSS样式语法"><a href="#7-2-快速生成CSS样式语法" class="headerlink" title="7.2 快速生成CSS样式语法"></a>7.2 快速生成CSS样式语法</h2><p>输入简写的首字母，再按Tab键</p>
 <h2 id="7-3-快速格式化代码"><a href="#7-3-快速格式化代码" class="headerlink" title="7.3 快速格式化代码"></a>7.3 快速格式化代码</h2><p>Shift+Ait+F或者“右键点击格式化文档”</p>
 <h1 id="8-复合选择器"><a href="#8-复合选择器" class="headerlink" title="8 复合选择器"></a>8 复合选择器</h1><p>css中根据选择器的类型分为基础选择器和复合选择器</p>
@@ -10500,7 +10500,7 @@
 <p>语法：元素1，元素2 { 样式声明 }</p>
 <h2 id="8-4-交集选择器"><a href="#8-4-交集选择器" class="headerlink" title="8.4 交集选择器"></a>8.4 交集选择器</h2><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">div</span><span class="selector-class">.one</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220503005352.png" alt="image-20220503005352147"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220503005352.png" alt="image-20220503005352147"></p>
 <h2 id="8-5-伪类选择器"><a href="#8-5-伪类选择器" class="headerlink" title="8.5 伪类选择器"></a>8.5 伪类选择器</h2><p>伪类选择器用于向某些选择器添加特殊的效果，比如给链接添加特殊的效果，或选择第1个，第n个元素</p>
 <p>伪类选择器书写最大的特点是用冒号（：）表示，比如：:hover、:first-child</p>
 <h3 id="8-5-1-链接伪类选择器"><a href="#8-5-1-链接伪类选择器" class="headerlink" title="8.5.1 链接伪类选择器"></a>8.5.1 链接伪类选择器</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:link</span> //选择所有未访问的链接</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:visited</span>  //选择所有已被访问的链接</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:hover</span>  //选择鼠标指针位于其上的链接</span><br><span class="line"><span class="selector-tag">a</span><span class="selector-pseudo">:active</span>  //选择活动链接（鼠标按下未弹起的链接）</span><br></pre></td></tr></table></figure>
@@ -10511,10 +10511,10 @@
 
 <h2 id="8-6-兄弟选择器"><a href="#8-6-兄弟选择器" class="headerlink" title="8.6 兄弟选择器"></a>8.6 兄弟选择器</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 8.5.1 相邻兄弟选择器</span><br><span class="line"></span><br><span class="line">```css</span><br><span class="line">.one + div &#123;</span><br><span class="line">    color: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220503004840.png" alt="image-20220503004840670"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220503004840.png" alt="image-20220503004840670"></p>
 <h3 id="8-5-2-普遍兄弟选择器"><a href="#8-5-2-普遍兄弟选择器" class="headerlink" title="8.5.2 普遍兄弟选择器"></a>8.5.2 普遍兄弟选择器</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.one</span> ~ <span class="selector-tag">div</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220503004931.png" alt="image-20220503004930833"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220503004931.png" alt="image-20220503004930833"></p>
 <h1 id="9-元素的显示模式"><a href="#9-元素的显示模式" class="headerlink" title="9 元素的显示模式"></a>9 元素的显示模式</h1><h2 id="9-1-什么是元素显示模式"><a href="#9-1-什么是元素显示模式" class="headerlink" title="9.1 什么是元素显示模式"></a>9.1 什么是元素显示模式</h2><p>作用：网页的标签非常多，在不同地方会用到不同类型的标签，了解他们的特点可以更好的布局我们的网页</p>
 <p>元素显示模式就是元素（标签）以什么方式进行显示，比如 <code>&lt;div&gt;</code> 自己占一行，比如<code>&lt;span&gt;</code>一行可以放多个，两者左上角都有x，y的坐标</p>
 <p>html元素一般分为块元素和行内元素两种类型</p>
@@ -10763,7 +10763,7 @@
 </li>
 </ul>
 <p>设置值：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220503123001.png" alt="image-20220503122952607"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220503123001.png" alt="image-20220503122952607"></p>
 <h3 id="11-3-4-圆角"><a href="#11-3-4-圆角" class="headerlink" title="11.3.4 圆角"></a>11.3.4 圆角</h3><p>border-radius用于设置盒子的圆角</p>
 <ul>
 <li>数值：通常用来设置小的圆角，如6px</li>
@@ -10826,7 +10826,7 @@
 </li>
 </ul>
 <p><strong><code>&lt;shadow&gt;</code>的常见格式如下</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220503130801.png" alt="image-20220503130800885"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220503130801.png" alt="image-20220503130800885"></p>
 <ul>
 <li><p>第1个<code>&lt;length&gt;</code>：offset-x, 水平方向的偏移，正数往右偏移</p>
 </li>
@@ -10843,7 +10843,7 @@
 </ul>
 <h2 id="11-7-文字阴影"><a href="#11-7-文字阴影" class="headerlink" title="11.7 文字阴影"></a>11.7 文字阴影</h2><p><strong>text-shadow用法类似于box-shadow，用于给文字添加阴影效果</strong></p>
 <p><strong><code>&lt;shadow&gt;</code>的常见格式如下</strong></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220503130819.png" alt="image-20220503130819055"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220503130819.png" alt="image-20220503130819055"></p>
 <p> 相当于box-shadow, 它没有spread-radius的值; </p>
 <h2 id="11-8-box-sizing"><a href="#11-8-box-sizing" class="headerlink" title="11.8 box-sizing"></a>11.8 box-sizing</h2><p><strong>box-sizing用来设置盒子模型中宽高的行为</strong></p>
 <ul>
@@ -11013,7 +11013,7 @@
 <li><p>当达到这个阈值点时, 就会变成固定(绝对)定位; </p>
 </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504094458.png" alt="image-20220504094452506"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220504094458.png" alt="image-20220504094452506"></p>
 <h2 id="15-3-z-index"><a href="#15-3-z-index" class="headerlink" title="15.3 z-index"></a>15.3 z-index</h2><p>设置定位元素多大层叠顺序（仅对定位元素有效）</p>
 <p><strong>比较原则</strong></p>
 <p>1、如果是兄弟关系</p>
@@ -11083,20 +11083,20 @@
 <li><p>inline-flex： flex container 以 inline-level 形式存在</p>
 </li>
 </ul>
-<h2 id="17-3-flex相关属性"><a href="#17-3-flex相关属性" class="headerlink" title="17.3 flex相关属性"></a>17.3 flex相关属性</h2><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504100423.png" alt="image-20220504100423570"></p>
-<h3 id="17-3-1-flex-direction"><a href="#17-3-1-flex-direction" class="headerlink" title="17.3.1 flex-direction"></a>17.3.1 flex-direction</h3><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504135150.png" alt="image-20220504135150287"></p>
-<h3 id="17-3-2-flex-wrap"><a href="#17-3-2-flex-wrap" class="headerlink" title="17.3.2 flex-wrap"></a>17.3.2 flex-wrap</h3><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504135239.png" alt="image-20220504135239173"></p>
+<h2 id="17-3-flex相关属性"><a href="#17-3-flex相关属性" class="headerlink" title="17.3 flex相关属性"></a>17.3 flex相关属性</h2><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220504100423.png" alt="image-20220504100423570"></p>
+<h3 id="17-3-1-flex-direction"><a href="#17-3-1-flex-direction" class="headerlink" title="17.3.1 flex-direction"></a>17.3.1 flex-direction</h3><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220504135150.png" alt="image-20220504135150287"></p>
+<h3 id="17-3-2-flex-wrap"><a href="#17-3-2-flex-wrap" class="headerlink" title="17.3.2 flex-wrap"></a>17.3.2 flex-wrap</h3><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220504135239.png" alt="image-20220504135239173"></p>
 <h3 id="17-3-3-flex-flow"><a href="#17-3-3-flex-flow" class="headerlink" title="17.3.3 flex-flow"></a>17.3.3 flex-flow</h3><p><strong>flex-flow 属性是 flex-direction 和 flex-wrap 的简写。</strong></p>
 <p>顺序任何, 并且都可以省略</p>
-<h3 id="17-3-4-justify-content"><a href="#17-3-4-justify-content" class="headerlink" title="17.3.4 justify-content"></a>17.3.4 justify-content</h3><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504135431.png" alt="image-20220504135430917"></p>
-<h3 id="17-3-5-align-item"><a href="#17-3-5-align-item" class="headerlink" title="17.3.5 align-item"></a>17.3.5 align-item</h3><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504135459.png" alt="image-20220504135459743"></p>
-<h3 id="17-3-6-align-content"><a href="#17-3-6-align-content" class="headerlink" title="17.3.6 align-content"></a>17.3.6 align-content</h3><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504135528.png" alt="image-20220504135528316"></p>
-<h3 id="17-3-7-order"><a href="#17-3-7-order" class="headerlink" title="17.3.7 order"></a>17.3.7 order</h3><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504135545.png" alt="image-20220504135545758"></p>
-<h3 id="17-3-8-flex-items"><a href="#17-3-8-flex-items" class="headerlink" title="17.3.8 flex items"></a>17.3.8 flex items</h3><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504135604.png" alt="image-20220504135604195"></p>
-<h3 id="17-3-9-flex-grow"><a href="#17-3-9-flex-grow" class="headerlink" title="17.3.9 flex grow"></a>17.3.9 flex grow</h3><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504135627.png" alt="image-20220504135627206"></p>
-<h3 id="17-3-10-flex-shrink"><a href="#17-3-10-flex-shrink" class="headerlink" title="17.3.10 flex-shrink"></a>17.3.10 flex-shrink</h3><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504135649.png" alt="image-20220504135649082"></p>
-<h3 id="17-3-11-flex-basis"><a href="#17-3-11-flex-basis" class="headerlink" title="17.3.11 flex-basis"></a>17.3.11 flex-basis</h3><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504135717.png" alt="image-20220504135717378"></p>
-<h3 id="17-3-12-flex"><a href="#17-3-12-flex" class="headerlink" title="17.3.12 flex"></a>17.3.12 flex</h3><p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504135746.png" alt="image-20220504135745861"></p>
+<h3 id="17-3-4-justify-content"><a href="#17-3-4-justify-content" class="headerlink" title="17.3.4 justify-content"></a>17.3.4 justify-content</h3><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220504135431.png" alt="image-20220504135430917"></p>
+<h3 id="17-3-5-align-item"><a href="#17-3-5-align-item" class="headerlink" title="17.3.5 align-item"></a>17.3.5 align-item</h3><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220504135459.png" alt="image-20220504135459743"></p>
+<h3 id="17-3-6-align-content"><a href="#17-3-6-align-content" class="headerlink" title="17.3.6 align-content"></a>17.3.6 align-content</h3><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220504135528.png" alt="image-20220504135528316"></p>
+<h3 id="17-3-7-order"><a href="#17-3-7-order" class="headerlink" title="17.3.7 order"></a>17.3.7 order</h3><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220504135545.png" alt="image-20220504135545758"></p>
+<h3 id="17-3-8-flex-items"><a href="#17-3-8-flex-items" class="headerlink" title="17.3.8 flex items"></a>17.3.8 flex items</h3><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220504135604.png" alt="image-20220504135604195"></p>
+<h3 id="17-3-9-flex-grow"><a href="#17-3-9-flex-grow" class="headerlink" title="17.3.9 flex grow"></a>17.3.9 flex grow</h3><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220504135627.png" alt="image-20220504135627206"></p>
+<h3 id="17-3-10-flex-shrink"><a href="#17-3-10-flex-shrink" class="headerlink" title="17.3.10 flex-shrink"></a>17.3.10 flex-shrink</h3><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220504135649.png" alt="image-20220504135649082"></p>
+<h3 id="17-3-11-flex-basis"><a href="#17-3-11-flex-basis" class="headerlink" title="17.3.11 flex-basis"></a>17.3.11 flex-basis</h3><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220504135717.png" alt="image-20220504135717378"></p>
+<h3 id="17-3-12-flex"><a href="#17-3-12-flex" class="headerlink" title="17.3.12 flex"></a>17.3.12 flex</h3><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220504135746.png" alt="image-20220504135745861"></p>
 <h1 id="18-动画"><a href="#18-动画" class="headerlink" title="18 动画"></a>18 动画</h1><h2 id="18-1-transform"><a href="#18-1-transform" class="headerlink" title="18.1 transform"></a>18.1 transform</h2><p>允许旋转，缩放，倾斜或平移给定元素。但transform对于行内级非替换元素是无效的</p>
 <p>常见的transform函数有以下四种</p>
 <h3 id="18-1-1-平移translate-x-y"><a href="#18-1-1-平移translate-x-y" class="headerlink" title="18.1.1 平移translate(x, y)"></a>18.1.1 平移translate(x, y)</h3><p><strong>1、值个数</strong></p>
@@ -11144,7 +11144,7 @@
 <li><p>负数为逆时针</p>
 </li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504153704.png" alt="image-20220504153704522"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220504153704.png" alt="image-20220504153704522"></p>
 <p><strong>注意：旋转的原点受transform-origin的影响</strong></p>
 <blockquote>
 <p><strong>transform-origin</strong></p>
@@ -11261,8 +11261,8 @@
 <p><strong>内容撑起来高度的本质</strong>：内容有行高</p>
 <p><strong>行高为什么可以撑起div的高度</strong>：因为line boxes的存在，且它有一个特性，包裹每行的inline level；而其中的文字是有行高的，必须将整个行高包裹进去，才算包裹这个line-level</p>
 </blockquote>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504134605.png" alt="image-20220504134604823"></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220504134625.png" alt="image-20220504134625505"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220504134605.png" alt="image-20220504134604823"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220504134625.png" alt="image-20220504134625505"></p>
 <p><strong>结论：line-boxes一定会想办法包裹住当前行中所有的内容。</strong></p>
 <p><strong>但是，但是为什么对齐方式千奇百怪呢？</strong></p>
 <ul>
@@ -11352,7 +11352,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1026 程序运行时间</title>
-    <url>/2021/05/19/hash/</url>
+    <url>/2021/05/19/fefcbeea6d39/</url>
     <content><![CDATA[<blockquote>
 <p>模拟</p>
 </blockquote>
@@ -11381,7 +11381,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1025 反转链表</title>
-    <url>/2021/05/14/hash/</url>
+    <url>/2021/05/14/2710b1d1cdca/</url>
     <content><![CDATA[<blockquote>
 <p>链表</p>
 </blockquote>
@@ -11415,7 +11415,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1024 科学计数法</title>
-    <url>/2021/05/14/hash/</url>
+    <url>/2021/05/14/cb706a7628d0/</url>
     <content><![CDATA[<blockquote>
 <p>字符串处理</p>
 </blockquote>
@@ -11449,7 +11449,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1023 组个最小数</title>
-    <url>/2021/05/13/hash/</url>
+    <url>/2021/05/13/9a9414ddd273/</url>
     <content><![CDATA[<blockquote>
 <p>贪心</p>
 </blockquote>
@@ -11477,7 +11477,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1022 D进制的A+B</title>
-    <url>/2021/05/13/hash/</url>
+    <url>/2021/05/13/82be5bde7fc1/</url>
     <content><![CDATA[<blockquote>
 <p>进制转换</p>
 </blockquote>
@@ -11502,7 +11502,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1021 个位数统计</title>
-    <url>/2021/05/12/hash/</url>
+    <url>/2021/05/12/17aee6968be6/</url>
     <content><![CDATA[<blockquote>
 <p>字符串处理</p>
 </blockquote>
@@ -11527,7 +11527,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1020 月饼</title>
-    <url>/2021/05/12/hash/</url>
+    <url>/2021/05/12/79f0581254e9/</url>
     <content><![CDATA[<blockquote>
 <p>贪心</p>
 </blockquote>
@@ -11555,7 +11555,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1019 数字黑洞</title>
-    <url>/2021/05/11/hash/</url>
+    <url>/2021/05/11/f42413e7420b/</url>
     <content><![CDATA[<blockquote>
 <p>数学问题</p>
 </blockquote>
@@ -11596,7 +11596,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1018 锤子剪刀布</title>
-    <url>/2021/05/11/hash/</url>
+    <url>/2021/05/11/f8bf2383395d/</url>
     <content><![CDATA[<blockquote>
 <p>模拟</p>
 </blockquote>
@@ -11625,7 +11625,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1017 A除以B</title>
-    <url>/2021/05/11/hash/</url>
+    <url>/2021/05/11/8c2263b9d9fb/</url>
     <content><![CDATA[<blockquote>
 <p>大数运算</p>
 </blockquote>
@@ -11655,7 +11655,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1016 部分A+B</title>
-    <url>/2021/05/11/hash/</url>
+    <url>/2021/05/11/de45a3439b07/</url>
     <content><![CDATA[<blockquote>
 <p>模拟</p>
 </blockquote>
@@ -11694,7 +11694,7 @@
   </entry>
   <entry>
     <title>QQ消息轰炸器</title>
-    <url>/2021/05/06/hash/</url>
+    <url>/2021/05/06/8aae3319728f/</url>
     <content><![CDATA[<blockquote>
 <p>QQ消息轰炸器，可调时间间隔，发送数量</p>
 </blockquote>
@@ -11712,7 +11712,7 @@
   </entry>
   <entry>
     <title>C++11新特性</title>
-    <url>/2021/05/06/hash/</url>
+    <url>/2021/05/06/4f237a55e414/</url>
     <content><![CDATA[<blockquote>
 <p>C++11 是2011年官方为c++带来的新语法新标准</p>
 </blockquote>
@@ -11742,7 +11742,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1015 德才论</title>
-    <url>/2021/05/06/hash/</url>
+    <url>/2021/05/06/7708ec121e86/</url>
     <content><![CDATA[<blockquote>
 <p>排序</p>
 </blockquote>
@@ -11775,7 +11775,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1014 福尔摩斯的约会</title>
-    <url>/2021/05/06/hash/</url>
+    <url>/2021/05/06/e0e348223064/</url>
     <content><![CDATA[<blockquote>
 <p>字符串处理</p>
 </blockquote>
@@ -11805,7 +11805,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1013 数素数</title>
-    <url>/2021/05/04/hash/</url>
+    <url>/2021/05/04/445a906cabc2/</url>
     <content><![CDATA[<blockquote>
 <p>素数</p>
 </blockquote>
@@ -11840,7 +11840,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1012 数字分类</title>
-    <url>/2021/05/03/hash/</url>
+    <url>/2021/05/03/2a2420390df8/</url>
     <content><![CDATA[<blockquote>
 <p>模拟</p>
 </blockquote>
@@ -11887,7 +11887,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1011 A+B和C</title>
-    <url>/2021/05/02/hash/</url>
+    <url>/2021/05/02/c468c135e6e3/</url>
     <content><![CDATA[<blockquote>
 <p>模拟</p>
 </blockquote>
@@ -11917,7 +11917,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1010 一元多项式求导</title>
-    <url>/2021/05/02/hash/</url>
+    <url>/2021/05/02/bb3658b6bdf6/</url>
     <content><![CDATA[<blockquote>
 <p>模拟</p>
 </blockquote>
@@ -11945,7 +11945,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1009 说反话</title>
-    <url>/2021/04/27/hash/</url>
+    <url>/2021/04/27/c9bc6b35bf01/</url>
     <content><![CDATA[<blockquote>
 <p>字符串处理</p>
 </blockquote>
@@ -11975,7 +11975,7 @@
   </entry>
   <entry>
     <title>数据结构</title>
-    <url>/2021/04/24/hash/</url>
+    <url>/2021/04/24/d638490ad8cd/</url>
     <content><![CDATA[<blockquote>
 <p>链表，双向链表，栈和队列</p>
 </blockquote>
@@ -11992,7 +11992,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1008 数组元素循环右移问题</title>
-    <url>/2021/04/24/hash/</url>
+    <url>/2021/04/24/a6f412bb5632/</url>
     <content><![CDATA[<blockquote>
 <p>模拟</p>
 </blockquote>
@@ -12026,7 +12026,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1007 素数对猜想</title>
-    <url>/2021/04/23/hash/</url>
+    <url>/2021/04/23/1646f43e8f6d/</url>
     <content><![CDATA[<blockquote>
 <p>素数</p>
 </blockquote>
@@ -12056,7 +12056,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1006 换个格式输出整数</title>
-    <url>/2021/04/23/hash/</url>
+    <url>/2021/04/23/0884dde1454b/</url>
     <content><![CDATA[<blockquote>
 <p>字符串处理</p>
 </blockquote>
@@ -12096,7 +12096,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1005 继续(3n+1)猜想</title>
-    <url>/2021/04/22/hash/</url>
+    <url>/2021/04/22/8867dac9fa6c/</url>
     <content><![CDATA[<blockquote>
 <p>Hash散列</p>
 </blockquote>
@@ -12128,7 +12128,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1004 成绩排名</title>
-    <url>/2021/04/22/hash/</url>
+    <url>/2021/04/22/44961429db9b/</url>
     <content><![CDATA[<blockquote>
 <p>查找元素</p>
 </blockquote>
@@ -12165,7 +12165,7 @@
   </entry>
   <entry>
     <title>PAT乙级-1003 我要通过</title>
-    <url>/2021/04/21/hash/</url>
+    <url>/2021/04/21/3a2ed83ec0bd/</url>
     <content><![CDATA[<blockquote>
 <p>数学</p>
 </blockquote>
@@ -12216,7 +12216,7 @@
   </entry>
   <entry>
     <title>stl初识</title>
-    <url>/2021/04/20/hash/</url>
+    <url>/2021/04/20/030a2439c3a5/</url>
     <content><![CDATA[<blockquote>
 <p>stl总体的简单认识</p>
 </blockquote>
@@ -12385,7 +12385,7 @@ insert()
   </entry>
   <entry>
     <title>基础算法</title>
-    <url>/2021/04/19/hash/</url>
+    <url>/2021/04/19/7dd19209e638/</url>
     <content><![CDATA[<blockquote>
 <p>排序和二分的笔记</p>
 </blockquote>
@@ -12453,7 +12453,7 @@ insert()
   </entry>
   <entry>
     <title>PAT乙级-1002写出这个数</title>
-    <url>/2021/04/19/hash/</url>
+    <url>/2021/04/19/daf17d412c01/</url>
     <content><![CDATA[<blockquote>
 <p>字符串处理</p>
 </blockquote>
@@ -12483,7 +12483,7 @@ insert()
   </entry>
   <entry>
     <title>PAT乙级-1001 害死人不偿命</title>
-    <url>/2021/04/19/hash/</url>
+    <url>/2021/04/19/e3eebe496c88/</url>
     <content><![CDATA[<blockquote>
 <p>模拟</p>
 </blockquote>
@@ -12516,7 +12516,7 @@ insert()
   </entry>
   <entry>
     <title>大话数据结构笔记</title>
-    <url>/2021/04/19/hash/</url>
+    <url>/2021/04/19/5b46925b6a72/</url>
     <content><![CDATA[<blockquote>
 <p>数据结构的详细笔记，对应课本</p>
 </blockquote>
@@ -12785,7 +12785,7 @@ insert()
 </ol>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">char</span> ElemType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> &#123;</span></span><br><span class="line">    ElemType data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;LNode, * LinkList;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateListF</span><span class="params">(LinkList &amp;L, ElemType a[], <span class="keyword">int</span> n)</span> </span>&#123; <span class="comment">// 头插法建立单链表</span></span><br><span class="line">    LinkList s;</span><br><span class="line">    L = (LinkList)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    L-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        s = (LinkList)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">        s-&gt;data = a[i];</span><br><span class="line">        s-&gt;next = L-&gt;next;</span><br><span class="line">        L-&gt;next = s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CreateListR</span><span class="params">(LinkList&amp; L, ElemType a[], <span class="keyword">int</span> n)</span> </span>&#123; <span class="comment">//尾插法建立单链表</span></span><br><span class="line">    LinkList s, r;</span><br><span class="line">    L = (LinkList)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    L-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    r = L;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        s = (LinkList)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">        s-&gt;data = a[i];</span><br><span class="line">        r-&gt;next = s;</span><br><span class="line">        r = s;</span><br><span class="line">    &#125;</span><br><span class="line">    r-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InitList</span><span class="params">(LinkList&amp; L)</span> </span>&#123; <span class="comment">// 初始化线性表</span></span><br><span class="line">    L = (LinkList)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">    L-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DestoryList</span><span class="params">(LinkList&amp; L)</span> </span>&#123; <span class="comment">// 销毁链表</span></span><br><span class="line">    LinkList pre = L, p = pre-&gt;next;</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">free</span>(pre);</span><br><span class="line">        pre = p;</span><br><span class="line">        p = pre-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">free</span>(pre);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">ListEmpty</span><span class="params">(LinkList L)</span> </span>&#123; <span class="comment">// 判断链表是否为空表</span></span><br><span class="line">    <span class="keyword">return</span> (L-&gt;next == <span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ListLength</span><span class="params">(LinkList L)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    LinkList p = L;</span><br><span class="line">    <span class="keyword">while</span> (p-&gt;next != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        i++;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DispList</span><span class="params">(LinkList L)</span> </span>&#123;</span><br><span class="line">    LinkList p = L-&gt;next;</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, p-&gt;data);</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">GetElem</span><span class="params">(LinkList L, <span class="keyword">int</span> i, ElemType&amp; e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">    LinkList p = L;</span><br><span class="line">    <span class="keyword">if</span> (i &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">while</span> (j &lt; i &amp;&amp; p != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        j++;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (p == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        e = p-&gt;data;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">LocateElem</span><span class="params">(LinkList L, ElemType e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">    LinkList p = L-&gt;next;</span><br><span class="line">    <span class="keyword">while</span> (p != <span class="literal">NULL</span> &amp;&amp; p-&gt;data != e) &#123;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (p == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">ListInsert</span><span class="params">(LinkList&amp; L, <span class="keyword">int</span> i, ElemType e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">    LinkList p = L, s;</span><br><span class="line">    <span class="keyword">if</span> (i &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">while</span> (j &lt; i - <span class="number">1</span> &amp;&amp; p != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        j++;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (p == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        s = (LinkList)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(LNode));</span><br><span class="line">        s-&gt;data = e;</span><br><span class="line">        s-&gt;next = p-&gt;next;</span><br><span class="line">        p-&gt;next = s;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">ListDelete</span><span class="params">(LinkList&amp; L, <span class="keyword">int</span> i, ElemType&amp; e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">    LinkList p = L, q;</span><br><span class="line">    <span class="keyword">if</span> (i &lt;= <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">while</span> (j &lt; i - <span class="number">1</span> &amp;&amp; p != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        j++;</span><br><span class="line">        p = p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (p == <span class="literal">NULL</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        q = p-&gt;next;</span><br><span class="line">        <span class="keyword">if</span> (q == <span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        e = q-&gt;data;</span><br><span class="line">        p-&gt;next = q-&gt;next;</span><br><span class="line">        <span class="built_in">free</span>(q);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    LinkList h;</span><br><span class="line">    ElemType e;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;单链表的基本运算如下：\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;（1）初始化单链表h\n&quot;</span>);</span><br><span class="line">    InitList(h);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;（2）依次采用尾插法插入a, b, c, d, e元素\n&quot;</span>);</span><br><span class="line">    ListInsert(h, <span class="number">1</span>, <span class="string">&#x27;a&#x27;</span>);</span><br><span class="line">    ListInsert(h, <span class="number">2</span>, <span class="string">&#x27;b&#x27;</span>);</span><br><span class="line">    ListInsert(h, <span class="number">3</span>, <span class="string">&#x27;c&#x27;</span>);</span><br><span class="line">    ListInsert(h, <span class="number">4</span>, <span class="string">&#x27;d&#x27;</span>);</span><br><span class="line">    ListInsert(h, <span class="number">5</span>, <span class="string">&#x27;e&#x27;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;（3）输出单链表h：&quot;</span>);</span><br><span class="line">    DispList(h);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;（4）单链表h长度：%d\n&quot;</span>, ListLength(h));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;（5）单链表h为%s\n&quot;</span>, ListEmpty(h) ? <span class="string">&quot;空&quot;</span> : <span class="string">&quot;非空&quot;</span>);</span><br><span class="line">    GetElem(h, <span class="number">3</span>, e);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;（6）单链表h上的第3个元素：%c\n&quot;</span>, e);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;（7）元素a的位置：%d\n&quot;</span>, LocateElem(h, <span class="string">&#x27;a&#x27;</span>));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;（8）在第4个元素位置上插入f元素\n&quot;</span>);</span><br><span class="line">    ListInsert(h, <span class="number">4</span>, <span class="string">&#x27;f&#x27;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;（9）输出单链表h：&quot;</span>);</span><br><span class="line">    DispList(h);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;（10）删除h的第3个元素\n&quot;</span>);</span><br><span class="line">    ListDelete(h, <span class="number">3</span>, e);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;（11）输出单链表h：&quot;</span>);</span><br><span class="line">    DispList(h);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;（12）释放单链表h\n&quot;</span>);</span><br><span class="line">    DestoryList(h);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/image-20220223223428452.png" alt="image-20220223223428452"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220223223428452.png" alt="image-20220223223428452"></p>
 <h1 id="3-栈"><a href="#3-栈" class="headerlink" title="3 栈"></a>3 栈</h1><h2 id="3-1-栈的定义"><a href="#3-1-栈的定义" class="headerlink" title="3.1 栈的定义"></a>3.1 栈的定义</h2><p>栈是限定仅在表位进行插入和删除操作的线性表</p>
 <p>我们把允许插入和删除的一端称为栈顶，另一端称为栈底，不含任何数据元素的栈称为空栈。栈又称为后进先出的线性表，简称LFO结构。只能对栈顶元素进行操作，我们把栈的插入，删除操作改名为push，pop</p>
 <p><strong>栈的插入操作，</strong> 叫做进栈，也称压栈，入栈</p>
@@ -12923,7 +12923,7 @@ insert()
 <h2 id="7-6-平衡二叉树"><a href="#7-6-平衡二叉树" class="headerlink" title="7.6 平衡二叉树"></a>7.6 平衡二叉树</h2><h2 id="7-7-多路查找树（B树）"><a href="#7-7-多路查找树（B树）" class="headerlink" title="7.7 多路查找树（B树）"></a>7.7 多路查找树（B树）</h2><h2 id="7-8-散列表查找"><a href="#7-8-散列表查找" class="headerlink" title="7.8 散列表查找"></a>7.8 散列表查找</h2><p>hash</p>
 <h1 id="8-排序"><a href="#8-排序" class="headerlink" title="8 排序"></a>8 排序</h1><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 求各排序算法的绝对执行时间</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize 50001</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> KeyType;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 基础函数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(KeyType&amp; x, KeyType&amp; y)</span> </span>&#123;</span><br><span class="line">    KeyType tmp = x;</span><br><span class="line">    x = y;</span><br><span class="line">    y = tmp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">initial</span><span class="params">(<span class="keyword">int</span> R[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="built_in">srand</span>((<span class="keyword">unsigned</span>)<span class="built_in">time</span>(<span class="literal">NULL</span>));</span><br><span class="line">    <span class="keyword">for</span> (i = low; i &lt; high; i++)</span><br><span class="line">        R[i] = <span class="built_in">rand</span>() % <span class="number">99</span> + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">copy</span><span class="params">(<span class="keyword">int</span> R[], <span class="keyword">int</span> R1[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        R1[i] = R[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">copy1</span><span class="params">(<span class="keyword">int</span> R[], <span class="keyword">int</span> R1[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        R1[i+<span class="number">1</span>] = R[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">test</span><span class="params">(KeyType R[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = low; i &lt; high - <span class="number">1</span>; i++)</span><br><span class="line">        <span class="keyword">if</span> (R[i] &gt; R[i + <span class="number">1</span>])</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//直接插入排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertSort</span><span class="params">(KeyType R[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    KeyType tmp;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (R[i] &lt; R[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            tmp = R[i];</span><br><span class="line">            j = i - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">do</span> &#123;</span><br><span class="line">                R[j + <span class="number">1</span>] = R[j];</span><br><span class="line">                j--;</span><br><span class="line">            &#125; <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; R[j] &gt; tmp);</span><br><span class="line">            R[j + <span class="number">1</span>] = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertSortTime</span><span class="params">(KeyType R[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">clock_t</span> t;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;直接插入排序\t&quot;</span>);</span><br><span class="line">    t = <span class="built_in">clock</span>();</span><br><span class="line">    <span class="built_in">InsertSort</span>(R, n);</span><br><span class="line">    t = <span class="built_in">clock</span>() - t;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lf秒&quot;</span>, ((<span class="keyword">float</span>)t) / CLOCKS_PER_SEC);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">test</span>(R, <span class="number">0</span>, n - <span class="number">1</span>))</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\t正确\n&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\t错误\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 折半插入排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BinInsertSort</span><span class="params">(KeyType R[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j, low, high, mid;</span><br><span class="line">    KeyType tmp;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (R[i] &lt; R[i - <span class="number">1</span>]) &#123;</span><br><span class="line">            tmp = R[i];</span><br><span class="line">            low = <span class="number">0</span>;</span><br><span class="line">            high = i - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (low &lt;= high) &#123;</span><br><span class="line">                mid = (low + high) / <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span> (tmp &lt; R[mid])</span><br><span class="line">                    high = mid <span class="number">-1</span></span><br><span class="line">                    ;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    low = mid + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (j = i - <span class="number">1</span>; j &gt;= high + <span class="number">1</span>; j--)</span><br><span class="line">                R[j + <span class="number">1</span>] = R[j];</span><br><span class="line">            R[high + <span class="number">1</span>] = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BinInsertSortTime</span><span class="params">(KeyType R[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">clock_t</span> t;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;折半插入排序\t&quot;</span>);</span><br><span class="line">    t = <span class="built_in">clock</span>();</span><br><span class="line">    <span class="built_in">BinInsertSort</span>(R, n);</span><br><span class="line">    t = <span class="built_in">clock</span>() - t;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lf秒&quot;</span>, ((<span class="keyword">float</span>)t) / CLOCKS_PER_SEC);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">test</span>(R, <span class="number">0</span>, n - <span class="number">1</span>))</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\t正确\n&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\t错误\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 希尔排序算法</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSort</span><span class="params">(KeyType R[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j, d;</span><br><span class="line">    KeyType tmp;</span><br><span class="line">    d = n / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">while</span> (d &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (i = d; i &lt; n; i++) &#123;</span><br><span class="line">            tmp = R[i];</span><br><span class="line">            j = i - d;</span><br><span class="line">            <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; tmp &lt; R[j]) &#123;</span><br><span class="line">                R[j + d] = R[j];</span><br><span class="line">                j = j - d;</span><br><span class="line">            &#125;</span><br><span class="line">            R[j + d] = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        d = d / <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSortTime</span><span class="params">(KeyType R[],<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">clock_t</span> t;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;希尔排序\t&quot;</span>);</span><br><span class="line">    t = <span class="built_in">clock</span>();</span><br><span class="line">    <span class="built_in">ShellSort</span>(R, n);</span><br><span class="line">    t = <span class="built_in">clock</span>()-t;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lf秒&quot;</span>, ((<span class="keyword">float</span>)t) / CLOCKS_PER_SEC);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">test</span>(R, <span class="number">0</span>, n - <span class="number">1</span>))</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\t正确\n&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\t错误\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//冒泡排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(KeyType R[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">bool</span> exchange;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        exchange = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=n<span class="number">-1</span>;j&gt;i;j--)</span><br><span class="line">            <span class="keyword">if</span> (R[j] &lt; R[j - <span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">swap</span>(R[j], R[j - <span class="number">1</span>]);</span><br><span class="line">                exchange = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">if</span> (!exchange)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSortTime</span><span class="params">(KeyType R[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">clock_t</span> t;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;冒泡排序\t&quot;</span>);</span><br><span class="line">    t = <span class="built_in">clock</span>();</span><br><span class="line">    <span class="built_in">BubbleSort</span>(R, n);</span><br><span class="line">    t = <span class="built_in">clock</span>() - t;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lf秒&quot;</span>, ((<span class="keyword">float</span>)t )/ CLOCKS_PER_SEC);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">test</span>(R, <span class="number">0</span>, n - <span class="number">1</span>))</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\t正确\n&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\t错误\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//快速排序</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">partition</span><span class="params">(KeyType R[], <span class="keyword">int</span> s, <span class="keyword">int</span> t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = s, j = t;</span><br><span class="line">    KeyType tmp = R[i];</span><br><span class="line">    <span class="keyword">while</span> (i &lt; j)</span><br><span class="line">    &#123;</span><br><span class="line">            <span class="keyword">while</span> (j &gt; i &amp;&amp; R[j] &gt;= tmp)</span><br><span class="line">                j--;</span><br><span class="line">        R[i] = R[j];</span><br><span class="line">        <span class="keyword">while</span> (i &lt; j &amp;&amp; R[i] &lt;= tmp)</span><br><span class="line">            i++;</span><br><span class="line">        R[j] = R[i];</span><br><span class="line">    &#125;</span><br><span class="line">    R[i] = tmp;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(KeyType R[], <span class="keyword">int</span> s, <span class="keyword">int</span> t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">if</span> (s &lt; t)</span><br><span class="line">    &#123;</span><br><span class="line">        i = <span class="built_in">partition</span>(R, s, t);</span><br><span class="line">        <span class="built_in">QuickSort</span>(R, s, i - <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">QuickSort</span>(R, i + <span class="number">1</span>, t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSortTime</span><span class="params">(KeyType R[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">clock_t</span> t;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;快速排序\t&quot;</span>);</span><br><span class="line">    t = <span class="built_in">clock</span>();</span><br><span class="line">    <span class="built_in">QuickSort</span>(R, <span class="number">0</span>, n - <span class="number">1</span>);</span><br><span class="line">    t = <span class="built_in">clock</span>()-t;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lf&quot;</span>, ((<span class="keyword">float</span>)t) / CLOCKS_PER_SEC);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">test</span>(R, <span class="number">0</span>, n - <span class="number">1</span>))</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\t正确\n&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\t错误\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//简单选择排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SelectSort</span><span class="params">(KeyType R[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i, j, k;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        k = i;</span><br><span class="line">        <span class="keyword">for</span> (j = i + <span class="number">1</span>; j &lt; n; j++)</span><br><span class="line">            <span class="keyword">if</span> (R[j] &lt; R[k])</span><br><span class="line">                k = j;</span><br><span class="line">        <span class="keyword">if</span> (k != <span class="number">1</span>)</span><br><span class="line">            <span class="built_in">swap</span>(R[i], R[k]);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SelectSortTime</span><span class="params">(KeyType R[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">clock_t</span> t;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;简单选择排序\t&quot;</span>);</span><br><span class="line">    t = <span class="built_in">clock</span>();</span><br><span class="line">    <span class="built_in">SelectSort</span>(R, n);</span><br><span class="line">    t = <span class="built_in">clock</span>() - t;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lf秒&quot;</span>, ((<span class="keyword">float</span>)t) / CLOCKS_PER_SEC);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">test</span>(R, <span class="number">0</span>, n - <span class="number">1</span>))</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\t正确\n&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\t错误\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//堆排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sift</span><span class="params">(KeyType R[], <span class="keyword">int</span> low, <span class="keyword">int</span> high)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = low, j = <span class="number">2</span> * i;</span><br><span class="line">    KeyType tmp = R[i];</span><br><span class="line">    <span class="keyword">while</span> (j &lt;= high)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (j &lt; high &amp;&amp; R[j] &lt; R[j + <span class="number">1</span>])</span><br><span class="line">            j++;</span><br><span class="line">        <span class="keyword">if</span> (tmp &lt; R[j])</span><br><span class="line">        &#123;</span><br><span class="line">            R[i] = R[j];</span><br><span class="line">            i = j;</span><br><span class="line">            j = <span class="number">2</span> * i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    R[i] = tmp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HeapSort</span><span class="params">(KeyType R[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = n / <span class="number">2</span>; i &gt;= <span class="number">1</span>; i--)</span><br><span class="line">        <span class="built_in">sift</span>(R, i, n);</span><br><span class="line">    <span class="keyword">for</span> (i = n; i &gt;= <span class="number">2</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">swap</span>(R[<span class="number">1</span>], R[i]);</span><br><span class="line">        <span class="built_in">sift</span>(R, <span class="number">1</span>, i - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">HeapSortTime</span><span class="params">(KeyType R[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">clock_t</span> t;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;堆排序  \t&quot;</span>);</span><br><span class="line">    t = <span class="built_in">clock</span>();</span><br><span class="line">    <span class="built_in">HeapSort</span>(R, n);</span><br><span class="line">    t = <span class="built_in">clock</span>() - t;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lf秒&quot;</span>, ((<span class="keyword">float</span>)t) / CLOCKS_PER_SEC);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">test</span>(R, <span class="number">1</span>, n))</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\t正确\n&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\t错误\n&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//二路归并排序</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(KeyType R[], <span class="keyword">int</span> low, <span class="keyword">int</span> mid, <span class="keyword">int</span> high)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    KeyType* R1;</span><br><span class="line">    <span class="keyword">int</span> i = low, j = mid + <span class="number">1</span>, k = <span class="number">0</span>;</span><br><span class="line">    R1 = (KeyType*)<span class="built_in">malloc</span>((high - low + <span class="number">1</span>) * <span class="built_in"><span class="keyword">sizeof</span></span>(KeyType));</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= mid &amp;&amp; j &lt;= high)</span><br><span class="line">        <span class="keyword">if</span> (R[i] &lt;= R[j])</span><br><span class="line">        &#123;</span><br><span class="line">            R1[k] = R[i];</span><br><span class="line">            i++; k++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            R1[k] = R[j];</span><br><span class="line">            j++; k++;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= mid)</span><br><span class="line">    &#123;</span><br><span class="line">        R1[k] = R[i];</span><br><span class="line">        i++; k++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (j &lt;= high)</span><br><span class="line">    &#123;</span><br><span class="line">        R1[k] = R[j];</span><br><span class="line">        j++; k++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (k = <span class="number">0</span>, i = low; i &lt;= high; k++, i++)</span><br><span class="line">        R[i] = R1[k];</span><br><span class="line">    <span class="built_in">free</span>(R1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergePass</span><span class="params">(KeyType R[], <span class="keyword">int</span> length, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i + <span class="number">2</span> * length - <span class="number">1</span> &lt; n; i = i + <span class="number">2</span> * length )</span><br><span class="line">        <span class="built_in">Merge</span>(R, i, i + length - <span class="number">1</span>, i + <span class="number">2</span> * length - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (i + length - <span class="number">1</span> &lt; n - <span class="number">1</span>)</span><br><span class="line">        <span class="built_in">Merge</span>(R, i, i + length - <span class="number">1</span>, n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(KeyType R[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> length;</span><br><span class="line">    <span class="keyword">for</span> (length = <span class="number">1</span>; length &lt; n; length = <span class="number">2</span> * length)</span><br><span class="line">        <span class="built_in">MergePass</span>(R, length, n);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSortTime</span><span class="params">(KeyType R[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">clock_t</span> t;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;二路归并排序  \t&quot;</span>);</span><br><span class="line">    t = <span class="built_in">clock</span>();</span><br><span class="line">    <span class="built_in">MergeSort</span>(R, n);</span><br><span class="line">    t = <span class="built_in">clock</span>() - t;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lf秒&quot;</span>, ((<span class="keyword">float</span>)t) / CLOCKS_PER_SEC);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">test</span>(R, <span class="number">0</span>, n - <span class="number">1</span>))</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\t正确\n&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\t错误\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    KeyType R[MaxSize], R1[MaxSize];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;随机产生50000个1-99的正整数，各种排序方法的比较\n&quot;</span>);</span><br><span class="line">    <span class="keyword">int</span> n = <span class="number">50000</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;---------------------------------------------------\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;排序方法         用时       结果验证\n&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;---------------------------------------------------\n&quot;</span>);</span><br><span class="line">    <span class="built_in">initial</span>(R, <span class="number">0</span>, n - <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">copy</span>(R, R1, n);</span><br><span class="line">    <span class="built_in">InsertSortTime</span>(R1, n);</span><br><span class="line">    <span class="built_in">copy</span>(R, R1, n);</span><br><span class="line">    <span class="built_in">BinInsertSortTime</span>(R1, n);</span><br><span class="line">    <span class="built_in">copy</span>(R, R1, n);</span><br><span class="line">    <span class="built_in">ShellSortTime</span>(R1, n);</span><br><span class="line">    <span class="built_in">copy</span>(R, R1, n);</span><br><span class="line">    <span class="built_in">BubbleSortTime</span>(R1, n);</span><br><span class="line">    <span class="built_in">copy</span>(R, R1, n);</span><br><span class="line">    <span class="built_in">QuickSortTime</span>(R1, n);</span><br><span class="line">    <span class="built_in">copy</span>(R, R1, n);</span><br><span class="line">    <span class="built_in">SelectSortTime</span>(R1, n);</span><br><span class="line">    <span class="built_in">copy</span>(R, R1, n);</span><br><span class="line">    <span class="built_in">HeapSortTime</span>(R1, n);</span><br><span class="line">    <span class="built_in">copy</span>(R, R1, n);</span><br><span class="line">    <span class="built_in">MergeSortTime</span>(R1, n);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;-------------------------------------------\n&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/image-20220223221533488.png" alt="image-20220223221533488"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220223221533488.png" alt="image-20220223221533488"></p>
 ]]></content>
       <categories>
         <category>数据结构与算法</category>
@@ -12934,7 +12934,7 @@ insert()
   </entry>
   <entry>
     <title>HTML笔记</title>
-    <url>/2021/02/03/hash/</url>
+    <url>/2021/02/03/4bc3ee7faa01/</url>
     <content><![CDATA[<blockquote>
 <p>关于HTML的总结</p>
 </blockquote>
@@ -13148,7 +13148,7 @@ insert()
 <p>title：包含表示与其所属元素相关信息的文本。 这些信息通常可以作为提示呈现给用户，但不是必须的。</p>
 <h1 id="6-URL"><a href="#6-URL" class="headerlink" title="6 URL"></a>6 URL</h1><p>URL代表<strong>统一资源定位符</strong></p>
 <p>◼ URL的标准格式：<code>[协议类型]://[服务器地址]:[端口号]/[文件路径][文件名]?[查询]#[片段ID]</code></p>
-<p><img src="https://cdn.jsdelivr.net/gh/jiucheng120/clouding/data/2022/20220502214728.png" alt="image-20220502214708509"></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/20220502214728.png" alt="image-20220502214708509"></p>
 <blockquote>
 <p>和URI的区别：</p>
 <ul>
@@ -13172,7 +13172,7 @@ insert()
   </entry>
   <entry>
     <title>C++学习笔记</title>
-    <url>/2021/02/01/hash/</url>
+    <url>/2021/02/01/3396fdf77464/</url>
     <content><![CDATA[<blockquote>
 <p>C++学习笔记</p>
 </blockquote>

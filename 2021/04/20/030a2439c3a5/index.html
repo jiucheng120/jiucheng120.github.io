@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="jiuchengBlog 博客">
+    <meta name="description" content="hello, here is JiuCheng&#39; s blog">
+    <meta name="author" content="馨er">
+    
+    <title>
+        
+            stl初识 |
+        
+        馨er的学习之路
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"jiucheng120.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/logo.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.png","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                馨er的学习之路
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class href="/">
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/archives">
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/categories">
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/tags">
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/about">
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">stl初识</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">馨er</span>
+                        
+                            <span class="author-label">Lv4</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2021-04-20 21:18:23</span>
+        <span class="mobile">2021-04-20 21:18</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/C/">C++</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/C/">C++</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/STL/">STL</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p>stl总体的简单认识</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="1-STL初识"><a href="#1-STL初识" class="headerlink" title="1 STL初识"></a>1 STL初识</h1><h2 id="1-1-STL六大组件"><a href="#1-1-STL六大组件" class="headerlink" title="1.1 STL六大组件"></a>1.1 STL六大组件</h2><p>容器，算法，迭代器，仿函数，适配器（配接器），空间配置器</p>
+<p><strong>容器</strong>： 各种数据结构，如vector，list，deque，set，map等，用来存放数据</p>
+<ul>
+<li>序列式容器：强调值的排序，序列式容器中每个元素均有固定的位置</li>
+<li>关联式容器：二叉树结构，各元素之间没有严格的物理上的顺序关系</li>
+</ul>
+<p><strong>算法</strong>： 各种常用的算法，如sort，find，copy，for_each等。分为质变算法和非质变算法</p>
+<ul>
+<li>质变算法：是指运算过程中会更改区间的元素的内容。例如拷贝，替换，删除等等</li>
+<li>非质变算法：是指运算过程中不会更改区间的元素内容，例如查找，计数，遍历，寻找极值等等</li>
+</ul>
+<p><strong>迭代器</strong>： 扮演了容器与算法之间的胶合剂</p>
+<p><strong>仿函数</strong>： 行为类似函数，可作为算法的某种策略</p>
+<p><strong>适配器</strong>： 一种用来修饰容器或者仿函数或迭代器接口的东西</p>
+<p><strong>空间配置器</strong>： 负责空间的配置和管理</p>
+<h2 id="1-2-容器算法迭代器初识"><a href="#1-2-容器算法迭代器初识" class="headerlink" title="1.2 容器算法迭代器初识"></a>1.2 容器算法迭代器初识</h2><h3 id="1-2-1-vector存放内置数据类型"><a href="#1-2-1-vector存放内置数据类型" class="headerlink" title="1.2.1 vector存放内置数据类型"></a>1.2.1 vector存放内置数据类型</h3><p>容器：vector</p>
+<p>算法：for_each</p>
+<p>迭代器：vector<int>::iterator</int></p>
+<pre><code>v.begin()返回迭代器，这个迭代器指向容器中的第一个元素
+v.end()返回迭代器，这个迭代器指向容器元素的最后一个元素的下一个位置
+v.rend()返回迭代器，这个迭代器指向容器中的第一个元素的上一个位置
+v.rbegin()返回迭代器，这个迭代器指向容器中的最后一个元素
+insert()
+</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span><span class="comment">//标准算法头文件</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">myPrint</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; val &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//vector容器存放</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//创建了一个vector容器，数组</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; v;</span><br><span class="line">    <span class="comment">//向容器插入数据</span></span><br><span class="line">    v.<span class="built_in">push_back</span>(<span class="number">10</span>);</span><br><span class="line">    v.<span class="built_in">push_back</span>(<span class="number">20</span>);</span><br><span class="line">    v.<span class="built_in">push_back</span>(<span class="number">30</span>);</span><br><span class="line">    v.<span class="built_in">push_back</span>(<span class="number">40</span>);</span><br><span class="line">    <span class="comment">//每一个容器都有自己的迭代器，迭代器是用来遍历容器中的元素</span></span><br><span class="line">    <span class="comment">//vector&lt;int&gt;::iterator拿到vector&lt;int&gt;这种容器的迭代器类型</span></span><br><span class="line">    <span class="comment">//通过迭代器来访问容器中的数据</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;::iterator itBegin = v.<span class="built_in">begin</span>();</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;::iterator itEnd = v.<span class="built_in">end</span>();</span><br><span class="line">    <span class="comment">//第一种遍历方式</span></span><br><span class="line">    <span class="keyword">while</span> (itBegin != itEnd) &#123;</span><br><span class="line">        cout &lt;&lt; *itBegin &lt;&lt; endl;</span><br><span class="line">        itBegin++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//第二种遍历方式</span></span><br><span class="line">    <span class="keyword">for</span> (vector&lt;<span class="keyword">int</span>&gt;::iterator it = v.<span class="built_in">begin</span>(); it != v.<span class="built_in">end</span>(); it++) &#123;</span><br><span class="line">        cout &lt;&lt; *it &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//第三种遍历方式</span></span><br><span class="line">    for_each(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>(), myPrint);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">test1</span>();</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-2-vector存放自定义数据类型"><a href="#1-2-2-vector存放自定义数据类型" class="headerlink" title="1.2.2 vector存放自定义数据类型"></a>1.2.2 vector存放自定义数据类型</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//vector容器中存放自定义数据类型</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Person</span>(string name, <span class="keyword">int</span> age) &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m_Name = name;</span><br><span class="line">        <span class="keyword">this</span>-&gt;m_Age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    string m_Name;</span><br><span class="line">    <span class="keyword">int</span> m_Age;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    vector&lt;Person&gt;v;</span><br><span class="line">    <span class="function">Person <span class="title">p1</span><span class="params">(<span class="string">&quot;aaa&quot;</span>, <span class="number">10</span>)</span></span>;</span><br><span class="line">    <span class="function">Person <span class="title">p2</span><span class="params">(<span class="string">&quot;aaa&quot;</span>, <span class="number">20</span>)</span></span>;</span><br><span class="line">    <span class="function">Person <span class="title">p3</span><span class="params">(<span class="string">&quot;aaa&quot;</span>, <span class="number">30</span>)</span></span>;</span><br><span class="line">    <span class="function">Person <span class="title">p4</span><span class="params">(<span class="string">&quot;aaa&quot;</span>, <span class="number">40</span>)</span></span>;</span><br><span class="line">    <span class="function">Person <span class="title">p5</span><span class="params">(<span class="string">&quot;aaa&quot;</span>, <span class="number">50</span>)</span></span>;</span><br><span class="line">    <span class="comment">//向容器中添加数据</span></span><br><span class="line">    v.<span class="built_in">push_back</span>(p1);</span><br><span class="line">    v.<span class="built_in">push_back</span>(p2);</span><br><span class="line">    v.<span class="built_in">push_back</span>(p3);</span><br><span class="line">    v.<span class="built_in">push_back</span>(p4);</span><br><span class="line">    v.<span class="built_in">push_back</span>(p5);</span><br><span class="line">    <span class="comment">//遍历容器中的数据</span></span><br><span class="line">    <span class="keyword">for</span> (vector&lt;Person&gt;::iterator it = v.<span class="built_in">begin</span>(); it != v.<span class="built_in">end</span>(); it++) &#123;</span><br><span class="line">        <span class="comment">//cout &lt;&lt; &quot;姓名：&quot; &lt;&lt; (*it).m_Name &lt;&lt; &quot;年龄：&quot; &lt;&lt; (*it).m_Age &lt;&lt; endl;</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;姓名：&quot;</span> &lt;&lt; it-&gt;m_Name &lt;&lt; <span class="string">&quot;年龄：&quot;</span> &lt;&lt; it-&gt;m_Age &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//存放自定义数据类型，指针</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    vector&lt;Person*&gt;v;</span><br><span class="line">    <span class="function">Person <span class="title">p1</span><span class="params">(<span class="string">&quot;aaa&quot;</span>, <span class="number">10</span>)</span></span>;</span><br><span class="line">    <span class="function">Person <span class="title">p2</span><span class="params">(<span class="string">&quot;aaa&quot;</span>, <span class="number">20</span>)</span></span>;</span><br><span class="line">    <span class="function">Person <span class="title">p3</span><span class="params">(<span class="string">&quot;aaa&quot;</span>, <span class="number">30</span>)</span></span>;</span><br><span class="line">    <span class="function">Person <span class="title">p4</span><span class="params">(<span class="string">&quot;aaa&quot;</span>, <span class="number">40</span>)</span></span>;</span><br><span class="line">    <span class="function">Person <span class="title">p5</span><span class="params">(<span class="string">&quot;aaa&quot;</span>, <span class="number">50</span>)</span></span>;</span><br><span class="line">    <span class="comment">//向容器中添加数据</span></span><br><span class="line">    v.<span class="built_in">push_back</span>(&amp;p1);</span><br><span class="line">    v.<span class="built_in">push_back</span>(&amp;p2);</span><br><span class="line">    v.<span class="built_in">push_back</span>(&amp;p3);</span><br><span class="line">    v.<span class="built_in">push_back</span>(&amp;p4);</span><br><span class="line">    v.<span class="built_in">push_back</span>(&amp;p5);</span><br><span class="line">    <span class="comment">//遍历容器中的数据</span></span><br><span class="line">    <span class="keyword">for</span> (vector&lt;Person*&gt;::iterator it = v.<span class="built_in">begin</span>(); it != v.<span class="built_in">end</span>(); it++) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;姓名：&quot;</span> &lt;&lt; (*it)-&gt;m_Name &lt;&lt; <span class="string">&quot;年龄：&quot;</span> &lt;&lt; (*it)-&gt;m_Age &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//test1();</span></span><br><span class="line">    <span class="built_in">test2</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-3-vector容器嵌套容器"><a href="#1-2-3-vector容器嵌套容器" class="headerlink" title="1.2.3 vector容器嵌套容器"></a>1.2.3 vector容器嵌套容器</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//容器嵌套容器</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//创建大容器</span></span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;v;</span><br><span class="line">    <span class="comment">//创建小容器</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;v1;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;v2;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;v3;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;v4;</span><br><span class="line">    <span class="comment">//向小容器中添加数据</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">        v1.<span class="built_in">push_back</span>(i + <span class="number">1</span>);</span><br><span class="line">        v2.<span class="built_in">push_back</span>(i + <span class="number">2</span>);</span><br><span class="line">        v3.<span class="built_in">push_back</span>(i + <span class="number">3</span>);</span><br><span class="line">        v4.<span class="built_in">push_back</span>(i + <span class="number">4</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//将小容器插入到大容器中</span></span><br><span class="line">    v.<span class="built_in">push_back</span>(v1);</span><br><span class="line">    v.<span class="built_in">push_back</span>(v2);</span><br><span class="line">    v.<span class="built_in">push_back</span>(v3);</span><br><span class="line">    v.<span class="built_in">push_back</span>(v4);</span><br><span class="line">    <span class="comment">//通过大容器，把所有数据遍历一遍</span></span><br><span class="line">    <span class="keyword">for</span> (vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;::iterator it = v.<span class="built_in">begin</span>(); it != v.<span class="built_in">end</span>(); it++) &#123;</span><br><span class="line">        <span class="comment">//(*it)-----容器vector&lt;int&gt;</span></span><br><span class="line">        <span class="keyword">for</span> (vector&lt;<span class="keyword">int</span>&gt;::iterator vit = (*it).<span class="built_in">begin</span>(); vit != (*it).<span class="built_in">end</span>(); vit++) &#123;</span><br><span class="line">            cout &lt;&lt; *vit &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">test1</span>();</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-vector"><a href="#2-vector" class="headerlink" title="2 vector"></a>2 vector</h1><h2 id="2-1-vector基本概念"><a href="#2-1-vector基本概念" class="headerlink" title="2.1 vector基本概念"></a>2.1 vector基本概念</h2><p>功能：vector数据结构和数组非常相似，也称为单端数组</p>
+<p>区别：数组是静态空间，而vector可以动态扩展</p>
+<p>动态扩展：并不是在原空间之后续接新空间，而是找更大的内存空间，然后将原数据拷贝新空间，释放原空间。vector迭代器是支持随机访问的迭代器</p>
+<h2 id="2-2-vector构造函数"><a href="#2-2-vector构造函数" class="headerlink" title="2.2 vector构造函数"></a>2.2 vector构造函数</h2><p>功能：创建vector容器</p>
+<p>函数原型：</p>
+<ul>
+<li><code>vector&lt;T&gt; v;</code>  //采用模板实现类实现，默认构造函数</li>
+<li><code>vector(v.begin(),v.end());</code>  //将v[begin(),end())区间中的元素拷贝给本身(注意区间为前闭后开)</li>
+<li><code>vector(n,elem);</code>  //构造函数将n个elem拷贝给本身</li>
+<li><code>vector(const vector &amp;vec);</code>  //拷贝构造函数</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printVector</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp;v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (vector&lt;<span class="keyword">int</span>&gt;::iterator it = v.<span class="built_in">begin</span>(); it != v.<span class="built_in">end</span>(); it++) &#123;</span><br><span class="line">        cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//vector容器的构造</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;v1;<span class="comment">//默认构造 无参构造</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        v1.<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printVector</span>(v1);</span><br><span class="line">    <span class="comment">//通过区间方式进行构造</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;<span class="built_in">v2</span>(v1.<span class="built_in">begin</span>(), v1.<span class="built_in">end</span>());</span><br><span class="line">    <span class="built_in">printVector</span>(v2);<span class="comment">//均输出0到9</span></span><br><span class="line">    <span class="comment">//n个elem方式构造</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;<span class="built_in">v3</span>(<span class="number">10</span>, <span class="number">100</span>);</span><br><span class="line">    <span class="built_in">printVector</span>(v3);<span class="comment">//输出10个100</span></span><br><span class="line">    <span class="comment">//拷贝构造</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;<span class="built_in">v4</span>(v3);</span><br><span class="line">    <span class="built_in">printVector</span>(v4);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">test1</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-3-vector赋值操作"><a href="#2-3-vector赋值操作" class="headerlink" title="2.3 vector赋值操作"></a>2.3 vector赋值操作</h2><p>函数原型：</p>
+<ul>
+<li><code>vector&amp; operator=(const vector &amp;vec);</code>  //重载等号操作符</li>
+<li><code>assign(beg,end);</code>  //将[beg,end)区间中的数据拷贝赋值给本身</li>
+<li><code>assign(n,elem);</code>  //将n个elem拷贝赋值给本身</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printVector</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp; v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (vector&lt;<span class="keyword">int</span>&gt;::iterator it = v.<span class="built_in">begin</span>(); it != v.<span class="built_in">end</span>(); it++) &#123;</span><br><span class="line">        cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//vector赋值</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;v1;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        v1.<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printVector</span>(v1);</span><br><span class="line">    <span class="comment">//赋值 operator=</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;v2;</span><br><span class="line">    v2 = v1;</span><br><span class="line">    <span class="built_in">printVector</span>(v2);</span><br><span class="line">    <span class="comment">//assign</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;v3;</span><br><span class="line">    v3.<span class="built_in">assign</span>(v1.<span class="built_in">begin</span>(), v1.<span class="built_in">end</span>());</span><br><span class="line">    <span class="built_in">printVector</span>(v3);</span><br><span class="line">    <span class="comment">//n个elem方式赋值</span></span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;v4;</span><br><span class="line">    v4.<span class="built_in">assign</span>(<span class="number">10</span>, <span class="number">100</span>);</span><br><span class="line">    <span class="built_in">printVector</span>(v4);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">test1</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-4-vector容量和大小"><a href="#2-4-vector容量和大小" class="headerlink" title="2.4 vector容量和大小"></a>2.4 vector容量和大小</h2><p>函数原型：</p>
+<p><code>empty();</code>//判断容器是否为空</p>
+<p><code>capacity();</code>  //容器的容量</p>
+<p><code>size();</code> //返回容器中元素的个数</p>
+<p><code>resize(int num);</code>  //重新指定容器的长度为num，若容器变长，则以默认值填充新位置；若容器变短，则末尾超出容器长度的元素被删除</p>
+<p><code>resize(int num,elem);</code>  //重新指定容器的长度为num，若容器变长，则以elem值填充新位置；若容器变短，则末尾超出容器长度的元素被删除</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printVector</span><span class="params">(vector&lt;<span class="keyword">int</span>&gt;&amp;v)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (vector&lt;<span class="keyword">int</span>&gt;::iterator it = v.<span class="built_in">begin</span>(); it != v.<span class="built_in">end</span>(); it++) &#123;</span><br><span class="line">        cout &lt;&lt; *it &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//vector容器的容量和大小操作</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;v1;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        v1.<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printVector</span>(v1);</span><br><span class="line">    <span class="keyword">if</span> (v1.<span class="built_in">empty</span>()) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;v1为空&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;v1不为空&quot;</span> &lt;&lt; endl;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;v1的容量为：&quot;</span> &lt;&lt; v1.<span class="built_in">capacity</span>() &lt;&lt; endl;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;v1的大小为：&quot;</span> &lt;&lt; v1.<span class="built_in">size</span>() &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//重新指定大小</span></span><br><span class="line">    v1.<span class="built_in">resize</span>(<span class="number">15</span>);<span class="comment">//利用重载版本，可以指定默认填充值，参数2</span></span><br><span class="line">    <span class="built_in">printVector</span>(v1);<span class="comment">//如果重新指定的比原来长了，默认用0填充原来的位置</span></span><br><span class="line">    v1.<span class="built_in">resize</span>(<span class="number">5</span>);</span><br><span class="line">    <span class="built_in">printVector</span>(v1);<span class="comment">//如果重新指定的比原来的短了，超出部分会删除掉</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">test1</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="3-string"><a href="#3-string" class="headerlink" title="3 string"></a>3 string</h1><h2 id="3-1-string基本概念"><a href="#3-1-string基本概念" class="headerlink" title="3.1 string基本概念"></a>3.1 string基本概念</h2><ul>
+<li>string是C++风格的字符串，而string本质上是一个类，类内部封装了char *，管理这个字符串，是一个char *型的容器</li>
+<li>char*是一个指针</li>
+</ul>
+<p>特点:</p>
+<ul>
+<li>string类内部封装了很多成员方法，例如：查找find，拷贝copy，删除delete替换repliace，插入insert</li>
+<li>string管理char *所分配的内存，不用担心复制越界和取值越界等，由类内部进行负责</li>
+</ul>
+<h2 id="3-2-string构造函数"><a href="#3-2-string构造函数" class="headerlink" title="3.2 string构造函数"></a>3.2 string构造函数</h2><p>构造函数原型：</p>
+<ul>
+<li><p><code>string();</code>   //创建一个空的字符串 例如：string str;</p>
+<p><code>string(const char* s);</code>  //使用字符串s初始化</p>
+</li>
+<li><p><code>string(const string&amp; str);</code>  //使用一个string对象初始化另一个string对象</p>
+</li>
+<li><p><code>string(int n,char c)</code>  //使用n个字符c初始化</p>
+</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//string的构造函数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string s1;<span class="comment">//默认构造</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span>* str = <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">    <span class="function">string <span class="title">s2</span><span class="params">(str)</span></span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;s2 = &quot;</span> &lt;&lt; s2 &lt;&lt; endl;</span><br><span class="line">    <span class="function">string <span class="title">s3</span><span class="params">(s2)</span></span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;s3 = &quot;</span> &lt;&lt; s3 &lt;&lt; endl;</span><br><span class="line">    <span class="function">string <span class="title">s4</span><span class="params">(<span class="number">10</span>, <span class="string">&#x27;a&#x27;</span>)</span></span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;s4 = &quot;</span> &lt;&lt; s4 &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">test1</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-3-string赋值操作"><a href="#3-3-string赋值操作" class="headerlink" title="3.3 string赋值操作"></a>3.3 string赋值操作</h2><p>赋值的函数原型：</p>
+<ul>
+<li><code>string&amp; operator=(const char* s);</code>  //char* 类型字符串 赋值给当前的字符串</li>
+<li><code>string&amp; operator=(const string &amp;s);</code>  //把字符串s赋给当前的字符串</li>
+<li><code>string&amp; operator=(char c);</code>  //字符赋给当前的字符串</li>
+<li><code>string&amp; assign=(const char *s);</code>  //把字符串s赋给当前的字符串</li>
+<li><code>string&amp; assign=(const char *s,int n);</code>  //把字符串s的前n个字符赋给当前的字符串</li>
+<li><code>string&amp; assign=(const char&amp; s);</code>  //把字符串s赋给当前的字符串</li>
+<li><code>string&amp; assign(int n,char c);</code>  //用n个字符c赋给当前字符串</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string str1;</span><br><span class="line">    str1 = <span class="string">&quot;hello world&quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str1 = &quot;</span> &lt;&lt; str1 &lt;&lt; endl;</span><br><span class="line">    string str2;</span><br><span class="line">    str2 = str1;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str2 = &quot;</span> &lt;&lt; str2 &lt;&lt; endl;</span><br><span class="line">    string str3;</span><br><span class="line">    str3 = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str3 = &quot;</span> &lt;&lt; str3 &lt;&lt; endl;</span><br><span class="line">    string str4;</span><br><span class="line">    str4.<span class="built_in">assign</span>(<span class="string">&quot;hello c++&quot;</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str4 = &quot;</span> &lt;&lt; str4 &lt;&lt; endl;</span><br><span class="line">    string str5;</span><br><span class="line">    str5.<span class="built_in">assign</span>(<span class="string">&quot;hello c++&quot;</span>, <span class="number">5</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str5 = &quot;</span> &lt;&lt; str5 &lt;&lt; endl;</span><br><span class="line">    string str6;</span><br><span class="line">    str6.<span class="built_in">assign</span>(str5);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str6 = &quot;</span> &lt;&lt; str6 &lt;&lt; endl;</span><br><span class="line">    string str7;</span><br><span class="line">    str7.<span class="built_in">assign</span>(<span class="number">10</span>, <span class="string">&#x27;w&#x27;</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str7 = &quot;</span> &lt;&lt; str7 &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">test1</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>operator方式较为常见</p>
+<h2 id="3-4-string字符串拼接"><a href="#3-4-string字符串拼接" class="headerlink" title="3.4 string字符串拼接"></a>3.4 string字符串拼接</h2><p>函数原型：</p>
+<ul>
+<li><code>string&amp; operator+=(const char* str);</code>  //重载+=操作符</li>
+<li><code>string&amp; operator+=(const char c);</code>  //重载+=操作符</li>
+<li><code>string&amp; operator+=(const string&amp; str);</code>  //重载+=操作符</li>
+<li><code>string&amp; append(const char *s);</code>  //把字符串s连接到当前字符串结尾</li>
+<li><code>string&amp; append(const char *s,int n);</code>  //把字符串s的前n个字符连接到当前字符串结尾</li>
+<li><code>string&amp; append(const string &amp;s);</code>  //同operator+=(const string&amp; str)</li>
+<li><code>string&amp; append(const string &amp;s,int pos,int n);</code>  //字符串s中从pos开始的n个字符连接到字符串结尾</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string str1 = <span class="string">&quot;我&quot;</span>;</span><br><span class="line">    str1 += <span class="string">&quot;爱玩游戏&quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str1 = &quot;</span> &lt;&lt; str1 &lt;&lt; endl;</span><br><span class="line">    str1 += <span class="string">&#x27;:&#x27;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str1 = &quot;</span> &lt;&lt; str1 &lt;&lt; endl;</span><br><span class="line">    string str2 = <span class="string">&quot;LOL DNF&quot;</span>;</span><br><span class="line">    str1 += str2;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str1 = &quot;</span> &lt;&lt; str1 &lt;&lt; endl;</span><br><span class="line">    string str3 = <span class="string">&quot;I&quot;</span>;</span><br><span class="line">    str3.<span class="built_in">append</span>(<span class="string">&quot; love &quot;</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str3 = &quot;</span> &lt;&lt; str3 &lt;&lt; endl;</span><br><span class="line">    str3.<span class="built_in">append</span>(<span class="string">&quot;game abcde&quot;</span>, <span class="number">4</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str3 = &quot;</span> &lt;&lt; str3 &lt;&lt; endl;</span><br><span class="line">    <span class="comment">//str3.append(str2);</span></span><br><span class="line">    str3.<span class="built_in">append</span>(str2, <span class="number">4</span>, <span class="number">6</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str3 = &quot;</span> &lt;&lt; str3 &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">test1</span>();</span><br><span class="line">    <span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-5-string查找和替换"><a href="#3-5-string查找和替换" class="headerlink" title="3.5 string查找和替换"></a>3.5 string查找和替换</h2><p>查找：查找指定字符串是否存在</p>
+<p>替换：在指定位置替换字符串</p>
+<p>函数原型：</p>
+<ul>
+<li><code>int find(const string&amp; str,int pos = 0) const;</code>  //查找str第一次出现位置，从pos开始查找</li>
+<li><code>int find(const char* s,int pos = 0) const;</code>  //查找s第一次出现位置，从pos开始查找</li>
+<li><code>int find(const char* s,int pos,int n) const;</code>  //从pos位置查找的前n个字符第一次位置</li>
+<li><code>int find(const char c,int pos = 0) const;</code>  //查找字符c第一次出现位置</li>
+<li><code>int rfind(const string&amp; str,int pos = npos) const;</code>  //查找str最后一次位置，从pos开始查找</li>
+<li><code>int rfind(const char* s,int pos = npos) const;</code>  //查找s最后一次出现位置，从pos开始查找</li>
+<li><code>int rfind(const char* s,int pos,int n) const;</code>  //从pos查找s的前n个字符最后一次出现位置</li>
+<li><code>int rfind(const char c,int pos = 0) const;</code>  //查找字符c最后一次出现位置</li>
+<li><code>string&amp; replace(int pos,int n,const string&amp; str);</code>  //替换从pos开始n个字符为字符串str</li>
+<li><code>string&amp; replace(int pos,int n,const char* s);</code>  //替换从pos开始n个字符为字符串s</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//1. 查找</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string str1 = <span class="string">&quot;abcdefg&quot;</span>;</span><br><span class="line">    <span class="keyword">int</span> pos = str1.<span class="built_in">find</span>(<span class="string">&quot;de&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (pos == <span class="number">-1</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;未找到字符串&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;找到字符串，pos = &quot;</span> &lt;&lt; pos &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//rfind</span></span><br><span class="line">    str1.<span class="built_in">rfind</span>(<span class="string">&quot;de&quot;</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;pos = &quot;</span> &lt;&lt; pos &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//2. 替换</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string str1 = <span class="string">&quot;abcdefg&quot;</span>;</span><br><span class="line">    str1.<span class="built_in">replace</span>(<span class="number">1</span>, <span class="number">3</span>, <span class="string">&quot;1111&quot;</span>);<span class="comment">//此处替换4个1</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str1 = &quot;</span> &lt;&lt; str1 &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//test1();</span></span><br><span class="line">    <span class="built_in">test2</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>find从左往右查，rfind从右往左查找</li>
+<li>find找到字符串后返回查找的第一个字符位置，找不到返回-1</li>
+<li>replace在替换时，要指定从哪个位置起，多少个字符，替换成什么样的字符串</li>
+</ul>
+<h2 id="3-6-string字符串比较"><a href="#3-6-string字符串比较" class="headerlink" title="3.6 string字符串比较"></a>3.6 string字符串比较</h2><p>根据ASCII码比较，=返回0，&gt;返回1，&lt;返回-1</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串比较</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string str1 = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    string str2 = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span> (str1.<span class="built_in">compare</span>(str2) == <span class="number">0</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;str1等于str2&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (str1.<span class="built_in">compare</span>(str2) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;str1大于str2&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;str1小于str2&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">test1</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-7-string字符存取"><a href="#3-7-string字符存取" class="headerlink" title="3.7 string字符存取"></a>3.7 string字符存取</h2><ul>
+<li><code>char&amp; operator[](int n);</code>  //通过[]方式取字符</li>
+<li><code>char&amp; at(int n);</code>  //通过at方法获取字符</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//string字符存取</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str = &quot;</span> &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">    <span class="comment">//1 通过[]访问单个字符</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">        cout &lt;&lt; str[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    <span class="comment">//2 通过at方式访问单个字符</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; str.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">        cout &lt;&lt; str.<span class="built_in">at</span>(i) &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    <span class="comment">//修改单个字符</span></span><br><span class="line">    str[<span class="number">0</span>] = <span class="string">&#x27;x&#x27;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str = &quot;</span> &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">    <span class="comment">//xello</span></span><br><span class="line">    str.<span class="built_in">at</span>(<span class="number">1</span>) = <span class="string">&#x27;x&#x27;</span>;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str = &quot;</span> &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">test1</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="string插入和删除"><a href="#string插入和删除" class="headerlink" title="string插入和删除"></a>string插入和删除</h3><ul>
+<li><code>string&amp; insert(int pos,const char* s);</code>  //插入字符串</li>
+<li><code>string&amp; insert(int pos,const string&amp; str);</code>  //插入字符串</li>
+<li><code>string&amp; insert(int pos,int n,char c);</code>  //在指定位置插入n个字符c</li>
+<li><code>string&amp; erase(int pos,int n = npos);</code>  //删除从pos开始的n个字符</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//字符串的插入和删除</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string str = <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">    <span class="comment">//插入</span></span><br><span class="line">    str.<span class="built_in">insert</span>(<span class="number">1</span>, <span class="string">&quot;111&quot;</span>);</span><br><span class="line">    <span class="comment">//h111ello</span></span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str = &quot;</span> &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">    <span class="comment">//删除</span></span><br><span class="line">    str.<span class="built_in">erase</span>(<span class="number">1</span>, <span class="number">3</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;str = &quot;</span> &lt;&lt; str &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">test1</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>插入和删除的起始下标都是从0开始</p>
+<h3 id="string子串"><a href="#string子串" class="headerlink" title="string子串"></a>string子串</h3><p>从字符串中获取想要的子串</p>
+<p>函数原型：</p>
+<ul>
+<li><code>string substr(int pos = 0,int n=npos) const;</code>  //返回由pos开始的n个字符组组成的字符串</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//string求子串</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string str = <span class="string">&quot;abcdef&quot;</span>;</span><br><span class="line">    string subStr = str.<span class="built_in">substr</span>(<span class="number">1</span>, <span class="number">3</span>);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;subStr = &quot;</span> &lt;&lt; subStr &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//实用操作</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    string email = <span class="string">&quot;zhangsan@sina.com&quot;</span>;</span><br><span class="line">    <span class="comment">//从邮件地址中 获取 用户名信息</span></span><br><span class="line">    <span class="keyword">int</span> pos = email.<span class="built_in">find</span>(<span class="string">&quot;@&quot;</span>);</span><br><span class="line">    string userName = email.<span class="built_in">substr</span>(<span class="number">0</span>, pos);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;userName = &quot;</span> &lt;&lt; userName &lt;&lt; endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">test1</span>();</span><br><span class="line">    <span class="built_in">test2</span>();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：stl初识</li>
+        <li>本文作者：馨er</li>
+        <li>创建时间：2021-04-20 21:18:23</li>
+        <li>
+            本文链接：https://sjxbbd.vercel.app/2021/04/20/030a2439c3a5/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/C/">#C++</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/STL/">#STL</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev" rel="prev" href="/2021/04/21/3a2ed83ec0bd/">
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">PAT乙级-1003 我要通过</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next" rel="next" href="/2021/04/19/7dd19209e638/">
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">基础算法</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">馨er</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io" rel="external nofollow noopener noreferrer">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep" rel="external nofollow noopener noreferrer">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-STL%E5%88%9D%E8%AF%86"><span class="nav-text">1 STL初识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-STL%E5%85%AD%E5%A4%A7%E7%BB%84%E4%BB%B6"><span class="nav-text">1.1 STL六大组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-%E5%AE%B9%E5%99%A8%E7%AE%97%E6%B3%95%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%88%9D%E8%AF%86"><span class="nav-text">1.2 容器算法迭代器初识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-vector%E5%AD%98%E6%94%BE%E5%86%85%E7%BD%AE%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">1.2.1 vector存放内置数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-vector%E5%AD%98%E6%94%BE%E8%87%AA%E5%AE%9A%E4%B9%89%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-text">1.2.2 vector存放自定义数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-vector%E5%AE%B9%E5%99%A8%E5%B5%8C%E5%A5%97%E5%AE%B9%E5%99%A8"><span class="nav-text">1.2.3 vector容器嵌套容器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-vector"><span class="nav-text">2 vector</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-vector%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">2.1 vector基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-vector%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">2.2 vector构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-vector%E8%B5%8B%E5%80%BC%E6%93%8D%E4%BD%9C"><span class="nav-text">2.3 vector赋值操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-vector%E5%AE%B9%E9%87%8F%E5%92%8C%E5%A4%A7%E5%B0%8F"><span class="nav-text">2.4 vector容量和大小</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-string"><span class="nav-text">3 string</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-string%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="nav-text">3.1 string基本概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-string%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0"><span class="nav-text">3.2 string构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-string%E8%B5%8B%E5%80%BC%E6%93%8D%E4%BD%9C"><span class="nav-text">3.3 string赋值操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-string%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%8B%BC%E6%8E%A5"><span class="nav-text">3.4 string字符串拼接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-string%E6%9F%A5%E6%89%BE%E5%92%8C%E6%9B%BF%E6%8D%A2"><span class="nav-text">3.5 string查找和替换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-string%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%AF%94%E8%BE%83"><span class="nav-text">3.6 string字符串比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-7-string%E5%AD%97%E7%AC%A6%E5%AD%98%E5%8F%96"><span class="nav-text">3.7 string字符存取</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#string%E6%8F%92%E5%85%A5%E5%92%8C%E5%88%A0%E9%99%A4"><span class="nav-text">string插入和删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#string%E5%AD%90%E4%B8%B2"><span class="nav-text">string子串</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src>
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

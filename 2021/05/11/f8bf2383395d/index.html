@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="jiuchengBlog 博客">
+    <meta name="description" content="hello, here is JiuCheng&#39; s blog">
+    <meta name="author" content="馨er">
+    
+    <title>
+        
+            PAT乙级-1018 锤子剪刀布 |
+        
+        馨er的学习之路
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"jiucheng120.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/logo.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.png","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                馨er的学习之路
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class href="/">
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/archives">
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/categories">
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/tags">
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/about">
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">PAT乙级-1018 锤子剪刀布</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">馨er</span>
+                        
+                            <span class="author-label">Lv4</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2021-05-11 18:03:39</span>
+        <span class="mobile">2021-05-11 18:03</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/PAT%E4%B9%99%E7%BA%A7/">PAT乙级</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E6%A8%A1%E6%8B%9F/">模拟</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p>模拟</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p><img src="https://images.ptausercontent.com/724da598-b37f-4f1f-99b4-71459654ce3a.jpg" alt="题目图片"></p>
+<p>现给出两人的交锋记录，请统计双方的胜、平、负次数，并且给出双方分别出什么手势的胜算最大。</p>
+<p>输入格式：</p>
+<p>输入第 1 行给出正整数 $N$（≤$10^5$），即双方交锋的次数。随后 $N$ 行，每行给出一次交锋的信息，即甲、乙双方同时给出的的手势。C 代表“锤子”、J 代表“剪刀”、B 代表“布”，第 1 个字母代表甲方，第 2 个代表乙方，中间有 1 个空格。</p>
+<p>输出格式：</p>
+<p>输出第 1、2 行分别给出甲、乙的胜、平、负次数，数字间以 1 个空格分隔。第 3 行给出两个字母，分别代表甲、乙获胜次数最多的手势，中间有 1 个空格。如果解不唯一，则输出按字母序最小的解。</p>
+<p>输入样例：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">C J</span><br><span class="line">J B</span><br><span class="line">C B</span><br><span class="line">B B</span><br><span class="line">B C</span><br><span class="line">C C</span><br><span class="line">C B</span><br><span class="line">J B</span><br><span class="line">B C</span><br><span class="line">J J</span><br></pre></td></tr></table></figure>
+
+<p>输出样例：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">5 3 2</span><br><span class="line">2 3 5</span><br><span class="line">B B</span><br></pre></td></tr></table></figure>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>水题</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">int</span> x[<span class="number">3</span>], y[<span class="number">3</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, w1 = <span class="number">0</span>, w2 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">char</span> a, b;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">        <span class="keyword">if</span> (a == <span class="string">&#x27;B&#x27;</span> &amp;&amp; b == <span class="string">&#x27;C&#x27;</span>) &#123;</span><br><span class="line">            w1++;</span><br><span class="line">            x[<span class="number">0</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (a == <span class="string">&#x27;B&#x27;</span> &amp;&amp; b == <span class="string">&#x27;J&#x27;</span>) &#123;</span><br><span class="line">            w2++;</span><br><span class="line">            y[<span class="number">2</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (a == <span class="string">&#x27;C&#x27;</span> &amp;&amp; b == <span class="string">&#x27;J&#x27;</span>) &#123;</span><br><span class="line">            w1++;</span><br><span class="line">            x[<span class="number">1</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (a == <span class="string">&#x27;C&#x27;</span> &amp;&amp; b == <span class="string">&#x27;B&#x27;</span>) &#123;</span><br><span class="line">            w2++;</span><br><span class="line">            y[<span class="number">0</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (a == <span class="string">&#x27;J&#x27;</span> &amp;&amp; b == <span class="string">&#x27;B&#x27;</span>) &#123;</span><br><span class="line">            w1++;</span><br><span class="line">            x[<span class="number">2</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (a == <span class="string">&#x27;J&#x27;</span> &amp;&amp; b == <span class="string">&#x27;C&#x27;</span>) &#123;</span><br><span class="line">            w2++;</span><br><span class="line">            y[<span class="number">1</span>]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; w1 &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; n - w1 - w2 &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; w2 &lt;&lt; endl;</span><br><span class="line">    cout &lt;&lt; w2 &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; n - w1 - w2 &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; w1 &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">char</span> l[<span class="number">3</span>] = &#123; <span class="string">&#x27;B&#x27;</span>,<span class="string">&#x27;C&#x27;</span>,<span class="string">&#x27;J&#x27;</span> &#125;;</span><br><span class="line">    <span class="keyword">int</span> max1 = x[<span class="number">0</span>] &gt;= x[<span class="number">1</span>] ? ((x[<span class="number">0</span>] &gt;= x[<span class="number">2</span>]) ? <span class="number">0</span> : <span class="number">2</span>) : ((x[<span class="number">1</span>] &gt;= x[<span class="number">2</span>]) ? <span class="number">1</span> : <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">int</span> max2 = y[<span class="number">0</span>] &gt;= y[<span class="number">1</span>] ? ((y[<span class="number">0</span>] &gt;= y[<span class="number">2</span>]) ? <span class="number">0</span> : <span class="number">2</span>) : ((y[<span class="number">1</span>] &gt;= y[<span class="number">2</span>]) ? <span class="number">1</span> : <span class="number">2</span>);</span><br><span class="line">    cout &lt;&lt; l[max1] &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; l[max2] &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://pintia.cn/problem-sets/994805260223102976/problems/994805304020025344">题目链接<i class="fas fa-external-link-alt"></i></a></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：PAT乙级-1018 锤子剪刀布</li>
+        <li>本文作者：馨er</li>
+        <li>创建时间：2021-05-11 18:03:39</li>
+        <li>
+            本文链接：https://sjxbbd.vercel.app/2021/05/11/f8bf2383395d/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E6%A8%A1%E6%8B%9F/">#模拟</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev" rel="prev" href="/2021/05/11/f42413e7420b/">
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">PAT乙级-1019 数字黑洞</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next" rel="next" href="/2021/05/11/8c2263b9d9fb/">
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">PAT乙级-1017 A除以B</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">馨er</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io" rel="external nofollow noopener noreferrer">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep" rel="external nofollow noopener noreferrer">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3"><span class="nav-text">题解</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src>
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>

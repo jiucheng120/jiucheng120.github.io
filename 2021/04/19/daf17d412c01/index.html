@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="jiuchengBlog 博客">
+    <meta name="description" content="hello, here is JiuCheng&#39; s blog">
+    <meta name="author" content="馨er">
+    
+    <title>
+        
+            PAT乙级-1002写出这个数 |
+        
+        馨er的学习之路
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"jiucheng120.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":false},"style":{"primary_color":"#0066CC","avatar":"/images/avatar.png","favicon":"/images/logo.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.png","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":false},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                馨er的学习之路
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class href="/">
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/archives">
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/categories">
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/tags">
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/about">
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">PAT乙级-1002写出这个数</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">馨er</span>
+                        
+                            <span class="author-label">Lv4</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2021-04-19 15:40:00</span>
+        <span class="mobile">2021-04-19 15:40</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/PAT%E4%B9%99%E7%BA%A7/">PAT乙级</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/">字符串处理</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p>字符串处理</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>读入一个自然数n，计算其各位数字之和，用汉语拼音写出和的每⼀位数字。</p>
+<p>输入格式：每个测试输入包含1个测试用例，即给出自然数n的值。这里保证n小于10100。</p>
+<p>输出格式：</p>
+<p>在一行内输出n的各位数字之和的每一位，拼音数字间有1空格，但一行中最后一个拼音数字后没有空格。</p>
+<p>输入样例：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1234567890987654321123456789</span><br></pre></td></tr></table></figure>
+
+<p>输出样例：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yi san wu</span><br></pre></td></tr></table></figure>
+
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><p>这里考虑的数值比较大，通过类似高精度的方法把sum的每一位数字都存到b数组里，最后方便输出</p>
+<p>先开始想直接用字符串，而不是开数组，结果没有成功，只能开了字符串数组，至于输出拼音，就是用if来打表了，也可以把拼音存到数组里，剩下的应该没什么问题~~</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Prt</span><span class="params">(<span class="keyword">char</span> a)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a == <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;ling&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (a == <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;yi&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (a == <span class="string">&#x27;2&#x27;</span>)</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;er&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (a == <span class="string">&#x27;3&#x27;</span>)</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;san&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (a == <span class="string">&#x27;4&#x27;</span>)</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;si&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (a == <span class="string">&#x27;5&#x27;</span>)</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;wu&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (a == <span class="string">&#x27;6&#x27;</span>)</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;liu&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (a == <span class="string">&#x27;7&#x27;</span>)</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;qi&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (a == <span class="string">&#x27;8&#x27;</span>)</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;ba&quot;</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (a == <span class="string">&#x27;9&#x27;</span>)</span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;jiu&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> a[<span class="number">105</span>], b[<span class="number">4</span>];</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>, i;</span><br><span class="line">    cin &gt;&gt; a;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; a[i] != <span class="string">&#x27;\0&#x27;</span>; i++) &#123;</span><br><span class="line">        sum += a[i] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (sum) &#123;</span><br><span class="line">        b[i++] = sum % <span class="number">10</span> + <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        sum /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">        <span class="keyword">if</span> (j != i - <span class="number">1</span>) cout &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">        <span class="built_in">Prt</span>(b[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://pintia.cn/problem-sets/994805260223102976/problems/994805324509200384">题目链接<i class="fas fa-external-link-alt"></i></a></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：PAT乙级-1002写出这个数</li>
+        <li>本文作者：馨er</li>
+        <li>创建时间：2021-04-19 15:40:00</li>
+        <li>
+            本文链接：https://sjxbbd.vercel.app/2021/04/19/daf17d412c01/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/">#字符串处理</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev" rel="prev" href="/2021/04/19/7dd19209e638/">
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">基础算法</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next" rel="next" href="/2021/04/19/e3eebe496c88/">
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">PAT乙级-1001 害死人不偿命</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">馨er</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io" rel="external nofollow noopener noreferrer">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep" rel="external nofollow noopener noreferrer">Keep v3.4.5</a>
+        </div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3"><span class="nav-text">题解</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src>
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+
+</body>
+</html>
