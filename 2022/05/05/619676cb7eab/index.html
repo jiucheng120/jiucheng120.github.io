@@ -240,6 +240,7 @@
 <p>移动端适配笔记</p>
 </blockquote>
 <span id="more"></span>
+
 <h1 id="1-什么是移动端适配"><a href="#1-什么是移动端适配" class="headerlink" title="1 什么是移动端适配"></a>1 什么是移动端适配</h1><p><strong>移动端开发目前主要包括三类：</strong></p>
 <p>1、原生App开发（iOS、Android、RN、uniapp、Flutter等）</p>
 <p>2、小程序开发（原生小程序、uniapp、Taro等）</p>
@@ -260,6 +261,7 @@
 <h2 id="2-3-理想视口"><a href="#2-3-理想视口" class="headerlink" title="2.3 理想视口"></a>2.3 理想视口</h2><p><strong>理想视口（ideal viewport）：</strong>默认情况下的layout viewport并不适合我们进行布局，我们可以对layout viewport进行宽度和缩放的设置，以满足正常在一个移动端窗口的布局，这个时候可以设置meta中的viewport</p>
 <p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220518135908207.png" alt="image-20220518135908207"></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--设置布局视口的宽度--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--不允许缩放--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <h1 id="3-移动端适配方案"><a href="#3-移动端适配方案" class="headerlink" title="3 移动端适配方案"></a>3 移动端适配方案</h1><p>我们希望在不同的屏幕尺寸上显示不同的大小，所以我们需要处理尺寸，不能再用px这种绝对单位</p>
 <h2 id="3-1-百分比设置"><a href="#3-1-百分比设置" class="headerlink" title="3.1 百分比设置"></a>3.1 百分比设置</h2><p>因为不同属性的百分比值，相对的可能是不同参照物，所以百分比往往很难统一，所以百分比在移动端适配中使用是非常少的；</p>
 <h2 id="3-2-rem单位-动态html的font-size"><a href="#3-2-rem单位-动态html的font-size" class="headerlink" title="3.2 rem单位+动态html的font-size"></a>3.2 rem单位+动态html的font-size</h2><p>rem单位是相对于html元素的font-size来设置的，那么如果我们需要在不同的屏幕下有不同的尺寸，可以动态的修改html的font-size尺寸。</p>
@@ -275,16 +277,19 @@
 <p>1、我们需要针对不同的屏幕编写大量的媒体查询 </p>
 <p>2、如果动态改变尺寸，不会实时的进行更新</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">320px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">html</span> &#123; <span class="attribute">font-size</span>: <span class="number">32px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">375px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">html</span> &#123; <span class="attribute">font-size</span>: <span class="number">37.5px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@media</span> screen <span class="keyword">and</span> (<span class="attribute">min-width</span>: <span class="number">414px</span>) &#123;</span><br><span class="line">    <span class="selector-tag">html</span> &#123; <span class="attribute">font-size</span>: <span class="number">41.1px</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h4 id="2、编写js代码"><a href="#2、编写js代码" class="headerlink" title="2、编写js代码"></a>2、编写js代码</h4><p>如果希望实时改变尺寸时，font-size也可以实时更改，可以通过js代码</p>
 <p>方法： </p>
 <p>1、根据html的宽度计算出font-size的大小，并且设置到html上</p>
 <p>2、监听页面的实时改变，并且重新设置font-size的大小到html上</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> htmlEl = <span class="built_in">document</span>.documentElement</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setRemUnit</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// htmlEl.clientWidth实时的视口宽度</span></span><br><span class="line">    <span class="keyword">const</span> unit = htmlEl.clientWidth / <span class="number">10</span></span><br><span class="line">    <span class="comment">// 实时改变html根元素的字体大小</span></span><br><span class="line">    htmlEl.style.fontSize = unit + <span class="string">&quot;px&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 默认先执行一次函数，保证第一次加载页面时，设置一次font-size</span></span><br><span class="line">setRemUnit()</span><br><span class="line"><span class="comment">// 增加监听，当屏幕尺寸发生变化时，实时来修改html的font-size</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&quot;resize&quot;</span>, setRemUnit)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 增加监听，用户访问页面时触发，设置一次font-size</span></span><br><span class="line"><span class="comment">// 防止代码前进后退时缓存造成的不适配问题</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&quot;pageshow&quot;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (e.persisted) &#123;</span><br><span class="line">        setRemUnit()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
 <p>可以重新在body中设置font-size的大小，防止页面字体显示不正常</p>
 <h4 id="3、lib-flexible库"><a href="#3、lib-flexible库" class="headerlink" title="3、lib-flexible库"></a>3、lib-flexible库</h4><p>事实上，lib-flexible库做的事情是相同的，你也可以直接引入它</p>
 <p>仓库地址<a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/amfe/lib-flexible/blob/2.0/index.js">https://github.com/amfe/lib-flexible/blob/2.0/index.js<i class="fas fa-external-link-alt"></i></a></p>
 <h3 id="3-2-2-rem的单位换算"><a href="#3-2-2-rem的单位换算" class="headerlink" title="3.2.2 rem的单位换算"></a>3.2.2 rem的单位换算</h3><h4 id="1、手动换算"><a href="#1、手动换算" class="headerlink" title="1、手动换算"></a>1、手动换算</h4><p>比如有一个在375px屏幕上100px宽度和高度的盒子，我们需要将100px转成对应的rem值：100/37.5=2.6667，其他也是相同的方法计算即可</p>
 <h4 id="2、less-scss函数"><a href="#2、less-scss函数" class="headerlink" title="2、less/scss函数"></a>2、less/scss函数</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.pxToRem</span>(<span class="variable">@px</span>) &#123;</span><br><span class="line">    <span class="comment">// @htmlFontSize一般设置为视口宽度的0.1</span></span><br><span class="line">    <span class="comment">// 开发时@htmlFontSize可以直接写成设计稿视口宽度的0.1</span></span><br><span class="line">    result: (@px / @htmlFontSize) * 1rem</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: .pxToRem(<span class="number">100</span>)[result];</span><br><span class="line">    <span class="attribute">font-size</span>: .pxToRem(<span class="number">18</span>)[result];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h4 id="3、postcss-pxtorem"><a href="#3、postcss-pxtorem" class="headerlink" title="3、postcss-pxtorem"></a>3、postcss-pxtorem</h4><p>目前在前端的工程化开发中，我们可以借助于webpack的工具来完成自动的转化（需要配置@htmlFontSize的大小）</p>
 <h4 id="4、VSCode插件"><a href="#4、VSCode插件" class="headerlink" title="4、VSCode插件"></a>4、VSCode插件</h4><p>px to rem &amp; rpx &amp; vw 的插件，在编写时自动转化</p>
 <p>需要从扩展设置中配置自己所需要的root font-size</p>
@@ -297,6 +302,7 @@
 <p>vw不兼容旧的浏览器，不限制大的极限</p>
 <h3 id="3-3-2-vw的单位换算"><a href="#3-3-2-vw的单位换算" class="headerlink" title="3.3.2 vw的单位换算"></a>3.3.2 vw的单位换算</h3><h4 id="1、手动换算-1"><a href="#1、手动换算-1" class="headerlink" title="1、手动换算"></a>1、手动换算</h4><p>比如有一个在375px屏幕上，100px宽度和高度的盒子，我们需要将100px转成对应的vw值：100/3.75=26.667，其他也是相同的方法计算即可</p>
 <h4 id="2、less-scss函数-1"><a href="#2、less-scss函数-1" class="headerlink" title="2、less/scss函数"></a>2、less/scss函数</h4><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@vwUnit: 3.75;</span><br><span class="line"><span class="selector-class">.pxToVw</span>(<span class="keyword">@px</span>) &#123;</span><br><span class="line">    result: (@px / @vwUnit) * <span class="number">1vw</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: .<span class="built_in">pxToVw</span>(<span class="number">100</span>)[result];</span><br><span class="line">    <span class="attribute">height</span>: .<span class="built_in">pxToVw</span>(<span class="number">100</span>)[result];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h4 id="3、postcss-px-to-viewport-8-plugin（后续学习）"><a href="#3、postcss-px-to-viewport-8-plugin（后续学习）" class="headerlink" title="3、postcss-px-to-viewport-8-plugin（后续学习）"></a>3、postcss-px-to-viewport-8-plugin（后续学习）</h4><p>和rem一样，在前端的工程化开发中，我们可以借助于webpack的工具来完成自动的转化；</p>
 <h4 id="4、VSCode插件-1"><a href="#4、VSCode插件-1" class="headerlink" title="4、VSCode插件"></a>4、VSCode插件</h4><p>px to rem &amp; rpx &amp; vw 的插件，在编写时自动转化</p>
 <p><code>rpx</code>为小程序中的单位</p>
@@ -305,6 +311,7 @@
 <p>CSS为了进一步增强自己的布局能力，提供了grid布局：CSS Grid Layout（又名”Grid”或”CSS Grid”）是一种基于二维的布局系统，它更加强大，同时也更加复杂</p>
 <p>公司目前都使用flex布局，因为grid布局相对兼容性较差</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">grid-template-<span class="attribute">columns</span>: <span class="number">100px</span> <span class="number">1</span>fr <span class="number">100px</span>;</span><br><span class="line">grid-template-rows: <span class="built_in">repeat</span>(<span class="number">2</span>, <span class="number">100px</span>);</span><br></pre></td></tr></table></figure>
+
 <h2 id="4-2-grid布局重要概念"><a href="#4-2-grid布局重要概念" class="headerlink" title="4.2 grid布局重要概念"></a>4.2 grid布局重要概念</h2><p><code>Grid Container</code>： 元素设置display为grid的盒子</p>
 <p><code>Grid Item</code>：单元格称之为grid cell，Grid Container的直接子项（必须是直接子代）</p>
 <p><code>Grid Line</code>：构成网络结构的分割线。它们可以是垂直的（“列网格线”）或水平的（“行网格线”）</p>
@@ -372,6 +379,18 @@
 
         
             <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev" rel="prev" href="/2022/05/23/660c1be58647/">
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Vue3.0</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
                 
                 
                     <div class="article-next">

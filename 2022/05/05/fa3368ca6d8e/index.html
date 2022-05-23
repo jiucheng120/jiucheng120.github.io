@@ -240,6 +240,9 @@
 <p>HTML5新增</p>
 </blockquote>
 <span id="more"></span>
+
+
+
 <h1 id="1-HTML5语义化元素"><a href="#1-HTML5语义化元素" class="headerlink" title="1 HTML5语义化元素"></a>1 HTML5语义化元素</h1><p>header、nav、main、footer</p>
 <p>使用过多的div，对于浏览器来说元素不够语义化；对于搜索引擎来说，不利于SEO的优化</p>
 <p><strong>HTML5新增语义化元素</strong></p>
@@ -271,6 +274,9 @@
 </blockquote>
 <h3 id="支持的视频格式"><a href="#支持的视频格式" class="headerlink" title="支持的视频格式"></a>支持的视频格式</h3><p>常见的格式<code>mp4</code>，兼容性最好</p>
 <h3 id="video的兼容性写法"><a href="#video的兼容性写法" class="headerlink" title="video的兼容性写法"></a>video的兼容性写法</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">&quot;./assets/fcrs.mp4&quot;</span> <span class="attr">width</span>=<span class="string">&quot;600&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;./assets/fcrs.ogg&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">source</span> <span class="attr">src</span>=<span class="string">&quot;./assets/fcrs.webn&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>当前您的浏览器不支持视频的播放，请更换更好用的浏览器<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="2-2-音频"><a href="#2-2-音频" class="headerlink" title="2.2 音频"></a>2.2 音频</h2><p><code>&lt;audio&gt;</code></p>
 <h3 id="常见属性-1"><a href="#常见属性-1" class="headerlink" title="常见属性"></a>常见属性</h3><ul>
 <li><code>src</code>：音频播放的URL地址</li>
@@ -290,9 +296,10 @@
 <p><code>tel</code></p>
 <p><code>color</code></p>
 <p><code>email</code></p>
-<h2 id="2-4-全局属性data"><a href="#2-4-全局属性data" class="headerlink" title="2.4 全局属性data-*"></a>2.4 全局属性data-*</h2><p>全局属性data-<em>，用于<em>*自定义数据属性</em></em></p>
+<h2 id="2-4-全局属性data"><a href="#2-4-全局属性data" class="headerlink" title="2.4 全局属性data-*"></a>2.4 全局属性data-*</h2><p>全局属性data-<em>，用于*<em>自定义数据属性</em></em></p>
 <p>data设置的属性可以在JavaScript的DOM操作中通过dataset轻松获取到，通常用于HTML和JavaScript数据之间的传递</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;box&quot;</span> <span class="attr">title</span>=<span class="string">&quot;abc&quot;</span> <span class="attr">data-name</span>=<span class="string">&quot;why&quot;</span> <span class="attr">data-age</span>=<span class="string">&quot;18&quot;</span>&gt;</span></span><br><span class="line">    box</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">const</span> boxEl = <span class="built_in">document</span>.querySelector(<span class="string">&quot;.box&quot;</span>)</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(boxEl.dataset)  <span class="comment">// 输出一个对象，包含name,age中的内容</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>在小程序中，就是通过<code>data-</code>来传递数据的</p>
 <h1 id="3-CSS"><a href="#3-CSS" class="headerlink" title="3 CSS"></a>3 CSS</h1><h2 id="3-1-white-space"><a href="#3-1-white-space" class="headerlink" title="3.1 white-space"></a>3.1 white-space</h2><p>white-space用于设置<strong>空白处理</strong>和<strong>换行规则</strong></p>
 <p>空白符（空格，tab，换行符）</p>
@@ -309,15 +316,18 @@
 <p><code>ellipsis</code>：溢出那行的结尾处用省略号表示</p>
 <p>一般书写方式</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/* 经常写的三行代码 */</span></span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">white-space</span>: nowrap;</span><br><span class="line">    <span class="attribute">text-overflow</span>: ellipsis;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="3-3-CSS中的函数"><a href="#3-3-CSS中的函数" class="headerlink" title="3.3 CSS中的函数"></a>3.3 CSS中的函数</h2><p>之前使用过的函数<code>rgb</code>、<code>rgba</code>、<code>translate</code>、<code>rotate</code>、<code>scale</code></p>
 <h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>使用CSS定义的变量</p>
-<p>CSS中可以自定义属性：属性名需要以两个减号—开始，属性值则可以是任何的CSS值；使用时通过var函数使用</p>
+<p>CSS中可以自定义属性：属性名需要以两个减号–开始，属性值则可以是任何的CSS值；使用时通过var函数使用</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">    --<span class="selector-tag">main</span>-<span class="attribute">color</span>: <span class="number">#f3c358</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--main-color);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.title</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="built_in">var</span>(--main-color);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>推荐将自定义属性定义在html中，因为只有后代元素可以使用该属性</p>
 </blockquote>
 <h3 id="calc"><a href="#calc" class="headerlink" title="calc"></a>calc</h3><p>计算CSS值，通常用于计算元素的大小或位置，culculate的缩写</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: orange;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item1</span> &#123;</span><br><span class="line">    <span class="comment">/* width的百分比相对于包含块（父元素） */</span></span><br><span class="line">    <span class="comment">/* 减号两边必须有空格，否则不生效 */</span></span><br><span class="line">    <span class="attribute">width</span>: <span class="built_in">calc</span>(<span class="number">100%</span> - <span class="number">100px</span>);</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item2</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="blur"><a href="#blur" class="headerlink" title="blur"></a>blur</h3><p>将高斯模糊应用于输出图片或者元素</p>
 <p><code>blur(radius)</code>，radius为模糊的半径，用于定义高斯函数的偏差值，偏差值越大，图片越模糊</p>
 <p><strong>通常会和两个属性一起使用：</strong></p>
@@ -328,7 +338,9 @@
 </li>
 </ul>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span> &#123;</span><br><span class="line">    <span class="attribute">filter</span>: <span class="built_in">blur</span>(<span class="number">5px</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.cover</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: black;</span><br><span class="line">    backdrop-<span class="attribute">filter</span>: <span class="built_in">filter</span>(<span class="number">5px</span>);</span><br><span class="line">    <span class="comment">/* 需有颜色遮盖层 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="gradient"><a href="#gradient" class="headerlink" title="gradient"></a>gradient</h3><p>颜色渐变函数</p>
 <p><code>&lt;gradient&gt;</code> 是一种<code>&lt;image&gt;</code>CSS数据类型的子类型，用于表现两种或多种颜色的过渡转变。 </p>
 <p>CSS的<code>&lt;image&gt;</code>数据类型描述的是2D图形，比如background-image、list-style-image、border-image、content等。<code>&lt;image&gt;</code>常见的方式是通过url来引入一个图片资源，它也可以通过CSS的<code>&lt;gradient&gt;</code> 函数来设置颜色的渐变</p>
@@ -345,8 +357,10 @@
 </ul>
 <p><strong>1、<code>linear-gradient()</code>的使用</strong></p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="comment">/* 从上到下 */</span></span><br><span class="line">    <span class="comment">/* background-image: linear-gradient(red, blue); */</span></span><br><span class="line">    <span class="comment">/* 从左到右 */</span></span><br><span class="line">    <span class="comment">/* background-image: linear-gradient(to right, red, blue); */</span></span><br><span class="line">    <span class="comment">/* 从左上角到右下角 */</span></span><br><span class="line">    <span class="comment">/* background-image: linear-gradient(to right top, red, blue); */</span></span><br><span class="line">    <span class="comment">/* 设置角度 */</span></span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(-<span class="number">45deg</span>, red, blue);</span><br><span class="line">    <span class="comment">/* 其他写法 */</span></span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(to right, blue, red <span class="number">10%</span>, purple <span class="number">40px</span>, orange);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><strong>2、<code>radial-gradient()</code>的使用</strong></p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">radial-gradient</span>(red, blue);</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">radial-gradient</span>(at -% <span class="number">50%</span>, red, blue);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h1 id="4-浏览器前缀"><a href="#4-浏览器前缀" class="headerlink" title="4 浏览器前缀"></a>4 浏览器前缀</h1><p>属性名或者属性值之前加<code>-o-</code>、<code>-xv-</code>、<code>-ms-</code>、<code>mso-</code>、<code>-moz-</code>、<code>-webkit-</code></p>
 <p>官方文档专业术语叫做：vendor-specific extensions（供应商特定拓展）</p>
 <p>CSS属性刚开始并没有成为标准，浏览器为了防止后续会修改名字给新的属性添加了浏览器前缀</p>
@@ -368,13 +382,20 @@
 </li>
 <li><p>绝对定位元素（元素的position为absolute或fixed）</p>
 </li>
-<li>行内块元素（元素的display为inline-block）</li>
-<li>表格单元格（元素的display为table-cell，HTML表格单元格默认为该值）、表格标题（元素的display为table-caption，HTML表格标题默认为该值）</li>
-<li>匿名表格单元格元素（元素的display为table、table-row、table-row-group、table-header-group、table-footer-group（分别是HTML table、row、tbody、thead、tfoot的默认属性）或inline-table）</li>
-<li>overflow计算值（Computed）不为visible的元素</li>
-<li>弹性元素（display为flex或inline-flex元素的直接子元素）</li>
-<li>网格元素（display为grid或inline-grid元素的直接子元素）</li>
-<li>display值为flow-root的元素</li>
+<li><p>行内块元素（元素的display为inline-block）</p>
+</li>
+<li><p>表格单元格（元素的display为table-cell，HTML表格单元格默认为该值）、表格标题（元素的display为table-caption，HTML表格标题默认为该值）</p>
+</li>
+<li><p>匿名表格单元格元素（元素的display为table、table-row、table-row-group、table-header-group、table-footer-group（分别是HTML table、row、tbody、thead、tfoot的默认属性）或inline-table）</p>
+</li>
+<li><p>overflow计算值（Computed）不为visible的元素</p>
+</li>
+<li><p>弹性元素（display为flex或inline-flex元素的直接子元素）</p>
+</li>
+<li><p>网格元素（display为grid或inline-grid元素的直接子元素）</p>
+</li>
+<li><p>display值为flow-root的元素</p>
+</li>
 </ul>
 </blockquote>
 <h2 id="5-1-解决折叠问题"><a href="#5-1-解决折叠问题" class="headerlink" title="5.1 解决折叠问题"></a>5.1 解决折叠问题</h2><p>1、在BFC中，box会在垂直方向上一个挨着一个排布；</p>
@@ -392,9 +413,12 @@
 <h1 id="6-媒体查询"><a href="#6-媒体查询" class="headerlink" title="6 媒体查询"></a>6 媒体查询</h1><p>媒体查询是一种提供给开发者针对<strong>不同设备</strong>需求进行<strong>定制化开发</strong>的一个接口。可以根据设备的类型（比如屏幕设备、打印机设备）或者特定的特性（比如屏幕的宽度）来修改你的页面。</p>
 <h2 id="6-1-使用方式"><a href="#6-1-使用方式" class="headerlink" title="6.1 使用方式"></a>6.1 使用方式</h2><p>方式一：通过@media和@import使用不同的CSS规则</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="css">    <span class="keyword">@import</span> url(./css/miniScreen.css) (<span class="attribute">max-width</span>: <span class="number">600px</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;style&gt;</span><br><span class="line">    <span class="keyword">@media</span> (<span class="attribute">max-width</span>: <span class="number">600px</span>) &#123;</span><br><span class="line">        <span class="selector-tag">body</span> &#123;</span><br><span class="line">            <span class="attribute">background-color</span>: orange;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
 <p>方式二：使用media属性为<code>&lt;style</code>、<code>&lt;link&gt;</code>、<code>&lt;source&gt;</code>和其他HTML元素指定特定的媒体类型</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">media</span>=<span class="string">&quot;(max-width: 600px)&quot;</span> <span class="attr">href</span>=<span class="string">&quot;./css/miniScreen.css&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>方式三：使用Window.matchMedia()和MediaQueryList.addListener()方法来测试和监控媒体状态（比较常用的是通过@media来使用不同的CSS规则）</p>
 <h2 id="6-2-媒体类型"><a href="#6-2-媒体类型" class="headerlink" title="6.2 媒体类型"></a>6.2 媒体类型</h2><p>在使用媒体查询时，必须指定要使用的媒体类型，会<strong>隐式应用all类型</strong></p>
 <h3 id="常见的媒体类型值"><a href="#常见的媒体类型值" class="headerlink" title="常见的媒体类型值"></a>常见的媒体类型值</h3><p><code>all</code>用于所有设备类型</p>
@@ -410,8 +434,10 @@
 <p><code>only</code>：only运算符仅在整个查询匹配时才用于应用样式。</p>
 <p><code>,</code>：逗号用于将多个媒体查询合并为一个规则。</p>
 <h2 id="6-5-练习（屏幕尺寸适配）"><a href="#6-5-练习（屏幕尺寸适配）" class="headerlink" title="6.5 练习（屏幕尺寸适配）"></a>6.5 练习（屏幕尺寸适配）</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">320px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">375px</span>) &#123;</span><br><span class="line">    <span class="selector-class">.box</span> &#123; <span class="attribute">font-size</span>: <span class="number">15px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">375px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">414px</span>) &#123;</span><br><span class="line">    <span class="selector-class">.box</span> &#123; <span class="attribute">font-size</span>: <span class="number">18px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">414px</span>) <span class="keyword">and</span> (<span class="attribute">max-width</span>: <span class="number">480px</span>) &#123;</span><br><span class="line">    <span class="selector-class">.box</span> &#123; <span class="attribute">font-size</span>: <span class="number">21px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">480px</span>) &#123;</span><br><span class="line">    <span class="selector-class">.box</span> &#123; <span class="attribute">font-size</span>: <span class="number">24px</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>等同于</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 原理：CSS的层叠性 */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">320px</span>) &#123;</span><br><span class="line">    <span class="selector-class">.box</span> &#123; <span class="attribute">font-size</span>: <span class="number">15px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">375px</span>) &#123;</span><br><span class="line">    <span class="selector-class">.box</span> &#123; <span class="attribute">font-size</span>: <span class="number">18px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">414px</span>) &#123;</span><br><span class="line">    <span class="selector-class">.box</span> &#123; <span class="attribute">font-size</span>: <span class="number">21px</span>; &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">480px</span>) &#123;</span><br><span class="line">    <span class="selector-class">.box</span> &#123; <span class="attribute">font-size</span>: <span class="number">24px</span>; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h1 id="7-CSS单位"><a href="#7-CSS单位" class="headerlink" title="7 CSS单位"></a>7 CSS单位</h1><h2 id="7-1-绝对单位"><a href="#7-1-绝对单位" class="headerlink" title="7.1 绝对单位"></a>7.1 绝对单位</h2><p>它们与其他任何东西都没有关系，通常被认为总是相同的大小 </p>
 <p>这些值中的大多数在用于打印时比用于屏幕输出时更有用，例如，我们通常不会在屏幕上使用cm。 <strong>惟一一个您经常使用的值，就是px(像素)</strong></p>
 <p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220517225529221.png" alt="image-20220517225529221"></p>
