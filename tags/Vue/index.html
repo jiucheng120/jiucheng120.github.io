@@ -9,7 +9,7 @@
     
     <title>
         
-            标签: Vue |
+            标签: vue |
         
         馨er的学习之路
     </title>
@@ -177,7 +177,7 @@
                 
                     <div class="fade-in-down-animation">
     <div class="tag-container">
-        <div class="tag-name"><i class="fas fa-tag"></i>&nbsp;Vue
+        <div class="tag-name"><i class="fas fa-tag"></i>&nbsp;vue
         </div>
         <div class="tag-post-list">
             
@@ -186,33 +186,13 @@
         <section class="archive-item">
             <div class="archive-item-header">
                 <span class="archive-year">2022</span>
-                <span class="archive-year-post-count">[2]</span>
-            </div>
-            <ul class="article-list">
-                
-                    <li class="article-item">
-                        <a class="article-title" href="/2022/05/23/660c1be58647/">Vue3.0</a>
-                        <span class="article-date">05-23</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title" href="/2022/04/14/2c35727a4f30/">Vue3.0笔记</a>
-                        <span class="article-date">04-14</span>
-                    </li>
-                
-            </ul>
-        </section>
-    
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2021</span>
                 <span class="archive-year-post-count">[1]</span>
             </div>
             <ul class="article-list">
                 
                     <li class="article-item">
-                        <a class="article-title" href="/2021/11/27/2685b88ce2a1/">Vue2.0笔记</a>
-                        <span class="article-date">11-27</span>
+                        <a class="article-title" href="/2022/07/11/7c11bcdce36f/">cookie详解</a>
+                        <span class="article-date">07-11</span>
                     </li>
                 
             </ul>
@@ -382,6 +362,38 @@
 <script>
     window.addEventListener('DOMContentLoaded', () => {
         window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
+       window.pjax = new Pjax({
             selectors: [
                 'head title',
                 '.page-container',

