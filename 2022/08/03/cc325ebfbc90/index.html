@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="jiuchengBlog 博客">
+    <meta name="description" content="hello, here is JiuCheng&#39; s blog">
+    <meta name="author" content="馨er">
+    
+    <title>
+        
+            Pinia基本使用 |
+        
+        馨er的学习之路
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"jiucheng120.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":false},"style":{"primary_color":"#CC00FF","avatar":"/images/avatar.png","favicon":"/images/logo.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.png","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/avatar.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+                馨er的学习之路
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class href="/">
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/archives">
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/categories">
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/tags">
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/links">
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/about">
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jiucheng120">
+                                GITHUB
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jiucheng120">GITHUB</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Pinia基本使用</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">馨er</span>
+                        
+                            <span class="author-label">CTO</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-08-03 13:48:32</span>
+        <span class="mobile">2022-08-03 13:48</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Vue/">Vue</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>798 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>3 分钟</span>
+        </span>
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p>Pinia快速入门</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="1-什么是Pinia"><a href="#1-什么是Pinia" class="headerlink" title="1 什么是Pinia"></a>1 什么是Pinia</h1><p>Pinia 是一个用于 Vue 的状态管理库，类似 Vuex, 是 Vue 的另一种状态管理方案，被称为Vuex5.0</p>
+<p>Pinia 支持 Vue2 和 Vue3</p>
+<p><a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://pinia.web3doc.top/">Pinia中文文档（非官方）<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="2-Pinia优势"><a href="#2-Pinia优势" class="headerlink" title="2 Pinia优势"></a>2 Pinia优势</h1><ul>
+<li>符合直觉，易于学习</li>
+<li>极轻，仅有1KB</li>
+<li>模块化设计，便于拆分状态</li>
+</ul>
+<h1 id="3-安装Pinia"><a href="#3-安装Pinia" class="headerlink" title="3 安装Pinia"></a>3 安装Pinia</h1><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 npm</span></span><br><span class="line">npm install pinia@next</span><br><span class="line"><span class="comment"># 使用 yarn</span></span><br><span class="line">yarn add pinia@next</span><br></pre></td></tr></table></figure>
+
+<p>创建一个 pinia（根存储）并将其传递给应用程序：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createPinia &#125; <span class="keyword">from</span> <span class="string">&#x27;pinia&#x27;</span>;</span><br><span class="line"></span><br><span class="line">app.use(createPinia());</span><br></pre></td></tr></table></figure>
+
+<h1 id="4-核心概念与基本使用"><a href="#4-核心概念与基本使用" class="headerlink" title="4 核心概念与基本使用"></a>4 核心概念与基本使用</h1><h2 id="4-1-Store"><a href="#4-1-Store" class="headerlink" title="4.1 Store"></a>4.1 Store</h2><p>Store 是一个保存状态和业务逻辑的实体，可以自由读取和写入，并通过导入后在 setup 中使用</p>
+<p>创建一个 store</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// store/index.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; defineStore &#125; <span class="keyword">from</span> <span class="string">&quot;pinia&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// defineStore 调用后返回一个函数，调用该函数获得 Store 实体</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> useStore = defineStore(&#123;</span><br><span class="line">  <span class="comment">// id: 必须的，在所有 Store 中唯一</span></span><br><span class="line">  id: <span class="string">&quot;myGlobalState&quot;</span>,</span><br><span class="line">  <span class="comment">// state: 返回对象的函数</span></span><br><span class="line">  state: <span class="function">()=&gt;</span> (&#123;</span><br><span class="line">    count: <span class="number">1</span></span><br><span class="line">  &#125;),</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-2-使用-Store"><a href="#4-2-使用-Store" class="headerlink" title="4.2 使用 Store"></a>4.2 使用 Store</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; xxx.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &#123;&#123;store.count&#125;&#125;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">  &#x2F;&#x2F; 导入 Store， 使用自己的路径</span><br><span class="line">  import &#123; useStore &#125; from &quot;@&#x2F;store&#x2F;index.js&quot;;</span><br><span class="line">  export default &#123;</span><br><span class="line">    setup() &#123;</span><br><span class="line">      &#x2F;&#x2F; 调用函数 获得Store</span><br><span class="line">      const store &#x3D; useStore();</span><br><span class="line">      return &#123;</span><br><span class="line">        store</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-3-Getters"><a href="#4-3-Getters" class="headerlink" title="4.3 Getters"></a>4.3 Getters</h2><p>Pinia 中的 Getters 作用与 Vuex 中的 Getters 相同，但使用略有差异</p>
+<p>Pinia 中的 Getters 直接在 Store 上读取，形似 Store.xx，就和一般的属性读取一样</p>
+<h2 id="4-4-Getter基本使用"><a href="#4-4-Getter基本使用" class="headerlink" title="4.4 Getter基本使用"></a>4.4 Getter基本使用</h2><blockquote>
+<p>Getter 第一个参数是 state，是当前的状态，也可以使用 this.xx 获取状态<br> Getter 中也可以访问其他的 Getter， 或者是其他的 Store 例子：</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 修改 store.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; defineStore &#125; <span class="keyword">from</span> <span class="string">&quot;pinia&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> &#123; useOtherStore &#125; <span class="keyword">from</span> <span class="string">&quot;@/store/otherStore.js&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> useStore = defineStore(&#123;</span><br><span class="line">  <span class="comment">// 唯一标识这个store实体</span></span><br><span class="line">  id: <span class="string">&quot;myGlobalState&quot;</span>,</span><br><span class="line">  state: <span class="function">() =&gt;</span> (&#123;</span><br><span class="line">    count: <span class="number">2</span></span><br><span class="line">  &#125;),</span><br><span class="line">  getters: &#123;</span><br><span class="line">    <span class="comment">// 一个基本的 Getter： 计算 count 的平方</span></span><br><span class="line">    <span class="comment">// 使用参数</span></span><br><span class="line">    <span class="function"><span class="title">countPow2</span>(<span class="params">state</span>)</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> state.count ** <span class="number">2</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">// 使用 this</span></span><br><span class="line">    <span class="comment">/* </span></span><br><span class="line"><span class="comment">    countPow2() &#123;</span></span><br><span class="line"><span class="comment">      return this.count ** 2;</span></span><br><span class="line"><span class="comment">    &#125;, </span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="comment">// 简单的 Getter 直接使用箭头函数</span></span><br><span class="line">    <span class="comment">// countPow2: state =&gt; state.count ** 2</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取其它 Getter， 直接通过 this</span></span><br><span class="line">    <span class="function"><span class="title">countPow2Getter</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">this</span>.countPow2;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 使用其它 Store</span></span><br><span class="line">    <span class="function"><span class="title">otherStoreCount</span>(<span class="params">state</span>)</span> &#123;</span><br><span class="line">      <span class="comment">// 这里是其他的 Store，调用获取 Store，就和在 setup 中一样</span></span><br><span class="line">      <span class="keyword">const</span> otherStore = useOtherStore();</span><br><span class="line">      <span class="keyword">return</span> otherStore.count;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// otherStore.js</span></span><br><span class="line"><span class="keyword">import</span> &#123; defineStore &#125; <span class="keyword">from</span> <span class="string">&quot;pinia&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> useOtherStore = defineStore(&#123;</span><br><span class="line">  id: <span class="string">&quot;otherState&quot;</span>,</span><br><span class="line">  state: <span class="function">()=&gt;</span> (&#123;</span><br><span class="line">    count: <span class="number">5</span></span><br><span class="line">  &#125;),</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-5-actions"><a href="#4-5-actions" class="headerlink" title="4.5 actions"></a>4.5 actions</h2><p>Pinia 没有 Mutations，统一在 actions 中操作 state，通过this.xx 访问相应状态</p>
+<p>虽然可以直接操作 Store，但还是推荐在 actions 中操作，保证状态不被意外改变</p>
+<p>action 和普通的函数一样，action 同样可以像 Getter 一样访问其他的 Store，同上方式使用其它 Store</p>
+<h2 id="4-6-action基本使用"><a href="#4-6-action基本使用" class="headerlink" title="4.6 action基本使用"></a>4.6 action基本使用</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// store.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> useStore(&#123;</span><br><span class="line">  state: <span class="function">() =&gt;</span> (&#123;</span><br><span class="line">    count: <span class="number">2</span>,</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  actions: &#123;</span><br><span class="line">    <span class="function"><span class="title">countPlusOne</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.count++;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="function"><span class="title">countPlus</span>(<span class="params">num</span>)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.count += num;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="5-总结"><a href="#5-总结" class="headerlink" title="5 总结"></a>5 总结</h1><p>Pinia 相比 Vuex 更加简单，而且 Pinia 可以自由扩展 <a class="link" href="https://link.juejin.cn/?target=https://pinia.esm.dev/core-concepts/plugins.html" rel="external nofollow noopener noreferrer" target="_blank">官方文档 Plugins<i class="fas fa-external-link-alt"></i></a></p>
+<p>Pinia 是符合直觉的状态管理方式，让使用者回到了模块导入导出的原始状态，使状态的来源更加清晰可见</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：Pinia基本使用</li>
+        <li>本文作者：馨er</li>
+        <li>创建时间：2022-08-03 13:48:32</li>
+        <li>
+            本文链接：https://sjxbbd.vercel.app/2022/08/03/cc325ebfbc90/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Vue/">#Vue</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next" rel="next" href="/2022/08/03/00a310b46ae9/">
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Vue路由守卫</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">馨er</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io" rel="external nofollow noopener noreferrer">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep" rel="external nofollow noopener noreferrer">Keep v3.4.5</a>
+        </div>
+        
+            <div class="icp-info info-item"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://beian.miit.gov.cn">晋ICP备2022004221号-1</a></div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AFPinia"><span class="nav-text">1 什么是Pinia</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Pinia%E4%BC%98%E5%8A%BF"><span class="nav-text">2 Pinia优势</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%AE%89%E8%A3%85Pinia"><span class="nav-text">3 安装Pinia</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5%E4%B8%8E%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-text">4 核心概念与基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-Store"><span class="nav-text">4.1 Store</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-%E4%BD%BF%E7%94%A8-Store"><span class="nav-text">4.2 使用 Store</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-Getters"><span class="nav-text">4.3 Getters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-Getter%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-text">4.4 Getter基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-actions"><span class="nav-text">4.5 actions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-action%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-text">4.6 action基本使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E6%80%BB%E7%BB%93"><span class="nav-text">5 总结</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src>
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
