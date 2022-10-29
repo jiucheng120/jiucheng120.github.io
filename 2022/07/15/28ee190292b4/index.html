@@ -229,7 +229,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>9.8k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>10k 字</span>
         </span>
     
     
@@ -300,7 +300,11 @@ React中的组件分为类组件和函数组件，以下先学习类组件
 
 创建脚手架并初始化项目：`npx create-react-app demo`
 
+或者先全局安装react脚手架`npm install create-react-app -g`，然后创建项目`create-react-app demo`
+
 运行项目：`npm start`
+
+> 项目名称不能包含大写字母
 
 # 2 JSX
 
@@ -434,7 +438,9 @@ JSX是JavaScript XML的简写，表示在JavaScript代码中写XML（HTML）格�
 
 1. **类名称也必须以大写字母开头**
 2. 类组件应该继承 React.Component 父类，从而使用父类中提供的方法或属性
-3. 类组件必须提供 render 方法**render 方法必须有返回值，表示该组件的 UI 结构**
+3. 类组件必须提供 render 方法，**render 方法必须有返回值，表示该组件的 UI 结构**
+3. constructor是可选的，我们通常在constructor中初始化一些数据
+3. this.state中维护的就是我们组件内部的数据
 
 ## 3.4 事件绑定
 
@@ -652,11 +658,18 @@ JSX是JavaScript XML的简写，表示在JavaScript代码中写XML（HTML）格�
 </blockquote>
 <p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/1654490712545-6bd28fa7-290b-48fb-8d51-bbf5578dad3f.png" alt="img"></p>
 <p><a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/">http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong>不常用的生命周期:</strong></p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20221027203321311.png" alt="image-20221027203321311"></p>
+<ul>
+<li><code>getDerivedStateFromProps</code>：state的值在任何时候都依赖于props使用；该方法返回一个对象来更新state</li>
+<li><code>getSnapshotBeforeUpdate</code>：在React更新DOM之间回调的一个函数，可以获取DOM更新前的一些信息（比如滚动信息）</li>
+<li><code>shouldComponentUpdate</code>：控制render函数是否更新state信息（较为常用）</li>
+</ul>
 <h2 id="5-6-生命周期-挂载阶段"><a href="#5-6-生命周期-挂载阶段" class="headerlink" title="5.6 生命周期-挂载阶段"></a>5.6 生命周期-挂载阶段</h2><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/1654490729034-d2d80cce-7fab-4dd8-bcbc-29e33bdffb63.png" alt="img"></p>
 <table>
 <thead>
 <tr>
-<th>钩子 函数</th>
+<th>钩子函数</th>
 <th>触发时机</th>
 <th>作用</th>
 </tr>
