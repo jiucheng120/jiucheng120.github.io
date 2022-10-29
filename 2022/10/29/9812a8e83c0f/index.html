@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="jiuchengBlog 博客">
+    <meta name="description" content="hello, here is JiuCheng&#39; s blog">
+    <meta name="author" content="馨er">
+    
+    <title>
+        
+            BOM学习笔记 |
+        
+        馨er的学习之路
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"jiucheng120.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":false},"style":{"primary_color":"#CC00FF","avatar":"/images/avatar.png","favicon":"/images/logo.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.png","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/avatar.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+                馨er的学习之路
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class href="/">
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/archives">
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/categories">
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/tags">
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/links">
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/about">
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jiucheng120">
+                                GITHUB
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jiucheng120">GITHUB</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">BOM学习笔记</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">馨er</span>
+                        
+                            <span class="author-label">BOSS</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-10-29 22:07:38</span>
+        <span class="mobile">2022-10-29 22:07</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/JavaScript/">JavaScript</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/BOM/">BOM</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>2.2k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>10 分钟</span>
+        </span>
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p>BOM学习笔记</p>
+</blockquote>
+<span id="more"></span>
+
+
+
+<p>浏览器是JavaScript非常重要的运行环境，浏览器本身又作为一个应用程序需要对其本身进行操作，所以浏览器会有对应的对象模型，可以将BOM看成连接JavaScript脚本和浏览器窗口的桥梁</p>
+<p>window对象：①全局对象，Node中为global，浏览器为window对象；②浏览器窗口对象（提供了对浏览器操作的相关的API）</p>
+<p>BOM主要包括以下对象模型：</p>
+<ul>
+<li><p><code>window</code>：包括全局属性、方法，控制浏览器窗口相关的属性、方法</p>
+</li>
+<li><p><code>location</code>：浏览器连接到的对象的位置（URL）</p>
+</li>
+<li><p><code>history</code>：操作浏览器的历史</p>
+</li>
+<li><p><code>document</code>：当前窗口操作文档的对象</p>
+</li>
+</ul>
+<h1 id="2-1-window全局对象"><a href="#2-1-window全局对象" class="headerlink" title="2.1 window全局对象"></a>2.1 window全局对象</h1><p>window默认给我们提供了全局的函数和类：<code>setTimeout</code>、<code>Math</code>、<code>Date</code>、<code>Object</code>等；全局通过<code>var</code>声明的变量，会被添加到window上</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> message = <span class="string">&quot;Hello World&quot;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;foo function&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.message)</span><br><span class="line"><span class="built_in">window</span>.foo()</span><br><span class="line"><span class="built_in">window</span>.setTimeout(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;setTimeout&quot;</span>)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> obj = <span class="keyword">new</span> <span class="built_in">window</span>.Object()</span><br><span class="line"><span class="built_in">console</span>.log(obj)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> date = <span class="keyword">new</span> <span class="built_in">window</span>.Date()</span><br><span class="line"><span class="built_in">console</span>.log(date)</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-2-window窗口对象"><a href="#2-2-window窗口对象" class="headerlink" title="2.2 window窗口对象"></a>2.2 window窗口对象</h1><p>window对象包含的内容：（<a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window%EF%BC%89">https://developer.mozilla.org/zh-CN/docs/Web/API/Window）<i class="fas fa-external-link-alt"></i></a></p>
+<p>第一：包含大量的属性，localStorage、console、location、history、screenX、scrollX等等（大概60+个属性）；</p>
+<p>第二：包含大量的方法，alert、close、scrollTo、open等等（大概40+个方法）；</p>
+<p>第三：包含大量的事件，focus、blur、load、hashchange等等（大概30+个事件）；</p>
+<p>第四：包含从EventTarget继承过来的方法，addEventListener、removeEventListener、dispatchEvent方法；</p>
+<h1 id="2-3-window常见的属性"><a href="#2-3-window常见的属性" class="headerlink" title="2.3 window常见的属性"></a>2.3 window常见的属性</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 浏览器高度</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.outerHeight)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.innerHeight)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;screenX:&quot;</span>, <span class="built_in">window</span>.screenX)</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;screenY:&quot;</span>, <span class="built_in">window</span>.screenY)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 监听</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&quot;scroll&quot;</span>, <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">window</span>.screenY)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">window</span>.screenX)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-4-window常见的方法"><a href="#2-4-window常见的方法" class="headerlink" title="2.4 window常见的方法"></a>2.4 window常见的方法</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> closeBtn = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#close&quot;</span>)</span><br><span class="line">closeBtn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    close()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> scrollBtn = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#scroll&quot;</span>)</span><br><span class="line">scrollBtn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    scrollTo(&#123;<span class="attr">top</span>: <span class="number">1000</span>&#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> openBtn = <span class="built_in">document</span>.querySelector(<span class="string">&quot;open&quot;</span>)</span><br><span class="line">openBtn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    open(<span class="string">&quot;./about.html&quot;</span>, <span class="string">&quot;_self&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-5-window常见的事件"><a href="#2-5-window常见的事件" class="headerlink" title="2.5 window常见的事件"></a>2.5 window常见的事件</h1><h2 id="2-5-1-常见的事件"><a href="#2-5-1-常见的事件" class="headerlink" title="2.5.1 常见的事件"></a>2.5.1 常见的事件</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onfocus = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;窗口获取到焦点&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.onblur = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;窗口失去了焦点&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;页面加载完成&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> hashBtn = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#hash&quot;</span>)</span><br><span class="line">hashBtn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    location.hash = <span class="string">&quot;aaa&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">window</span>.onhashchange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;hash被修改了&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-5-2-eval函数"><a href="#2-5-2-eval函数" class="headerlink" title="2.5.2 eval函数"></a>2.5.2 eval函数</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// eval函数可以将一个字符串当做一段JS代码解释执行!</span></span><br><span class="line"><span class="built_in">window</span>.eval(<span class="string">&quot;var i = 100&quot;</span>)</span><br><span class="line">            </span><br><span class="line"><span class="comment">//var i = 100</span></span><br><span class="line"><span class="built_in">console</span>.log(i)</span><br><span class="line"><span class="comment">// 100</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-5-3-窗口的开启和关闭"><a href="#2-5-3-窗口的开启和关闭" class="headerlink" title="2.5.3 窗口的开启和关闭"></a>2.5.3 窗口的开启和关闭</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- window.open开启一个新窗口 --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- window.open(url, target) ，和超链接效果差不多，都是可以发送请求给服务器的--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 开启一个窗口，默认是开启一个新窗口。 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;开启百度&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;window.open(&#x27;http://www.baidu.com&#x27;)&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 开启一个窗口，在当前窗口中显示 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;开启百度&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;window.open(&#x27;http://www.baidu.com&#x27;, &#x27;_self&#x27;)&quot;</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 开启一个窗口，在新窗口中显示 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;开启百度&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;window.open(&#x27;http://www.baidu.com&#x27;, &#x27;_blank&#x27;)&quot;</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 开启一个窗口，在父窗口中显示 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;开启百度&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;window.open(&#x27;http://www.baidu.com&#x27;, &#x27;_parent&#x27;)&quot;</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 开启一个窗口，在顶级窗口中显示 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;开启百度&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;window.open(&#x27;http://www.baidu.com&#x27;, &#x27;_top&#x27;)&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;002&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;window.open(&#x27;002.html&#x27;)&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">// 002窗口</span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;关闭窗口&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;window.close()&quot;</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!--点击按钮后回退到上一个窗口--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>浏览器的网页访问（栈）</p>
+<h2 id="2-5-4-alert和confirm方法"><a href="#2-5-4-alert和confirm方法" class="headerlink" title="2.5.4 alert和confirm方法"></a>2.5.4 alert和confirm方法</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">   <span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 弹出消息框</span></span></span><br><span class="line"><span class="javascript">      <span class="built_in">window</span>.alert(<span class="string">&quot;hello world!&quot;</span>);</span></span><br><span class="line">   &#125;</span><br><span class="line">   </span><br><span class="line"><span class="javascript">   <span class="function"><span class="keyword">function</span> <span class="title">del</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="comment">// 删除数据之前一定要提示用户是否真的删除,用户点击了确定才表示真的删除.</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">// 确认框</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">//var ok = window.confirm(&quot;亲，确认删除数据吗？&quot;)</span></span></span><br><span class="line"><span class="javascript">      <span class="comment">//console.log(ok) //返回值是一个布尔类型.</span></span></span><br><span class="line">      </span><br><span class="line">      /* if(ok)&#123;</span><br><span class="line"><span class="javascript">         alert(<span class="string">&quot;数据正在删除中，请稍后...&quot;</span>)</span></span><br><span class="line">      &#125; */</span><br><span class="line">      </span><br><span class="line"><span class="javascript">      <span class="keyword">if</span>(<span class="built_in">window</span>.confirm(<span class="string">&quot;亲，确认删除数据吗？&quot;</span>))&#123;</span></span><br><span class="line"><span class="javascript">         alert(<span class="string">&quot;数据正在删除中，请稍后...&quot;</span>)</span></span><br><span class="line">      &#125;</span><br><span class="line"><span class="javascript">      <span class="comment">// 确认or取消</span></span></span><br><span class="line">   &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;hello&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;sayHello()&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;删除&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;del()&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-5-5-将当前窗口设置为顶级窗口"><a href="#2-5-5-将当前窗口设置为顶级窗口" class="headerlink" title="2.5.5 将当前窗口设置为顶级窗口"></a>2.5.5 将当前窗口设置为顶级窗口</h2><p>先开始005.html出现在此页面的iframe标签中，点击按钮则打开005.html，变为顶级窗口</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">title</span>&gt;</span>将当前窗口设置为顶级窗口<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">&quot;005.html&quot;</span> <span class="attr">width</span>=<span class="string">&quot;500px&quot;</span> <span class="attr">height</span>=<span class="string">&quot;500px&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>005.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        005页面</span><br><span class="line">        <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span></span><br><span class="line"><span class="javascript">			<span class="comment">/* 如果当前这个窗口不是顶级窗口的话，将当前窗口设置为顶级窗口。 */</span></span></span><br><span class="line"><span class="javascript">			<span class="function"><span class="keyword">function</span> <span class="title">setTop</span>(<span class="params"></span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">				<span class="comment">// window是当前浏览器窗口,代表005.html</span></span></span><br><span class="line"><span class="javascript">				<span class="comment">// “当前窗口的顶级窗口&quot;如果&quot;不是自己&quot;</span></span></span><br><span class="line"><span class="javascript">				<span class="comment">// window.top就是当前窗口对应的顶级窗口.</span></span></span><br><span class="line"><span class="javascript">				<span class="comment">// window.self表示当前自己这个窗口</span></span></span><br><span class="line"><span class="javascript">				<span class="comment">// window.top 是004窗口</span></span></span><br><span class="line"><span class="javascript">				<span class="comment">// window.self 是005窗口</span></span></span><br><span class="line"><span class="javascript">				<span class="comment">//console.log((window.top != window.self))</span></span></span><br><span class="line">                </span><br><span class="line"><span class="javascript">				<span class="keyword">if</span>(<span class="built_in">window</span>.top != <span class="built_in">window</span>.self)&#123;</span></span><br><span class="line"><span class="javascript">					<span class="comment">// 将当前窗口设置为顶级窗口</span></span></span><br><span class="line"><span class="javascript">					<span class="comment">// window.self.location 是005的地址</span></span></span><br><span class="line"><span class="javascript">					<span class="comment">// 将顶级窗口的window.top.location地址设置为005</span></span></span><br><span class="line"><span class="javascript">					<span class="built_in">window</span>.top.location = <span class="built_in">window</span>.self.location;</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">        </span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">onclick</span>=<span class="string">&quot;setTop()&quot;</span> <span class="attr">value</span>=<span class="string">&quot;如果当前窗口不是顶级窗口的话,将当前窗口设置为顶级窗口&quot;</span>/&gt;</span></span><br><span class="line">        </span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="2-6-EventTarget"><a href="#2-6-EventTarget" class="headerlink" title="2.6 EventTarget"></a>2.6 EventTarget</h1><p>Window继承自EventTarget，所以会继承其中的属性和方法：</p>
+<ul>
+<li><p>addEventListener：注册某个事件类型以及事件处理函数；</p>
+</li>
+<li><p>removeEventListener：移除某个事件类型以及事件处理函数；</p>
+</li>
+<li><p>dispatchEvent：派发某个事件类型到EventTarget上；</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> scrollHandler = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;window发生了滚动~&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> clickHandler = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;window发生了点击~&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&quot;scroll&quot;</span>, scrollHandler)</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&quot;click&quot;</span>, clickHandler)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> removeBtn = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#removeEvent&quot;</span>)</span><br><span class="line">removeBtn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;-------&quot;</span>)</span><br><span class="line">    <span class="built_in">window</span>.removeEventListener(<span class="string">&quot;click&quot;</span>, scrollHandler)</span><br><span class="line">    <span class="built_in">window</span>.removeEventListener(<span class="string">&quot;scroll&quot;</span>, clickHandler())</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span>  dispatchBtn = <span class="built_in">document</span>.querySelector(<span class="string">&quot;dispatch&quot;</span>)</span><br><span class="line">dispatchBtn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.dispatchEvent(<span class="keyword">new</span> Event(<span class="string">&quot;coderway&quot;</span>))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&quot;coderwhy&quot;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;监听了coderwhy事件&quot;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>默认事件监听<a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://developer.mozilla.org/zh-CN/docs/Web/Events">https://developer.mozilla.org/zh-CN/docs/Web/Events<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="2-7-location对象"><a href="#2-7-location对象" class="headerlink" title="2.7 location对象"></a>2.7 location对象</h1><h2 id="2-7-1-location对象常见的属性"><a href="#2-7-1-location对象常见的属性" class="headerlink" title="2.7.1 location对象常见的属性"></a>2.7.1 location对象常见的属性</h2><p>location对象用于表示window上当前链接到的URL信息</p>
+<p>常见的属性：</p>
+<p><code>href</code>：当前window对应的超链接URL，整个URL</p>
+<p><code>protocol</code>：当前的协议</p>
+<p><code>host</code>：主机地址</p>
+<p><code>hostname</code>：主机地址（不带端口）</p>
+<p><code>port</code>：端口</p>
+<p><code>pathname</code>：路径</p>
+<p><code>search</code>：查询字符串</p>
+<p><code>hash</code>：哈希值</p>
+<p><code>username</code>：URL中的username</p>
+<p><code>password</code>：URL中的password</p>
+<p><strong>※ window.location.href</strong></p>
+<p>跳转页面可以通过多种方式：（这些都是发送请求！！！！）</p>
+<ul>
+<li>直接在浏览器地址栏上写URL。（重点）</li>
+<li>第二种方式：可以点击超链接（重点）</li>
+<li>第三种方式：提交表单（重点）</li>
+<li>第四种方式：window.open(url,target)  （了解）</li>
+<li>第五种方式：js代码（重点）<ul>
+<li><code>window.location.href</code></li>
+<li><code>window.location</code></li>
+<li><code>document.location.href</code></li>
+<li><code>document.location</code></li>
+</ul>
+</li>
+</ul>
+<p>通过浏览器向服务器发送请求，通常是以上的五种方式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">goBaidu</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="comment">//window.location.href = &quot;http://www.baidu.com&quot;;</span></span><br><span class="line">      <span class="comment">//window.location = &quot;http://www.jd.com&quot;;</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment">//document.location.href = &quot;http://www.126.com&quot;;</span></span><br><span class="line">      <span class="built_in">document</span>.location = <span class="string">&quot;http://www.baidu.com&quot;</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;input type=<span class="string">&quot;button&quot;</span> value=<span class="string">&quot;百度&quot;</span> onclick=<span class="string">&quot;goBaidu();&quot;</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-7-2-location对象常见的方法"><a href="#2-7-2-location对象常见的方法" class="headerlink" title="2.7.2 location对象常见的方法"></a>2.7.2 location对象常见的方法</h2><p><code>assign</code>：赋值一个新的URL，并且跳转到该URL中</p>
+<p><code>replace</code>：打开一个新的URL，并且跳转到该URL中（不同的是不会在浏览记录中留下之前的记录）</p>
+<p><code>reload</code>：重新加载页面，可以传入一个Boolean类型</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> locationBtn = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#location&quot;</span>)</span><br><span class="line">locationBtn.onclick = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    location.assign(<span class="string">&quot;https://www.baidu.com&quot;</span>)</span><br><span class="line">    location.assign(<span class="string">&quot;https://www.baidu.com&quot;</span>)</span><br><span class="line">    location.reload()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-8-history对象"><a href="#2-8-history对象" class="headerlink" title="2.8 history对象"></a>2.8 history对象</h1><p>history对象允许我们访问浏览器曾经的会话历史记录</p>
+<h2 id="2-8-1-history对象常见的属性"><a href="#2-8-1-history对象常见的属性" class="headerlink" title="2.8.1 history对象常见的属性"></a>2.8.1 history对象常见的属性</h2><p><code>length</code>：会话中的记录条数</p>
+<p><code>state</code>：当前保留的状态值</p>
+<h2 id="2-8-2-history对象常见的方法"><a href="#2-8-2-history对象常见的方法" class="headerlink" title="2.8.2 history对象常见的方法"></a>2.8.2 history对象常见的方法</h2><p><code>back()</code>：返回上一页，等价于history.go(-1)</p>
+<p><code>forward()</code>：前进下一页，等价于history.go(1)</p>
+<p><code>go()</code>：加载历史中的某一页</p>
+<p><code>pushState()</code>：打开一个指定的地址</p>
+<p><code>replaceState()</code>：打开一个指定的地址，并且使用replace（不会在浏览记录中留下之前的记录）</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：BOM学习笔记</li>
+        <li>本文作者：馨er</li>
+        <li>创建时间：2022-10-29 22:07:38</li>
+        <li>
+            本文链接：https://sjxbbd.vercel.app/2022/10/29/9812a8e83c0f/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/JavaScript/">#JavaScript</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/BOM/">#BOM</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev" rel="prev" href="/2022/10/29/d984bf50a170/">
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">JavaScript实战</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next" rel="next" href="/2022/10/29/66d3b31c4153/">
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">DOM学习笔记</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">馨er</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io" rel="external nofollow noopener noreferrer">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep" rel="external nofollow noopener noreferrer">Keep v3.4.5</a>
+        </div>
+        
+            <div class="icp-info info-item"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://beian.miit.gov.cn">晋ICP备2022004221号-1</a></div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2-1-window%E5%85%A8%E5%B1%80%E5%AF%B9%E8%B1%A1"><span class="nav-text">2.1 window全局对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-2-window%E7%AA%97%E5%8F%A3%E5%AF%B9%E8%B1%A1"><span class="nav-text">2.2 window窗口对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-3-window%E5%B8%B8%E8%A7%81%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-text">2.3 window常见的属性</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-4-window%E5%B8%B8%E8%A7%81%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">2.4 window常见的方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-5-window%E5%B8%B8%E8%A7%81%E7%9A%84%E4%BA%8B%E4%BB%B6"><span class="nav-text">2.5 window常见的事件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-1-%E5%B8%B8%E8%A7%81%E7%9A%84%E4%BA%8B%E4%BB%B6"><span class="nav-text">2.5.1 常见的事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-2-eval%E5%87%BD%E6%95%B0"><span class="nav-text">2.5.2 eval函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-3-%E7%AA%97%E5%8F%A3%E7%9A%84%E5%BC%80%E5%90%AF%E5%92%8C%E5%85%B3%E9%97%AD"><span class="nav-text">2.5.3 窗口的开启和关闭</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-4-alert%E5%92%8Cconfirm%E6%96%B9%E6%B3%95"><span class="nav-text">2.5.4 alert和confirm方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-5-%E5%B0%86%E5%BD%93%E5%89%8D%E7%AA%97%E5%8F%A3%E8%AE%BE%E7%BD%AE%E4%B8%BA%E9%A1%B6%E7%BA%A7%E7%AA%97%E5%8F%A3"><span class="nav-text">2.5.5 将当前窗口设置为顶级窗口</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-6-EventTarget"><span class="nav-text">2.6 EventTarget</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-7-location%E5%AF%B9%E8%B1%A1"><span class="nav-text">2.7 location对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-1-location%E5%AF%B9%E8%B1%A1%E5%B8%B8%E8%A7%81%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-text">2.7.1 location对象常见的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-7-2-location%E5%AF%B9%E8%B1%A1%E5%B8%B8%E8%A7%81%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">2.7.2 location对象常见的方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-8-history%E5%AF%B9%E8%B1%A1"><span class="nav-text">2.8 history对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-8-1-history%E5%AF%B9%E8%B1%A1%E5%B8%B8%E8%A7%81%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-text">2.8.1 history对象常见的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-8-2-history%E5%AF%B9%E8%B1%A1%E5%B8%B8%E8%A7%81%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">2.8.2 history对象常见的方法</span></a></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src>
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
