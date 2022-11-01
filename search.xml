@@ -1,8 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Bootstrap笔记</title>
+    <url>/2022/11/01/7b7bf2114ab1/</url>
+    <content><![CDATA[<p>Bootstrap入门笔记，介绍Bootstrap的一些基本用法</p>
+<span id="more"></span>
+
+
+
+<h1 id="1-认识Bootstrap"><a href="#1-认识Bootstrap" class="headerlink" title="1 认识Bootstrap"></a>1 认识Bootstrap</h1><p>Bootstrap是一个非常受欢迎的前端框架。Bootstrap是由HTML、CSS和JavaScript编写可复用代码的集合（包括全局样式、组件、插件等），使用该框架能够快速开发出响应的网站（即适配PC、平板和移动端的网站）</p>
+<p>由Twitter团队开发，他们的本意是制作一套可以让网页保持统一风格的前端框架</p>
+<p><strong>优点</strong>：Bootstrap拥有一个强大的<strong>网格系统</strong>，它由行和列组成，我们可以直接创建网格，无需自行编写媒体查询来创建；Bootstrap预定义很多<strong>响应式</strong>的类，图片将会根据用户的屏幕尺寸自动调整图像大小，更方便我们去做各个屏幕的适配；Bootstrap框架提供的组件、插件、布局、栅格系统、响应式工具等等，可以为我们节省了大量的开发时间</p>
+<p><strong>缺点</strong>：不适合高度定制类型的项目，因为Bootstrap具有统一的视觉风格，高度定制的项目需要大量的自定义和样式覆盖；Bootstrap的框架文件比较大（61KB JS +159KB CSS），资源文件过大会增加网站首屏加载的事件，并加重服务器的负担；Bootstrap样式相对笨重，也会额外添加一些不必要的HTML元素，它会浪费一小部分浏览器的资源</p>
+<h1 id="2-Bootstrap安装"><a href="#2-Bootstrap安装" class="headerlink" title="2 Bootstrap安装"></a>2 Bootstrap安装</h1><p>在Bootstrap 5之前，Bootstrap是依赖jQuery的</p>
+<h2 id="2-1-CDN"><a href="#2-1-CDN" class="headerlink" title="2.1 CDN"></a>2.1 CDN</h2><p>Bootstrap框架的CDN地址：</p>
+<ul>
+<li><p><a class="link"   href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" >https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p><a class="link"   href="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" >https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p><a class="link"   href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" >https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+</ul>
+<p>HTML中引入之后，添加重要的全局配置</p>
+<ul>
+<li>HTML5文档类型（DOCTYPE），Bootstrap要求文档类型是HTML5</li>
+<li>添加视口（Bootstrap采用的是移动设备优先的开发策略，在移动端会把layout viewport的宽度设置为设备的宽，并且不允许用户进行页面的缩放）<code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0,user-scalable=no,maximum-scale=1.0,minimum-scale=1.0,shrink-to-fit=no&quot;&gt;</code></li>
+</ul>
+<h2 id="2-2-下载源码引入"><a href="#2-2-下载源码引入" class="headerlink" title="2.2 下载源码引入"></a>2.2 下载源码引入</h2><p>Bootstrap下载地址：<a class="link"   href="https://v4.bootcss.com/docs/getting-started/download/" >https://v4.bootcss.com/docs/getting-started/download/<i class="fas fa-external-link-alt"></i></a></p>
+<p>jQuery下载地址：<a class="link"   href="https://jquery.com/download/" >https://jquery.com/download/<i class="fas fa-external-link-alt"></i></a></p>
+<p>Bootstrap软件包内容</p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20221101141209764.png" alt="image-20221101141209764"></p>
+<h2 id="2-3-npm安装"><a href="#2-3-npm安装" class="headerlink" title="2.3 npm安装"></a>2.3 npm安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># npm安装</span></span><br><span class="line">npm install bootstrap</span><br><span class="line"></span><br><span class="line"><span class="comment"># yarn安装</span></span><br><span class="line">yar add bootstrap</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="3-响应式容器原理"><a href="#3-响应式容器原理" class="headerlink" title="3 响应式容器原理"></a>3 响应式容器原理</h1><h1 id="4-网格系统的原理"><a href="#4-网格系统的原理" class="headerlink" title="4 网格系统的原理"></a>4 网格系统的原理</h1><h2 id="4-1-认识网格系统"><a href="#4-1-认识网格系统" class="headerlink" title="4.1 认识网格系统"></a>4.1 认识网格系统</h2><h2 id="4-2-12列网格系统"><a href="#4-2-12列网格系统" class="headerlink" title="4.2 12列网格系统"></a>4.2 12列网格系统</h2><h2 id="4-3-网格系统的原理"><a href="#4-3-网格系统的原理" class="headerlink" title="4.3 网格系统的原理"></a>4.3 网格系统的原理</h2><h1 id="5-响应式工具和组件"><a href="#5-响应式工具和组件" class="headerlink" title="5 响应式工具和组件"></a>5 响应式工具和组件</h1><h1 id="6-Bootstrap项目实战"><a href="#6-Bootstrap项目实战" class="headerlink" title="6 Bootstrap项目实战"></a>6 Bootstrap项目实战</h1>]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Bootstrap</tag>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>前端常用包管理工具</title>
-    <url>/2022/10/29/216ae510d197/</url>
+    <url>/2022/10/29/d89995677aeb/</url>
     <content><![CDATA[<blockquote>
 <p>npm，yarn，cnpm，npx，pnpm包管理工具详解</p>
 </blockquote>
@@ -1486,194 +1530,132 @@
 <li>react-dom：react渲染在不同平台所需要的核心代码：React、React-Native、React-VR</li>
 <li>babel：将jsx转换成react代码的工具</li>
 </ul>
-<h2 id="1-2-基本使用"><a href="#1-2-基本使用" class="headerlink" title="1.2 基本使用"></a>1.2 基本使用</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 方法一</span><br><span class="line">&#x2F;&#x2F; 1 创建react元素（了解，不推荐此方法）</span><br><span class="line">const title &#x3D; React.createElement(&#39;h1&#39;, null, &#39;Hello React!!&#39;)</span><br><span class="line">&#x2F;&#x2F; 2 渲染创建好的react元素</span><br><span class="line">ReactDOM.render(title, document.getElementById(&#39;root&#39;))</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 方法二 使用JSX（常用）</span><br><span class="line">ReactDOM.render(&lt;h1&gt;hello react&lt;&#x2F;h1&gt;, document.querySelector(&#39;#root&#39;))</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-基本使用"><a href="#1-2-基本使用" class="headerlink" title="1.2 基本使用"></a>1.2 基本使用</h2><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 方法一</span></span><br><span class="line"><span class="comment">// 1 创建react元素（了解，不推荐此方法）</span></span><br><span class="line"><span class="keyword">const</span> title = React.createElement(<span class="string">&#x27;h1&#x27;</span>, <span class="literal">null</span>, <span class="string">&#x27;Hello React!!&#x27;</span>)</span><br><span class="line"><span class="comment">// 2 渲染创建好的react元素</span></span><br><span class="line">ReactDOM.render(title, <span class="built_in">document</span>.getElementById(<span class="string">&#x27;root&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 方法二 使用JSX（常用）</span></span><br><span class="line">ReactDOM.render(<span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>hello react<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span>, <span class="built_in">document</span>.querySelector(<span class="string">&#x27;#root&#x27;</span>))</span><br></pre></td></tr></table></figure>
 
 <p>最新的react18不推荐使用<code>ReactDOM.render()</code>函数，推荐以下方式</p>
 <ul>
 <li><code>ReactDOM.createRoot()</code>：用于创建一个React根，之后渲染的内容会包含在这个根中</li>
 <li><code>root.render()</code>函数：参数：要渲染的根组件（参数可以是HTML元素，可以是组件）</li>
-<li><code>&#123;&#125;</code>：插值语法，类似于Vue中的<code>&#123;&#123;&#125;&#125;`
+<li><code>&#123;&#125;</code>：插值语法，类似于Vue中的插值语法</li>
+</ul>
+<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> root = ReactDOM.createRoot(<span class="built_in">document</span>.querySelector(<span class="string">&#x27;#root&#x27;</span>))</span><br><span class="line">root.render(<span class="xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>hello root<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> app = ReactDOM.createRoot(<span class="built_in">document</span>.querySelector(<span class="string">&#x27;#app&#x27;</span>))</span><br><span class="line">app.render(<span class="xml"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>hello app<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span>)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const root &#x3D; ReactDOM.createRoot(document.querySelector(&#39;#root&#39;))</span><br><span class="line">root.render(&lt;h2&gt;hello root&lt;&#x2F;h2&gt;)</span><br><span class="line"></span><br><span class="line">const app &#x3D; ReactDOM.createRoot(document.querySelector(&#39;#app&#39;))</span><br><span class="line">app.render(&lt;h2&gt;hello app&lt;&#x2F;h2&gt;)</span><br></pre></td></tr></table></figure>
-
-在编写React的script代码中，必须添加`type="text/babel"`，作用是可以让babel解析jsx语法
-
-## 1.3 组件化
-
-React中的组件分为类组件和函数组件，以下先学习类组件
-
-### 数据依赖
-
-- 参与界面更新的数据：当数据变化时，需要更新组件渲染的内容
-- 不参与界面更新的数据：当数据变化时，不需要更新组件渲染的内容
-
-当我们的数据发生变化时，我们可以调用`this.setState`来更新数据，并且通知React进行update操作；在进行update操作时，会重新调用render函数，并且使用最新的数据来渲染界面。需要绑定this
-
+<p>在编写React的script代码中，必须添加<code>type=&quot;text/babel&quot;</code>，作用是可以让babel解析jsx语法</p>
+<h2 id="1-3-组件化"><a href="#1-3-组件化" class="headerlink" title="1.3 组件化"></a>1.3 组件化</h2><p>React中的组件分为类组件和函数组件，以下先学习类组件</p>
+<h3 id="数据依赖"><a href="#数据依赖" class="headerlink" title="数据依赖"></a>数据依赖</h3><ul>
+<li>参与界面更新的数据：当数据变化时，需要更新组件渲染的内容</li>
+<li>不参与界面更新的数据：当数据变化时，不需要更新组件渲染的内容</li>
+</ul>
+<p>当我们的数据发生变化时，我们可以调用<code>this.setState</code>来更新数据，并且通知React进行update操作；在进行update操作时，会重新调用render函数，并且使用最新的数据来渲染界面。需要绑定this</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">class App extends React.Component &#123;</span><br><span class="line">    constructor() &#123;</span><br><span class="line">        super();</span><br><span class="line">        this.state &#x3D; &#123;</span><br><span class="line">            message: &quot;Hello World&quot;</span><br><span class="line">        &#125;</span><br><span class="line">        this.btnClick &#x3D; this.btnClick.bind(this)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 组件方法</span><br><span class="line">    btnClick() &#123;</span><br><span class="line">        this,setState(&#123;</span><br><span class="line">            message: &quot;Hello React&quot;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    render() &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;div&gt;</span><br><span class="line">            	&lt;h2&gt;&#123;this.state.message&gt;&lt;&#x2F;h2&gt;</span><br><span class="line">                &lt;button onClick&#x3D;&#123;this.btnClick.bind(this)&#125;&gt;修改文本&lt;&#x2F;button&gt;</span><br><span class="line">                &lt;button onClick&#x3D;&#123;this.btnClick&#125;&gt;修改文本&lt;&#x2F;button&gt;</span><br><span class="line">            &lt;&#x2F;div&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
-## 1.4 脚手架
-
-### 使用脚手架的好处
-
-- 脚手架是开发现代 Web 应用的必备
-- 充分利用 Webpack、Babel 等工具辅助项目开发
-- 关注业务、而不是工具配置
-- Vue中的@vue/cli,React中的create-react-app都是脚手架
-
-### 使用脚手架初始化项目
-
-创建脚手架并初始化项目：`npx create-react-app demo`
-
-或者先全局安装react脚手架`npm install create-react-app -g`，然后创建项目`create-react-app demo`
-
-运行项目：`npm start`
-
-> 项目名称不能包含大写字母
-
-# 2 JSX
-
-## 2.1 基本使用
-
-### 介绍
-
-JSX是JavaScript XML的简写，表示在JavaScript代码中写XML（HTML）格式的代码。JSX是React的核心内容
-
-优势：声明式语法更加直观、与HTML结构相同，降低了学习成本，提升开发效率。
-
-> JSX的书写规范：
->
-> - 只能有一个根元素
-> - JSX结构通常会有一个小括号，将整个JSX当作一个整体，这样可以方便阅读，并且JSX可以进行换行书写
-> - JSX中的标签可以是单标签，也可以是双标签（单标签元素必须以/结尾）
-> - JSX的注释：`&#123; /* JSX的注释写法 */ &#125;`
-
-### 使用步骤
-
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1 使用JSX语法，创建react元素，注意：不能加双引号</span></span><br><span class="line"><span class="keyword">const</span> title = <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello JSX<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h2 id="1-4-脚手架"><a href="#1-4-脚手架" class="headerlink" title="1.4 脚手架"></a>1.4 脚手架</h2><h3 id="使用脚手架的好处"><a href="#使用脚手架的好处" class="headerlink" title="使用脚手架的好处"></a>使用脚手架的好处</h3><ul>
+<li>脚手架是开发现代 Web 应用的必备</li>
+<li>充分利用 Webpack、Babel 等工具辅助项目开发</li>
+<li>关注业务、而不是工具配置</li>
+<li>Vue中的@vue/cli,React中的create-react-app都是脚手架</li>
+</ul>
+<h3 id="使用脚手架初始化项目"><a href="#使用脚手架初始化项目" class="headerlink" title="使用脚手架初始化项目"></a>使用脚手架初始化项目</h3><p>创建脚手架并初始化项目：<code>npx create-react-app demo</code></p>
+<p>或者先全局安装react脚手架<code>npm install create-react-app -g</code>，然后创建项目<code>create-react-app demo</code></p>
+<p>运行项目：<code>npm start</code></p>
+<blockquote>
+<p>项目名称不能包含大写字母</p>
+</blockquote>
+<h1 id="2-JSX"><a href="#2-JSX" class="headerlink" title="2 JSX"></a>2 JSX</h1><h2 id="2-1-基本使用"><a href="#2-1-基本使用" class="headerlink" title="2.1 基本使用"></a>2.1 基本使用</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>JSX是JavaScript XML的简写，表示在JavaScript代码中写XML（HTML）格式的代码。JSX是React的核心内容</p>
+<p>优势：声明式语法更加直观、与HTML结构相同，降低了学习成本，提升开发效率。</p>
+<blockquote>
+<p>JSX的书写规范：</p>
+<ul>
+<li>只能有一个根元素</li>
+<li>JSX结构通常会有一个小括号，将整个JSX当作一个整体，这样可以方便阅读，并且JSX可以进行换行书写</li>
+<li>JSX中的标签可以是单标签，也可以是双标签（单标签元素必须以/结尾）</li>
+<li>JSX的注释：<code>&#123; /* JSX的注释写法 */ &#125;</code></li>
+</ul>
+</blockquote>
+<h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1 使用JSX语法，创建react元素，注意：不能加双引号</span></span><br><span class="line"><span class="keyword">const</span> title = <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello JSX<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 2 渲染创建好的React元素</span></span><br><span class="line">ReactDOM.render(title, <span class="built_in">document</span>.getElementById(<span class="string">&#x27;root&#x27;</span>))</span><br></pre></td></tr></table></figure>
 
-> 为什么脚手架中可以使用JSX语法
->
-> - JSX不是标准的ECMAScript语法，它是ECMAScript的语法拓展
-> - 需要使用babel编译处理后，才能在浏览器环境中使用
-> - create-react-app脚手架中已经默认有该配置，无需手动配置
-> - 编译JSX语法的包是：`@babel/preset-react`
-
-## 2.2 在JSX中使用JavaScript表达式
-
-### 嵌入JS表达式
-
-数据存储在JS中，语法：`&#123;JavaScript表达式&#125;`。与Vue的插值语法区分，为单括号而非双括号
-
+<blockquote>
+<p>为什么脚手架中可以使用JSX语法</p>
+<ul>
+<li>JSX不是标准的ECMAScript语法，它是ECMAScript的语法拓展</li>
+<li>需要使用babel编译处理后，才能在浏览器环境中使用</li>
+<li>create-react-app脚手架中已经默认有该配置，无需手动配置</li>
+<li>编译JSX语法的包是：<code>@babel/preset-react</code></li>
+</ul>
+</blockquote>
+<h2 id="2-2-在JSX中使用JavaScript表达式"><a href="#2-2-在JSX中使用JavaScript表达式" class="headerlink" title="2.2 在JSX中使用JavaScript表达式"></a>2.2 在JSX中使用JavaScript表达式</h2><h3 id="嵌入JS表达式"><a href="#嵌入JS表达式" class="headerlink" title="嵌入JS表达式"></a>嵌入JS表达式</h3><p>数据存储在JS中，语法：<code>&#123;JavaScript表达式&#125;</code>。与Vue的插值语法区分，为单括号而非双括号</p>
 <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;Jack&#x27;</span></span><br><span class="line"><span class="keyword">const</span> dv = &#123;</span><br><span class="line">    &lt;div&gt;你好，我叫：&#123;name&#125;&lt;/div&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-### 注意点
-
-- 单大括号中可以使用任意的JavaScript表达式
-
-- JSX也是JS表达式
-- JS中的对象是一个例外 ，一般只会出现在style属性中
-- 不能在&#123;&#125;中出现语句（比如`if`/`for`等）
-
+<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul>
+<li><p>单大括号中可以使用任意的JavaScript表达式</p>
+</li>
+<li><p>JSX也是JS表达式</p>
+</li>
+<li><p>JS中的对象是一个例外 ，一般只会出现在style属性中</p>
+</li>
+<li><p>不能在{}中出现语句（比如<code>if</code>/<code>for</code>等）</p>
+</li>
+</ul>
 <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> h1 = <span class="xml"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>我是JSX<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> dv = &#123;</span><br><span class="line">    &lt;div&gt;嵌入表达式：&#123;h1&#125;&lt;/div&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-> JSX插入内容：
->
-> - Number、String、Array直接显示出来
-> - undefined、null、Boolean不显示（若想让其显示，则需要把它转换为字符串类型：String()或+""或.toString()）
-> - **object类型不能作为子元素进行显示**（显示方法：`Object.keys(friend)[0]`）
-> - 可以插入对应的表达式。例：`&#123;10 + 20&#125;`
+<blockquote>
+<p>JSX插入内容：</p>
+<ul>
+<li>Number、String、Array直接显示出来</li>
+<li>undefined、null、Boolean不显示（若想让其显示，则需要把它转换为字符串类型：String()或+””或.toString()）</li>
+<li><strong>object类型不能作为子元素进行显示</strong>（显示方法：<code>Object.keys(friend)[0]</code>）</li>
+<li>可以插入对应的表达式。例：<code>&#123;10 + 20&#125;</code></li>
+</ul>
+</blockquote>
+<h2 id="2-3-JSX的列表渲染"><a href="#2-3-JSX的列表渲染" class="headerlink" title="2.3 JSX的列表渲染"></a>2.3 JSX的列表渲染</h2><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 列表渲染</span></span><br><span class="line"><span class="comment">// 技术方案：map 重复渲染的是哪个模板 就return谁</span></span><br><span class="line"><span class="comment">// 注意事项：遍历列表时同样需要一个类型为number/string不可重复的key 提高diff性能</span></span><br><span class="line"><span class="comment">// key仅仅在内部使用，不会出现在真实的dom结构中</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> songs = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">&#x27;痴心绝对&#x27;</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">&#x27;像我这样的人&#x27;</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">&#x27;南山南&#x27;</span> &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">      &lt;ul&gt;</span><br><span class="line">        &#123;songs.map(<span class="function"><span class="params">song</span> =&gt;</span> <span class="xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;song.id&#125;</span>&gt;</span>&#123;song.name&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>)&#125;</span><br><span class="line">      &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-## 2.3 JSX的列表渲染
+<h2 id="2-4-JSX的条件渲染"><a href="#2-4-JSX的条件渲染" class="headerlink" title="2.4 JSX的条件渲染"></a>2.4 JSX的条件渲染</h2><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 来个布尔值</span></span><br><span class="line"><span class="keyword">const</span> flag = <span class="literal">true</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">      &#123;<span class="comment">/* 条件渲染字符串 */</span>&#125;</span><br><span class="line">      &#123;flag ? <span class="string">&#x27;react真有趣&#x27;</span> : <span class="string">&#x27;vue真有趣&#x27;</span>&#125;</span><br><span class="line">      &#123;<span class="comment">/* 条件渲染标签/组件 */</span>&#125;</span><br><span class="line">      &#123;flag ? <span class="xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span>this is span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span> : <span class="literal">null</span>&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 列表渲染</span></span><br><span class="line"><span class="comment">// 技术方案：map 重复渲染的是哪个模板 就return谁</span></span><br><span class="line"><span class="comment">// 注意事项：遍历列表时同样需要一个类型为number/string不可重复的key 提高diff性能</span></span><br><span class="line"><span class="comment">// key仅仅在内部使用，不会出现在真实的dom结构中</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> songs = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">name</span>: <span class="string">&#x27;痴心绝对&#x27;</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">name</span>: <span class="string">&#x27;像我这样的人&#x27;</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">3</span>, <span class="attr">name</span>: <span class="string">&#x27;南山南&#x27;</span> &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">      &lt;ul&gt;</span><br><span class="line">        &#123;songs.map(<span class="function"><span class="params">song</span> =&gt;</span> <span class="xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">key</span>=<span class="string">&#123;song.id&#125;</span>&gt;</span>&#123;song.name&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>)&#125;</span><br><span class="line">      &lt;/ul&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-5-JSX样式处理"><a href="#2-5-JSX样式处理" class="headerlink" title="2.5 JSX样式处理"></a>2.5 JSX样式处理</h2><h3 id="行内样式"><a href="#行内样式" class="headerlink" title="行内样式"></a>行内样式</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">      &lt;div style=&#123;&#123; <span class="attr">color</span>: <span class="string">&#x27;red&#x27;</span> &#125;&#125;&gt;<span class="built_in">this</span> is a div&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App</span><br></pre></td></tr></table></figure>
 
-## 2.4 JSX的条件渲染
+<h3 id="行内样式（更优写法）"><a href="#行内样式（更优写法）" class="headerlink" title="行内样式（更优写法）"></a>行内样式（更优写法）</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> styleObj = &#123;</span><br><span class="line">    color: <span class="string">&#x27;red&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">      &lt;div style=&#123; styleObj &#125;&gt;<span class="built_in">this</span> is a div&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 来个布尔值</span></span><br><span class="line"><span class="keyword">const</span> flag = <span class="literal">true</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">      &#123;<span class="comment">/* 条件渲染字符串 */</span>&#125;</span><br><span class="line">      &#123;flag ? <span class="string">&#x27;react真有趣&#x27;</span> : <span class="string">&#x27;vue真有趣&#x27;</span>&#125;</span><br><span class="line">      &#123;<span class="comment">/* 条件渲染标签/组件 */</span>&#125;</span><br><span class="line">      &#123;flag ? <span class="xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span>this is span<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span> : <span class="literal">null</span>&#125;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App</span><br></pre></td></tr></table></figure>
-
-## 2.5 JSX样式处理
-
-### 行内样式
-
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">      &lt;div style=&#123;&#123; <span class="attr">color</span>: <span class="string">&#x27;red&#x27;</span> &#125;&#125;&gt;<span class="built_in">this</span> is a div&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App</span><br></pre></td></tr></table></figure>
-
-### 行内样式（更优写法）
-
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> styleObj = &#123;</span><br><span class="line">    color: <span class="string">&#x27;red&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">      &lt;div style=&#123; styleObj &#125;&gt;<span class="built_in">this</span> is a div&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App</span><br></pre></td></tr></table></figure>
-
-### 类名-className（推荐）
-
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* app.css */</span></span><br><span class="line"><span class="selector-class">.title</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="类名-className（推荐）"><a href="#类名-className（推荐）" class="headerlink" title="类名-className（推荐）"></a>类名-className（推荐）</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* app.css */</span></span><br><span class="line"><span class="selector-class">.title</span> &#123;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">  <span class="attribute">color</span>: blue;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// App.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./app.css&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">      &lt;div className=<span class="string">&quot;title&quot;</span>&gt;<span class="built_in">this</span> is a div&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App</span><br></pre></td></tr></table></figure>
 
-### 类名-className-动态类名控制
+<h3 id="类名-className-动态类名控制"><a href="#类名-className-动态类名控制" class="headerlink" title="类名-className-动态类名控制"></a>类名-className-动态类名控制</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// App.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./app.css&#x27;</span></span><br><span class="line"><span class="keyword">const</span> showTitle = <span class="literal">true</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">      &lt;div className=&#123; showTitle ? <span class="string">&#x27;title&#x27;</span> : <span class="string">&#x27;&#x27;</span>&#125;&gt;<span class="built_in">this</span> is a div&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// App.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;./app.css&#x27;</span></span><br><span class="line"><span class="keyword">const</span> showTitle = <span class="literal">true</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">      &lt;div className=&#123; showTitle ? <span class="string">&#x27;title&#x27;</span> : <span class="string">&#x27;&#x27;</span>&#125;&gt;<span class="built_in">this</span> is a div&lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App</span><br></pre></td></tr></table></figure>
-
-## 2.6 JSX注意事项
-
-1、JSX必须有一个根节点，如果没有根节点，可以使用`<></>`（幽灵节点）替代
-
-2、所有标签必须形成闭合、成对闭合或者自闭合都可以
-
-3、JSX中的语法更加贴近JS语法，属性名采用驼峰命名法，`class->className`、`for->htmlFor`、`tabindex->tabIndex`
-
-4、JSX支持多行（换行），如果需要换行，需使用`()`包裹，防止bug出现
-
-5、没有子节点的React元素可以用`/>`结束
-
-6、推荐：使用小括号包裹JSX，从而避免JS中的自动插入分号陷阱
-
+<h2 id="2-6-JSX注意事项"><a href="#2-6-JSX注意事项" class="headerlink" title="2.6 JSX注意事项"></a>2.6 JSX注意事项</h2><p>1、JSX必须有一个根节点，如果没有根节点，可以使用<code>&lt;&gt;&lt;/&gt;</code>（幽灵节点）替代</p>
+<p>2、所有标签必须形成闭合、成对闭合或者自闭合都可以</p>
+<p>3、JSX中的语法更加贴近JS语法，属性名采用驼峰命名法，<code>class-&gt;className</code>、<code>for-&gt;htmlFor</code>、<code>tabindex-&gt;tabIndex</code></p>
+<p>4、JSX支持多行（换行），如果需要换行，需使用<code>()</code>包裹，防止bug出现</p>
+<p>5、没有子节点的React元素可以用<code>/&gt;</code>结束</p>
+<p>6、推荐：使用小括号包裹JSX，从而避免JS中的自动插入分号陷阱</p>
 <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dv = &#123;</span><br><span class="line">    &lt;div&gt;Hello JSX&lt;span /&gt;&lt;/div&gt;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-# 3 组件基础
+<h1 id="3-组件基础"><a href="#3-组件基础" class="headerlink" title="3 组件基础"></a>3 组件基础</h1><h2 id="3-1-组件概念"><a href="#3-1-组件概念" class="headerlink" title="3.1 组件概念"></a>3.1 组件概念</h2><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220716005514441.png" alt="image-20220716005514441"></p>
+<h2 id="3-2-函数组件"><a href="#3-2-函数组件" class="headerlink" title="3.2 函数组件"></a>3.2 函数组件</h2><p>使用JS的函数（或箭头函数）创建的组件，就叫做函数组件</p>
+<h3 id="组件的定义与渲染"><a href="#组件的定义与渲染" class="headerlink" title="组件的定义与渲染"></a>组件的定义与渲染</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义函数组件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HelloFn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>这是我的第一个函数组件!<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义函数组件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">      &#123;<span class="comment">/* 渲染函数组件，两种方式均可渲染 */</span>&#125;</span><br><span class="line">      &lt;HelloFn /&gt;</span><br><span class="line">      &lt;HelloFn&gt;&lt;/HelloFn&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App</span><br></pre></td></tr></table></figure>
 
-## 3.1 组件概念
+<p><strong>约定说明</strong></p>
+<ol>
+<li>组件的名称<strong>必须首字母大写</strong>，react内部会根据这个来判断是组件还是普通的HTML标签</li>
+<li>函数组件<strong>必须有返回值</strong>，表示该组件的 UI 结构；如果不需要渲染任何内容，则返回 null</li>
+<li>组件就像 HTML 标签一样可以被渲染到页面中。组件表示的是一段结构内容，对于函数组件来说，渲染的内容是函数的<strong>返回值</strong>就是对应的内容</li>
+<li>使用函数名称作为组件标签名称，可以成对出现也可以自闭合</li>
+</ol>
+<h2 id="3-3-类组件"><a href="#3-3-类组件" class="headerlink" title="3.3 类组件"></a>3.3 类组件</h2><p>使用 ES6 的 class 创建的组件，叫做类（class）组件</p>
+<h3 id="组件定义与渲染"><a href="#组件定义与渲染" class="headerlink" title="组件定义与渲染"></a>组件定义与渲染</h3><figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 引入React</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义类组件</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloC</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>这是我的第一个类组件!<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">      &#123;<span class="comment">/* 渲染类组件 */</span>&#125;</span><br><span class="line">      &lt;HelloC /&gt;</span><br><span class="line">      &lt;HelloC&gt;&lt;/HelloC&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App</span><br></pre></td></tr></table></figure>
 
-![image-20220716005514441](https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220716005514441.png)
-
-## 3.2 函数组件
-
-使用JS的函数（或箭头函数）创建的组件，就叫做函数组件
-
-### 组件的定义与渲染
-
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 定义函数组件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HelloFn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>这是我的第一个函数组件!<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义函数组件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">      &#123;<span class="comment">/* 渲染函数组件，两种方式均可渲染 */</span>&#125;</span><br><span class="line">      &lt;HelloFn /&gt;</span><br><span class="line">      &lt;HelloFn&gt;&lt;/HelloFn&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App</span><br></pre></td></tr></table></figure>
-
-**约定说明**
-
-1. 组件的名称**必须首字母大写**，react内部会根据这个来判断是组件还是普通的HTML标签
-2. 函数组件**必须有返回值**，表示该组件的 UI 结构；如果不需要渲染任何内容，则返回 null
-3. 组件就像 HTML 标签一样可以被渲染到页面中。组件表示的是一段结构内容，对于函数组件来说，渲染的内容是函数的**返回值**就是对应的内容
-4. 使用函数名称作为组件标签名称，可以成对出现也可以自闭合
-
-## 3.3 类组件
-
-使用 ES6 的 class 创建的组件，叫做类（class）组件
-
-### 组件定义与渲染
-
-<figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 引入React</span></span><br><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义类组件</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloC</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  render () &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>这是我的第一个类组件!<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">App</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div className=<span class="string">&quot;App&quot;</span>&gt;</span><br><span class="line">      &#123;<span class="comment">/* 渲染类组件 */</span>&#125;</span><br><span class="line">      &lt;HelloC /&gt;</span><br><span class="line">      &lt;HelloC&gt;&lt;/HelloC&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App</span><br></pre></td></tr></table></figure>
-
-**约定说明**
-
-1. **类名称也必须以大写字母开头**
-2. 类组件应该继承 React.Component 父类，从而使用父类中提供的方法或属性
-3. 类组件必须提供 render 方法，**render 方法必须有返回值，表示该组件的 UI 结构**
-3. constructor是可选的，我们通常在constructor中初始化一些数据
-3. this.state中维护的就是我们组件内部的数据
-
-## 3.4 事件绑定
-
-### 如何绑定事件
-
-语法：`on + 事件名称 = &#123; 事件处理程序 &#125;`，比如：`<div onClick=&#123;() => &#123;&#125;&#125;&gt;&lt;/div&gt;</code></li>
-</ul>
+<p><strong>约定说明</strong></p>
+<ol>
+<li><strong>类名称也必须以大写字母开头</strong></li>
+<li>类组件应该继承 React.Component 父类，从而使用父类中提供的方法或属性</li>
+<li>类组件必须提供 render 方法，<strong>render 方法必须有返回值，表示该组件的 UI 结构</strong></li>
+<li>constructor是可选的，我们通常在constructor中初始化一些数据</li>
+<li>this.state中维护的就是我们组件内部的数据</li>
+</ol>
+<h2 id="3-4-事件绑定"><a href="#3-4-事件绑定" class="headerlink" title="3.4 事件绑定"></a>3.4 事件绑定</h2><h3 id="如何绑定事件"><a href="#如何绑定事件" class="headerlink" title="如何绑定事件"></a>如何绑定事件</h3><p>语法：<code>on + 事件名称 = &#123; 事件处理程序 &#125;</code>，比如：<code>&lt;div onClick=&#123;() =&gt; &#123;&#125;&#125;&gt;&lt;/div&gt;</code></p>
 <p><strong>注意</strong>：react事件采用驼峰命名法，<code>onMouseEnter</code>、<code>onFocus</code></p>
 <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函数组件</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">HelloFn</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 定义事件回调函数</span></span><br><span class="line">  <span class="keyword">const</span> clickHandler = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;事件被触发了&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="comment">// 绑定事件</span></span><br><span class="line">    &lt;button onClick=&#123;<span class="built_in">this</span>.clickHandler&#125;&gt;click me!&lt;/button&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 类组件</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HelloC</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="comment">// 定义事件回调函数</span></span><br><span class="line">  clickHandler = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;事件被触发了&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  render () &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="comment">// 绑定事件</span></span><br><span class="line">      &lt;button onClick=&#123;<span class="built_in">this</span>.clickHandler&#125;&gt;click me!&lt;/button&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -2104,7 +2086,7 @@ JSX是JavaScript XML的简写，表示在JavaScript代码中写XML（HTML）格�
 <figure class="highlight jsx"><table><tr><td class="code"><pre><span class="line">useEffect(<span class="function">()=&gt;</span>&#123;   </span><br><span class="line">    <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fetchData</span>(<span class="params"></span>)</span>&#123;      </span><br><span class="line">       <span class="keyword">const</span> res = <span class="keyword">await</span> axios.get(<span class="string">&#x27;http://geek.itheima.net/v1_0/channels&#x27;</span>)                            <span class="built_in">console</span>.log(res)   </span><br><span class="line">    &#125; </span><br><span class="line">&#125;,[])</span><br></pre></td></tr></table></figure>
 
 <h2 id="7-4-useRef"><a href="#7-4-useRef" class="headerlink" title="7.4 useRef"></a>7.4 useRef</h2><h3 id="使用场景-3"><a href="#使用场景-3" class="headerlink" title="使用场景"></a>使用场景</h3><p>在函数组件中获取真实的dom元素对象或者是组件对象</p>
-<h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h3><ol>
+<h3 id="使用步骤-1"><a href="#使用步骤-1" class="headerlink" title="使用步骤"></a>使用步骤</h3><ol>
 <li>导入 <code>useRef</code> 函数</li>
 <li>执行 <code>useRef</code> 函数并传入null，返回值为一个对象 内部有一个current属性存放拿到的dom对象（组件实例）</li>
 <li>通过ref 绑定 要获取的元素或者组件</li>
@@ -4001,7 +3983,7 @@ JSX是JavaScript XML的简写，表示在JavaScript代码中写XML（HTML）格�
 <p>⑤ 运行 npm install jquery –S 命令，安装 jQuery</p>
 <p>⑥ 通过 ES6 模块化的方式导入 jQuery，实现列表隔行变色效果</p>
 <h2 id="2-3-在项目中安装-webpack"><a href="#2-3-在项目中安装-webpack" class="headerlink" title="2.3 在项目中安装 webpack"></a>2.3 在项目中安装 webpack</h2><p>在终端运行如下的命令，安装 webpack 相关的两个包：</p>
-<p>npm install <a class="link"   href="mailto:&#x77;&#101;&#x62;&#112;&#x61;&#x63;&#x6b;&#64;&#x35;&#46;&#52;&#50;&#46;&#49;" >&#x77;&#101;&#x62;&#112;&#x61;&#x63;&#x6b;&#64;&#x35;&#46;&#52;&#50;&#46;&#49;<i class="fas fa-external-link-alt"></i></a> webpack-cli@4.7.2 -D </p>
+<p>npm install <a class="link"   href="mailto:&#x77;&#101;&#98;&#112;&#x61;&#x63;&#x6b;&#x40;&#53;&#x2e;&#x34;&#50;&#46;&#49;" >&#x77;&#101;&#98;&#112;&#x61;&#x63;&#x6b;&#x40;&#53;&#x2e;&#x34;&#50;&#46;&#49;<i class="fas fa-external-link-alt"></i></a> webpack-cli@4.7.2 -D </p>
 <h2 id="2-4-在项目中配置-webpack"><a href="#2-4-在项目中配置-webpack" class="headerlink" title="2.4 在项目中配置 webpack"></a>2.4 在项目中配置 webpack</h2><p>① 在项目根目录中，创建名为 webpack.config.js 的 webpack 配置文件，并初始化如下的基本配置：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">&#x27;development&#x27;</span>  <span class="comment">// mode用来指定构建模式，可选值有development和production</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -4056,7 +4038,7 @@ JSX是JavaScript XML的简写，表示在JavaScript代码中写XML（HTML）格�
 </ul>
 <h2 id="3-2-webpack-dev-server"><a href="#3-2-webpack-dev-server" class="headerlink" title="3.2 webpack-dev-server"></a>3.2 webpack-dev-server</h2><p>webpack-dev-server 可以让 webpack 监听项目源代码的变化，从而进行自动打包构建。</p>
 <h3 id="3-2-1-安装-webpack-dev-server"><a href="#3-2-1-安装-webpack-dev-server" class="headerlink" title="3.2.1 安装 webpack-dev-server"></a>3.2.1 安装 webpack-dev-server</h3><p>运行如下的命令，即可在项目中安装此插件：</p>
-<p>npm install <a class="link"   href="mailto:&#x77;&#101;&#x62;&#x70;&#x61;&#99;&#107;&#x2d;&#100;&#101;&#x76;&#45;&#x73;&#x65;&#114;&#118;&#x65;&#x72;&#x40;&#51;&#x2e;&#x31;&#49;&#x2e;&#x32;" >&#x77;&#101;&#x62;&#x70;&#x61;&#99;&#107;&#x2d;&#100;&#101;&#x76;&#45;&#x73;&#x65;&#114;&#118;&#x65;&#x72;&#x40;&#51;&#x2e;&#x31;&#49;&#x2e;&#x32;<i class="fas fa-external-link-alt"></i></a> -D</p>
+<p>npm install <a class="link"   href="mailto:&#119;&#x65;&#98;&#x70;&#x61;&#x63;&#x6b;&#x2d;&#100;&#101;&#x76;&#45;&#x73;&#x65;&#114;&#x76;&#x65;&#114;&#64;&#x33;&#x2e;&#x31;&#49;&#46;&#x32;" >&#119;&#x65;&#98;&#x70;&#x61;&#x63;&#x6b;&#x2d;&#100;&#101;&#x76;&#45;&#x73;&#x65;&#114;&#x76;&#x65;&#114;&#64;&#x33;&#x2e;&#x31;&#49;&#46;&#x32;<i class="fas fa-external-link-alt"></i></a> -D</p>
 <h3 id="3-2-2-配置-webpack-dev-server"><a href="#3-2-2-配置-webpack-dev-server" class="headerlink" title="3.2.2 配置 webpack-dev-server"></a>3.2.2 配置 webpack-dev-server</h3><p>① 修改 package.json -&gt; scripts 中的 dev 命令如下：</p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;dev&quot;: &quot;webpack serve&quot;, // script节点下的脚本，可以通过npm run执行</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -4087,7 +4069,7 @@ JSX是JavaScript XML的简写，表示在JavaScript代码中写XML（HTML）格�
 <h2 id="3-3-html-webpack-plugin"><a href="#3-3-html-webpack-plugin" class="headerlink" title="3.3 html-webpack-plugin"></a>3.3 html-webpack-plugin</h2><p>html-webpack-plugin 是 webpack 中的 HTML 插件，可以通过此插件自定制 index.html 页面的内容。</p>
 <p>需求：通过 html-webpack-plugin 插件，将 src 目录下的 index.html 首页，复制到项目根目录中一份！</p>
 <h3 id="3-3-1-安装-html-webpack-plugin"><a href="#3-3-1-安装-html-webpack-plugin" class="headerlink" title="3.3.1 安装 html-webpack-plugin"></a>3.3.1 安装 html-webpack-plugin</h3><p>运行如下的命令，即可在项目中安装此插件：</p>
-<p>npm install <a class="link"   href="mailto:&#x68;&#116;&#109;&#108;&#x2d;&#119;&#x65;&#98;&#x70;&#x61;&#99;&#x6b;&#45;&#x70;&#108;&#x75;&#x67;&#105;&#110;&#x40;&#53;&#x2e;&#51;&#x2e;&#50;" >&#x68;&#116;&#109;&#108;&#x2d;&#119;&#x65;&#98;&#x70;&#x61;&#99;&#x6b;&#45;&#x70;&#108;&#x75;&#x67;&#105;&#110;&#x40;&#53;&#x2e;&#51;&#x2e;&#50;<i class="fas fa-external-link-alt"></i></a> -D</p>
+<p>npm install <a class="link"   href="mailto:&#x68;&#116;&#x6d;&#108;&#45;&#x77;&#101;&#x62;&#x70;&#97;&#x63;&#107;&#x2d;&#x70;&#108;&#x75;&#x67;&#105;&#110;&#x40;&#x35;&#x2e;&#x33;&#x2e;&#50;" >&#x68;&#116;&#x6d;&#108;&#45;&#x77;&#101;&#x62;&#x70;&#97;&#x63;&#107;&#x2d;&#x70;&#108;&#x75;&#x67;&#105;&#110;&#x40;&#x35;&#x2e;&#x33;&#x2e;&#50;<i class="fas fa-external-link-alt"></i></a> -D</p>
 <h3 id="3-3-2-配置-html-webpack-plugin"><a href="#3-3-2-配置-html-webpack-plugin" class="headerlink" title="3.3.2 配置 html-webpack-plugin"></a>3.3.2 配置 html-webpack-plugin</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 导入HTML插件，得到一个构造函数</span></span><br><span class="line"><span class="keyword">const</span> HtmlPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 创建HTML插件的实例对象</span></span><br><span class="line"><span class="keyword">const</span> htmlPlugin = <span class="keyword">new</span> HtmlPlugin(&#123;</span><br><span class="line">    template: <span class="string">&#x27;./src/index.html&#x27;</span>, <span class="comment">// 指定原文件的存放路径</span></span><br><span class="line">    filename: <span class="string">&#x27;./index.html&#x27;</span> <span class="comment">// 指定生成的文件的存放路径</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    mode: <span class="string">&#x27;development&#x27;</span>,</span><br><span class="line">    plugins: [htmlPlugin], <span class="comment">// 3. 通过plugins节点，使htmlPlugin插件生效</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="3-3-3-解惑-html-webpack-plugin"><a href="#3-3-3-解惑-html-webpack-plugin" class="headerlink" title="3.3.3 解惑 html-webpack-plugin"></a>3.3.3 解惑 html-webpack-plugin</h3><p>① 通过 HTML 插件复制到项目根目录中的 index.html 页面，也被放到了内存中</p>
@@ -4109,7 +4091,7 @@ JSX是JavaScript XML的简写，表示在JavaScript代码中写XML（HTML）格�
 </ul>
 <h2 id="4-2-loader的调用过程"><a href="#4-2-loader的调用过程" class="headerlink" title="4.2 loader的调用过程"></a>4.2 loader的调用过程</h2><p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20220403200855794.png" alt="image-20220403200855794"></p>
 <p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/01.loader%E8%B0%83%E7%94%A8%E7%9A%84%E8%BF%87%E7%A8%8B.png" alt="01.loader调用的过程"></p>
-<h2 id="4-3-打包处理-css-文件"><a href="#4-3-打包处理-css-文件" class="headerlink" title="4.3 打包处理 css 文件"></a>4.3 打包处理 css 文件</h2><p>① 运行 npm i <a class="link"   href="mailto:&#x73;&#116;&#121;&#108;&#101;&#45;&#108;&#111;&#x61;&#x64;&#x65;&#x72;&#x40;&#51;&#46;&#x30;&#46;&#48;" >&#x73;&#116;&#121;&#108;&#101;&#45;&#108;&#111;&#x61;&#x64;&#x65;&#x72;&#x40;&#51;&#46;&#x30;&#46;&#48;<i class="fas fa-external-link-alt"></i></a> css-loader@5.2.6 -D 命令，安装处理 css 文件的 loader</p>
+<h2 id="4-3-打包处理-css-文件"><a href="#4-3-打包处理-css-文件" class="headerlink" title="4.3 打包处理 css 文件"></a>4.3 打包处理 css 文件</h2><p>① 运行 npm i <a class="link"   href="mailto:&#x73;&#x74;&#x79;&#108;&#101;&#45;&#108;&#111;&#97;&#x64;&#x65;&#114;&#x40;&#x33;&#x2e;&#x30;&#46;&#48;" >&#x73;&#x74;&#x79;&#108;&#101;&#45;&#108;&#111;&#97;&#x64;&#x65;&#114;&#x40;&#x33;&#x2e;&#x30;&#46;&#48;<i class="fas fa-external-link-alt"></i></a> css-loader@5.2.6 -D 命令，安装处理 css 文件的 loader</p>
 <p>② 在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123; <span class="comment">// 所有第三方文件模块的匹配规则</span></span><br><span class="line">    rules: [ <span class="comment">// 文件后缀名的匹配规则</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>] &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -4121,11 +4103,11 @@ JSX是JavaScript XML的简写，表示在JavaScript代码中写XML（HTML）格�
 <li><p>多个 loader 的调用顺序是：从后往前调用</p>
 </li>
 </ul>
-<h2 id="4-4-打包处理-less-文件"><a href="#4-4-打包处理-less-文件" class="headerlink" title="4.4 打包处理 less 文件"></a>4.4 打包处理 less 文件</h2><p>① 运行 npm i <a class="link"   href="mailto:&#x6c;&#x65;&#x73;&#115;&#45;&#x6c;&#111;&#97;&#x64;&#101;&#114;&#64;&#x31;&#x30;&#46;&#x30;&#x2e;&#x31;" >&#x6c;&#x65;&#x73;&#115;&#45;&#x6c;&#111;&#97;&#x64;&#101;&#114;&#64;&#x31;&#x30;&#46;&#x30;&#x2e;&#x31;<i class="fas fa-external-link-alt"></i></a> less@4.1.1 -D 命令</p>
+<h2 id="4-4-打包处理-less-文件"><a href="#4-4-打包处理-less-文件" class="headerlink" title="4.4 打包处理 less 文件"></a>4.4 打包处理 less 文件</h2><p>① 运行 npm i <a class="link"   href="mailto:&#x6c;&#101;&#x73;&#x73;&#45;&#108;&#x6f;&#97;&#x64;&#101;&#114;&#x40;&#x31;&#x30;&#46;&#x30;&#46;&#x31;" >&#x6c;&#101;&#x73;&#x73;&#45;&#108;&#x6f;&#97;&#x64;&#101;&#114;&#x40;&#x31;&#x30;&#46;&#x30;&#46;&#x31;<i class="fas fa-external-link-alt"></i></a> less@4.1.1 -D 命令</p>
 <p>② 在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123; <span class="comment">// 所有第三方文件模块的匹配规则</span></span><br><span class="line">    rules: [ <span class="comment">// 文件后缀名的匹配规则</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.less$/</span>, use: [<span class="string">&#x27;style-loader&#x27;</span>, <span class="string">&#x27;css-loader&#x27;</span>, <span class="string">&#x27;less-loader&#x27;</span>] &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="4-5-打包处理样式表中与-url-路径相关的文件"><a href="#4-5-打包处理样式表中与-url-路径相关的文件" class="headerlink" title="4.5 打包处理样式表中与 url 路径相关的文件"></a>4.5 打包处理样式表中与 url 路径相关的文件</h2><p>① 运行 npm i <a class="link"   href="mailto:&#117;&#114;&#x6c;&#x2d;&#108;&#x6f;&#97;&#100;&#101;&#x72;&#64;&#x34;&#46;&#49;&#46;&#x31;" >&#117;&#114;&#x6c;&#x2d;&#108;&#x6f;&#97;&#100;&#101;&#x72;&#64;&#x34;&#46;&#49;&#46;&#x31;<i class="fas fa-external-link-alt"></i></a> file-loader@6.2.0 -D 命令</p>
+<h2 id="4-5-打包处理样式表中与-url-路径相关的文件"><a href="#4-5-打包处理样式表中与-url-路径相关的文件" class="headerlink" title="4.5 打包处理样式表中与 url 路径相关的文件"></a>4.5 打包处理样式表中与 url 路径相关的文件</h2><p>① 运行 npm i <a class="link"   href="mailto:&#117;&#x72;&#108;&#45;&#108;&#x6f;&#97;&#100;&#x65;&#x72;&#x40;&#x34;&#x2e;&#x31;&#x2e;&#49;" >&#117;&#x72;&#108;&#45;&#108;&#x6f;&#97;&#100;&#x65;&#x72;&#x40;&#x34;&#x2e;&#x31;&#x2e;&#49;<i class="fas fa-external-link-alt"></i></a> file-loader@6.2.0 -D 命令</p>
 <p>② 在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123; <span class="comment">// 所有第三方文件模块的匹配规则</span></span><br><span class="line">    rules: [ <span class="comment">// 文件后缀名的匹配规则</span></span><br><span class="line">        &#123; <span class="attr">test</span>: <span class="regexp">/\.jpg|png|gif$/</span>, use: [<span class="string">&#x27;url-loader?limit=22229&#x27;</span>] &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -4140,7 +4122,7 @@ JSX是JavaScript XML的简写，表示在JavaScript代码中写XML（HTML）格�
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 1. 定义了名为info的装饰器</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">info</span>(<span class="params">target</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 2. 为目标添加静态属性info</span></span><br><span class="line">    target.info = <span class="string">&#x27;Person info&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 为Person类应用info装饰器</span></span><br><span class="line">@info</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//4. 打印 Person 的静态属性 info</span></span><br><span class="line"><span class="built_in">console</span>.log(Person.info)</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-6-1-安装-babel-loader-相关的包"><a href="#4-6-1-安装-babel-loader-相关的包" class="headerlink" title="4.6.1 安装 babel-loader 相关的包"></a>4.6.1 安装 babel-loader 相关的包</h3><p>运行如下的命令安装对应的依赖包：</p>
-<p>npm i <a class="link"   href="mailto:&#98;&#x61;&#98;&#101;&#108;&#45;&#108;&#x6f;&#97;&#100;&#101;&#114;&#64;&#x38;&#x2e;&#50;&#x2e;&#x32;" >&#98;&#x61;&#98;&#101;&#108;&#45;&#108;&#x6f;&#97;&#100;&#101;&#114;&#64;&#x38;&#x2e;&#50;&#x2e;&#x32;<i class="fas fa-external-link-alt"></i></a> @babel/core@7.14.6 @babel/plugin-proposal-decorators@7.14.5 -D </p>
+<p>npm i <a class="link"   href="mailto:&#98;&#97;&#x62;&#x65;&#108;&#45;&#x6c;&#111;&#x61;&#100;&#x65;&#x72;&#64;&#x38;&#x2e;&#x32;&#x2e;&#x32;" >&#98;&#97;&#x62;&#x65;&#108;&#45;&#x6c;&#111;&#x61;&#100;&#x65;&#x72;&#64;&#x38;&#x2e;&#x32;&#x2e;&#x32;<i class="fas fa-external-link-alt"></i></a> @babel/core@7.14.6 @babel/plugin-proposal-decorators@7.14.5 -D </p>
 <p>在 webpack.config.js 的 module -&gt; rules 数组中，添加 loader 规则如下：</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 注意：必须使用exclude指定排除项；因为node_modules目录下的第三方包不需要被打包</span></span><br><span class="line">&#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, use: <span class="string">&#x27;babel-loader&#x27;</span>, <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span> &#125;</span><br></pre></td></tr></table></figure>
 

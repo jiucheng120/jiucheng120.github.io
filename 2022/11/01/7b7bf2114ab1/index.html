@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="jiuchengBlog 博客">
+    <meta name="description" content="hello, here is JiuCheng&#39; s blog">
+    <meta name="author" content="馨er">
+    
+    <title>
+        
+            Bootstrap笔记 |
+        
+        馨er的学习之路
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/logo.png">
+    
+<link rel="stylesheet" href="/css/font-awesome.min.css">
+
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"jiucheng120.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":false,"expand_all":true,"init_open":false},"style":{"primary_color":"#CC00FF","avatar":"/images/avatar.png","favicon":"/images/logo.png","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":true,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.png","description":"Keep writing and Keep loving."},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":true}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":false},"version":"3.4.5"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/avatar.png">
+                </a>
+            
+            <a class="logo-title" href="/">
+                馨er的学习之路
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class href="/">
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/archives">
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/categories">
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/tags">
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/links">
+                                友链
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class href="/about">
+                                关于
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jiucheng120">
+                                GITHUB
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/links">友链</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class href="/about">关于</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/jiucheng120">GITHUB</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Bootstrap笔记</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/avatar.png">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">馨er</span>
+                        
+                            <span class="author-label">BOSS</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;
+        <span class="pc">2022-11-01 13:46:32</span>
+        <span class="mobile">2022-11-01 13:46</span>
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Bootstrap/">Bootstrap</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/JavaScript/">JavaScript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>653 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
+        </span>
+    
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <p>Bootstrap入门笔记，介绍Bootstrap的一些基本用法</p>
+<span id="more"></span>
+
+
+
+<h1 id="1-认识Bootstrap"><a href="#1-认识Bootstrap" class="headerlink" title="1 认识Bootstrap"></a>1 认识Bootstrap</h1><p>Bootstrap是一个非常受欢迎的前端框架。Bootstrap是由HTML、CSS和JavaScript编写可复用代码的集合（包括全局样式、组件、插件等），使用该框架能够快速开发出响应的网站（即适配PC、平板和移动端的网站）</p>
+<p>由Twitter团队开发，他们的本意是制作一套可以让网页保持统一风格的前端框架</p>
+<p><strong>优点</strong>：Bootstrap拥有一个强大的<strong>网格系统</strong>，它由行和列组成，我们可以直接创建网格，无需自行编写媒体查询来创建；Bootstrap预定义很多<strong>响应式</strong>的类，图片将会根据用户的屏幕尺寸自动调整图像大小，更方便我们去做各个屏幕的适配；Bootstrap框架提供的组件、插件、布局、栅格系统、响应式工具等等，可以为我们节省了大量的开发时间</p>
+<p><strong>缺点</strong>：不适合高度定制类型的项目，因为Bootstrap具有统一的视觉风格，高度定制的项目需要大量的自定义和样式覆盖；Bootstrap的框架文件比较大（61KB JS +159KB CSS），资源文件过大会增加网站首屏加载的事件，并加重服务器的负担；Bootstrap样式相对笨重，也会额外添加一些不必要的HTML元素，它会浪费一小部分浏览器的资源</p>
+<h1 id="2-Bootstrap安装"><a href="#2-Bootstrap安装" class="headerlink" title="2 Bootstrap安装"></a>2 Bootstrap安装</h1><p>在Bootstrap 5之前，Bootstrap是依赖jQuery的</p>
+<h2 id="2-1-CDN"><a href="#2-1-CDN" class="headerlink" title="2.1 CDN"></a>2.1 CDN</h2><p>Bootstrap框架的CDN地址：</p>
+<ul>
+<li><p><a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p><a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js">https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+<li><p><a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js">https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js<i class="fas fa-external-link-alt"></i></a></p>
+</li>
+</ul>
+<p>HTML中引入之后，添加重要的全局配置</p>
+<ul>
+<li>HTML5文档类型（DOCTYPE），Bootstrap要求文档类型是HTML5</li>
+<li>添加视口（Bootstrap采用的是移动设备优先的开发策略，在移动端会把layout viewport的宽度设置为设备的宽，并且不允许用户进行页面的缩放）<code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0,user-scalable=no,maximum-scale=1.0,minimum-scale=1.0,shrink-to-fit=no&quot;&gt;</code></li>
+</ul>
+<h2 id="2-2-下载源码引入"><a href="#2-2-下载源码引入" class="headerlink" title="2.2 下载源码引入"></a>2.2 下载源码引入</h2><p>Bootstrap下载地址：<a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://v4.bootcss.com/docs/getting-started/download/">https://v4.bootcss.com/docs/getting-started/download/<i class="fas fa-external-link-alt"></i></a></p>
+<p>jQuery下载地址：<a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://jquery.com/download/">https://jquery.com/download/<i class="fas fa-external-link-alt"></i></a></p>
+<p>Bootstrap软件包内容</p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20221101141209764.png" alt="image-20221101141209764"></p>
+<h2 id="2-3-npm安装"><a href="#2-3-npm安装" class="headerlink" title="2.3 npm安装"></a>2.3 npm安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># npm安装</span></span><br><span class="line">npm install bootstrap</span><br><span class="line"></span><br><span class="line"><span class="comment"># yarn安装</span></span><br><span class="line">yar add bootstrap</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="3-响应式容器原理"><a href="#3-响应式容器原理" class="headerlink" title="3 响应式容器原理"></a>3 响应式容器原理</h1><h1 id="4-网格系统的原理"><a href="#4-网格系统的原理" class="headerlink" title="4 网格系统的原理"></a>4 网格系统的原理</h1><h2 id="4-1-认识网格系统"><a href="#4-1-认识网格系统" class="headerlink" title="4.1 认识网格系统"></a>4.1 认识网格系统</h2><h2 id="4-2-12列网格系统"><a href="#4-2-12列网格系统" class="headerlink" title="4.2 12列网格系统"></a>4.2 12列网格系统</h2><h2 id="4-3-网格系统的原理"><a href="#4-3-网格系统的原理" class="headerlink" title="4.3 网格系统的原理"></a>4.3 网格系统的原理</h2><h1 id="5-响应式工具和组件"><a href="#5-响应式工具和组件" class="headerlink" title="5 响应式工具和组件"></a>5 响应式工具和组件</h1><h1 id="6-Bootstrap项目实战"><a href="#6-Bootstrap项目实战" class="headerlink" title="6 Bootstrap项目实战"></a>6 Bootstrap项目实战</h1>
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：Bootstrap笔记</li>
+        <li>本文作者：馨er</li>
+        <li>创建时间：2022-11-01 13:46:32</li>
+        <li>
+            本文链接：https://sjxbbd.vercel.app/2022/11/01/7b7bf2114ab1/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Bootstrap/">#Bootstrap</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/JavaScript/">#JavaScript</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next" rel="next" href="/2022/10/29/d89995677aeb/">
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">前端常用包管理工具</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2020</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">馨er</a>
+        </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io" rel="external nofollow noopener noreferrer">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep" rel="external nofollow noopener noreferrer">Keep v3.4.5</a>
+        </div>
+        
+            <div class="icp-info info-item"><a target="_blank" rel="external nofollow noopener noreferrer" href="https://beian.miit.gov.cn">晋ICP备2022004221号-1</a></div>
+        
+        
+    </div>
+</footer>
+
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E8%AE%A4%E8%AF%86Bootstrap"><span class="nav-text">1 认识Bootstrap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Bootstrap%E5%AE%89%E8%A3%85"><span class="nav-text">2 Bootstrap安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-CDN"><span class="nav-text">2.1 CDN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E4%B8%8B%E8%BD%BD%E6%BA%90%E7%A0%81%E5%BC%95%E5%85%A5"><span class="nav-text">2.2 下载源码引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-npm%E5%AE%89%E8%A3%85"><span class="nav-text">2.3 npm安装</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E5%93%8D%E5%BA%94%E5%BC%8F%E5%AE%B9%E5%99%A8%E5%8E%9F%E7%90%86"><span class="nav-text">3 响应式容器原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E7%BD%91%E6%A0%BC%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-text">4 网格系统的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-%E8%AE%A4%E8%AF%86%E7%BD%91%E6%A0%BC%E7%B3%BB%E7%BB%9F"><span class="nav-text">4.1 认识网格系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-12%E5%88%97%E7%BD%91%E6%A0%BC%E7%B3%BB%E7%BB%9F"><span class="nav-text">4.2 12列网格系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-%E7%BD%91%E6%A0%BC%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-text">4.3 网格系统的原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B7%A5%E5%85%B7%E5%92%8C%E7%BB%84%E4%BB%B6"><span class="nav-text">5 响应式工具和组件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-Bootstrap%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98"><span class="nav-text">6 Bootstrap项目实战</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src>
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/main.js"></script>
+
+<script src="/js/header-shrink.js"></script>
+
+<script src="/js/back2top.js"></script>
+
+<script src="/js/dark-light-toggle.js"></script>
+
+
+
+    
+<script src="/js/local-search.js"></script>
+
+
+
+
+    
+<script src="/js/code-copy.js"></script>
+
+
+
+
+
+<div class="post-scripts pjax">
+    
+        
+<script src="/js/left-side-toggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/toc.js"></script>
+
+    
+</div>
+
+
+    
+<script src="/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
