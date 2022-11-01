@@ -9,7 +9,7 @@
     
     <title>
         
-            core-js插件的介绍 |
+            Storge的使用 |
         
         馨er的学习之路
     </title>
@@ -179,7 +179,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">core-js插件的介绍</span>
+            <span class="title-hover-animation">Storge的使用</span>
         </div>
 
         
@@ -198,8 +198,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-08-04 00:40:58</span>
-        <span class="mobile">2022-08-04 00:40</span>
+        <span class="pc">2022-11-01 22:02:18</span>
+        <span class="mobile">2022-11-01 22:02</span>
     </span>
     
         <span class="article-categories article-meta-item">
@@ -219,7 +219,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/Vue/">Vue</a>&nbsp;
+                        <a href="/tags/Storge/">Storge</a>&nbsp;
                     </li>
                 
             </ul>
@@ -229,12 +229,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>253 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>629 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>2 分钟</span>
         </span>
     
     
@@ -247,33 +247,33 @@
 
         <div class="article-content markdown-body">
             <blockquote>
-<p>core-js插件的介绍</p>
+<p>Storage存储的基础知识</p>
 </blockquote>
 <span id="more"></span>
-<h1 id="1-core-js是什么"><a href="#1-core-js是什么" class="headerlink" title="1 core-js是什么"></a>1 core-js是什么</h1><ul>
-<li><p>它支持最新的 ECMAScript 标准</p>
-</li>
-<li><p>它支持ECMAScript 标准库提案</p>
-</li>
-<li><p>它支持一些 WHATWG / W3C 标准（跨平台或者 ECMAScript 相关）</p>
-</li>
-<li><p>它最大限度的模块化：你能仅仅加载你想要使用的功能</p>
-</li>
-<li><p>它能够不污染全局命名空间</p>
-</li>
-<li><p>它和babel紧密集成：这能够优化core-js的导入</p>
-</li>
-<li><p>它是最普遍、最流行 的给 JavaScript 标准库打补丁的方式</p>
-</li>
+<h1 id="1-Storage的分类"><a href="#1-Storage的分类" class="headerlink" title="1 Storage的分类"></a>1 Storage的分类</h1><ul>
+<li>localStorage：本地存储，提供的是一种永久性的存储方法，在关闭掉网页重新打开时，存储的内容仍然保留</li>
+<li>sessionStorage：会话存储，提供的时本次会话的存储，在关闭会话时，存储的内容会被清除</li>
 </ul>
-<h1 id="2-安装core-js"><a href="#2-安装core-js" class="headerlink" title="2 安装core-js"></a>2 安装core-js</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save core-js</span><br></pre></td></tr></table></figure>
-<h1 id="3-使用"><a href="#3-使用" class="headerlink" title="3 使用"></a>3 使用</h1><p>1.main.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&#x27;core-js/stable&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;regenerator-runtime/runtime&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;es6-promise/auto&#x27;</span>;</span><br></pre></td></tr></table></figure>
-<p>2.babel.config</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">presets: [</span><br><span class="line">    [<span class="string">&#x27;@babel/preset-env&#x27;</span>, &#123;</span><br><span class="line">        useBuiltIns: <span class="string">&#x27;entry&#x27;</span>, <span class="comment">// or &quot;usage&quot;</span></span><br><span class="line">        corejs: <span class="number">3</span>,</span><br><span class="line">    &#125;]</span><br><span class="line">],</span><br></pre></td></tr></table></figure>
-<p>3.vue.config.js</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 因为node_modules里的依赖默认是不会编译的,会导致es6语法在ie中的语法报错,配置node_modules中指定哪些文件夹或文件需要编译</span></span><br><span class="line"></span><br><span class="line"> transpileDependencies: [<span class="string">&#x27;vue-grid-layout&#x27;</span>,<span class="string">&#x27;resize-detector&#x27;</span>],</span><br></pre></td></tr></table></figure>
-<p>以上方法解决利用core-js 解决vue不兼容ie问题。</p>
+<h1 id="2-Storage常见的方法和属性"><a href="#2-Storage常见的方法和属性" class="headerlink" title="2 Storage常见的方法和属性"></a>2 Storage常见的方法和属性</h1><h2 id="2-1-常见的属性"><a href="#2-1-常见的属性" class="headerlink" title="2.1 常见的属性"></a>2.1 常见的属性</h2><p><code>Storage.length</code>：只读属性，返回一个整数，表示在Storage对象中的数据项数量</p>
+<h2 id="2-2-常见的方法"><a href="#2-2-常见的方法" class="headerlink" title="2.2 常见的方法"></a>2.2 常见的方法</h2><p><code>Storage.key()</code>：该方法接受一个数值n作为参数，返回存储中的第n个key名称</p>
+<p><code>Storage.getItem()</code>：该方法接受一个key作为参数，并且返回key对应的value</p>
+<p><code>Storage.setItem()</code>：该方法接受一个key和value，并且将会把key和value添加到存储中，如果key存储，则更新其对应的值</p>
+<p><code>Storage.removeItem()</code>：该方法接受一个key作为参数，并把该key从存储中删除</p>
+<p><code>Storage.clear()</code>：该方法的作用是清空存储中的所有key</p>
+<h1 id="3-localStorage"><a href="#3-localStorage" class="headerlink" title="3 localStorage"></a>3 localStorage</h1><h2 id="3-1-什么是localStorage"><a href="#3-1-什么是localStorage" class="headerlink" title="3.1 什么是localStorage"></a>3.1 什么是localStorage</h2><p>在HTML5中，新加入了一个localStorage特性，这个特性主要是用来作为本地存储来使用的，<strong>解决了cookie存储空间不足的问题</strong>(cookie中每条cookie的存储空间为4k)，localStorage中一般浏览器支持的是5M大小，这个在不同的浏览器中localStorage会有所不同。</p>
+<h2 id="3-2-localStorage的优势"><a href="#3-2-localStorage的优势" class="headerlink" title="3.2 localStorage的优势"></a>3.2 localStorage的优势</h2><p>1、localStorage拓展了cookie的4K限制<br>2、localStorage会可以将第一次请求的数据直接存储到本地，这个相当于一个5M大小的针对于前端页面的数据库，相比于cookie可以节约带宽，但是这个却是只有在高版本的浏览器中才支持的<br>3、localStorage与sessionStorage的唯一一点区别就是localStorage属于永久性存储，而sessionStorage属于当会话结束的时候，sessionStorage中的键值对会被清空</p>
+<h2 id="3-3-localStorage的使用"><a href="#3-3-localStorage的使用" class="headerlink" title="3.3 localStorage的使用"></a>3.3 localStorage的使用</h2><p>localStorage.getItem(key):获取指定key本地存储的值<br>localStorage.setItem(key,value)：将value存储到key字段</p>
+<p>比如：<br>在A页面中先存储：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> imgs = obj_mainform.archivesId  <span class="comment">//声明个变量存储下数据</span></span><br><span class="line"><span class="built_in">localStorage</span>.setItem(<span class="string">&#x27;key&#x27;</span>,imgs);  <span class="comment">//将变量imgs存储到name字段</span></span><br></pre></td></tr></table></figure>
+<p>在B页面中使用：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> naid = <span class="built_in">localStorage</span>.getItem(<span class="string">&quot;key&quot;</span>); <span class="comment">//获取指定key本地存储的值</span></span><br></pre></td></tr></table></figure>
+<p>以上就是localStorage.setItem()和localStorage.getItem()的使用方式</p>
+<p><a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.cnblogs.com/lufeiludaima/p/pz20190203.html">token详解<i class="fas fa-external-link-alt"></i></a></p>
+<p>前端一般把服务器获取的token存储到localStorage中</p>
+<p><a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/qq_38128179/article/details/85060052?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165762866216781435488863%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=165762866216781435488863&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-85060052-null-null.142^v32^down_rank,185^v2^control&amp;utm_term=localStorage&amp;spm=1018.2226.3001.4187">localStorage详细用法<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://www.jianshu.com/p/60c13168cc8f">插件vue-cookies的用法<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://blog.csdn.net/a772116804/article/details/104677865">Vue中使用js-cookie插件<i class="fas fa-external-link-alt"></i></a></p>
+<h1 id="4-sessionStorage"><a href="#4-sessionStorage" class="headerlink" title="4 sessionStorage"></a>4 sessionStorage</h1><p>不常用，用法同localStorage</p>
 
         </div>
 
@@ -281,11 +281,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：core-js插件的介绍</li>
+        <li>本文标题：Storge的使用</li>
         <li>本文作者：馨er</li>
-        <li>创建时间：2022-08-04 00:40:58</li>
+        <li>创建时间：2022-11-01 22:02:18</li>
         <li>
-            本文链接：https://sjxbbd.vercel.app/2022/08/04/85fcae445f36/
+            本文链接：https://sjxbbd.vercel.app/2022/11/01/d06c7c17ae02/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -300,7 +300,7 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/Vue/">#Vue</a>&nbsp;
+                        <a href="/tags/Storge/">#Storge</a>&nbsp;
                     </li>
                 
             </ul>
@@ -309,23 +309,11 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev" rel="prev" href="/2022/10/29/66d3b31c4153/">
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">DOM学习笔记</span>
-                                <span class="post-nav-item">上一篇</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
-                        <a class="next" rel="next" href="/2022/08/03/b24a825a7e6e/">
+                        <a class="next" rel="next" href="/2022/11/01/7b7bf2114ab1/">
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">vue中clipboard插件的使用</span>
+                                <span class="post-nav-title-item">Bootstrap笔记</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -439,7 +427,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-core-js%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">1 core-js是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85core-js"><span class="nav-text">2 安装core-js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-%E4%BD%BF%E7%94%A8"><span class="nav-text">3 使用</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-Storage%E7%9A%84%E5%88%86%E7%B1%BB"><span class="nav-text">1 Storage的分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Storage%E5%B8%B8%E8%A7%81%E7%9A%84%E6%96%B9%E6%B3%95%E5%92%8C%E5%B1%9E%E6%80%A7"><span class="nav-text">2 Storage常见的方法和属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E5%B8%B8%E8%A7%81%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-text">2.1 常见的属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-%E5%B8%B8%E8%A7%81%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">2.2 常见的方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-localStorage"><span class="nav-text">3 localStorage</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-%E4%BB%80%E4%B9%88%E6%98%AFlocalStorage"><span class="nav-text">3.1 什么是localStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-localStorage%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="nav-text">3.2 localStorage的优势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-localStorage%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-text">3.3 localStorage的使用</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-sessionStorage"><span class="nav-text">4 sessionStorage</span></a></li></ol>
     </div>
 </div>
         </aside>

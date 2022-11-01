@@ -229,7 +229,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>3.4k 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>3.5k 字</span>
         </span>
     
     
@@ -250,8 +250,10 @@
 <p>nodejs笔记</p>
 </blockquote>
 <span id="more"></span>
-
 <h1 id="1-邂逅Node"><a href="#1-邂逅Node" class="headerlink" title="1 邂逅Node"></a>1 邂逅Node</h1><h2 id="1-1-什么是nodejs"><a href="#1-1-什么是nodejs" class="headerlink" title="1.1 什么是nodejs"></a>1.1 什么是nodejs</h2><p>Node.js是一个基于V8 JavaScript引擎的JavaScript运行时环境</p>
+<p><img src="https://xingqiu-tuchuang-1256524210.cos.ap-shanghai.myqcloud.com/4156/image-20221101232734297.png" alt="image-20221101232734297"></p>
+<p>Node的版本工具n，nvm（<strong>Window均不可使用</strong>……）</p>
+<p>Node的REPL：REPL是一个简单的、交互式的编程环境。事实上，外面浏览器的console就可以看成一个REPL</p>
 <h2 id="1-2-Node程序传递参数"><a href="#1-2-Node程序传递参数" class="headerlink" title="1.2 Node程序传递参数"></a>1.2 Node程序传递参数</h2><p>在某些情况下执行node程序的过程中，我们可能希望给node传递一些参数：</p>
 <p><code>node index.js env=development coderwhy</code></p>
 <p>如果我们这样来使用程序，就意味着我们需要在程序中获取到传递的参数：</p>
@@ -265,7 +267,6 @@
 </ul>
 <p>现在，我们先找到其中的argv属性： 我们发现它是一个数组，里面包含了我们需要的参数；</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(process.argv);</span><br><span class="line">process.argv.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(item);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
 <h2 id="1-3-Node的输出"><a href="#1-3-Node的输出" class="headerlink" title="1.3 Node的输出"></a>1.3 Node的输出</h2><p><code>console.log</code></p>
 <p><code>console.clear</code> 清空控制台</p>
 <p><code>console.trace</code> 打印函数的调用栈</p>
@@ -304,7 +305,6 @@
 </li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;sjx&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.name)</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>但是在node中，我们通过var定义一个变量，它只是在当前模块中有一个变量，不会放到全局中：</li>
 </ul>
@@ -315,7 +315,6 @@
 <p><code>__dirname</code>：获取当前文件所在的路径，不包括后面的文件名</p>
 <p><code>__filename</code>：获取当前文件所在的路径和文件名称，包括后面的文件名称</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(__dirname);</span><br><span class="line"><span class="comment">// Users/SJX/Desktop</span></span><br><span class="line"><span class="built_in">console</span>.log(__filename);</span><br><span class="line"><span class="comment">// Users/SJX/Desktop/test.js</span></span><br></pre></td></tr></table></figure>
-
 <h1 id="2-JavaScript模块化"><a href="#2-JavaScript模块化" class="headerlink" title="2 JavaScript模块化"></a>2 JavaScript模块化</h1><h2 id="2-1-什么是模块化"><a href="#2-1-什么是模块化" class="headerlink" title="2.1 什么是模块化"></a>2.1 什么是模块化</h2><ul>
 <li><p>事实上模块化开发最终的目的是将程序划分成一个个小的结构； </p>
 </li>
@@ -352,9 +351,7 @@
 </li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// a.js</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;sjx&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> age = <span class="number">18</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&quot;Hello&quot;</span> + name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">exports</span>.name = name;</span><br><span class="line"><span class="built_in">exports</span>.age = age;</span><br><span class="line"><span class="built_in">exports</span>.sayHello = sayHello;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bar.js</span></span><br><span class="line"><span class="keyword">const</span> a = <span class="built_in">require</span>(<span class="string">&#x27;./a&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a.name);</span><br><span class="line"><span class="built_in">console</span>.log(a.age);</span><br><span class="line">a.sayHello(<span class="string">&#x27;sjk&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
 <p><code>node bar.js</code> 执行该文件</p>
 <p>实际上为一个浅拷贝（引用赋值）</p>
 <blockquote>
@@ -441,7 +438,7 @@
 <li><p>import负责从其他模块导入内容； </p>
 </li>
 </ul>
-<p>采用ES Module将自动采用严格模式：<strong>use strict</strong>（如果你不熟悉严格模式可以简单看一下MDN上的解析；<a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode%EF%BC%89">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode）<i class="fas fa-external-link-alt"></i></a></p>
+<p>采用ES Module将自动采用严格模式：<strong>use strict</strong>（如果你不熟悉严格模式可以简单看一下MDN上的解析；<a class="link" target="_blank" rel="external nofollow noopener noreferrer" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode）">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Strict_mode）<i class="fas fa-external-link-alt"></i></a></p>
 <h3 id="2-7-1-export"><a href="#2-7-1-export" class="headerlink" title="2.7.1 export"></a>2.7.1 export</h3><p>export关键字将一个模块中的变量、函数、类等导出；</p>
 <p>我们希望将其他中内容全部导出，它可以有如下的方式：</p>
 <ul>
@@ -470,7 +467,6 @@
 </li>
 </ul>
 <h3 id="2-7-3-export和import结合使用"><a href="#2-7-3-export和import结合使用" class="headerlink" title="2.7.3 export和import结合使用"></a>2.7.3 export和import结合使用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> &#123; sum <span class="keyword">as</span> barSum &#125; <span class="keyword">from</span> <span class="string">&#x27;./bar.js&#x27;</span></span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>在开发和封装一个功能库时，通常我们希望将暴露的所有接口放到一个文件中；</p>
 </li>
@@ -504,7 +500,6 @@
 </li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> flag = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">if</span> (flag) &#123;</span><br><span class="line">  <span class="keyword">import</span>(<span class="string">&#x27;./modules/aaa.js&#x27;</span>).then(<span class="function"><span class="params">aaa</span> =&gt;</span> &#123;</span><br><span class="line">    aaa.aaa();</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="keyword">import</span>(<span class="string">&#x27;./modules/bbb.js&#x27;</span>).then(<span class="function"><span class="params">bbb</span> =&gt;</span> &#123;</span><br><span class="line">    bbb.bbb();</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>对比CommonJS和ES Module加载过程</p>
 <p>CommonJS模块加载js文件的过程是运行时加载的，并且是同步的</p>
