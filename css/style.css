@@ -3034,5 +3034,5 @@ code {
   content: "🔖";
 }
 body {
-  user-selection: none;
+  user-select: none;
 }
