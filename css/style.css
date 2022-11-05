@@ -3033,6 +3033,6 @@ code {
 .tagcloud-content a:before {
   content: "🔖";
 }
-body {
+* {
   user-select: none;
 }
